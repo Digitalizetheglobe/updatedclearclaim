@@ -1,0 +1,23 @@
+/* Blog Card Styles */
+.blog-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+  }
+  
+  .blog-image {
+    width: 100%; /* Makes sure the image is responsive */
+    max-width: 240px; /* Limits the width for uniformity */
+    height: auto; /* Maintains the aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area nicely without stretching */
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
