@@ -1,37 +1,55 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 
 export default function ContactForm() {
-  const form = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    if (form.current) {
+    if (!formRef.current) return;
       emailjs
         .sendForm(
-          "service_0m8kbz9", 
-          "template_foaef8d", 
-          form.current, 
-          "Fkjr_xe9jDFgk_BFj" 
+          "service_0m8kbz9",
+          "template_foaef8d",
+          formRef.current,
+          "Fkjr_xe9jDFgk_BFj"
         )
         .then(
           (result) => {
             console.log("Email sent successfully:", result.text);
+            setToastMessage("Form submitted successfully!");
+            setShowToast(true);
+            if (formRef.current) formRef.current.reset();
+
+            setTimeout(() => setShowToast(false), 3000); // Hide after 3 sec
           },
           (error) => {
             console.error("Error sending email:", error.text);
+            setToastMessage("Failed to send the form. Try again.");
+            setShowToast(true);
+            setTimeout(() => setShowToast(false), 3000);
           }
         );
-    }
+    
   };
+
   return (
     <>
-      <div className="mb-24">
+      <div className="mb-24 relative">
+        {/* Toaster Notification */}
+        {showToast && (
+          <div className="absolute top-[-1px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md w-[320px] text-center whitespace-nowrap z-30">
+            {toastMessage}
+          </div>
+        )}
+
         <div className="mb-6 px-4">
-          <div className="pb-16 mx-auto max-w-5xl shadow-lg px-36 relative bg-[#161d34] rounded-md">
+          <div className="pb-16 mx-auto max-w-5xl shadow-lg px-36 bg-[#161d34] rounded-md relative">
             <h2 className="text-4xl text-center text-white font-bold pt-16">
               Contact Us
             </h2>
@@ -40,91 +58,92 @@ export default function ContactForm() {
             </div>
 
             <form
-            ref={form}
-            onSubmit={sendEmail}
-            className="mt-16 grid sm:grid-cols-2 gap-6"
-          >
-            <div>
-              <label htmlFor="first_name" className="text-white text-sm block mb-2">
-                First Name
-              </label>
-              <input
-                id="first_name"
-                name="first_name"
-                type="text"
-                placeholder="Enter First Name"
-                className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-              />
-            </div>
-            <div>
-              <label htmlFor="last_name" className="text-white text-sm block mb-2">
-                Last Name
-              </label>
-              <input
-                id="last_name"
-                name="last_name"
-                type="text"
-                placeholder="Enter Last Name"
-                className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-              />
-            </div>
-            <div className="col-span-full">
-              <label htmlFor="email" className="text-white text-sm block mb-2">
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter Email Address"
-                className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-              />
-            </div>
-            <div className="col-span-full">
-              <label htmlFor="phone" className="text-white text-sm block mb-2">
-                Phone Number
-              </label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter Phone Number"
-                className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-              />
-            </div>
-            <div className="col-span-full">
-              <label htmlFor="city" className="text-white text-sm block mb-2">
-                Subject
-              </label>
-              <input
-                id="city"
-                name="subject"
-                type="text"
-                placeholder="Enter Subject"
-                className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-              />
-            </div>
-            <div className="col-span-full">
-              <label htmlFor="message" className="text-white text-sm block mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Enter Message"
-                rows={6}
-                className="w-full rounded-md px-4 border border-gray-300 text-sm pt-3 outline-[#007bff]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
+             ref={formRef}
+              onSubmit={sendEmail}
+              className="mt-16 grid sm:grid-cols-2 gap-6"
             >
-              Submit
-            </button>
-          </form>
+              <div>
+                <label htmlFor="first_name" className="text-white text-sm block mb-2">
+                  First Name
+                </label>
+                <input
+                  id="first_name"
+                  name="first_name"
+                  type="text"
+                  placeholder="Enter First Name"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                />
+              </div>
+              <div>
+                <label htmlFor="last_name" className="text-white text-sm block mb-2">
+                  Last Name
+                </label>
+                <input
+                  id="last_name"
+                  name="last_name"
+                  type="text"
+                  placeholder="Enter Last Name"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="email" className="text-white text-sm block mb-2">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter Email Address"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="phone" className="text-white text-sm block mb-2">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter Phone Number"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="city" className="text-white text-sm block mb-2">
+                  Subject
+                </label>
+                <input
+                  id="city"
+                  name="subject"
+                  type="text"
+                  placeholder="Enter Subject"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="message" className="text-white text-sm block mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Enter Message"
+                  rows={6}
+                  className="w-full rounded-md px-4 border border-gray-300 text-sm pt-3 outline-[#007bff]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
+ 
         <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white">
           <div className="p-6">
             <div className="flex items-center my-6">

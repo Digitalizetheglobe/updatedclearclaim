@@ -52,29 +52,29 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="text-gray-700 text-[16px] transition hover:text-gray-700/75"
                       href="/recovery-of-shares"
                     >
                       Recovery of Shares
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="text-gray-700 text-[16px] transition hover:text-gray-700/75"
                       href="/blog"
                     >
                       Blogs
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       className="text-gray-700 text-[16px] transition hover:text-gray-700/75"
                       href="#"
                     >
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -173,7 +173,7 @@ export default function Footer() {
                   <li>
                     <a
                       className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                      href="mailto:sales@clearclaim.in" // Add the email address with the "mailto:" protocol
+                      href="mailto:sales@clearclaim.in" 
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -241,12 +241,12 @@ export default function Footer() {
               >
                 Copyright © 2024 Clearclaim |{" "}
               </a>
-              <a
-                className="inline-block text-white transition hover:text-teal-600/75 ml-2"
+              <Link
+                className="inline-block text-white transition hover:text-gray-800 ml-2"
                 href="#"
               >
                 Crafted By Digitalize The Globe
-              </a>
+              </Link>
             </p>
           </div>
         </div>

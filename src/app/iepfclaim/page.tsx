@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
@@ -8,6 +8,8 @@ import Content from "./content";
 
 export default function IEPFClaim() {
   const formRef = useRef<HTMLFormElement>(null);
+  const [showToast, setShowToast] = useState(false); // State to control toast visibility
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,11 +26,25 @@ export default function IEPFClaim() {
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
-          alert("Your message has been sent successfully!");
+          setMessage("Your message has been sent successfully!");
+          setShowToast(true); // Show toast notification
+          if (formRef.current) formRef.current.reset();
+
+          // Hide the toast after 3 seconds
+          setTimeout(() => {
+            setShowToast(false);
+          }, 3000);
         },
         (error) => {
           console.error("Error sending email:", error.text);
-          alert("There was an error sending your message. Please try again.");
+          setMessage(
+            "There was an error sending your message. Please try again."
+          );
+          setShowToast(true);
+
+          setTimeout(() => {
+            setShowToast(false);
+          }, 3000);
         }
       );
   };
@@ -78,7 +94,12 @@ export default function IEPFClaim() {
               </div>
             </div>
 
-            <div className="flex bg-black border border-white items-center md:w-8/12 lg:ml-auto">
+            <div className="flex bg-black border border-white items-center md:w-8/12 lg:ml-auto relative">
+              {showToast && (
+                <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
+                  {message}
+                </div>
+              )}
               <form 
               ref={formRef}
               className="max-w-lg p-4 mx-auto"
