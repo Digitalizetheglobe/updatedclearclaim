@@ -44,12 +44,12 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="text-gray-700 text-[16px] transition hover:text-gray-700/75"
                       href="/iepfclaim"
                     >
                       IEPF Claim
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <Link
