@@ -7,7 +7,7 @@ export default function OurServices() {
   return (
     <>
       <div
-        className="flex flex-col items-center py-12 space-y-16 font-sofia-pro"
+        className="flex flex-col items-center py-12 space-y-16 px-4 md:px-0"
         style={{ backgroundSize: "cover" }}
       >
         <div className="text-center max-w-2xl mx-auto">
@@ -17,9 +17,9 @@ export default function OurServices() {
         </div>
 
         {/* First Card */}
-        <div className="relative flex justify-start w-full max-w-6xl">
+        <div className="relative flex flex-col md:flex-row items-center md:items-start w-full max-w-6xl space-y-6 md:space-y-0">
           {/* Image Section */}
-          <div className="w-[600px] h-[480px] overflow-hidden">
+          <div className="w-full md:w-[600px] h-[300px] md:h-[480px] overflow-hidden">
             <Image
               src={service}
               alt="IEPF Claim"
@@ -29,7 +29,7 @@ export default function OurServices() {
             />
           </div>
           {/* Content Box */}
-          <div className="absolute right-20 top-1/4 bg-white shadow-xl p-6 w-[45%]">
+          <div className="relative md:absolute md:right-20 md:top-1/4 bg-white shadow-xl p-6 w-full md:w-[45%]">
             <h2 className="text-black text-lg font-bold mb-4">IEPF Claim</h2>
             <hr />
             <p className="text-md mb-6 text-gray-700 mt-4">
@@ -45,9 +45,9 @@ export default function OurServices() {
         </div>
 
         {/* Second Card */}
-        <div className="relative flex justify-end w-full max-w-6xl">
+        <div className="relative flex flex-col md:flex-row-reverse items-center md:items-start w-full max-w-6xl space-y-6 md:space-y-0">
           {/* Image Section */}
-          <div className="w-[600px] h-[480px] overflow-hidden order-2">
+          <div className="w-full md:w-[600px] h-[300px] md:h-[480px] overflow-hidden">
             <Image
               src={recovery}
               alt="Recovery Of Shares"
@@ -57,7 +57,7 @@ export default function OurServices() {
             />
           </div>
           {/* Content Box */}
-          <div className="absolute left-20 top-1/4 bg-white shadow-xl p-6 w-[45%]">
+          <div className="relative md:absolute md:left-20 md:top-1/4 bg-white shadow-xl p-6 w-full md:w-[45%]">
             <h2 className="text-black text-lg font-bold mb-4">
               Recovery Of Shares
             </h2>

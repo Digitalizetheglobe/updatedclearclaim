@@ -3,7 +3,7 @@ import Testimonial from '../../app/testimonial/testimonial'
 export default function WhatClientSay() {
   return (
     <>
-      <div className="max-w-6xl mx-auto ">
+      <div className="max-w-6xl mx-auto px-4 md:px-0">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">

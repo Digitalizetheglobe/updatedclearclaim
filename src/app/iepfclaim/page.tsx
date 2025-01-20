@@ -94,16 +94,16 @@ export default function IEPFClaim() {
               </div>
             </div>
 
-            <div className="flex bg-black border border-white items-center md:w-8/12 lg:ml-auto relative">
+            <div className="flex bg-black border border-white items-center md:w-8/12 lg:ml-auto relative max-md:px-4">
               {showToast && (
                 <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
                   {message}
                 </div>
               )}
-              <form 
-              ref={formRef}
-              className="max-w-lg p-4 mx-auto"
-                 onSubmit={handleSubmit}
+              <form
+                ref={formRef}
+                className="max-w-lg p-4 mx-auto max-md:px-4"
+                onSubmit={handleSubmit}
               >
                 <div className="mb-12">
                   <h3 className="text-3xl font-bold text-[#FEB066]">

@@ -1,8 +1,8 @@
 import aboutgif from "../../../public/gif/Clear-claim-about.gif";
 import Image from "next/image";
 import service from "../../../public/images/services-bg-1.jpg";
-import shrikant from '../../../public/images/shrikant.png'
-import hardik from '../../../public/images/hardik.png'
+import shrikant from "../../../public/images/shrikant.png";
+import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
 
 export default function About() {
@@ -15,8 +15,8 @@ export default function About() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 items-center md:gap-4 gap-8 max-w-5xl max-md:max-w-md mx-auto">
-          <div className="max-md:order-1 max-md:text-center mt-10">
-            <p className="mt-4 text-[18px] text-black text-justify ">
+          <div className="max-md:order-1 max-md:text-center mt-10 max-md:mt-0">
+            <p className="mt-4 text-[18px] text-black text-justify">
               In a nation where aspirations and dreams fuel the pursuit of
               financial security, we understand the importance of investing to
               fulfil those desires. All individuals try to invest to meet their
@@ -38,11 +38,11 @@ export default function About() {
               className="w-full h-full md:object-contain"
               priority
             />
-            <p className="mt-4 text-[18px] text-black text-justify">
+            <p className="mt-4 text-[18px] text-black text-justify max-md:mt-0">
               The Government of India has made substantial efforts to streamline
               this transition. However, considering India vast population of
               1.25 billion people, it will naturally take time to complete the
-              process.
+              process.{" "}
             </p>
           </div>
         </div>
@@ -89,64 +89,78 @@ export default function About() {
           </div>
         </div>
       </div>
-  {/* VISSION/MISSION */}
+      {/* VISSION/MISSION */}
 
-
-{/* MEET PEOPLE */}
+      {/* MEET PEOPLE */}
       <div className=" bg-white p-4 mb-20">
-      <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
-            <span className="text-[#283655]"> Meet  </span> The Team
+            <span className="text-[#283655]"> Meet </span> The Team
           </h2>
           <p className="text-black text-sm">Clearclaim Ventures Pvt. Ltd.</p>
-          
         </div>
-       
-  <div className="md:max-w-5xl max-w-xl mx-auto mt-24">
 
-  <div className="grid md:grid-cols-2 gap-12">
-      <div className="max-h-72 max-md:order-1">
-        <Image
-          src={shrikant}
-          alt="Placeholder Image"
-          className="rounded-lg object-contain w-full h-[350px]"
-        />
+        <div className="md:max-w-5xl max-w-xl mx-auto mt-24">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="max-h-72 max-md:order-1">
+              <Image
+                src={shrikant}
+                alt="Placeholder Image"
+                className="rounded-lg object-contain w-full h-[350px]"
+              />
+            </div>
+            <div className="text-left">
+              <h2 className="text-black text-2xl font-bold mb-4">
+                Shrikant Pandore
+              </h2>
+              <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
+              <p className="mb-4 mt-4 text-md text-justify text-black">
+                Shrikant is the Chief Executive Officer (CEO) of Clearlcaim.
+                With a strong vision and strategic acumen, Shrikant has been
+                instrumental in steering the company towards its goals. His
+                leadership style fosters innovation and encourages team
+                collaboration. Shrikant’s commitment to excellence and his
+                passion for the industry have been key factors in the company’s
+                success. His responsibilities include setting the company’s
+                overall strategic direction, making major corporate decisions,
+                and managing the overall operations and resources of the
+                company. Shrikant’s dedication and leadership continue to drive
+                the company’s growth and success.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mt-24">
+            <div className="text-left">
+              <h2 className="text-black text-2xl font-bold mb-4">
+                Hardik Manek
+              </h2>
+              <p className="text-gray-600 text-sm">Co-Founder & COO</p>
+              <p className="mb-4 mt-4 text-md text-justify text-black">
+                Hardik, as the Chief Operating Officer (COO) of Clearclaim,
+                plays a pivotal role in the company’s success. With his
+                extensive experience in the research and operations, Hardik
+                oversees the company’s day-to-day administrative and operational
+                functions. He heads the Operations team and ensures the smooth
+                claim processing. His commitment towards excellency plays a very
+                important role in customer success. This helps in building the
+                trust and transparency with client which in turn build company
+                reputation.{" "}
+              </p>
+            </div>
+            <div className="max-h-72 max-md:order-1">
+              <Image
+                src={hardik}
+                alt="Placeholder Image"
+                className="rounded-lg object-contain w-full h-[350px]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="text-left">
-        <h2 className="text-black text-2xl font-bold mb-4">
-        Shrikant Pandore
-        </h2>
-        <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
-        <p className="mb-4 mt-4 text-md text-justify text-black">
-        Shrikant is the Chief Executive Officer (CEO) of Clearlcaim. With a strong vision and strategic acumen, Shrikant has been instrumental in steering the company towards its goals. His leadership style fosters innovation and encourages team collaboration. Shrikant’s commitment to excellence and his passion for the industry have been key factors in the company’s success. His responsibilities include setting the company’s overall strategic direction, making major corporate decisions, and managing the overall operations and resources of the company. Shrikant’s dedication and leadership continue to drive the company’s growth and success.
-        </p>
+      {/* MEET PEOPLE */}
 
-      </div>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-12 mt-24">
-    <div className="text-left">
-        <h2 className="text-black text-2xl font-bold mb-4">
-        Hardik Manek
-        </h2>
-        <p className="text-gray-600 text-sm">Co-Founder & COO</p>
-        <p className="mb-4 mt-4 text-md text-justify text-black">
-        Hardik, as the Chief Operating Officer (COO) of Clearclaim, plays a pivotal role in the company’s success. With his extensive experience in the research and operations, Hardik oversees the company’s day-to-day administrative and operational functions. He heads the Operations team and ensures the smooth claim processing. His commitment towards excellency plays a very important role in customer success. This helps in building the trust and transparency with client which in turn build company reputation.        </p>
-
-      </div>
-      <div className="max-h-72 max-md:order-1">
-        <Image
-          src={hardik}
-          alt="Placeholder Image"
-          className="rounded-lg object-contain w-full h-[350px]"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-{/* MEET PEOPLE */}
-
-<Meetourteam />
+      <Meetourteam />
     </>
   );
 }

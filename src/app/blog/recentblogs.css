@@ -21,3 +21,30 @@
     margin-bottom: 10px;
   }
   
+  @media (max-width: 768px) {
+    .mobile-flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; /* Center content */
+      gap: 10px; /* Spacing between items */
+      flex-wrap: nowrap;
+    }
+  
+    .mobile-flex img {
+      width: 50px; /* Reduce GIF size */
+      height: auto;
+    }
+  
+    .mobile-flex h1 {
+      font-size: 14px; /* Reduce text size */
+      white-space: nowrap; /* Prevent text from wrapping */
+    }
+  
+    .mobile-flex button {
+      padding: 8px 12px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+  }
+  

@@ -5,30 +5,21 @@ import Howwework from "../howwework/howwework";
 
 export default function WhatClientSay() {
   const testimonials = [
-    {
-      content:
-        "Very reliable, gives personal attention & above all, very reasonable charges.I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
-      author: "Vinayak Gaitonde",
-      rating: 5,
-    },
-    {
-      content:
-        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront and made the claim process hassle-free. I highly recommend them!",
-      author: "Piyush Dhimate",
-      rating: 5,
-    },
-    {
-      content:
-        "I had a great experience working with Clearclaim. They helped me recover my parents SBI Limited unclaimed shares and dividends from IEPF and convert them to DEMAT. Their team was very responsive and kept me updated throughout the process. I would definitely recommend their services to anyone looking to recover their shares.",
-      author: "Mukund Shah",
-      rating: 5,
-    },
+    
+   
+    // {
+    //   content:
+    //     "I had a great experience working with Clearclaim. They helped me recover my parents SBI Limited unclaimed shares and dividends from IEPF and convert them to DEMAT. Their team was very responsive and kept me updated throughout the process. I would definitely recommend their services to anyone looking to recover their shares.",
+    //   author: "Mukund Shah",
+    //   rating: 5,
+    // },
     {
       content:
         "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
       author: "RAKESH G PATIL",
       rating: 5,
     },
+   
     {
       content:
         "Mr.Srikant is a good person and guide us in a proper way with his Expertise in his business areas.  You may negotiate and go with them for your requirements.",
@@ -37,8 +28,20 @@ export default function WhatClientSay() {
     },
     {
       content:
+        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!",
+      author: "Piyush Dhimate",
+      rating: 5,
+    },
+    {
+      content:
         "Thanks team of clear claim.... Nice service as well as nice guidline and thx for sorting and clearing my case ... And thanks help us...",
       author: "INDRANEEL TAMBE",
+      rating: 5,
+    },
+    {
+      content:
+        "Very reliable, gives personal attention & above all, very reasonable charges.I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
+      author: "Vinayak Gaitonde",
       rating: 5,
     },
   ];
@@ -87,7 +90,8 @@ export default function WhatClientSay() {
           @media (max-width: 768px) {
             .testimonial-card {
               height: auto; /* Adjust height dynamically */
-              padding-bottom: 60px; /* Space for author and rating */
+              padding-bottom: 60px; 
+              // width: 400px !important; 
             }
             .testimonial-content {
               position: static; /* Avoid overlapping */

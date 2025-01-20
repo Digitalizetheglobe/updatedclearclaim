@@ -24,11 +24,12 @@ export default function Home() {
               height={400} 
             />
           </Link>
+          <div >
           <h1 className="text-[#000] text-xl text-center">
             Physical shares to DEMAT conversion
           </h1>
           <Link href="tel:+919156701922" >
-          <button className="bg-[#00BE5D] text-white mt-4 py-3 px-6 rounded-full rounded-tl-none flex gap-2 ml-16 ">
+          <button className="bg-[#00BE5D] text-white mt-4 py-3 px-6 rounded-full rounded-tl-none items-center flex gap-2 ml-16 ">
             {/* Phone Icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +43,7 @@ export default function Home() {
             Call Now
           </button>
           </Link>
+          </div>
         </div>
 
         {/* Right Section */}
