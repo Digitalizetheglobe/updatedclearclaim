@@ -1,0 +1,714 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import gsk from "../../../../public/casestudy/gsk.png";
+import fileimg from "../../../../public/images/server-01.png";
+import tick from "../../../../public/images/tick.svg";
+import { useEffect, useState, useRef } from "react";
+
+export default function GlaxoSmithKlinePharmaceuticalsLimited() {
+  const [activeSection, setActiveSection] = useState("");
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(8);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const sidebarRef = useRef<HTMLElement | null>(null); // Sidebar reference
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      sidebarRef.current &&
+      !sidebarRef.current.contains(event.target as Node)
+    ) {
+      setSidebarOpen(false);
+    }
+  };
+
+  // Handle sidebar toggle
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
+  useEffect(() => {
+    // Adding event listener on mount
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup on unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const companies = [
+    { name: "3M India Limited", path: "/case-study/3m-india-limited" },
+    {
+      name: "ABB India Ltd.",
+      path: "/case-study/unclaimed-shares-dividends-abbindia",
+    },
+    {
+      name: "Adani Ports and Special Economic Zone Limited",
+      path: "/case-study/adani-ports-special-economic-zone-limited",
+    },
+    {
+      name: "Adani Power Limited",
+      path: "/case-study/unclaimed-shares-adani-power-ltd",
+    },
+    {
+      name: "Alkem Laboratories Ltd",
+      path: "/case-study/unclaimed-shares-alkem-laboratories",
+    },
+    {
+      name: "Apar Industries Limited",
+      path: "/case-study/unclaimed-shares-apar-industries",
+    },
+    { name: "Apollo Hospitals", path: "/case-study/apollo-hospitals" },
+    {
+      name: "Asahi India Glass Ltd",
+      path: "/case-study/unclaimed-shares-asahi-india-glass",
+    },
+    {
+      name: "Asian Paints Ltd",
+      path: "/case-study/unclaimed-shares-asian-paints",
+    },
+    {
+      name: "Axis Bank Limited",
+      path: "/case-study/unclaimed-shares-axis-bank",
+    },
+    {
+      name: "Bank of Baroda",
+      path: "/case-study/unclaimed-shares-bank-baroda",
+    },
+    { name: "Bank Of India", path: "/case-study/bank-of-india" },
+    {
+      name: "Bharat Electronics Limited",
+      path: "/case-study/bharat-electronics-limited",
+    },
+    {
+      name: "Bharat Forge Limited",
+      path: "/case-study/unclaimed-shares-bharat-forge",
+    },
+    {
+      name: "Bharti Airtel Limited",
+      path: "/case-study/bharti-airtel-limited",
+    },
+    {
+      name: "Bharat Heavy Electricals Limited",
+      path: "/case-study/bharat-heavy-electricals-limited",
+    },
+    { name: "Biocon Limited", path: "/case-study/unclaimed-shares-biocon" },
+    {
+      name: "Bombay Oxygen Investments Limited",
+      path: "/case-study/Bombay-oxygen-investments-limited",
+    },
+    { name: "Bosch Limited", path: "/case-study/bosch-limited" },
+    {
+      name: "Britannia Industries Limited",
+      path: "/case-study/britannia-industries-limited",
+    },
+    { name: "CEAT Limited", path: "/case-study/unclaimed-shares-ceat" },
+    {
+      name: "Chambal Fertilisers and Chemicals Limited ",
+      path: "/case-study/chambal-fertilizer-chemicals",
+    },
+    { name: "Coal India Limited", path: "/case-study/coal-india-limited" },
+    {
+      name: "Colgate Palmolive India Ltd",
+      path: "/case-study/colgate-palmolive-india",
+    },
+    {
+      name: "Cummins India Limited",
+      path: "/case-study/cummins-india-limited",
+    },
+    {
+      name: "Deepak Fertilizers and Petrochemicals Corporation Ltd",
+      path: "/case-study/deepak-fertilizers-petrochemicals-corporation",
+    },
+    {
+      name: "Deepak Nitrite Limited",
+      path: "/case-study/unclaimed-shares-deepak-nitrite",
+    },
+    { name: "DLF Limited", path: "/case-study/dlf-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
+    {
+        name: "Graphite India Limited",
+        path: "/case-study/graphite-india-limited",
+      },
+      {
+        name: "Grasim Industries Limited",
+        path: "/case-study/grasim-industries-limited",
+      },
+      {
+        name: "Grindwell Norton Limited",
+        path: "/case-study/grindwell-norton-limited",
+      },
+  ];
+  // Filter companies based on search query
+  const filteredCompanies = companies.filter((company) =>
+    company.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Handle showing more companies
+  const handleReadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 8);
+  };
+
+  // const toggleSidebar = () => {
+  //   setSidebarOpen(!isSidebarOpen);
+  // };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 } // Trigger when 50% of the section is visible
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  return (
+    <>
+      <div>
+        <div className="flex items-center gap-4 ml-8 mt-4">
+          <Image
+            src={fileimg}
+            alt="file"
+            className="p-2 bg-green-600 text-white rounded-lg md:hidden cursor-pointer"
+            onClick={toggleSidebar} // Open/close functionality only here
+          />
+
+          <h1 className="font-bold text-md text-[#00BE5D]">All (288)</h1>
+        </div>
+
+        <div className="h-screen flex bg-gray-100">
+          {/* Left Sidebar */}
+          <aside
+            ref={sidebarRef}
+            className={`${
+              isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } fixed md:static top-0 left-0 w-64 bg-white shadow-md p-4 h-full transform transition-transform duration-300 md:translate-x-0 overflow-y-auto custom-scrollbar`}
+          >
+            <style jsx>{`
+              .custom-scrollbar::-webkit-scrollbar {
+                width: 5px;
+              }
+              .custom-scrollbar::-webkit-scrollbar-thumb {
+                background-color: #00be5d; /* Thumb color */
+                border-radius: 10px;
+              }
+              .custom-scrollbar::-webkit-scrollbar-track {
+                background-color: lightgray; /* Track color */
+              }
+            `}</style>
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder="Search Company"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-200 focus:border-gray-200"
+              />
+            </div>
+            <ul className="space-y-2">
+              {filteredCompanies
+                .slice(0, visibleCount)
+                .map((company, index) => (
+                  <li key={index} className="hover:bg-gray-200 p-2 rounded-md">
+                    <Link href={company.path} className="text-black">
+                      {company.name}
+                    </Link>
+                  </li>
+                ))}
+              {filteredCompanies.length > visibleCount && (
+                <li>
+                  <button
+                    onClick={handleReadMore}
+                    className="text-[#00BE5D] font-semibold p-2"
+                  >
+                    Read More
+                  </button>
+                </li>
+              )}
+            </ul>
+          </aside>
+
+          {/* Main Content */}
+          <main
+            className="flex-1 bg-gray-50 p-8 overflow-y-auto h-screen"
+            style={{
+              scrollbarWidth: "none", // Hide scrollbar for Firefox
+              msOverflowStyle: "none", // Hide scrollbar for Internet Explorer
+            }}
+          >
+            <style jsx>{`
+              /* Hide scrollbar for Chrome, Safari, and Edge */
+              main::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+            <h1 className="text-3xl font-semibold mb-4">
+              Glaxosmithkline
+              <span className="text-green-600"> Pharmaceuticals Limited </span>
+            </h1>
+            <p className="mb-6 text-[#00000099] text-justify">
+              GlaxoSmithKline Pharmaceuticals Limited (GSK) is a global
+              healthcare company headquartered in Brentford, UK. The company
+              focuses on the development, manufacturing, and marketing of a wide
+              range of pharmaceutical products, vaccines, and consumer
+              healthcare products. It operates in over 100 countries, with its
+              key therapeutic areas including respiratory, oncology,
+              immuno-inflammation, and infectious diseases.
+            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+              GSK was formed through a merger of Glaxo Wellcome and SmithKline
+              Beecham in 2000, bringing together two major players in the
+              pharmaceutical industry. Over the years, GSK has grown to become
+              one of the largest pharmaceutical companies globally, with a
+              strong research and development (R&D) pipeline. The company has
+              made significant investments in immunotherapies and vaccines,
+              which are integral to addressing global health challenges, such as
+              COVID-19.
+            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+              In addition to its pharmaceutical division, GSK has a leading
+              position in consumer healthcare, offering products in categories
+              like oral health, pain relief, and wellness. Some of its
+              well-known brands include Sensodyne, Panadol, and Theraflu. The
+              company has also made strides in improving access to medicines and
+              healthcare globally through partnerships with organizations like
+              the World Health Organization (WHO).
+            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+              GSK is committed to sustainability and has been focusing on
+              reducing its environmental impact and improving patient access to
+              healthcare. Through its innovation and global presence, GSK
+              continues to play a pivotal role in improving global health and
+              wellbeing.
+            </p>
+
+            <Image
+              src={gsk}
+              alt="exide Logo"
+              className="mb-6 mx-auto w-[330px] h-[200px]"
+            />
+            <section className="bg-white p-4 ">
+              <div className="flex gap-4">
+                <Image src={tick} alt="file" className="w-5 h-6" />
+
+                <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
+                  Company Details
+                </h2>
+              </div>
+              <ul className="space-y-4 mt-4 text-gray-500">
+                <li>
+                  <b>Registered Name: </b>
+                  Glaxosmithkline Pharmaceuticals Limited
+                </li>
+                <li>
+                  <b>CIN Number: </b> L24239MH1924PLC001151
+                </li>
+                <li>
+                  <b>ISIN Number: </b> INE159A01016
+                </li>
+              </ul>
+            </section>
+
+            <section id="dividend-history" className="mt-6 bg-white p-4 ">
+              <div className="flex gap-4">
+                <Image src={tick} alt="file" className="w-5 h-6" />
+
+                <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
+                  Dividend’s History of Glaxosmithkline Pharmaceuticlas Limited.
+                </h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                      <th className="text-left p-3">Ex-Dividend Date</th>
+                      <th className="text-left p-3">Dividend </th>
+                      <th className="text-left p-3">Yield</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">Nov 07, 2024</td>
+                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">1.67%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        May 31, 2024
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">32.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.23%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Jun 30, 2023</td>
+                      <td className="text-gray-600 p-3">32.00</td>
+                      <td className="text-gray-600 p-3">2.22%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        Jul 07, 2022
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">90.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.82%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Jul 17, 2020</td>
+                      <td className="text-gray-600 p-3">40.00</td>
+                      <td className="text-gray-600 p-3">2.58%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        Jul 11, 2019
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">20.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.72%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Jul 13, 2018</td>
+                      <td className="text-gray-600 p-3">35.00</td>
+                      <td className="text-gray-600 p-3">1.23%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        Jul 14, 2017
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">30.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.16%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Jul 15, 2016</td>
+                      <td className="text-gray-600 p-3">50.00</td>
+                      <td className="text-gray-600 p-3">1.42%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        Jul 23, 2015
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">62.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">1.82%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Apr 03, 2014</td>
+                      <td className="text-gray-600 p-3">50.00</td>
+                      <td className="text-gray-600 p-3">1.93%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        Apr 04, 2013
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">50.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.20%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Mar 29, 2012</td>
+                      <td className="text-gray-600 p-3">45.00</td>
+                      <td className="text-gray-600 p-3">1.99%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        Mar 14, 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">40.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">1.84%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Mar 10, 2010</td>
+                      <td className="text-gray-600 p-3">30.00</td>
+                      <td className="text-gray-600 p-3">1.71%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                      <th className="text-left p-3">Ex-Dividend</th>
+                      <th className="text-left p-3">Dividend</th>
+                      <th className="text-left p-3">Yield</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        Mar 18, 2009
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">40.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.46%</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">Apr 02, 2008</td>
+                      <td className="text-gray-600 p-3">36.00</td>
+                      <td className="text-gray-600 p-3">3.43%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="bonus" className="bg-white p-4 mt-6">
+              <div className="flex gap-4">
+                <Image src={tick} alt="file" className="w-5 h-6" />
+
+                <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
+                  Bonus
+                </h2>
+              </div>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                <thead className="bg-[#00BE5D] text-white">
+                  <tr>
+                    <th className="text-left p-3">Ex-Date</th>
+                    <th className="text-left p-3">Bonus Ratio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="text-gray-600 p-3">11 Sep 2018</td>
+                    <td className="text-gray-600 p-3">1:1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section id="split" className="mt-6 bg-white p-4 ">
+              <div className="flex gap-4">
+                <Image src={tick} alt="file" className="w-5 h-6" />
+
+                <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
+                  Split
+                </h2>
+              </div>
+              <p className="mb-6 text-[#00000099] text-justify">NA </p>
+            </section>
+            {/* Add more content to demonstrate scrolling */}
+            <section id="mergers-amalgamation" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700 ">
+                  Mergers / Amalgamation
+                </h2>
+              </div>
+
+              <div className="text-[#00000099] leading-6 mb-6 text-justify">
+                <b>Merger-</b>{" "}
+                <li>
+                  Through the merger of GSK India with HUL, GSK now holds a 5.7%
+                  stake in HUL, an Indian public company listed on the Indian
+                  National Stock Exchange (NSE) and Bombay Stock Exchange (BSE).
+                  GSK intends to monetise its holding in HUL at such time it
+                  considers appropriate, taking into account market conditions.
+                </li>
+              </div>
+            </section>
+
+            <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700">
+                  Unclaimed Shares and Dividends Of Glaxosmithkline
+                  Pharmaceuticals Limited Transferred To IEPF{" "}
+                </h2>
+              </div>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+                Before transferring the shares to IEPF the company has to notify
+                the shareholder by sending letter to the registered address of
+                the shareholder. The company also has to notify by giving a
+                public notification in the newspaper. If the shareholder doesn’t
+                communicate back, the company can transfer the shares to IEPF.
+                The company transfers the shares to IEPF when the dividends of
+                seven or more consecutive years are not claimed by the
+                shareholder.{" "}
+              </p>
+            </section>
+
+            <section id="why-my-Share" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700">
+                  Why my shares of Glaxosmithkline Pharmaceuticals Limited are
+                  in IEPF?{" "}
+                </h2>
+              </div>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+                Before transferring the shares to IEPF the company has to notify
+                the shareholder by sending letter to the registered address of
+                the shareholder. The company also has to notify by giving a
+                public notification in the newspaper. If the shareholder doesn’t
+                communicate back, the company can transfer the shares to IEPF.
+                The company transfers the shares to IEPF when the dividends of
+                seven or more consecutive years are not claimed by the
+                shareholder.
+              </p>
+            </section>
+
+            <section id="how-can-claim" className="mt-8 p-6 ">
+              <div className="flex gap-4 items-center mb-5">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700">
+                  How can I claim IEPF Shares?
+                </h2>
+              </div>
+              <div className="">
+                <p className="text-[#00000099] leading-6 mb-6 text-justify">
+                  If you want to claim your IEPF shares{" "}
+                  <b>
+                    <i>CLEARCLAIM VENTURES PRIVATE LIMITED</i>
+                  </b>{" "}
+                  can help you recover them.
+                  <br />
+                  <b>
+                    <i>
+                      {" "}
+                      Clearclaim Ventures Private Limited helps you to recover
+                      your old shares which you cannot access due to several
+                      reasons. Clearclaim ventures private limited has recovered
+                      immense number of IEPF shares smoothly.
+                    </i>
+                  </b>
+                  <br />
+                  You can visit us at- Office No. C 201, Vantage Tower by Bramha
+                  Corp, NDA Pashan Rd, Ram Nagar, Bavdhan, Pune, Maharashtra
+                  411021
+                </p>
+                <Link
+                  className="text-md text-[#00000099] "
+                  href="https://www.clearclaim.in/"
+                >
+                  https://www.clearclaim.in/
+                </Link>
+              </div>
+            </section>
+
+            <section id="company-details" className="p-4 mt-4">
+              {/* Header Section */}
+              <div className="flex items-center gap-4 mb-4 ">
+                <Image src={tick} alt="file" className="w-5 h-6" />
+                <h2 className="text-2xl text-gray-700 ">Company Details</h2>
+              </div>
+
+              {/* Numbers with Icons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-4">
+                <div className="flex flex-col gap-2">
+                  {/* First Text */}
+                  <p className="text-md text-[#00000099]">
+                    Glaxosmithkline Pharmaceuticals Limited
+                  </p>
+
+                  {/* Link */}
+                  <Link
+                    className="text-md text-[#00000099] "
+                    href="https://www.gsk.com/en-gb/"
+                  >
+                    https://www.gsk.com/en-gb/
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          {/* Right Sidebar */}
+          <aside
+            className="w-1/5 bg-white shadow-md p-4 hidden md:block overflow-y-auto"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            <h2 className="font-bold mb-4">Content</h2>
+            <ul className="space-y-2">
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "dividend-history" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#dividend-history">Dividend History</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "bonus" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#bonus">Bonus</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-mdtext-[15px] ${
+                  activeSection === "split" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#split">Split</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "mergers-amalgamation" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#mergers-amalgamation">Mergers / Amalgamation</a>
+              </li>
+
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "unclaimed-shares" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#unclaimed-shares">Unclaimed Shares</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "why-my-Share" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#why-my-Share">
+                  Why my shares of Glaxosmithkline Pharmaceuticals Limited are
+                  in IEPF?
+                </a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "how-can-claim" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#how-can-claim">How can I claim IEPF Shares?</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "company-details" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#company-details">Company Details</a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </>
+  );
+}

@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import apar from "../../../../public/casestudy/apar-industries.png";
+import finolex from "../../../../public/casestudy/finolex.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import phone from "../../../../public/images/phone.png";
 import email from "../../../../public/images/mail-02.png";
 import pin from "../../../../public/images/marker-pin-01.png";
 import { useEffect, useState, useRef } from "react";
-import FaqAparm from "./faqapar";
+import FaqAparm from "../unclaimed-shares-apar-industries/faqapar";
 
-export default function UnclaimedsharesAparIndustries() {
+export default function UnclaimedsharesFinolexIndustries() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -129,23 +129,21 @@ export default function UnclaimedsharesAparIndustries() {
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
     { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
     { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
     { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
     { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
     {
-      name: "Graphite India Limited",
-      path: "/case-study/graphite-india-limited",
-    },
-    {
-      name: "Grasim Industries Limited",
-      path: "/case-study/grasim-industries-limited",
-    },
-    {
-      name: "Grindwell Norton Limited",
-      path: "/case-study/grindwell-norton-limited",
-    },
+        name: "Graphite India Limited",
+        path: "/case-study/graphite-india-limited",
+      },
+      {
+        name: "Grasim Industries Limited",
+        path: "/case-study/grasim-industries-limited",
+      },
+      {
+        name: "Grindwell Norton Limited",
+        path: "/case-study/grindwell-norton-limited",
+      },
   ];
 
   // Filter companies based on search query
@@ -264,37 +262,27 @@ export default function UnclaimedsharesAparIndustries() {
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
               Unclaimed Shares of{" "}
-              <span className="text-green-600">Apar Industries Ltd.</span>
+              <span className="text-green-600"> Finolex Industries Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-              Apar Industries Limited, established in 1958, is a diversified
-              manufacturer in India known for its expertise in power
-              transmission and distribution. The company operates in three main
-              segments: Conductors, Specialty Oils, and Cables. Apar is one of
-              the largest producers of conductors globally and a significant
-              supplier of transformer oils and automotive lubricants. Its
-              products cater to industries like power, telecom, automotive, and
-              infrastructure, serving both domestic and international markets.{" "}
+            Finolex Industries Ltd, established in 1981, is one of India’s leading manufacturers of PVC-U pipes, fittings, and PVC resin. With a strong focus on agriculture, irrigation, and infrastructure, the company plays a critical role in providing durable and efficient water management and construction solutions. Headquartered in Pune, Maharashtra, Finolex has state-of-the-art manufacturing facilities in Ratnagiri, Pune, and Gujarat, equipped with modern technology to ensure high-quality production.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Apar is also a leader in offering high-tech electrical solutions,
-              such as extra-high voltage (EHV) cables and optical ground wires.
-              It has embraced sustainability and innovation, leveraging advanced
-              manufacturing practices to stay competitive. The company has shown
-              impressive financial growth, achieving over 36% revenue growth and
-              maintaining a healthy return on equity (ROE) in recent years​{" "}
+            The company has an extensive distribution network comprising over 21,000 dealers and retailers spread across India, making its products easily accessible nationwide. Finolex’s portfolio includes a wide range of pipes and fittings catering to diverse needs, from agriculture to urban construction, emphasizing sustainability and innovation.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              The company has a robust global presence, exporting to over 125
-              countries. Apars focus on innovation and efficiency has positioned
-              it as a trusted partner in critical infrastructure projects
-              worldwide​.
+            Apart from its industrial contributions, Finolex is committed to corporate social responsibility (CSR) through the Mukul Madhav Foundation, focusing on education, healthcare, and community development. Its initiatives have positively impacted numerous underprivileged communities.
+            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+            On the financial front, Finolex Industries is a publicly traded company listed on the NSE and BSE, with a strong track record of profitability and shareholder value creation. The company’s robust growth, efficient operations, and focus on quality have earned it a reputation as a trusted brand in the industry.            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+            With a vision of sustainable development and consistent innovation, Finolex Industries continues to strengthen its position as a market leader while contributing to India’s agricultural and infrastructural progress.
             </p>
 
             <Image
-              src={apar}
-              alt="apar Logo"
-              className="mb-6 mx-auto w-[240px] h-[200px]"
+              src={finolex}
+              alt="finolex Logo"
+              className="mb-6 mx-auto w-[300px] h-[200px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -306,13 +294,13 @@ export default function UnclaimedsharesAparIndustries() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Apar Industries Ltd.
+                  <b>Registered Name: </b> Finolex Industries Ltd.
                 </li>
                 <li>
-                  <b>CIN Number: </b> L91110GJ1989PLC012802
+                  <b>CIN Number: </b> L40108PN1981PLC024153
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE372A01015
+                  <b>ISIN Number: </b> INE183A01024
                 </li>
               </ul>
             </section>
@@ -322,7 +310,7 @@ export default function UnclaimedsharesAparIndustries() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Apar Industries Ltd.{" "}
+                  Dividend’s History of Finolex Industries Ltd.
                 </h2>
               </div>
               <div className="overflow-x-auto">
@@ -337,236 +325,216 @@ export default function UnclaimedsharesAparIndustries() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">14 May, 2024</td>
-                      <td className="text-gray-600 p-3">20 Aug, 2024</td>
+                      <td className="text-gray-600 p-3">10 May, 2024</td>
+                      <td className="text-gray-600 p-3">11 Sep, 2024</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">51.00</td>
+                      <td className="text-gray-600 p-3">2.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        08 May, 2023
+                      23 May, 2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        04 Aug, 2023
+                      21 Aug, 2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">40.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.50</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">27 May, 2022</td>
-                      <td className="text-gray-600 p-3">04 Aug, 2022</td>
+                      <td className="text-gray-600 p-3">19 May, 2022</td>
+                      <td className="text-gray-600 p-3">22 Aug, 2020</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">15.00</td>
+                      <td className="text-gray-600 p-3">2.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        31 May, 2021
+                      20 May, 2022
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        05 Aug, 2021
+                      22 Aug, 2022
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">15.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">2.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">12 Feb, 2020</td>
-                      <td className="text-gray-600 p-3">05 Mar, 2020</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">9.50</td>
+                      <td className="text-gray-600 p-3">25 Jun, 2021</td>
+                      <td className="text-gray-600 p-3">14 Sep, 2021</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        29 May, 2019
+                      26 Jun, 2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        31 Jul, 2019
+                      14 Sep, 2021
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">9.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">2.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2018</td>
-                      <td className="text-gray-600 p-3">01 Aug, 20180</td>
+                      <td className="text-gray-600 p-3">27 Feb, 2020</td>
+                      <td className="text-gray-600 p-3">09 Mar, 2020</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">9.50</td>
+                      <td className="text-gray-600 p-3">10.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        31 May, 2017
+                      27 May, 2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        01 Aug, 2017
+                      12 Sep, 2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
                       <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">02 Mar, 2016</td>
-                      <td className="text-gray-600 p-3">22 Mar, 2016</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">23 May, 2018</td>
+                      <td className="text-gray-600 p-3">19 Sep, 2018</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">10.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      30 May, 2017
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      27 Jul, 2017
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Special</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">11.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">20 May, 2016</td>
+                      <td className="text-gray-600 p-3">28 Jul, 2016</td>
+                      <td className="text-gray-600 p-3">Special</td>
+                      <td className="text-gray-600 p-3">2.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      23 May, 2016
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      28 Jul, 2016
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">7.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">28 May, 2015</td>
+                      <td className="text-gray-600 p-3">20 Aug, 2015</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      12 May, 2014
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      08 Sep, 2014
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">7.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">06 May, 2013</td>
+                      <td className="text-gray-600 p-3">29 Aug, 2013</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
                       <td className="text-gray-600 p-3">5.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        16 Mar, 2016
+                      30 Apr, 2012
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        22 Mar, 2016
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Special</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">14 May, 2015</td>
-                      <td className="text-gray-600 p-3">30 Jul, 2015</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">3.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        02 Jun, 2014
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        24 Jul, 2014
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">5.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">03 Jun, 2013</td>
-                      <td className="text-gray-600 p-3">01 Aug, 2013</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">5.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        27 Sep, 2012
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        02 Nov, 2012
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">4.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">30 May, 2011</td>
-                      <td className="text-gray-600 p-3">12 Aug, 2011</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">3.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        26 Oct, 2010
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        03 Nov, 2010{" "}
+                      12 Jul, 2012
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">2.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">26 May, 2010 </td>
-                      <td className="text-gray-600 p-3">22 Jul, 2010</td>
+                      <td className="text-gray-600 p-3">30 Apr, 2011</td>
+                      <td className="text-gray-600 p-3">29 Jun, 2011</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.00</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
 
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        27 Jun, 2008
+                      26 Apr, 2010
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        18 Aug, 2008
+                      29 Jul, 2010
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">4.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">19 Oct, 2007</td>
-                      <td className="text-gray-600 p-3">07 Nov, 2007</td>
-                      <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">1.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        30 May, 2007
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        30 Jul, 2007
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">27 Oct, 2006</td>
-                      <td className="text-gray-600 p-3">10 Nov, 2006</td>
-                      <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">1.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        27 Jun, 2006
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        02 Aug, 2006
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.75</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 Mar, 2006</td>
-                      <td className="text-gray-600 p-3">12 Apr, 2006</td>
-                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">30 Jun, 2009</td>
+                      <td className="text-gray-600 p-3">13 Aug, 2009</td>
+                      <td className="text-gray-600 p-3">Final</td>
                       <td className="text-gray-600 p-3">1.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        31 Oct, 2005
+                      19 Jun, 2008
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        11 Nov, 2005
+                      06 Aug, 2008
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.75</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">20 Jun, 2005</td>
-                      <td className="text-gray-600 p-3">21 Sep, 2005</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">1.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        18 Feb, 2005
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        21 Mar, 2005
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 Oct, 2004</td>
-                      <td className="text-gray-600 p-3">10 Nov, 2004</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">0.75</td>
+                      <td className="text-gray-600 p-3">16 Apr, 2007</td>
+                      <td className="text-gray-600 p-3">13 Jun, 2007</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        10 Oct, 2003
+                      28 Apr, 2006
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        10 Nov, 2003
+                      13 Jun, 2006
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.75</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">27 Jun, 2003</td>
-                      <td className="text-gray-600 p-3">19 Sep, 2003</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">1.50</td>
+                      <td className="text-gray-600 p-3">15 Apr, 2005</td>
+                      <td className="text-gray-600 p-3">13 Jun, 2005</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      12 Apr, 2004
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      28 May, 2004
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Oct, 2003</td>
+                      <td className="text-gray-600 p-3">20 Nov, 2003</td>
+                      <td className="text-gray-600 p-3">Interim
+                      </td>
+                      <td className="text-gray-600 p-3">1.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      15 Apr, 2003
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      30 May, 2003
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                   
                   </tbody>
                 </table>
               </div>
@@ -590,9 +558,9 @@ export default function UnclaimedsharesAparIndustries() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">27 Oct, 2006</td>
-                    <td className="text-gray-600 p-3">11 Jan, 2007</td>
-                    <td className="text-gray-600 p-3">1:3</td>
+                    <td className="text-gray-600 p-3">06 May, 1989</td>
+                    <td className="text-gray-600 p-3">-</td>
+                    <td className="text-gray-600 p-3">4:1</td>
                   </tr>
                 </tbody>
               </table>
@@ -606,7 +574,24 @@ export default function UnclaimedsharesAparIndustries() {
                   Split
                 </h2>
               </div>
-              <p className="text-gray-500">NA</p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                <thead className="bg-[#00BE5D] text-white">
+                  <tr>
+                    <th className="text-left p-3">Announcement Date</th>
+                    <th className="text-left p-3">Ex-Split Date</th>
+                    <th className="text-left p-3">Old FV</th>
+                    <th className="text-left p-3">New FV</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="text-gray-600 p-3">01 Feb, 2021</td>
+                    <td className="text-gray-600 p-3">15 Apr, 2021</td>
+                    <td className="text-gray-600 p-3">10</td>
+                    <td className="text-gray-600 p-3">2</td>
+                  </tr>
+                </tbody>
+              </table>
             </section>
             {/* Add more content to demonstrate scrolling */}
             <section id="mergers-amalgamation" className="mt-8 bg-white p-6 ">
@@ -616,56 +601,23 @@ export default function UnclaimedsharesAparIndustries() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-
-              <div className="text-[#00000099] leading-6 mb-6 text-justify">
-                <li>
-                  Amalgamation of Gujarat Apar Polymers Limited: Originally,
-                  Apar Limited merged its industrial business with Gujarat Apar
-                  Polymers Limited. Following the amalgamation, the name was
-                  changed to Apar Industries Limited in 1999. This marked the
-                  compans transition into its modern corporate identity
-                </li>
-
-                <li>
-                  Uniflex Cables Limited Merger: Uniflex Cables Limited, a key
-                  player in the cable manufacturing sector, was amalgamated with
-                  Apar Industries. This move enhanced Apars cable segment
-                  capabilities, focusing on its diversification strategy
-                </li>
-
-                <li>
-                  Marine Cables and Wires Private Limited: This entity was
-                  merged with Apar Industries to strengthen its presence in
-                  specialized wire and cable solutions. The merger was
-                  facilitated through the Board for Industrial and Financial
-                  Reconstruction (BIFR) route.
-                </li>
-
-                <li>
-                  Apar Lubricants Limited: Formerly known as Apar ChemateK
-                  Lubricants Limited, this division was amalgamated into the
-                  parent company via the High Court route. It contributed to
-                  Apars significant footprint in the industrial lubricants
-                  market.
-                </li>
-              </div>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+              NA
+              </p>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+              Finolex Industries Ltd (FIL) has primarily grown organically over the years, with limited involvement in major mergers or amalgamations. The company’s focus has been on expanding its manufacturing capacities, enhancing its product portfolio, and strengthening its distribution network.
+              </p>
             </section>
 
             <section id="physical-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Physical Shares of Apar Industries Ltd.{" "}
+                  Physical Shares of Finolex Industries Ltd.
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Physical shares of Apar Industries Ltd., like those of other
-                publicly traded companies, were once issued in paper form,
-                allowing shareholders to physically hold certificates
-                representing their ownership in the company. However, over the
-                years, there has been a shift towards dematerialization of
-                shares, where physical share certificates have been replaced by
-                electronic records in a demat account.
+              Physical shares of Finolex Industries Ltd. are no longer eligible for trading on stock exchanges as per SEBI regulations implemented on April 1, 2019. Investors holding such shares must dematerialize them to trade or transfer ownership. Dematerialization involves converting physical share certificates into an electronic format through a Demat account held with a Depository Participant (DP).
               </p>
             </section>
 
@@ -673,27 +625,21 @@ export default function UnclaimedsharesAparIndustries() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Unclaimed Shares and Dividends of Apar Induustries Ltd.
-                  transferred to IEPF{" "}
+                  Unclaimed Shares and Dividends of Finolex Industries Ltd. Transferred to IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Unclaimed shares and dividends of Apar Industries Ltd. that
-                remain unclaimed for a certain period are transferred to the
-                Investor Education and Protection Fund (IEPF) as per the
-                guidelines set by the Securities and Exchange Board of India
-                (SEBI) and the Ministry of Corporate Affairs (MCA). The process
-                is aimed at protecting shareholders interests and ensuring that
-                unclaimed amounts are used for investor education and
-                protection.
+              Finolex Industries Limited, in accordance with the Investor Education and Protection Fund (IEPF) regulations, has been transferring equity shares to the IEPF if dividends remain unclaimed for seven consecutive years. As per the rules under the Companies Act, 2013, shares of individuals who have not claimed their dividends for seven years are moved to the IEPF’s demat account.
               </p>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+              For instance, unclaimed dividends and shares for financial years 2014-15 and beyond are being transferred, with a specific cutoff date. If the dividends have not been claimed by shareholders, their respective shares will be transferred to IEPF, and the original share certificates become void and non-negotiable. Affected shareholders are notified, and are given the chance to claim unclaimed dividends before the transfer happens.              </p>
             </section>
 
             <section id="faq" className="mt-8 p-6 ">
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                  FAQs about unclaimed shares of Apar Indstries Ltd.
+                  FAQs about unclaimed shares of Finolex Industries Ltd.
                 </h2>
               </div>
             </section>
