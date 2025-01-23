@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import grasim from "../../../../public/casestudy/Aditya_Birla_Grasim_Logo.svg.png";
+import graphite from "../../../../public/casestudy/graphiteindialimited.png";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import { useEffect, useState, useRef } from "react";
 
-export default function GrasimIndustriesLimited() {
+export default function HindustanAeronauticsLimited() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -152,21 +152,21 @@ export default function GrasimIndustriesLimited() {
       path: "/case-study/grasim-industries-limited",
     },
     {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
-      {
-        name: "Gujarat Heavy Chemicals",
-        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
-      },
-      {
-        name: "HCL Technologies Limited",
-        path: "/case-study/hcl-technologies-limited",
-      },
-      {
-        name: "HDFC Bank Limited",
-        path: "/case-study/hdfc-bank-limited",
-      },
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
@@ -283,37 +283,48 @@ export default function GrasimIndustriesLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-              Grasim
-              <span className="text-green-600"> Industries Limited </span>
+              Hindustan
+              <span className="text-green-600"> Aeronautics Limited </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grasim Industries Limited is a manufacturing company from India,
-              located in Mumbai. It started out in 1947 as a textile maker and
-              has since branched out into various areas, including textile raw
-              materials like viscose staple fiber (VSF) and viscose filament
-              yarn, as well as chemicals and insulators. They also deal in
-              cement and financial services through their subsidiaries,
-              UltraTech Cement and Aditya Birla Capital. Grasim is part of the
-              larger Aditya Birla Group.
+              Hindustan Aeronautics Limited (HAL) is an Indian state-owned
+              aerospace and defense company, primarily involved in the design,
+              manufacture, and maintenance of aircraft, helicopters, and related
+              systems. Founded in 1940 as Hindustan Aircraft Limited, the
+              company was later renamed HAL in 1964. Headquartered in Bengaluru,
+              Karnataka, HAL is a significant player in Indias defense industry
+              and has played a vital role in the development of the nations
+              aerospace capabilities.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grasim is Indias leading exporter of Viscose Rayon Fiber, serving
-              over 50 countries. Headquartered in Mumbai, it has manufacturing
-              facilities in Madhya Pradesh, Gujarat, and Karnataka. The company
-              produces Viscose Staple Fiber (VSF) through Grasim Industries in
-              India, Indo Bharat Rayon in Indonesia, and Thai Rayon Corporation
-              in Thailand, which also oversees operations in China.
+              HAL designs and manufactures a wide range of products, including
+              military aircraft, helicopters, and avionics systems. Notable
+              aircraft developed by HAL include the Tejas, a lightweight,
+              multi-role supersonic fighter, and the Dhruv helicopter, which has
+              seen widespread use in both military and civilian applications.
+              The company also collaborates with global aerospace giants like
+              Boeing, Airbus, and Lockheed Martin for the production of various
+              aircraft components and systems.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              In 2021, Grasim, part of the Aditya Birla Group, entered the
-              paints sector with an initial investment of INR 5,000 crore, later
-              increased to INR 10,000 crore, to disrupt the market.
+              Apart from manufacturing, HAL is also involved in maintenance,
+              repair, and overhaul (MRO) services, supporting both Indian and
+              international customers. It has played a crucial role in Indias
+              self-reliance in defense technology, contributing to the nation’s
+              defense preparedness and strategic independence.
+            </p>
+            <p className="mb-6 text-[#00000099] text-justify">
+              With a vast network of facilities and skilled workforce, HAL
+              continues to be an essential part of India’s aerospace and defense
+              ecosystem. It is also a major contributor to the Indian
+              governmentsMake in India; initiative, aimed at boosting domestic
+              manufacturing and technological innovation.
             </p>
 
             <Image
-              src={grasim}
-              alt="grasim Logo"
-              className="mb-6 mx-auto w-[370px] h-[200px]"
+              src={graphite}
+              alt="graphite Logo"
+              className="mb-6 mx-auto w-[400px] h-[120px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -325,13 +336,14 @@ export default function GrasimIndustriesLimited() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Grasim Industries Ltd
+                  <b>Registered Name: </b>
+                  Hindustan Aeronautics Limited
                 </li>
                 <li>
-                  <b>CIN Number: </b> L17124MP1947PLC000410
+                  <b>CIN Number: </b> U35301KA1963GOI001622
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE047A01021
+                  <b>ISIN Number: </b> INE066F01020
                 </li>
               </ul>
             </section>
@@ -341,320 +353,105 @@ export default function GrasimIndustriesLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Grasim Industries Limited
+                  Dividend’s History of Hindustan Aeronautics Limited.
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                      <th className="text-left p-3">Announcement Date</th>
                       <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
+                      <th className="text-left p-3">Dividend Type</th>
                       <th className="text-left p-3">Dividend (Rs)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">22 May, 2024</td>
-                      <td className="text-gray-600 p-3">06 Aug, 2024</td>
+                      <td className="text-gray-600 p-3">21 Aug, 2024</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">10.00</td>
+                      <td className="text-gray-600 p-3">13.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        26 May, 2023
+                        20 Feb, 2024
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">24 Aug, 2023</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">15.00</td>
+                    </tr>
+                    <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        11 Aug, 2023
+                        20 Mar, 2023
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">20.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">18 Nov, 2022</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">20.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        19 Aug, 2022
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
                       <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">24 May, 2022</td>
-                      <td className="text-gray-600 p-3">11 Aug, 2022</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.00</td>
+                      <td className="text-gray-600 p-3">17 Feb, 2022</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">26.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        25 May, 2022
+                        23 Nov, 2021
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        11 Aug, 2022
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">14.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">24 May, 2021</td>
-                      <td className="text-gray-600 p-3">12 Aug, 2021</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        25 May, 2021
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        12 Aug, 2021
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">15 Jun, 2020</td>
-                      <td className="text-gray-600 p-3">26 Aug, 2020</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">4.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        24 May, 2019
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        08 Aug, 2019
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">7.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">23 May, 2018</td>
-                      <td className="text-gray-600 p-3">31 Aug, 2018</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">6.20</td>
+                      <td className="text-gray-600 p-3">05 Mar, 2021</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">15.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        19 May, 2017
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        08 Sep, 2017
+                        17 Dec, 2020
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">5.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">15.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">09 May, 2016</td>
-                      <td className="text-gray-600 p-3">07 Sep, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">22.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        04 May, 2015
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        03 Sep, 2015
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        18.00
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                  <thead className="bg-[#00BE5D] text-white">
-                    <tr>
-                      <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Dividend (Rs)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="text-gray-600 p-3">02 May, 2014</td>
-                      <td className="text-gray-600 p-3">20 Aug, 2014</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">21.00</td>
+                      <td className="text-gray-600 p-3">23 Mar, 2020</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">33.25</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        06 May, 2013
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        31 Jul, 2013
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">22.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">05 May, 2012</td>
-                      <td className="text-gray-600 p-3">27 Aug, 2012</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">22.50</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        11 May, 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        06 Sep, 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">20.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">20 May, 2010</td>
-                      <td className="text-gray-600 p-3">10 Aug, 2010</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        19 May, 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        24 Jul, 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 Apr, 2008</td>
-                      <td className="text-gray-600 p-3">22 Jul, 2008</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        05 Mar, 2007
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        15 Mar, 2007
+                        28 Mar, 2019
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">27.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">19.80</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">25 May, 2021</td>
-                      <td className="text-gray-600 p-3">12 Aug, 2021</td>
-                      <td className="text-gray-600 p-3">Special</td>
-                      <td className="text-gray-600 p-3">4.00</td>
+                      <td className="text-gray-600 p-3">28 Mar, 2019</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">19.80</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        15 Jun, 2020
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        26 Aug, 2020
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">4.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">19 May, 2017</td>
-                      <td className="text-gray-600 p-3">08 Sep, 2017</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.50</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                  <thead className="bg-[#00BE5D] text-white">
-                    <tr>
-                      <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Dividend (Rs)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="text-gray-600 p-3">09 May, 2016</td>
-                      <td className="text-gray-600 p-3">07 Sep, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">22.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      04 May, 2015
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      03 Sep, 2015
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">18.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">02 May, 2014</td>
-                      <td className="text-gray-600 p-3">20 Aug, 2014</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">21.00</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      06 May, 2013
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      31 Jul, 2013
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">22.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">05 May, 2012</td>
-                      <td className="text-gray-600 p-3">27 Aug, 2012</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">22.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      11 May, 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      06 Sep, 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">20.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">20 May, 2010</td>
-                      <td className="text-gray-600 p-3">10 Aug, 2010</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      19 May, 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      24 Jul, 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 Apr, 2008</td>
-                      <td className="text-gray-600 p-3">22 Jul, 2008</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      05 Mar, 2007
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      15 Mar, 2007
-                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
                       <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">27.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">23.90</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">30 Apr, 2001</td>
-                      <td className="text-gray-600 p-3">28 May, 2001</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">0.00</td>
+                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">8.25</td>
                     </tr>
                   </tbody>
                 </table>
@@ -683,22 +480,16 @@ export default function GrasimIndustriesLimited() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
-                    <th className="text-left p-3">Announcement Date</th>
-                    <th className="text-left p-3">Ex-Split Date</th>
                     <th className="text-left p-3">Old FV</th>
                     <th className="text-left p-3">New FV</th>
-                    <th className="text-left p-3">Remarks</th>
+                    <th className="text-left p-3">Record Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">11 Aug, 2016</td>
-                    <td className="text-gray-600 p-3">06 Oct, 2016</td>
                     <td className="text-gray-600 p-3">10</td>
-                    <td className="text-gray-600 p-3">2</td>
-                    <td className="text-gray-600 p-3">
-                    For every share held,  Holder will get 5 shares. 
-                    </td>
+                    <td className="text-gray-600 p-3">5</td>
+                    <td className="text-gray-600 p-3">29 Sep 2023</td>
                   </tr>
                 </tbody>
               </table>
@@ -712,24 +503,30 @@ export default function GrasimIndustriesLimited() {
                 </h2>
               </div>
 
-              <p className="mb-6 text-[#00000099] text-justify">In 2016, the Aditya Birla Group (ABG) announced a merger between Grasim Industries Limited (Grasim) and Aditya Birla Nuvo Limited (ABNL). The merger was intended to create one of Indias largest and most diversified companies. The merger also included the demerger of Aditya Birla Financial Services Limited (ABFSL) from the newly merged company. </p>
-              <p className="mb-6 text-[#00000099] text-justify">The merger ratio for the merger of Aditya Birla Nuvo (ABNL) with Grasim Industries was 3 shares of Grasim for every 10 shares of ABNL. For example, a shareholder with 100 shares of ABNL would receive 30 shares of Grasim. </p>
-
-              <p className="mb-6 text-[#00000099] text-justify">The merger also included a demerger of the financial services business into Aditya Birla Financial Services (ABFSL). The demerger ratio for this was 7 shares of ABFSL for every 1 share of Grasim.</p>
-
+              <p className="mb-6 text-[#00000099] text-justify">NA </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Grasim Industries Ltd Transferred To IEPF
+                  Unclaimed Shares and Dividends Of Hindustan Aeronautics
+                  Limited are in IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government set up the Investor Education and Protection Fund (IEPF) to safeguard investors interests and raise awareness. This fund was created under Section 125 of the Companies Act, 2013. Any unpaid or unclaimed money from investors is collected and added to the IEPF. The funds in the 
-are used for various purposes as outlined in the Act. The IEPFA Authority is responsible for managing the IEPF, handling refunds for shares, unclaimed dividends, matured deposits, and debentures, while also working to educate investors and protect their interests.
-
+                The Central Government introduced the Investor Education and
+                Protection Fund (IEPF) to protect investors’ interests and
+                promote awareness. It is established under Section 125 of the
+                Companies Act, 2013 (Act). The unpaid or unclaimed amounts
+                belonging to a company’s investors are pooled and credited into
+                the IEPF. The IEPF funds are utilized for various purposes as
+                provided under the Act. The IEPFA Authority is entrusted with
+                the responsibility of administration of the Investor Education
+                Protection Fund (IEPF), making refunds of shares, unclaimed
+                dividends, matured deposits/debentures etc. to investors,
+                promoting awareness among investors, and protecting the
+                interests of the investors.
               </p>
             </section>
 
@@ -737,10 +534,18 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Grasim Industries Ltd are in IEPF?                </h2>
+                  Why my shares of Hindustan Aeronautics Limited are in IEPF?{" "}
+                </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholders registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
+                Before transferring the shares to IEPF the company has to notify
+                the shareholder by sending letter to the registered address of
+                the shareholder. The company also has to notify by giving a
+                public notification in the newspaper. If the shareholder doesn’t
+                communicate back, the company can transfer the shares to IEPF.
+                The company transfers the shares to IEPF when the dividends of
+                seven or more consecutive years are not claimed by the
+                shareholder.
               </p>
             </section>
 
@@ -766,12 +571,6 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
                       your old shares which you cannot access due to several
                       reasons. Clearclaim ventures private limited has recovered
                       immense number of IEPF shares smoothly.
-                    </i>
-                  </b>
-                  <b>
-                    <i>
-                      {" "}
-                      At Clearclaim, our goal is to help you reclaim what is rightfully yours, allowing you to focus on what matters most to you. Trust us to handle your IEPF claims and unclaimed assets with the utmost care and expertise, so you can enjoy peace of mind knowing that you are in capable hands.
                     </i>
                   </b>
                   <br />
@@ -800,16 +599,15 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Grasim Industries Ltd 
+                    Graphite India Limited
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://www.grasim.com/"
+                    href="http://hal-india.co.in/ "
                   >
-                   https://www.grasim.com/
-
+                    http://hal-india.co.in/{" "}
                   </Link>
                 </div>
               </div>
@@ -868,8 +666,7 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my shares of Grasim Industries Limited are
-                  in IEPF?
+                Why my shares of Hindustan Aeronautics Limited are in IEPF?
                 </a>
               </li>
               <li

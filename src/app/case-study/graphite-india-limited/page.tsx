@@ -710,7 +710,7 @@ export default function GraphiteIndiaLimited() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my shares of Glaxosmithkline Pharmaceuticals Limited are
+                  Why my shares of Graphite India Limited are
                   in IEPF?
                 </a>
               </li>

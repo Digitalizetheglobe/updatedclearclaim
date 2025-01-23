@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import exide from "../../../../public/casestudy/exide.avif";
+import heg from "../../../../public/casestudy/heg.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import phone from "../../../../public/images/phone.png";
@@ -131,10 +131,22 @@ export default function UnclaimedsharesHEG() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -159,8 +171,17 @@ export default function UnclaimedsharesHEG() {
       name: "HDFC Bank Limited",
       path: "/case-study/hdfc-bank-limited",
     },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
-  // unclaimed-shares-heg
+//   hindustan-aeronautics-limited
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -277,26 +298,44 @@ export default function UnclaimedsharesHEG() {
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
               Unclaimed Shares of
-              <span className="text-green-600"> HEG Ltd.
-              </span>
+              <span className="text-green-600"> HEG Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            HEG Limited is a leading global manufacturer and exporter of graphite electrodes, which are critical components used in electric arc furnaces for steel production. Founded in 1977, the company is headquartered in Bhopal, Madhya Pradesh, India, and operates one of the world’s largest single-site graphite electrode manufacturing facilities in Mandideep, with a capacity of 80,000 metric tons per annum.
+              HEG Limited is a leading global manufacturer and exporter of
+              graphite electrodes, which are critical components used in
+              electric arc furnaces for steel production. Founded in 1977, the
+              company is headquartered in Bhopal, Madhya Pradesh, India, and
+              operates one of the world’s largest single-site graphite electrode
+              manufacturing facilities in Mandideep, with a capacity of 80,000
+              metric tons per annum.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            HEG specializes in the production of ultra-high power (UHP) and high-power (HP) graphite electrodes, catering to the growing demand from the steel and metal industries worldwide. Its operations are vertically integrated, encompassing key processes like needle coke procurement, impregnation, baking, and machining. The company exports over 70% of its production to more than 30 countries, including the U.S., Europe, and Asia.
+              HEG specializes in the production of ultra-high power (UHP) and
+              high-power (HP) graphite electrodes, catering to the growing
+              demand from the steel and metal industries worldwide. Its
+              operations are vertically integrated, encompassing key processes
+              like needle coke procurement, impregnation, baking, and machining.
+              The company exports over 70% of its production to more than 30
+              countries, including the U.S., Europe, and Asia.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Known for its focus on innovation and sustainability, HEG invests significantly in research and development to enhance efficiency and reduce its carbon footprint. It has consistently delivered strong financial performance, benefiting from global trends like increasing steel production through electric arc furnaces, which are more environmentally friendly.
+              Known for its focus on innovation and sustainability, HEG invests
+              significantly in research and development to enhance efficiency
+              and reduce its carbon footprint. It has consistently delivered
+              strong financial performance, benefiting from global trends like
+              increasing steel production through electric arc furnaces, which
+              are more environmentally friendly.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            HEG Limited is listed on major Indian stock exchanges and continues to maintain its position as a market leader, driven by operational excellence, quality, and customer-centricity.
+              HEG Limited is listed on major Indian stock exchanges and
+              continues to maintain its position as a market leader, driven by
+              operational excellence, quality, and customer-centricity.
             </p>
 
             <Image
-              src={exide}
-              alt="exide Logo"
-              className="mb-6 mx-auto w-[330px] h-[200px]"
+              src={heg}
+              alt="heg Logo"
+              className="mb-6 mx-auto w-[300px] h-[220px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -308,8 +347,7 @@ export default function UnclaimedsharesHEG() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b>  HEG Ltd.
-
+                  <b>Registered Name: </b> HEG Ltd.
                 </li>
                 <li>
                   <b>CIN Number: </b> L23109MP1972PLC008290
@@ -326,7 +364,6 @@ export default function UnclaimedsharesHEG() {
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
                   Dividend’s History of HEG Ltd.
-
                 </h2>
               </div>
               <div className="overflow-x-auto">
@@ -337,268 +374,169 @@ export default function UnclaimedsharesHEG() {
                       <th className="text-left p-3">Ex-Dividend Date</th>
                       <th className="text-left p-3">Dividend Type</th>
                       <th className="text-left p-3">-</th>
-
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">22 Jul 2024</td>
-                      <td className="text-gray-600 p-3">2.00</td>
+                      <td className="text-gray-600 p-3">22 May, 2024</td>
+                      <td className="text-gray-600 p-3">31 Jul, 2024</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">22.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        01 Aug 2023
+                        22 May, 2023
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">2.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        24 Aug, 2023
+                      </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">42.50</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">07 Feb 2022</td>
-                      <td className="text-gray-600 p-3">2.00</td>
+                      <td className="text-gray-600 p-3">25 May, 2022</td>
+                      <td className="text-gray-600 p-3">24 Aug, 2022</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">40.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        27 May, 2021
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        19 Jul, 2021
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">06 Feb, 2020</td>
+                      <td className="text-gray-600 p-3">17 Feb, 2020</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">08 Feb 2022</td>
+                      <td className="text-gray-600 p-3">25.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        04 Feb 2021
+                        20 May, 2019
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">2.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">INTERIM</td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        06 Feb 2021
+                        09 Aug, 2019
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">50.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">04 Mar 2020</td>
-                      <td className="text-gray-600 p-3">2.50</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">05 Mar 2020</td>
+                      <td className="text-gray-600 p-3">26 Oct, 2018</td>
+                      <td className="text-gray-600 p-3">12 Nov, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">30.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        18 Nov 2019
+                        08 May, 2018
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1.60</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">INTERIM</td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        19 Nov 2019
+                        13 Jul, 2018
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">50.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">25 Jul 2019</td>
-                      <td className="text-gray-600 p-3">0.80</td>
+                      <td className="text-gray-600 p-3">06 Feb, 2018</td>
+                      <td className="text-gray-600 p-3">15 Feb, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">30.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        14 May, 2015
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        14 Sep, 2015{" "}
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">21 Apr, 2014</td>
+                      <td className="text-gray-600 p-3">14 Aug, 2014</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        15 Nov 2018
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        03 May, 2013
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1.60</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">INTERIM</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Nov 2018
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        06 Sep, 2013
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">8.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">25 Jul 2018</td>
-                      <td className="text-gray-600 p-3">0.80</td>
+                      <td className="text-gray-600 p-3">29 Apr, 2011</td>
+                      <td className="text-gray-600 p-3">02 Sep, 2011</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">5.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        03 Nov 2017
+                        13 Jun, 2008
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.60 </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        06 Nov 2017
+                        17 Sep, 2008
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">19 Jul 2017</td>
-                      <td className="text-gray-600 p-3">0.80</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        03 Nov 2016
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.60</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        05 Nov 2016
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">11 Jul 2016</td>
-                      <td className="text-gray-600 p-3">0.80</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">31 Dec, 2007</td>
+                      <td className="text-gray-600 p-3">11 Jan, 2008</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">7.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        05 Nov 2015
+                        27 Apr, 2007
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.60</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        07 Nov 2015
+                        18 Sep, 2007
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">5.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">23 Jul 2015</td>
-                      <td className="text-gray-600 p-3">0.70</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        21 Aug 2014
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        22 Aug 2014
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">11 Jul 2014</td>
-                      <td className="text-gray-600 p-3">0.70</td>
+                      <td className="text-gray-600 p-3">27 Apr, 2006</td>
+                      <td className="text-gray-600 p-3">13 Sep, 2006</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
 
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        05 Nov 2013
+                        02 May, 2005
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.10</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        06 Nov 2013
+                        22 Sep, 2005
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">27 Jun 2013</td>
-                      <td className="text-gray-600 p-3">0.60</td>
+                      <td className="text-gray-600 p-3">04 May, 2004</td>
+                      <td className="text-gray-600 p-3">04 May, 2004</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        31 Oct 2012
+                        22 Aug, 2003
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">1.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        01 Nov 2012
+                        18 Sep, 2003
                       </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">06 Jul 2012</td>
-                      <td className="text-gray-600 p-3">0.60</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        02 Nov 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.90</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        03 Nov 2011
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">14 Jul 2011</td>
-                      <td className="text-gray-600 p-3">0.60</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                  <thead className="bg-[#00BE5D] text-white">
-                    <tr>
-                      <th className="text-left p-3">Ex-Date</th>
-                      <th className="text-left p-3">Dividend Amount</th>
-                      <th className="text-left p-3">Dividend Type</th>
-                      <th className="text-left p-3">Record Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        21 Oct 2010
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.90</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        22 Oct 2010
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">02 Jul 2010</td>
-                      <td className="text-gray-600 p-3">0.40</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        27 Oct 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.60</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        28 Oct 2009
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">08 Jul 2009</td>
-                      <td className="text-gray-600 p-3">0.20</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        23 Jan 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">0.40</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        27 Jan 2009
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">16 Jul 2008</td>
-                      <td className="text-gray-600 p-3">0.40</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        05 Jul 2004
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">4.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">03 Jul 2003</td>
-                      <td className="text-gray-600 p-3">4.00</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.20</td>
                     </tr>
                   </tbody>
                 </table>
@@ -616,16 +554,16 @@ export default function UnclaimedsharesHEG() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
-                    <th className="text-left p-3">Ex-Date</th>
+                    <th className="text-left p-3">Announcement Date</th>
+                    <th className="text-left p-3">Ex-Bonus Date</th>
                     <th className="text-left p-3">Bonus Ratio</th>
-                    <th className="text-left p-3">Record Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">03 Jul 2003</td>
+                    <td className="text-gray-600 p-3">27 Jul, 1994</td>
+                    <td className="text-gray-600 p-3">25 Nov, 1994</td>
                     <td className="text-gray-600 p-3">1:1</td>
-                    <td className="text-gray-600 p-3">-</td>
                   </tr>
                 </tbody>
               </table>
@@ -642,18 +580,18 @@ export default function UnclaimedsharesHEG() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
-                    <th className="text-left p-3">Ex-Date</th>
+                    <th className="text-left p-3">Announcement Date</th>
+                    <th className="text-left p-3">Ex-Split Date</th>
                     <th className="text-left p-3">Old FV</th>
                     <th className="text-left p-3">New FV</th>
-                    <th className="text-left p-3">Record Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">08 Sep 2006</td>
+                    <td className="text-gray-600 p-3">13 Aug, 2024</td>
+                    <td className="text-gray-600 p-3">18 Oct, 2024</td>
                     <td className="text-gray-600 p-3">10</td>
-                    <td className="text-gray-600 p-3">1</td>
-                    <td className="text-gray-600 p-3">15 Sep 2006</td>
+                    <td className="text-gray-600 p-3">2</td>
                   </tr>
                 </tbody>
               </table>
@@ -667,49 +605,45 @@ export default function UnclaimedsharesHEG() {
                 </h2>
               </div>
 
-              <div className="text-[#00000099] leading-6 mb-6 text-justify">
-                <b>Amalgamation with Chloride Group (1998):</b>{" "}
+              <ul className="text-[#00000099] leading-6 mb-6 text-justify">
                 <li>
-                  Exides merger with Chloride Industries was a pivotal moment
-                  in its history. This integration helped consolidate
-                  operations, making Exide a dominant player in Indias battery
-                  industry. It brought together decades of expertise and
-                  facilitated technological advancements.
+                  Bhilwara Energy Limited shareholders will receive eight (8)
+                  fully paid-up equity shares of ₹10 each in the merged HEG
+                  Limited for every thirty-five (35) equity shares of ₹10 each
+                  held in Bhilwara Energy Limited.
                 </li>
-                <b>Acquisition of Tudor India (1998):</b>{" "}
-                <li>
-                  In the same year, Exide acquired Tudor India, the Indian
-                  subsidiary of the global battery giant Exide Technologies.
-                  This acquisition gave Exide access to global battery
-                  technology and strengthened its position in automotive and
-                  industrial battery segments.
-                </li>
-                <b>Amalgamation of Subsidiaries:</b>{" "}
-                <li>
-                  Over the years, Exide has merged several subsidiaries into its
-                  main operations to streamline efficiency and reduce
-                  redundancy. This includes Exide Life Insurance, which was
-                  eventually sold to HDFC Life in 2021 as part of its strategic
-                  focus on core business areas.
-                </li>
+              </ul>
+            </section>
+            <section id="demerger" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700 ">Demerger </h2>
               </div>
+
+              <ul className="text-[#00000099] leading-6 mb-6 text-justify">
+                <li>
+                  Shareholders of HEG Limited will receive one (1) fully paid-up
+                  equity share of ₹10 each in the resulting graphite business
+                  company for every one (1) equity share of ₹10 each held in HEG
+                  Limited.
+                </li>
+              </ul>
             </section>
 
             <section id="physical-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Physical Shares of Exide Industries Ltd.
+                  Physical Shares of HEG Ltd.
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Physical shares of Exide Industries Ltd. are no longer eligible
-                for trading on stock exchanges as per SEBI regulations
-                implemented on April 1, 2019. Investors holding such shares must
-                dematerialize them to trade or transfer ownership.
-                Dematerialization involves converting physical share
-                certificates into an electronic format through a Demat account
-                held with a Depository Participant (DP).
+                Physical shares of HEG Ltd. are no longer eligible for trading
+                on stock exchanges as per SEBI regulations implemented on April
+                1, 2019. Investors holding such shares must dematerialize them
+                to trade or transfer ownership. Dematerialization involves
+                converting physical share certificates into an electronic format
+                through a Demat account held with a Depository Participant (DP).
               </p>
             </section>
 
@@ -717,12 +651,11 @@ export default function UnclaimedsharesHEG() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Unclaimed Shares and Dividends of Exide Industries Ltd.
-                  Transferred to IEPF
+                  Unclaimed Shares and Dividends of HEG Ltd. Transferred to IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Raymond Limited, in accordance with the Investor Education and
+                HEG Limited, in accordance with the Investor Education and
                 Protection Fund (IEPF) regulations, has been transferring equity
                 shares to the IEPF if dividends remain unclaimed for seven
                 consecutive years. As per the rules under the Companies Act,
@@ -825,6 +758,13 @@ export default function UnclaimedsharesHEG() {
                 }`}
               >
                 <a href="#mergers-amalgamation">Mergers / Amalgamation</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "demerger" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#demerger">Demerger</a>
               </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
