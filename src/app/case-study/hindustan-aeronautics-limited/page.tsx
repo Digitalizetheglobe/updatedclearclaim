@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import graphite from "../../../../public/casestudy/graphiteindialimited.png";
+import hindustanaeronatues from "../../../../public/casestudy/hidustanaeronates.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import { useEffect, useState, useRef } from "react";
@@ -330,9 +330,9 @@ export default function HindustanAeronauticsLimited() {
             </p>
 
             <Image
-              src={graphite}
-              alt="graphite Logo"
-              className="mb-6 mx-auto w-[400px] h-[120px]"
+              src={hindustanaeronatues}
+              alt="hindustanaero Logo"
+              className="mb-6 mx-auto w-[400px] h-[250px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
