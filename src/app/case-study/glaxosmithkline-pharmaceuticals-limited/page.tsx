@@ -144,29 +144,37 @@ export default function GlaxoSmithKlinePharmaceuticalsLimited() {
       path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
     },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
-      {
-        name: "Gujarat Heavy Chemicals",
-        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
-      },
-      {
-        name: "HCL Technologies Limited",
-        path: "/case-study/hcl-technologies-limited",
-      },
-      {
-        name: "HDFC Bank Limited",
-        path: "/case-study/hdfc-bank-limited",
-      },
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
@@ -324,7 +332,7 @@ export default function GlaxoSmithKlinePharmaceuticalsLimited() {
 
             <Image
               src={gsk}
-              alt="exide Logo"
+              alt="gsk Logo"
               className="mb-6 mx-auto w-[330px] h-[200px]"
             />
             <section className="bg-white p-4 ">

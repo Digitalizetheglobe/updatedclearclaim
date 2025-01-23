@@ -180,8 +180,13 @@ export default function UnclaimedsharesHEG() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
   ];
-//   hindustan-aeronautics-limited
+
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -677,7 +682,7 @@ export default function UnclaimedsharesHEG() {
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                  FAQs about unclaimed shares of Exide Industries Ltd.
+                  FAQs about unclaimed shares of Heg Ltd.
                 </h2>
               </div>
             </section>

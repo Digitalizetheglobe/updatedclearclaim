@@ -167,7 +167,16 @@ export default function GraphiteIndiaLimited() {
       name: "HDFC Bank Limited",
       path: "/case-study/hdfc-bank-limited",
     },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
+  
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())

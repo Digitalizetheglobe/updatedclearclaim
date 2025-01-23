@@ -40,95 +40,144 @@ export default function BharatAirtelLimited() {
       };
     }, []);
   
-  const companies = [
-    { name: "3M India Limited", path: "/case-study/3m-india-limited" },
-    {
-      name: "ABB India Ltd.",
-      path: "/case-study/unclaimed-shares-dividends-abbindia",
-    },
-    {
-      name: "Adani Ports and Special Economic Zone Limited",
-      path: "/case-study/adani-ports-special-economic-zone-limited",
-    },
-    {
-      name: "Adani Power Limited",
-      path: "/case-study/unclaimed-shares-adani-power-ltd",
-    },
-    {
-      name: "Alkem Laboratories Ltd",
-      path: "/case-study/unclaimed-shares-alkem-laboratories",
-    },
-    {
-      name: "Apar Industries Limited",
-      path: "/case-study/unclaimed-shares-apar-industries",
-    },
-    { name: "Apollo Hospitals", path: "/case-study/apollo-hospitals" },
-    {
-      name: "Asahi India Glass Ltd",
-      path: "/case-study/unclaimed-shares-asahi-india-glass",
-    },
-    {
-      name: "Asian Paints Ltd",
-      path: "/case-study/unclaimed-shares-asian-paints",
-    },
-    {
-      name: "Axis Bank Limited",
-      path: "/case-study/unclaimed-shares-axis-bank",
-    },
-    {
-      name: "Bank of Baroda",
-      path: "/case-study/unclaimed-shares-bank-baroda",
-    },
-    { name: "Bank Of India", path: "/case-study/bank-of-india" },
-    {
-      name: "Bharat Electronics Limited",
-      path: "/case-study/bharat-electronics-limited",
-    },
-    {
-      name: "Bharat Forge Limited",
-      path: "/case-study/unclaimed-shares-bharat-forge",
-    },
-    {
-      name: "Bharti Airtel Limited",
-      path: "/case-study/bharti-airtel-limited",
-    },
-    {
-      name: "Bharat Heavy Electricals Limited",
-      path: "/case-study/bharat-heavy-electricals-limited",
-    },
-    { name: "Biocon Limited", path: "/case-study/unclaimed-shares-biocon" },
-    {
-      name: "Bombay Oxygen Investments Limited",
-      path: "/case-study/Bombay-oxygen-investments-limited",
-    },
-    { name: "Bosch Limited", path: "/case-study/bosch-limited" },
-    {
-      name: "Britannia Industries Limited",
-      path: "/case-study/britannia-industries-limited",
-    },
-    { name: "CEAT Limited", path: "/case-study/unclaimed-shares-ceat" },
-    {
-      name: "Chambal Fertilisers and Chemicals Limited ",
-      path: "/case-study/chambal-fertilizer-chemicals",
-    },
-    { name: "Coal India Limited", path: "/case-study/coal-india-limited" },
-    {
-      name: "Colgate Palmolive India Ltd",
-      path: "/case-study/colgate-palmolive-india",
-    },
-    {
-      name: "Cummins India Limited",
-      path: "/case-study/cummins-india-limited",
-    },
-    {
-      name: "Deepak Fertilizers and Petrochemicals Corporation Ltd",
-      path: "/case-study/deepak-fertilizers-petrochemicals-corporation",
-    },
-    {
-      name: "Deepak Nitrite Limited",
-      path: "/case-study/unclaimed-shares-deepak-nitrite",
-    },
-  ];
+    const companies = [
+      { name: "3M India Limited", path: "/case-study/3m-india-limited" },
+      {
+        name: "ABB India Ltd.",
+        path: "/case-study/unclaimed-shares-dividends-abbindia",
+      },
+      {
+        name: "Adani Ports and Special Economic Zone Limited",
+        path: "/case-study/adani-ports-special-economic-zone-limited",
+      },
+      {
+        name: "Adani Power Limited",
+        path: "/case-study/unclaimed-shares-adani-power-ltd",
+      },
+      {
+        name: "Alkem Laboratories Ltd",
+        path: "/case-study/unclaimed-shares-alkem-laboratories",
+      },
+      {
+        name: "Apar Industries Limited",
+        path: "/case-study/unclaimed-shares-apar-industries",
+      },
+      { name: "Apollo Hospitals", path: "/case-study/apollo-hospitals" },
+      {
+        name: "Asahi India Glass Ltd",
+        path: "/case-study/unclaimed-shares-asahi-india-glass",
+      },
+      {
+        name: "Asian Paints Ltd",
+        path: "/case-study/unclaimed-shares-asian-paints",
+      },
+      {
+        name: "Axis Bank Limited",
+        path: "/case-study/unclaimed-shares-axis-bank",
+      },
+      {
+        name: "Bank of Baroda",
+        path: "/case-study/unclaimed-shares-bank-baroda",
+      },
+      { name: "Bank Of India", path: "/case-study/bank-of-india" },
+      {
+        name: "Bharat Electronics Limited",
+        path: "/case-study/bharat-electronics-limited",
+      },
+      {
+        name: "Bharat Forge Limited",
+        path: "/case-study/unclaimed-shares-bharat-forge",
+      },
+      {
+        name: "Bharti Airtel Limited",
+        path: "/case-study/bharti-airtel-limited",
+      },
+      {
+        name: "Bharat Heavy Electricals Limited",
+        path: "/case-study/bharat-heavy-electricals-limited",
+      },
+      { name: "Biocon Limited", path: "/case-study/unclaimed-shares-biocon" },
+      {
+        name: "Bombay Oxygen Investments Limited",
+        path: "/case-study/Bombay-oxygen-investments-limited",
+      },
+      { name: "Bosch Limited", path: "/case-study/bosch-limited" },
+      {
+        name: "Britannia Industries Limited",
+        path: "/case-study/britannia-industries-limited",
+      },
+      { name: "CEAT Limited", path: "/case-study/unclaimed-shares-ceat" },
+      {
+        name: "Chambal Fertilisers and Chemicals Limited ",
+        path: "/case-study/chambal-fertilizer-chemicals",
+      },
+      { name: "Coal India Limited", path: "/case-study/coal-india-limited" },
+      {
+        name: "Colgate Palmolive India Ltd",
+        path: "/case-study/colgate-palmolive-india",
+      },
+      {
+        name: "Cummins India Limited",
+        path: "/case-study/cummins-india-limited",
+      },
+      {
+        name: "Deepak Fertilizers and Petrochemicals Corporation Ltd",
+        path: "/case-study/deepak-fertilizers-petrochemicals-corporation",
+      },
+      {
+        name: "Deepak Nitrite Limited",
+        path: "/case-study/unclaimed-shares-deepak-nitrite",
+      },
+      { name: "DLF Limited", path: "/case-study/dlf-limited" },
+      {
+        name: "Exide Industries",
+        path: "/case-study/unclaimed-shares-exide-industries",
+      },
+      {
+        name: "Finolex Industries",
+        path: "/case-study/unclaimed-shares-finolex-industries",
+      },
+      {
+        name: "GE Vernova T&D India",
+        path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+      },
+      {
+        name: "GlaxoSmithKline Pharmaceuticals Limited",
+        path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+      },
+      {
+        name: "Graphite India Limited",
+        path: "/case-study/graphite-india-limited",
+      },
+      {
+        name: "Grasim Industries Limited",
+        path: "/case-study/grasim-industries-limited",
+      },
+      {
+        name: "Grindwell Norton Limited",
+        path: "/case-study/grindwell-norton-limited",
+      },
+      {
+        name: "Gujarat Heavy Chemicals",
+        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+      },
+      {
+        name: "HCL Technologies Limited",
+        path: "/case-study/hcl-technologies-limited",
+      },
+      {
+        name: "HDFC Bank Limited",
+        path: "/case-study/hdfc-bank-limited",
+      },
+      {
+        name: "HEG Limited",
+        path: "/case-study/unclaimed-shares-heg",
+      },
+      {
+        name: "Hitachi Energy India Ltd.",
+        path: "/case-study/unclaimed-shares-hitachi-energy-india",
+      },
+    ];
 
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>

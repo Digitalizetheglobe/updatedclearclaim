@@ -156,17 +156,25 @@ export default function GrindwellNortonLimited() {
       path: "/case-study/grindwell-norton-limited",
     },
     {
-        name: "Gujarat Heavy Chemicals",
-        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
-      },
-      {
-        name: "HCL Technologies Limited",
-        path: "/case-study/hcl-technologies-limited",
-      },
-      {
-        name: "HDFC Bank Limited",
-        path: "/case-study/hdfc-bank-limited",
-      },
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>

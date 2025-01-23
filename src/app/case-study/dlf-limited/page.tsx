@@ -168,6 +168,14 @@ export default function DFLLimited() {
       name: "HDFC Bank Limited",
       path: "/case-study/hdfc-bank-limited",
     },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
 
   // Filter companies based on search query

@@ -135,11 +135,6 @@ export default function UnclaimedsharesHitachiEnergyIndia() {
       name: "Exide Industries",
       path: "/case-study/unclaimed-shares-exide-industries",
     },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    {
-      name: "Exide Industries",
-      path: "/case-study/unclaimed-shares-exide-industries",
-    },
     {
       name: "Finolex Industries",
       path: "/case-study/unclaimed-shares-finolex-industries",
@@ -175,6 +170,14 @@ export default function UnclaimedsharesHitachiEnergyIndia() {
     {
       name: "HDFC Bank Limited",
       path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
   ];
 
