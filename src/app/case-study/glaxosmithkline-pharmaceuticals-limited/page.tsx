@@ -155,6 +155,18 @@ export default function GlaxoSmithKlinePharmaceuticalsLimited() {
         name: "Grindwell Norton Limited",
         path: "/case-study/grindwell-norton-limited",
       },
+      {
+        name: "Gujarat Heavy Chemicals",
+        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+      },
+      {
+        name: "HCL Technologies Limited",
+        path: "/case-study/hcl-technologies-limited",
+      },
+      {
+        name: "HDFC Bank Limited",
+        path: "/case-study/hdfc-bank-limited",
+      },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>

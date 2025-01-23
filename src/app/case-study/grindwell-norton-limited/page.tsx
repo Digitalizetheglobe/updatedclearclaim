@@ -155,6 +155,18 @@ export default function GrindwellNortonLimited() {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
     },
+    {
+        name: "Gujarat Heavy Chemicals",
+        path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+      },
+      {
+        name: "HCL Technologies Limited",
+        path: "/case-study/hcl-technologies-limited",
+      },
+      {
+        name: "HDFC Bank Limited",
+        path: "/case-study/hdfc-bank-limited",
+      },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
@@ -285,7 +297,7 @@ export default function GrindwellNortonLimited() {
               defense.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              The company's product portfolio includes grinding wheels, coated
+              The companys product portfolio includes grinding wheels, coated
               abrasives, non-woven products, super abrasives, and refractories.
               These products are vital for processes such as cutting, grinding,
               polishing, and surface finishing, contributing significantly to
@@ -432,6 +444,18 @@ export default function GrindwellNortonLimited() {
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">6.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Mar, 2007</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      20 Mar, 2006
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">11.00</td>
                     </tr>
                   </tbody>
                 </table>
