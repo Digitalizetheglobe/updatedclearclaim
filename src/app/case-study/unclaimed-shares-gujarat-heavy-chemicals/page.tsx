@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import alkem from "../../../../public/casestudy/alkem_laboratories_ltd_logo.jpg";
+import ghcl from "../../../../public/casestudy/ghcl.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import phone from "../../../../public/images/phone.png";
 import email from "../../../../public/images/mail-02.png";
 import pin from "../../../../public/images/marker-pin-01.png";
 import { useEffect, useState, useRef } from "react";
-import FaqAlkem from "./faqalkem";
+import FaqAparm from "../unclaimed-shares-apar-industries/faqapar";
 
-export default function UnclaimedsharesAlkemLaboratories() {
+export default function UnclaimedsharesGujaratHeavyChemicals() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -177,7 +177,7 @@ export default function UnclaimedsharesAlkemLaboratories() {
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
   ];
-
+ 
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -294,51 +294,24 @@ export default function UnclaimedsharesAlkemLaboratories() {
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
               Unclaimed Shares of{" "}
-              <span className="text-green-600">Alkem Laboratories Ltd.</span>
+              <span className="text-green-600"> Gujarat Heavy Chemicals Ltd
+              </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-              Alkem Laboratories Ltd is one of India’s leading pharmaceutical
-              companies, known for its extensive portfolio of generic medicines,
-              active pharmaceutical ingredients (APIs), and nutraceuticals.
-              Established in 1973 and headquartered in Mumbai, Alkem has emerged
-              as a trusted name in the healthcare industry, providing
-              high-quality and affordable medicines across diverse therapeutic
-              areas such as cardiology, gastroenterology, neurology,
-              anti-infectives, and pain management.{" "}
+            Gujarat Heavy Chemicals Ltd. (GHCL), now rebranded as GHCL Ltd., was established in 1983 and has grown to become a leading Indian company in the chemicals and consumer products sectors. Headquartered in Noida, Uttar Pradesh, GHCLs operations span the production of soda ash, which is used in glass, detergents, and other industries, as well as sodium bicarbonate and edible salt.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Alkem boasts a strong domestic presence and is consistently ranked
-              among the top pharmaceutical companies in India in terms of sales.
-              The company also has a significant international footprint, with a
-              presence in over 50 countries, including key markets like the
-              United States, Australia, Europe, and Southeast Asia. Its
-              U.S.-based subsidiary, Ascend Laboratories, is a critical driver
-              of its global growth, contributing substantially to its revenues.{" "}
+            GHCL has diversified over the years and has a robust presence in textiles and consumer products. In 2023, the company completed the demerger of its textile business into a separate entity, GHCL Textiles Ltd., to focus on its core chemical operations. The company emphasizes sustainability and corporate responsibility, adhering to global standards like the UN Sustainable Development Goals.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Research and development (R&D) is a cornerstone of Alkems
-              success, with dedicated facilities focusing on innovation and the
-              development of complex generics, biosimilars, and specialty drugs.
-              The company has over 800 products in its portfolio and continues
-              to invest heavily in R&D to stay competitive in the evolving
-              pharmaceutical landscape.
+            With consistent financial performance, GHCL reported significant growth in revenue and profits in recent years. It is publicly listed on both the Bombay Stock Exchange (BSE) and the National Stock Exchange (NSE), and has maintained a strong credit rating of AA(-) with a stable outlook. GHCLs governance practices aim to enhance stakeholder value through transparency and accountability​
+
             </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-              Alkem operates 21 manufacturing facilities, with several approved
-              by global regulatory bodies like the U.S. FDA and the European
-              Medicines Agency. These facilities ensure adherence to stringent
-              quality standards.
-            </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-              Alkem Laboratories commitment to improving healthcare outcomes,
-              coupled with its innovation-driven approach, has made it a trusted
-              partner in the global pharmaceutical sector, serving millions of
-              patients worldwide.{" "}
-            </p>
+
             <Image
-              src={alkem}
-              alt="alkem Logo"
-              className="mb-6 mx-auto w-[250px] h-[200px]"
+              src={ghcl}
+              alt="ghcl Logo"
+              className="mb-6 mx-auto w-[240px] h-[200px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -350,13 +323,13 @@ export default function UnclaimedsharesAlkemLaboratories() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Alkem Laboratories Ltd.
+                  <b>Registered Name: </b> Gujarat Heavy Chemicals Ltd.
                 </li>
                 <li>
-                  <b>CIN Number: </b> L00305MH1973PLC174201
+                  <b>CIN Number: </b> L24100GJ1983PLC006513
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE540L01014
+                  <b>ISIN Number: </b> INE539A01019
                 </li>
               </ul>
             </section>
@@ -366,153 +339,250 @@ export default function UnclaimedsharesAlkemLaboratories() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Alkem Laboratories Ltd.
+                  Dividend’s History of Gujarat Heavy Chemicals Ltd.
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                      <th className="text-left p-3">Ex-Date</th>
-                      <th className="text-left p-3">Dividend Amount</th>
+                      <th className="text-left p-3">Announcement Date</th>
+                      <th className="text-left p-3">Ex-Dividend Date</th>
                       <th className="text-left p-3">Dividend Type</th>
-                      <th className="text-left p-3">Record Date</th>
+                      <th className="text-left p-3">-</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">09 Aug 2024</td>
-                      <td className="text-gray-600 p-3">5.00</td>
+                      <td className="text-gray-600 p-3">06 May, 2024</td>
+                      <td className="text-gray-600 p-3">01 Jul, 2024</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">10 Aug 2024</td>
+                      <td className="text-gray-600 p-3">12.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        16 Feb 2024
+                      02 May, 2023
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">35.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">INTERIM</td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Feb 2024
+                      23 Jun, 2023
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">17.50</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">10 Aug 2023</td>
+                      <td className="text-gray-600 p-3">02 May, 2022</td>
+                      <td className="text-gray-600 p-3">22 Jun, 2022</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
                       <td className="text-gray-600 p-3">10.00</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">10 Aug 2023</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Feb 2023
+                      03 May, 2022
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">25.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">SPECIAL</td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        18 Feb 2023
+                      22 Jun, 2022
                       </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">17 Feb 2023</td>
-                      <td className="text-gray-600 p-3">15.00</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">18 Feb 2023</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        08 Aug 2022
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        10 Aug 2022
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">10 Feb 2022</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">12 Feb 2022</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        09 Aug 2021
-                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
                       <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">28 Apr, 2021</td>
+                      <td className="text-gray-600 p-3">10 Jun, 2021</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">5.50</td>
+                    </tr>
+                    <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        10 Aug 2021
+                      16 Mar, 2020
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      24 Mar, 2020
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">11 Feb 2021</td>
-                      <td className="text-gray-600 p-3">25.00</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">13 Feb 2022</td>
+                      <td className="text-gray-600 p-3">25 Apr, 2019</td>
+                      <td className="text-gray-600 p-3">22 May, 2019</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      25 Apr, 2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      23 May, 2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 May, 2017</td>
+                      <td className="text-gray-600 p-3">21 Jun, 2017</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        10 Aug 2020
+                      31 Jan, 2017
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      09 Feb, 2017
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">1.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">19 May, 2016</td>
+                      <td className="text-gray-600 p-3">11 Jul, 2016</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">3.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      22 May, 2015
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      15 Jul, 2015
+                      </td>
                       <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        11 Aug 2020
-                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.20</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">13 Feb 2020</td>
-                      <td className="text-gray-600 p-3">22.00</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">15 Feb 2020</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        15 Feb 2019
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">8.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        18 Feb 2019
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">23 Aug 2018</td>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">28 May, 2014</td>
+                      <td className="text-gray-600 p-3">07 Aug, 2014</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">24 Aug 2018</td>
+                      <td className="text-gray-600 p-3">2.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        16 Feb 2018
+                      24 May, 2013
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        20 Feb 2018
+                      12 Sep, 2013
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">31 Aug 2017</td>
-                      <td className="text-gray-600 p-3">9.00</td>
+                      <td className="text-gray-600 p-3">30 May, 2012</td>
+                      <td className="text-gray-600 p-3">06 Sep, 2012</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">01 Sep 2017</td>
+                      <td className="text-gray-600 p-3">2.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        23 Nov 2016
+                      24 Aug, 2011
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">INTERIM</td>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        24 Nov 2016
+                      Final
                       </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">18 Mar 2016</td>
-                      <td className="text-gray-600 p-3">9.70</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">21 Mar 2016</td>
+                      <td className="text-gray-600 p-3">30 May, 2012 </td>
+                      <td className="text-gray-600 p-3">06 Sep, 2012</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.00</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      18 Jul, 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      24 Aug, 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">30 Jul, 2010</td>
+                      <td className="text-gray-600 p-3">06 Sep, 2012</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      18 Jul, 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      24 Aug, 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">30 Jul, 2010</td>
+                      <td className="text-gray-600 p-3">31 Aug, 2010</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      02 Dec, 2009
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      22 Dec, 2009
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">12 May, 2008</td>
+                      <td className="text-gray-600 p-3">02 Sep, 2008</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.40</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      18 Jun, 2007
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      19 Jul, 2007
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.70</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">24 Apr, 2006</td>
+                      <td className="text-gray-600 p-3">08 Jun, 2006</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">2.40</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      23 Jun, 2005
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      18 Aug, 2005
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">02 Aug, 2004</td>
+                      <td className="text-gray-600 p-3">14 Sep, 2004</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">1.50</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      04 Aug, 2003
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      11 Sep, 2003
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.30</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">26 Jul, 2002</td>
+                      <td className="text-gray-600 p-3">09 Sep, 2002</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">2.50</td>
                     </tr>
                   </tbody>
                 </table>
@@ -528,10 +598,7 @@ export default function UnclaimedsharesAlkemLaboratories() {
                 </h2>
               </div>
               <p className="text-gray-500">NA</p>
-              <p className="text-gray-500 text-justify">
-                The company has historically focused on reducing debt and
-                reinvesting profits into its operations and growth initiatives.
-              </p>
+
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -552,59 +619,28 @@ export default function UnclaimedsharesAlkemLaboratories() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Alkem Laboratories Ltd has primarily grown through organic
-                expansion and strategic investments rather than high-profile
-                mergers or amalgamations. However, the company has engaged in
-                select acquisitions and partnerships to strengthen its market
-                position and global presence. Heres an overview of Alkem key
-                mergers and acquisitions:
-              </p>
-              <div>
-                <ul className="text-[#00000099] leading-6 mb-6 text-justify">
-                  <b>1. Ascend Laboratories (2008)</b>
-                  <li>
-                    Alkem established its wholly-owned subsidiary, Ascend
-                    Laboratories, in the United States. This was a strategic
-                    move to enter the lucrative U.S. generic drug market.
-                    Through Ascend, Alkem markets and distributes its products,
-                    which form a significant part of its international revenue.
-                  </li>
 
-                  <b>2. Enzene Biosciences (2014)</b>
-                  <li>
-                    Alkem acquired Enzene Biosciences, a biotechnology company
-                    focused on biosimilars, biologics, and novel drug delivery
-                    platforms. This acquisition marked Alkems entry into the
-                    biopharmaceutical segment and reinforced its R&D
-                    capabilities.
-                  </li>
+              <div className="text-[#00000099] leading-6 mb-6 text-justify">
+                <li>
+                Gujarat Heavy Chemicals Limited (GHCL) has undergone several corporate restructuring events in its history. A notable merger involved the amalgamation of Sree Meenakshi Mills, a textile company, with GHCL in the early 2000s. This move allowed GHCL to leverage tax benefits, integrate Sree Meenakshi Mills rich asset base into its balance sheet, and gain from its positive cash flows. 
+                </li>
 
-                  <b>3. Pharmaforce, Inc. (2019)</b>
-                  <li>
-                    Alkem acquired Pharmaforce, Inc., a U.S.-based contract
-                    development and manufacturing organization (CDMO). This
-                    acquisition was aimed at bolstering its injectables business
-                    and expanding its capabilities in the development of complex
-                    formulations for the U.S. market.
-                  </li>
+                <li>
+                  Uniflex Cables Limited Merger: Uniflex Cables Limited, a key
+                  player in the cable manufacturing sector, was amalgamated with
+                  Apar Industries. This move enhanced Apars cable segment
+                  capabilities, focusing on its diversification strategy
+                </li>
 
-                  <b>4. Cachet Pharmaceuticals (2010s)</b>
-                  <li>
-                    Alkem integrated Cachet Pharmaceuticals, a domestic
-                    subsidiary, to strengthen its position in Indias
-                    prescription drug market. Cachet specializes in high-quality
-                    pharmaceutical formulations.
-                  </li>
+                <li>
+                This merger expanded GHCL’s portfolio to include textiles alongside its core soda ash business
+In recent years, GHCL underwent a demerger of its home textiles business, which was carved out into a separate entity, GHCL Textiles Ltd. This restructuring, approved in 2020, aimed to streamline its operations by separating the chemicals and textiles segments. The demerger enabled better focus on the core soda ash business while allowing the newly formed textiles entity to concentrate on its independent growth strategies
 
-                  <b>5. Small Acquisitions for Market Expansion</b>
-                  <li>
-                    Over the years, Alkem has made smaller acquisitions in
-                    international markets to enhance its geographic footprint
-                    and product portfolio, particularly in Southeast Asia,
-                    Australia, and Europe.
-                  </li>
-                </ul>
+                </li>
+
+                <li>
+                Such strategic decisions highlight GHCL’s approach to enhancing operational efficiency and creating long-term value for stakeholders.
+                </li>
               </div>
             </section>
 
@@ -612,17 +648,11 @@ export default function UnclaimedsharesAlkemLaboratories() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Physical Shares of Alkem Laboratories Ltd.
+                  Physical Shares of Gujarat Heavy Chemicals Ltd.
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Physical shares of Alkem Laboratories Ltd. are no longer
-                eligible for trading on stock exchanges as per SEBI regulations
-                implemented on April 1, 2019. Investors holding such shares must
-                dematerialize them to trade or transfer ownership.
-                Dematerialization involves converting physical share
-                certificates into an electronic format through a Demat account
-                held with a Depository Participant (DP).
+              Physical shares of Gujarat Heavy Chemicals Ltd. (GHCL) refer to the traditional paper-based share certificates issued to investors as proof of ownership. Before the adoption of electronic trading systems, physical shares were the standard method for recording shareholder ownership in companies.
               </p>
             </section>
 
@@ -630,26 +660,11 @@ export default function UnclaimedsharesAlkemLaboratories() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700 ">
-                  Unclaimed Shares and Dividends of Alkem Laboratories Ltd.{" "}
+                Unclaimed Shares and Dividends of Gujarat Heavy Chemicals Ltd. Transferred to IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Alkem Laboratories Ltd., in accordance with the Investor
-                Education and Protection Fund (IEPF) regulations, has been
-                transferring equity shares to the IEPF if dividends remain
-                unclaimed for seven consecutive years. As per the rules under
-                the Companies Act, 2013, shares of individuals who have not
-                claimed their dividends for seven years are moved to the IEPF
-                demat account.
-              </p>
-              <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                For instance, unclaimed dividends and shares for financial years
-                2014-15 and beyond are being transferred, with a specific cutoff
-                date. If the dividends have not been claimed by shareholders,
-                their respective shares will be transferred to IEPF, and the
-                original share certificates become void and non-negotiable.
-                Affected shareholders are notified, and are given the chance to
-                claim unclaimed dividends before the transfer happens.
+              Pursuant to the applicable provisions of the Companies Act, 2013 and the provisions of Investor Education and Protection Fund Authority (Accounting, Audit, Transfer and Refund) Rules, 2016 (“the Rules”) notified by the Ministry of Corporate affairs effective September 7, 2016, all unpaid or unclaimed dividends are required to be transferred by the Company to the Investor Education and Protection Fund (“IEPF”) established by the Central Government, after completion of seven years. The Rules, inter alia, contain provisions for transfer of all shares in respect of which dividend has not been paid or claimed by the shareholders for seven consecutive years or more in the name of IEPF suspense account.
               </p>
             </section>
 
@@ -657,12 +672,11 @@ export default function UnclaimedsharesAlkemLaboratories() {
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                  FAQ about unclaimed shares of Alkem Laboratories Ltd.
-                </h2>
+                FAQs about unclaimed shares of Gujarat Heavy Chemicals Ltd.                </h2>
               </div>
             </section>
 
-            <FaqAlkem />
+            <FaqAparm />
 
             <section id="company-details" className="p-4 mt-8">
               {/* Header Section */}
@@ -761,7 +775,7 @@ export default function UnclaimedsharesAlkemLaboratories() {
                 <a href="#faq">FAQ</a>
               </li>
               <li
-                className={`hover:bg-gray-200 p-2 rounded-md text-[15px] ${
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
                   activeSection === "company-details" ? "bg-gray-300" : ""
                 }`}
               >

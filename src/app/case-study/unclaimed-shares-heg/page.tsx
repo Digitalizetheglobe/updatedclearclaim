@@ -2,12 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import grindwell from "../../../../public/casestudy/grindwell.jpg";
+import heg from "../../../../public/casestudy/heg.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
+import phone from "../../../../public/images/phone.png";
+import email from "../../../../public/images/mail-02.png";
+import pin from "../../../../public/images/marker-pin-01.png";
 import { useEffect, useState, useRef } from "react";
+import FaqAparm from "../unclaimed-shares-apar-industries/faqapar";
 
-export default function GrindwellNortonLimited() {
+export default function UnclaimedsharesHEG() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -171,11 +175,18 @@ export default function GrindwellNortonLimited() {
       name: "HEG Limited",
       path: "/case-study/unclaimed-shares-heg",
     },
+
     {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
   ];
+
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -291,51 +302,45 @@ export default function GrindwellNortonLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-              Grindwell
-              <span className="text-green-600"> Norton Limited </span>
+              Unclaimed Shares of
+              <span className="text-green-600"> HEG Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton Limited (GNL) is an Indian multinational company
-              primarily engaged in the manufacturing of abrasives, ceramics, and
-              other related products. Founded in 1941, the company is a part of
-              the Saint-Gobain Group, a global leader in building materials. GNL
-              has built a strong reputation in the industrial sector, offering a
-              wide range of high-quality products used in various industries,
-              including automotive, construction, aerospace, metalworking, and
-              defense.
+              HEG Limited is a leading global manufacturer and exporter of
+              graphite electrodes, which are critical components used in
+              electric arc furnaces for steel production. Founded in 1977, the
+              company is headquartered in Bhopal, Madhya Pradesh, India, and
+              operates one of the world’s largest single-site graphite electrode
+              manufacturing facilities in Mandideep, with a capacity of 80,000
+              metric tons per annum.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              The companys product portfolio includes grinding wheels, coated
-              abrasives, non-woven products, super abrasives, and refractories.
-              These products are vital for processes such as cutting, grinding,
-              polishing, and surface finishing, contributing significantly to
-              manufacturing efficiency and precision.
+              HEG specializes in the production of ultra-high power (UHP) and
+              high-power (HP) graphite electrodes, catering to the growing
+              demand from the steel and metal industries worldwide. Its
+              operations are vertically integrated, encompassing key processes
+              like needle coke procurement, impregnation, baking, and machining.
+              The company exports over 70% of its production to more than 30
+              countries, including the U.S., Europe, and Asia.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton is recognized for its innovation and commitment
-              to quality. The company operates several manufacturing plants
-              across India and has an extensive distribution network, ensuring a
-              strong market presence. It also focuses on research and
-              development (R&D), continuously improving its product offerings to
-              meet the evolving needs of its customers.
+              Known for its focus on innovation and sustainability, HEG invests
+              significantly in research and development to enhance efficiency
+              and reduce its carbon footprint. It has consistently delivered
+              strong financial performance, benefiting from global trends like
+              increasing steel production through electric arc furnaces, which
+              are more environmentally friendly.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              In addition to its industrial products, Grindwell Norton is
-              dedicated to sustainability. The company has implemented several
-              environmentally friendly practices in its manufacturing processes
-              and strives to reduce its carbon footprint.
+              HEG Limited is listed on major Indian stock exchanges and
+              continues to maintain its position as a market leader, driven by
+              operational excellence, quality, and customer-centricity.
             </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-              With a long-standing presence in the market, Grindwell Norton
-              Limited continues to strengthen its position as a leader in the
-              abrasives and ceramics industries in India and globally. Its
-              expertise, customer-centric approach, and continuous innovations
-              make it a trusted partner for industrial solutions.
-            </p>
+
             <Image
-              src={grindwell}
-              alt="grindwell Logo"
-              className="mb-6 mx-auto w-[370px] h-[200px]"
+              src={heg}
+              alt="heg Logo"
+              className="mb-6 mx-auto w-[300px] h-[220px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -347,15 +352,13 @@ export default function GrindwellNortonLimited() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b>
-                  Grindwell Norton Limited
+                  <b>Registered Name: </b> HEG Ltd.
                 </li>
                 <li>
-                  <b>CIN Number: </b>
-                  L26593MH1950PLC008163
+                  <b>CIN Number: </b> L23109MP1972PLC008290
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE536A01023
+                  <b>ISIN Number: </b> INE545A01024
                 </li>
               </ul>
             </section>
@@ -365,105 +368,180 @@ export default function GrindwellNortonLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Grindwell Norton Limited
+                  Dividend’s History of HEG Ltd.
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
+                      <th className="text-left p-3">Announcement Date</th>
                       <th className="text-left p-3">Ex-Dividend Date</th>
                       <th className="text-left p-3">Dividend Type</th>
-                      <th className="text-left p-3">Dividend (Rs)</th>
+                      <th className="text-left p-3">-</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">09 Jul, 2024</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">17.00</td>
+                      <td className="text-gray-600 p-3">22 May, 2024</td>
+                      <td className="text-gray-600 p-3">31 Jul, 2024</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">22.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        04 Aug, 2023
+                        22 May, 2023
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        24 Aug, 2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">42.50</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">19 Jul, 2022</td>
+                      <td className="text-gray-600 p-3">25 May, 2022</td>
+                      <td className="text-gray-600 p-3">24 Aug, 2022</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">40.00</td>
                     </tr>
                     <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        27 May, 2021
+                      </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                         19 Jul, 2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">9.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">16 Jul, 2020</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">7.50</td>
+                      <td className="text-gray-600 p-3">06 Feb, 2020</td>
+                      <td className="text-gray-600 p-3">17 Feb, 2020</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">25.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Jul, 2019
+                        20 May, 2019
                       </td>
-
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        09 Aug, 2019
+                      </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">6.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">50.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">18 Jul, 2018</td>
-                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">26 Oct, 2018</td>
+                      <td className="text-gray-600 p-3">12 Nov, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">30.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        08 May, 2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        13 Jul, 2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">50.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">06 Feb, 2018</td>
+                      <td className="text-gray-600 p-3">15 Feb, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">30.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        14 May, 2015
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        14 Sep, 2015{" "}
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">21 Apr, 2014</td>
+                      <td className="text-gray-600 p-3">14 Aug, 2014</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">6.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        03 May, 2013
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        06 Sep, 2013
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">8.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">29 Apr, 2011</td>
+                      <td className="text-gray-600 p-3">02 Sep, 2011</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
                       <td className="text-gray-600 p-3">5.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Jul, 2017
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        13 Jun, 2008
                       </td>
-
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        17 Sep, 2008
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22 Mar, 2016</td>
+                      <td className="text-gray-600 p-3">31 Dec, 2007</td>
+                      <td className="text-gray-600 p-3">11 Jan, 2008</td>
                       <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">6.50</td>
+                      <td className="text-gray-600 p-3">7.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        24 Jul, 2015
+                        27 Apr, 2007
                       </td>
-
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        18 Sep, 2007
+                      </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.50</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">5.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">09 May, 2016</td>
-                      <td className="text-gray-600 p-3">07 Sep, 2016</td>
+                      <td className="text-gray-600 p-3">27 Apr, 2006</td>
+                      <td className="text-gray-600 p-3">13 Sep, 2006</td>
                       <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.00</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        02 May, 2005
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        22 Sep, 2005
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">04 May, 2004</td>
+                      <td className="text-gray-600 p-3">04 May, 2004</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                        17 Jun, 2011
+                        22 Aug, 2003
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">22 Mar, 2007</td>
-                      <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">3.50</td>
-                    </tr>
-                    <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      20 Mar, 2006
+                        18 Sep, 2003
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">11.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">2.20</td>
                     </tr>
                   </tbody>
                 </table>
@@ -481,41 +559,19 @@ export default function GrindwellNortonLimited() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
+                    <th className="text-left p-3">Announcement Date</th>
                     <th className="text-left p-3">Ex-Bonus Date</th>
                     <th className="text-left p-3">Bonus Ratio</th>
-                    <th className="text-left p-3">Remarks</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">14 Jul, 2016</td>
+                    <td className="text-gray-600 p-3">27 Jul, 1994</td>
+                    <td className="text-gray-600 p-3">25 Nov, 1994</td>
                     <td className="text-gray-600 p-3">1:1</td>
-
-                    <td className="text-gray-600 p-3">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3 bg-gray-100">26 May, 2006</td>
-                    <td className="text-gray-600 p-3 bg-gray-100">1:1</td>
-
-                    <td className="text-gray-600 p-3 bg-gray-100">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">02 Sep, 1996</td>
-                    <td className="text-gray-600 p-3">1:1</td>
-
-                    <td className="text-gray-600 p-3">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
                   </tr>
                 </tbody>
-              </table>{" "}
+              </table>
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -529,20 +585,18 @@ export default function GrindwellNortonLimited() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
-                   
+                    <th className="text-left p-3">Announcement Date</th>
                     <th className="text-left p-3">Ex-Split Date</th>
                     <th className="text-left p-3">Old FV</th>
                     <th className="text-left p-3">New FV</th>
-                    <th className="text-left p-3">Remarks</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">26 May, 2006</td>
+                    <td className="text-gray-600 p-3">13 Aug, 2024</td>
+                    <td className="text-gray-600 p-3">18 Oct, 2024</td>
                     <td className="text-gray-600 p-3">10</td>
-                    <td className="text-gray-600 p-3">5</td>
-                    <td className="text-gray-600 p-3">
-                    For every share held, the holder will receive 2 shares post the split adjustment.                    </td>
+                    <td className="text-gray-600 p-3">2</td>
                   </tr>
                 </tbody>
               </table>
@@ -556,80 +610,86 @@ export default function GrindwellNortonLimited() {
                 </h2>
               </div>
 
-              <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton Ltd. (GNO), a Saint-Gobain Group company in India, has completed the acquisition of PRS Permacel Pvt. Ltd., a manufacturer of speciality adhesive tape and label solutions, from the PRS Group, founded by the Premchand family in 1856. This acquisition will facilitate its seamless integration with GNO’s Composite Systems business unit. 
-              </p>
-              <p className="mb-6 text-[#00000099] text-justify">
-              PRS Permacel develops and markets a wide range of adhesive tape and thermal insulation solutions for the industrial, railways & metro, two wheelers and EV markets. The company has a manufacturing facility in Ambernath near Mumbai and employs 176 people.  
-              </p>
+              <ul className="text-[#00000099] leading-6 mb-6 text-justify">
+                <li>
+                  Bhilwara Energy Limited shareholders will receive eight (8)
+                  fully paid-up equity shares of ₹10 each in the merged HEG
+                  Limited for every thirty-five (35) equity shares of ₹10 each
+                  held in Bhilwara Energy Limited.
+                </li>
+              </ul>
+            </section>
+            <section id="demerger" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700 ">Demerger </h2>
+              </div>
 
-             
+              <ul className="text-[#00000099] leading-6 mb-6 text-justify">
+                <li>
+                  Shareholders of HEG Limited will receive one (1) fully paid-up
+                  equity share of ₹10 each in the resulting graphite business
+                  company for every one (1) equity share of ₹10 each held in HEG
+                  Limited.
+                </li>
+              </ul>
+            </section>
+
+            <section id="physical-shares" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700 ">
+                  Physical Shares of HEG Ltd.
+                </h2>
+              </div>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+                Physical shares of HEG Ltd. are no longer eligible for trading
+                on stock exchanges as per SEBI regulations implemented on April
+                1, 2019. Investors holding such shares must dematerialize them
+                to trade or transfer ownership. Dematerialization involves
+                converting physical share certificates into an electronic format
+                through a Demat account held with a Depository Participant (DP).
+              </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
-                <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Grindwell Norton Limited are in IEPF 
+                <h2 className="text-2xl text-gray-700 ">
+                  Unclaimed Shares and Dividends of HEG Ltd. Transferred to IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
+                HEG Limited, in accordance with the Investor Education and
+                Protection Fund (IEPF) regulations, has been transferring equity
+                shares to the IEPF if dividends remain unclaimed for seven
+                consecutive years. As per the rules under the Companies Act,
+                2013, shares of individuals who have not claimed their dividends
+                for seven years are moved to the IEPF’s demat account.
               </p>
-            </section>
-
-            <section id="why-my-Share" className="mt-8 bg-white p-6 ">
-              <div className="flex gap-4 items-center mb-4">
-                <Image src={tick} alt="tick" className="w-6 h-6" />
-                <h2 className="text-2xl text-gray-700">
-                Why my shares of Grindwell Norton Limited are in IEPF?
-                </h2>
-              </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
+                For instance, unclaimed dividends and shares for financial years
+                2014-15 and beyond are being transferred, with a specific cutoff
+                date. If the dividends have not been claimed by shareholders,
+                their respective shares will be transferred to IEPF, and the
+                original share certificates become void and non-negotiable.
+                Affected shareholders are notified, and are given the chance to
+                claim unclaimed dividends before the transfer happens.
               </p>
             </section>
 
-            <section id="how-can-claim" className="mt-8 p-6 ">
-              <div className="flex gap-4 items-center mb-5">
+            <section id="faq" className="mt-8 p-6 ">
+              <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                  How can I claim IEPF Shares?
+                  FAQs about unclaimed shares of Heg Ltd.
                 </h2>
-              </div>
-              <div className="">
-                <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                  If you want to claim your IEPF shares{" "}
-                  <b>
-                    <i>CLEARCLAIM VENTURES PRIVATE LIMITED</i>
-                  </b>{" "}
-                  can help you recover them.
-                  <br />
-                  <b>
-                    <i>
-                      {" "}
-                      Clearclaim Ventures Private Limited helps you to recover
-                      your old shares which you cannot access due to several
-                      reasons. Clearclaim ventures private limited has recovered
-                      immense number of IEPF shares smoothly.
-                    </i>
-                  </b>
-                 
-                  <br />
-                  You can visit us at- Office No. C 201, Vantage Tower by Bramha
-                  Corp, NDA Pashan Rd, Ram Nagar, Bavdhan, Pune, Maharashtra
-                  411021
-                </p>
-                <Link
-                  className="text-md text-[#00000099] "
-                  href="https://www.clearclaim.in/"
-                >
-                  https://www.clearclaim.in/
-                </Link>
               </div>
             </section>
 
-            <section id="company-details" className="p-4 mt-4">
+            <FaqAparm />
+
+            <section id="company-details" className="p-4 mt-8">
               {/* Header Section */}
               <div className="flex items-center gap-4 mb-4 ">
                 <Image src={tick} alt="file" className="w-5 h-6" />
@@ -637,21 +697,31 @@ export default function GrindwellNortonLimited() {
               </div>
 
               {/* Numbers with Icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-4">
-                <div className="flex flex-col gap-2">
-                  {/* First Text */}
-                  <p className="text-md text-[#00000099]">
-                  Grindwell Norton Limited 
-                  </p>
-
-                  {/* Link */}
-                  <Link
-                    className="text-md text-[#00000099] "
-                    href="https://www.grindwellnorton.co.in/"
-                  >
-                    https://www.grindwellnorton.co.in/
-                  </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                <div className="flex items-center gap-2">
+                  <Image src={phone} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099]">+91 9156701900</p>
                 </div>
+                <div className="flex items-center gap-2">
+                  <Image src={phone} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099] ">+91 9970651900</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Image src={email} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099] ">
+                    sales@clearclaim.in
+                  </p>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex gap-2">
+                <Image src={pin} alt="file" className="w-4 h-4" />
+                <p className="text-md text-[#00000099]">
+                  Office No C-201, 2nd Floor, Vantage Tower, Bramha Corp,
+                  Opposite to Bavdhan Police Chowky, NDA Pashan Road, Bavdhan,
+                  Pune – 411021
+                </p>
               </div>
             </section>
           </main>
@@ -681,7 +751,7 @@ export default function GrindwellNortonLimited() {
                 <a href="#bonus">Bonus</a>
               </li>
               <li
-                className={`hover:bg-gray-200 p-2 rounded-mdtext-[15px] ${
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
                   activeSection === "split" ? "bg-gray-300" : ""
                 }`}
               >
@@ -694,7 +764,20 @@ export default function GrindwellNortonLimited() {
               >
                 <a href="#mergers-amalgamation">Mergers / Amalgamation</a>
               </li>
-
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "demerger" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#demerger">Demerger</a>
+              </li>
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "physical-shares" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#physical-shares">Physical Shares</a>
+              </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
                   activeSection === "unclaimed-shares" ? "bg-gray-300" : ""
@@ -704,20 +787,10 @@ export default function GrindwellNortonLimited() {
               </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
-                  activeSection === "why-my-Share" ? "bg-gray-300" : ""
+                  activeSection === "faq" ? "bg-gray-300" : ""
                 }`}
               >
-                <a href="#why-my-Share">
-                  Why my shares of Grindwell Norton Limited are
-                  in IEPF?
-                </a>
-              </li>
-              <li
-                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
-                  activeSection === "how-can-claim" ? "bg-gray-300" : ""
-                }`}
-              >
-                <a href="#how-can-claim">How can I claim IEPF Shares?</a>
+                <a href="#faq">FAQ</a>
               </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${

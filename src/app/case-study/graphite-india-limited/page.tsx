@@ -144,18 +144,39 @@ export default function GraphiteIndiaLimited() {
       path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
     },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
+  
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -271,21 +292,43 @@ export default function GraphiteIndiaLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            Graphite 
+              Graphite
               <span className="text-green-600"> India Limited </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Graphite India Limited (GIL) is one of India's leading manufacturers of graphite and carbon products. Established in 1974, the company has earned a strong reputation for its high-quality products and innovative solutions in the field of graphite-based materials. With a diverse portfolio, GIL caters to industries such as steel, automotive, electrical, and industrial applications. Its main products include graphite electrodes, carbon electrodes, and other graphite-based items used in various sectors including the production of steel, power generation, and aluminum.
+              Graphite India Limited (GIL) is one of Indias leading
+              manufacturers of graphite and carbon products. Established in
+              1974, the company has earned a strong reputation for its
+              high-quality products and innovative solutions in the field of
+              graphite-based materials. With a diverse portfolio, GIL caters to
+              industries such as steel, automotive, electrical, and industrial
+              applications. Its main products include graphite electrodes,
+              carbon electrodes, and other graphite-based items used in various
+              sectors including the production of steel, power generation, and
+              aluminum.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The company operates several manufacturing plants in India, strategically located to serve domestic and international markets. Its manufacturing units are equipped with state-of-the-art technology, ensuring the production of high-performance products that meet global standards. The company is also involved in research and development, continually enhancing its products and processes to meet the evolving needs of the market.
+              The company operates several manufacturing plants in India,
+              strategically located to serve domestic and international markets.
+              Its manufacturing units are equipped with state-of-the-art
+              technology, ensuring the production of high-performance products
+              that meet global standards. The company is also involved in
+              research and development, continually enhancing its products and
+              processes to meet the evolving needs of the market.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Graphite India Limited’s key strength lies in its ability to offer customized solutions and maintain a solid customer base worldwide. Its commitment to sustainability and eco-friendly practices is evident in its operations, as the company prioritizes reducing environmental impact through responsible manufacturing processes.
-
+              Graphite India Limiteds key strength lies in its ability to offer
+              customized solutions and maintain a solid customer base worldwide.
+              Its commitment to sustainability and eco-friendly practices is
+              evident in its operations, as the company prioritizes reducing
+              environmental impact through responsible manufacturing processes.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Apart from its focus on high-quality products, Graphite India has also been recognized for its excellent corporate governance practices. The company’s shares are listed on the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE), making it a significant player in the Indian capital market.
+              Apart from its focus on high-quality products, Graphite India has
+              also been recognized for its excellent corporate governance
+              practices. The companys shares are listed on the Bombay Stock
+              Exchange (BSE) and National Stock Exchange (NSE), making it a
+              significant player in the Indian capital market.
             </p>
 
             <Image
@@ -339,7 +382,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      20 Jul, 2023
+                        20 Jul, 2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
                       <td className="text-gray-600 bg-gray-100 p-3">8.50</td>
@@ -351,7 +394,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      09 Aug, 2021
+                        09 Aug, 2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
                       <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
@@ -363,7 +406,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      20 Jun, 2019
+                        20 Jun, 2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
                       <td className="text-gray-600 bg-gray-100 p-3">35.00</td>
@@ -375,7 +418,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      26 Jul, 2018
+                        26 Jul, 2018
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
                       <td className="text-gray-600 bg-gray-100 p-3">12.00</td>
@@ -387,7 +430,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      27 Jul, 2017
+                        27 Jul, 2017
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
@@ -399,7 +442,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      03 Aug, 2015
+                        03 Aug, 2015
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">2.00</td>
@@ -411,7 +454,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      18 Jul, 2013
+                        18 Jul, 2013
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">3.50</td>
@@ -424,7 +467,7 @@ export default function GraphiteIndiaLimited() {
 
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      07 Jul, 2011
+                        07 Jul, 2011
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">3.50</td>
@@ -436,7 +479,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      21 Jul, 2009
+                        21 Jul, 2009
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
@@ -448,7 +491,7 @@ export default function GraphiteIndiaLimited() {
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      11 Jul, 2008
+                        11 Jul, 2008
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
                       <td className="text-gray-600 p-3 bg-gray-100">3.00</td>
@@ -461,8 +504,6 @@ export default function GraphiteIndiaLimited() {
                   </tbody>
                 </table>
               </div>
-
-            
             </section>
 
             <section id="bonus" className="bg-white p-4 mt-6">
@@ -498,7 +539,10 @@ export default function GraphiteIndiaLimited() {
                     <td className="text-gray-600 p-3">11 Dec, 2006</td>
                     <td className="text-gray-600 p-3">10</td>
                     <td className="text-gray-600 p-3">2</td>
-                    <td className="text-gray-600 p-3">For every share held, the holder will receive 5 shares post the split adjustment.</td>
+                    <td className="text-gray-600 p-3">
+                      For every share held, the holder will receive 5 shares
+                      post the split adjustment.
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -519,11 +563,23 @@ export default function GraphiteIndiaLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Graphite India Limited are in IEPF 
+                  Unclaimed Shares and Dividends Of Graphite India Limited are
+                  in IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
+                The Central Government introduced the Investor Education and
+                Protection Fund (IEPF) to protect investors’ interests and
+                promote awareness. It is established under Section 125 of the
+                Companies Act, 2013 (Act). The unpaid or unclaimed amounts
+                belonging to a company’s investors are pooled and credited into
+                the IEPF. The IEPF funds are utilized for various purposes as
+                provided under the Act. The IEPFA Authority is entrusted with
+                the responsibility of administration of the Investor Education
+                Protection Fund (IEPF), making refunds of shares, unclaimed
+                dividends, matured deposits/debentures etc. to investors,
+                promoting awareness among investors, and protecting the
+                interests of the investors.
               </p>
             </section>
 
@@ -531,11 +587,18 @@ export default function GraphiteIndiaLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Graphite India Limited are in IEPF?
+                  Why my shares of Graphite India Limited are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
+                Before transferring the shares to IEPF the company has to notify
+                the shareholder by sending letter to the registered address of
+                the shareholder. The company also has to notify by giving a
+                public notification in the newspaper. If the shareholder doesn’t
+                communicate back, the company can transfer the shares to IEPF.
+                The company transfers the shares to IEPF when the dividends of
+                seven or more consecutive years are not claimed by the
+                shareholder.
               </p>
             </section>
 
@@ -589,15 +652,15 @@ export default function GraphiteIndiaLimited() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Graphite India Limited 
-                   </p>
+                    Graphite India Limited
+                  </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
                     href="https://www.graphiteindia.com/ "
                   >
-                  https://www.graphiteindia.com/ 
+                    https://www.graphiteindia.com/
                   </Link>
                 </div>
               </div>
@@ -656,7 +719,7 @@ export default function GraphiteIndiaLimited() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my shares of Glaxosmithkline Pharmaceuticals Limited are
+                  Why my shares of Graphite India Limited are
                   in IEPF?
                 </a>
               </li>

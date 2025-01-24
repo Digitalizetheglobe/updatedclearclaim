@@ -128,23 +128,56 @@ export default function UnclaimedsharesFinolexIndustries() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
+    {
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
+  
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -266,10 +299,10 @@ export default function UnclaimedsharesFinolexIndustries() {
             <p className="mb-6 text-[#00000099] text-justify">
             GE Vernova T&D India Ltd. is a subsidiary of General Electric (GE), a global leader in technology and infrastructure. The company operates in the transmission and distribution (T&D) sector in India, which involves the delivery and management of electrical power from generation plants to consumers. GE Vernova T&D India focuses on providing innovative solutions for the modernization, automation, and efficiency enhancement of power grids across the country.            </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The company's offerings include advanced grid solutions, digital substations, and smart technologies designed to optimize energy delivery and reduce downtime. With a strong emphasis on sustainability and decarbonization, GE Vernova T&D India is committed to helping India meet its energy goals, including the integration of renewable energy sources into the grid. The company’s technologies enable utilities to better monitor and control power distribution, ensuring reliability and efficiency.
+            The companys offerings include advanced grid solutions, digital substations, and smart technologies designed to optimize energy delivery and reduce downtime. With a strong emphasis on sustainability and decarbonization, GE Vernova T&D India is committed to helping India meet its energy goals, including the integration of renewable energy sources into the grid. The company’s technologies enable utilities to better monitor and control power distribution, ensuring reliability and efficiency.
                         </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            As part of GE Vernova, which is GE’s global energy business, the company contributes to a larger vision of driving the transition to clean energy and supporting industries with sustainable energy solutions. GE Vernova T&D India plays a vital role in strengthening the country's infrastructure, focusing on smart grid technology, grid automation, and power quality management.
+            As part of GE Vernova, which is GE’s global energy business, the company contributes to a larger vision of driving the transition to clean energy and supporting industries with sustainable energy solutions. GE Vernova T&D India plays a vital role in strengthening the countrys infrastructure, focusing on smart grid technology, grid automation, and power quality management.
                         </p>
             <p className="mb-6 text-[#00000099] text-justify">
             With its expertise in electrical engineering and deep understanding of the local market, GE Vernova T&D India is positioned as a key player in transforming India’s power sector, contributing to the nation’s economic growth and energy security.

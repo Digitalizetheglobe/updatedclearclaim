@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import grindwell from "../../../../public/casestudy/grindwell.jpg";
+import hindustanaeronatues from "../../../../public/casestudy/hidustanaeronates.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import { useEffect, useState, useRef } from "react";
 
-export default function GrindwellNortonLimited() {
+export default function HindustanAeronauticsLimited() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -291,51 +291,48 @@ export default function GrindwellNortonLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-              Grindwell
-              <span className="text-green-600"> Norton Limited </span>
+              Hindustan
+              <span className="text-green-600"> Aeronautics Limited </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton Limited (GNL) is an Indian multinational company
-              primarily engaged in the manufacturing of abrasives, ceramics, and
-              other related products. Founded in 1941, the company is a part of
-              the Saint-Gobain Group, a global leader in building materials. GNL
-              has built a strong reputation in the industrial sector, offering a
-              wide range of high-quality products used in various industries,
-              including automotive, construction, aerospace, metalworking, and
-              defense.
+              Hindustan Aeronautics Limited (HAL) is an Indian state-owned
+              aerospace and defense company, primarily involved in the design,
+              manufacture, and maintenance of aircraft, helicopters, and related
+              systems. Founded in 1940 as Hindustan Aircraft Limited, the
+              company was later renamed HAL in 1964. Headquartered in Bengaluru,
+              Karnataka, HAL is a significant player in Indias defense industry
+              and has played a vital role in the development of the nations
+              aerospace capabilities.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              The companys product portfolio includes grinding wheels, coated
-              abrasives, non-woven products, super abrasives, and refractories.
-              These products are vital for processes such as cutting, grinding,
-              polishing, and surface finishing, contributing significantly to
-              manufacturing efficiency and precision.
+              HAL designs and manufactures a wide range of products, including
+              military aircraft, helicopters, and avionics systems. Notable
+              aircraft developed by HAL include the Tejas, a lightweight,
+              multi-role supersonic fighter, and the Dhruv helicopter, which has
+              seen widespread use in both military and civilian applications.
+              The company also collaborates with global aerospace giants like
+              Boeing, Airbus, and Lockheed Martin for the production of various
+              aircraft components and systems.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton is recognized for its innovation and commitment
-              to quality. The company operates several manufacturing plants
-              across India and has an extensive distribution network, ensuring a
-              strong market presence. It also focuses on research and
-              development (R&D), continuously improving its product offerings to
-              meet the evolving needs of its customers.
+              Apart from manufacturing, HAL is also involved in maintenance,
+              repair, and overhaul (MRO) services, supporting both Indian and
+              international customers. It has played a crucial role in Indias
+              self-reliance in defense technology, contributing to the nation’s
+              defense preparedness and strategic independence.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-              In addition to its industrial products, Grindwell Norton is
-              dedicated to sustainability. The company has implemented several
-              environmentally friendly practices in its manufacturing processes
-              and strives to reduce its carbon footprint.
+              With a vast network of facilities and skilled workforce, HAL
+              continues to be an essential part of India’s aerospace and defense
+              ecosystem. It is also a major contributor to the Indian
+              governmentsMake in India; initiative, aimed at boosting domestic
+              manufacturing and technological innovation.
             </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-              With a long-standing presence in the market, Grindwell Norton
-              Limited continues to strengthen its position as a leader in the
-              abrasives and ceramics industries in India and globally. Its
-              expertise, customer-centric approach, and continuous innovations
-              make it a trusted partner for industrial solutions.
-            </p>
+
             <Image
-              src={grindwell}
-              alt="grindwell Logo"
-              className="mb-6 mx-auto w-[370px] h-[200px]"
+              src={hindustanaeronatues}
+              alt="hindustanaero Logo"
+              className="mb-6 mx-auto w-[400px] h-[250px]"
             />
             <section className="bg-white p-4 ">
               <div className="flex gap-4">
@@ -348,14 +345,13 @@ export default function GrindwellNortonLimited() {
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
                   <b>Registered Name: </b>
-                  Grindwell Norton Limited
+                  Hindustan Aeronautics Limited
                 </li>
                 <li>
-                  <b>CIN Number: </b>
-                  L26593MH1950PLC008163
+                  <b>CIN Number: </b> U35301KA1963GOI001622
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE536A01023
+                  <b>ISIN Number: </b> INE066F01020
                 </li>
               </ul>
             </section>
@@ -365,7 +361,7 @@ export default function GrindwellNortonLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Grindwell Norton Limited
+                  Dividend’s History of Hindustan Aeronautics Limited.
                 </h2>
               </div>
               <div className="overflow-x-auto">
@@ -379,91 +375,91 @@ export default function GrindwellNortonLimited() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">09 Jul, 2024</td>
+                      <td className="text-gray-600 p-3">21 Aug, 2024</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">17.00</td>
+                      <td className="text-gray-600 p-3">13.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        04 Aug, 2023
+                        20 Feb, 2024
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">19 Jul, 2022</td>
+                      <td className="text-gray-600 p-3">24 Aug, 2023</td>
                       <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">15.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                        19 Jul, 2021
+                        20 Mar, 2023
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">9.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">20.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">16 Jul, 2020</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">7.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Jul, 2019
-                      </td>
-
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">6.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">18 Jul, 2018</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        17 Jul, 2017
-                      </td>
-
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">22 Mar, 2016</td>
+                      <td className="text-gray-600 p-3">18 Nov, 2022</td>
                       <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">6.50</td>
+                      <td className="text-gray-600 p-3">20.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        24 Jul, 2015
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        19 Aug, 2022
                       </td>
-
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">09 May, 2016</td>
-                      <td className="text-gray-600 p-3">07 Sep, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                        17 Jun, 2011
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">22 Mar, 2007</td>
+                      <td className="text-gray-600 p-3">17 Feb, 2022</td>
                       <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">3.50</td>
+                      <td className="text-gray-600 p-3">26.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                        23 Nov, 2021
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">14.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">05 Mar, 2021</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">15.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      20 Mar, 2006
+                        17 Dec, 2020
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">11.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">15.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">23 Mar, 2020</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">33.25</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                        28 Mar, 2019
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">19.80</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">28 Mar, 2019</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">19.80</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Interim</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">23.90</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">-</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">8.25</td>
                     </tr>
                   </tbody>
                 </table>
@@ -478,44 +474,7 @@ export default function GrindwellNortonLimited() {
                   Bonus
                 </h2>
               </div>
-              <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                <thead className="bg-[#00BE5D] text-white">
-                  <tr>
-                    <th className="text-left p-3">Ex-Bonus Date</th>
-                    <th className="text-left p-3">Bonus Ratio</th>
-                    <th className="text-left p-3">Remarks</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="text-gray-600 p-3">14 Jul, 2016</td>
-                    <td className="text-gray-600 p-3">1:1</td>
-
-                    <td className="text-gray-600 p-3">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3 bg-gray-100">26 May, 2006</td>
-                    <td className="text-gray-600 p-3 bg-gray-100">1:1</td>
-
-                    <td className="text-gray-600 p-3 bg-gray-100">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">02 Sep, 1996</td>
-                    <td className="text-gray-600 p-3">1:1</td>
-
-                    <td className="text-gray-600 p-3">
-                      For every 1 share held; Holder will receive 1 bonus
-                      shares.{" "}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>{" "}
+              <p className="mb-6 text-[#00000099] text-justify">NA </p>
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -529,20 +488,16 @@ export default function GrindwellNortonLimited() {
               <table className="min-w-full border-collapse border border-gray-200 mt-4">
                 <thead className="bg-[#00BE5D] text-white">
                   <tr>
-                   
-                    <th className="text-left p-3">Ex-Split Date</th>
                     <th className="text-left p-3">Old FV</th>
                     <th className="text-left p-3">New FV</th>
-                    <th className="text-left p-3">Remarks</th>
+                    <th className="text-left p-3">Record Date</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-gray-600 p-3">26 May, 2006</td>
                     <td className="text-gray-600 p-3">10</td>
                     <td className="text-gray-600 p-3">5</td>
-                    <td className="text-gray-600 p-3">
-                    For every share held, the holder will receive 2 shares post the split adjustment.                    </td>
+                    <td className="text-gray-600 p-3">29 Sep 2023</td>
                   </tr>
                 </tbody>
               </table>
@@ -556,25 +511,30 @@ export default function GrindwellNortonLimited() {
                 </h2>
               </div>
 
-              <p className="mb-6 text-[#00000099] text-justify">
-              Grindwell Norton Ltd. (GNO), a Saint-Gobain Group company in India, has completed the acquisition of PRS Permacel Pvt. Ltd., a manufacturer of speciality adhesive tape and label solutions, from the PRS Group, founded by the Premchand family in 1856. This acquisition will facilitate its seamless integration with GNO’s Composite Systems business unit. 
-              </p>
-              <p className="mb-6 text-[#00000099] text-justify">
-              PRS Permacel develops and markets a wide range of adhesive tape and thermal insulation solutions for the industrial, railways & metro, two wheelers and EV markets. The company has a manufacturing facility in Ambernath near Mumbai and employs 176 people.  
-              </p>
-
-             
+              <p className="mb-6 text-[#00000099] text-justify">NA </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Grindwell Norton Limited are in IEPF 
+                  Unclaimed Shares and Dividends Of Hindustan Aeronautics
+                  Limited are in IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
+                The Central Government introduced the Investor Education and
+                Protection Fund (IEPF) to protect investors’ interests and
+                promote awareness. It is established under Section 125 of the
+                Companies Act, 2013 (Act). The unpaid or unclaimed amounts
+                belonging to a company’s investors are pooled and credited into
+                the IEPF. The IEPF funds are utilized for various purposes as
+                provided under the Act. The IEPFA Authority is entrusted with
+                the responsibility of administration of the Investor Education
+                Protection Fund (IEPF), making refunds of shares, unclaimed
+                dividends, matured deposits/debentures etc. to investors,
+                promoting awareness among investors, and protecting the
+                interests of the investors.
               </p>
             </section>
 
@@ -582,11 +542,18 @@ export default function GrindwellNortonLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Grindwell Norton Limited are in IEPF?
+                  Why my shares of Hindustan Aeronautics Limited are in IEPF?{" "}
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
+                Before transferring the shares to IEPF the company has to notify
+                the shareholder by sending letter to the registered address of
+                the shareholder. The company also has to notify by giving a
+                public notification in the newspaper. If the shareholder doesn’t
+                communicate back, the company can transfer the shares to IEPF.
+                The company transfers the shares to IEPF when the dividends of
+                seven or more consecutive years are not claimed by the
+                shareholder.
               </p>
             </section>
 
@@ -614,7 +581,6 @@ export default function GrindwellNortonLimited() {
                       immense number of IEPF shares smoothly.
                     </i>
                   </b>
-                 
                   <br />
                   You can visit us at- Office No. C 201, Vantage Tower by Bramha
                   Corp, NDA Pashan Rd, Ram Nagar, Bavdhan, Pune, Maharashtra
@@ -641,15 +607,15 @@ export default function GrindwellNortonLimited() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Grindwell Norton Limited 
+                    Graphite India Limited
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://www.grindwellnorton.co.in/"
+                    href="http://hal-india.co.in/ "
                   >
-                    https://www.grindwellnorton.co.in/
+                    http://hal-india.co.in/{" "}
                   </Link>
                 </div>
               </div>
@@ -708,8 +674,7 @@ export default function GrindwellNortonLimited() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my shares of Grindwell Norton Limited are
-                  in IEPF?
+                Why my shares of Hindustan Aeronautics Limited are in IEPF?
                 </a>
               </li>
               <li

@@ -131,10 +131,22 @@ export default function UnclaimedsharesExideindustries() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -147,7 +159,28 @@ export default function UnclaimedsharesExideindustries() {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
     },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
   ];
+
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -295,8 +328,8 @@ export default function UnclaimedsharesExideindustries() {
             <p className="mb-6 text-[#00000099] text-justify">
               With a legacy of reliability, a diverse product portfolio, and a
               commitment to innovation, Exide Industries remains a key player in
-              India's energy storage and automotive ecosystem, adapting to
-              changing market dynamics.{" "}
+              Indias energy storage and automotive ecosystem, adapting to
+              changing market dynamics.
             </p>
 
             <Image
@@ -341,7 +374,6 @@ export default function UnclaimedsharesExideindustries() {
                       <th className="text-left p-3">Dividend Amount</th>
                       <th className="text-left p-3">Dividend Type</th>
                       <th className="text-left p-3">Record Date</th>
-
                     </tr>
                   </thead>
                   <tbody>
@@ -674,11 +706,11 @@ export default function UnclaimedsharesExideindustries() {
               <div className="text-[#00000099] leading-6 mb-6 text-justify">
                 <b>Amalgamation with Chloride Group (1998):</b>{" "}
                 <li>
-                  Exide's merger with Chloride Industries was a pivotal moment
-                  in its history. This integration helped consolidate
-                  operations, making Exide a dominant player in India's battery
-                  industry. It brought together decades of expertise and
-                  facilitated technological advancements.
+                  Exides merger with Chloride Industries was a pivotal moment in
+                  its history. This integration helped consolidate operations,
+                  making Exide a dominant player in Indias battery industry. It
+                  brought together decades of expertise and facilitated
+                  technological advancements.
                 </li>
                 <b>Acquisition of Tudor India (1998):</b>{" "}
                 <li>
