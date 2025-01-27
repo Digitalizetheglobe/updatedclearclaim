@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Infosyslimited from "../../../../public/casestudy/infosys.png";
+import KEI from "../../../../public/casestudy/Kei.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 import { useEffect, useState, useRef } from "react";
 
-export default function InfosysLimited() {
+export default function IKEIIndustriesLimited() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8);
@@ -271,31 +271,31 @@ export default function InfosysLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            Infosys 
-              <span className="text-green-600"> Limited
+            KEI 
+              <span className="text-green-600"> Industries Limited
               </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Infosys Limited is a global leader in technology services and consulting, headquartered in Bangalore, India. Founded in 1981 by Narayana Murthy and six other engineers, it has grown into one of the world’s largest IT services companies. Infosys offers a wide range of services, including IT consulting, application development, cloud services, data analytics, and enterprise solutions across various industries such as banking, insurance, retail, and telecommunications.
+            KEI Industries Limited is a leading Indian manufacturer of electrical cables and wires. Founded in 1968, the company has grown to become one of the top players in the sector, offering a wide range of products, including power cables, industrial cables, flexible cables, and instrumentation cables. KEI Industries is known for its high-quality products, which are used in various sectors such as power, construction, telecommunications, and infrastructure.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            With a strong presence in over 40 countries, Infosys employs over 300,000 people worldwide. The company is known for its focus on innovation, technology-driven solutions, and commitment to sustainability. Infosys has been a pioneer in adopting automation, AI, and machine learning to improve efficiency and deliver enhanced customer experiences.
+            The company operates across India and exports its products to several countries, maintaining a global footprint. KEI's manufacturing facilities are equipped with state-of-the-art technology, ensuring the highest standards of production and quality control. The company’s products meet national and international standards, making them suitable for both domestic and international markets.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Infosys has earned recognition for its corporate governance and ethical business practices. It has consistently ranked high in global lists of top employers and is often praised for its employee-friendly work culture, training programs, and leadership development initiatives.
+            KEI Industries places a strong emphasis on innovation and customer satisfaction. With a focus on sustainability, it has adopted eco-friendly manufacturing practices. The company is also committed to corporate social responsibility, contributing to social development initiatives.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            In recent years, Infosys has placed a significant emphasis on digital transformation services, helping clients navigate the complexities of a rapidly changing technological landscape. The company’s research and development efforts, through its innovation hubs, are dedicated to advancing next-gen technologies.
+            KEI has consistently demonstrated financial growth and stability, earning a strong reputation in the Indian electrical industry. It is listed on the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE), and its stock is actively traded. The company’s robust product portfolio, focus on quality, and strategic expansion into international markets have positioned KEI Industries as a leader in the electrical cable manufacturing industry.
 
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Infosys continues to play a key role in shaping the future of IT services, driving digitalization, and contributing to the global economy through its strategic partnerships and client-first approach. Its mission remains to enable clients to navigate change, increase productivity, and achieve sustainable growth.
+            With a vision for continued growth and technological advancement, KEI Industries remains committed to enhancing the electrical infrastructure and power distribution systems worldwide.
 
             </p>
 
             <Image
-              src={Infosyslimited}
-              alt="ICICIBANK Logo"
+              src={KEI}
+              alt="KEI Logo"
               className="mb-6 mx-auto w-[370px] h-[200px]"
             />
             <section className="bg-white p-4 ">
@@ -308,13 +308,13 @@ export default function InfosysLimited() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Infosys Limited  
+                  <b>Registered Name: </b> KEI Industries Limited  
                 </li>
                 <li>
-                  <b>CIN Number: </b> L85110KA1981PLC013115
+                  <b>CIN Number: </b> L74899DL1992PLC051527
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE009A01021
+                  <b>ISIN Number: </b> INE878B01027
                 </li>
               </ul>
             </section>
@@ -324,326 +324,139 @@ export default function InfosysLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Infosys Limited.
+                  Dividend’s History of KEI Industries Limited.
                 </h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                      <th className="text-left p-3">Ex-Dividend Date</th>
-                      <th className="text-left p-3">Dividend Amount</th>
-                      <th className="text-left p-3">Record Date</th>
+                      <th className="text-left p-3">Announcement Date</th>
+                      <th className="text-left p-3">Dividend Type</th>
+                      <th className="text-left p-3">Dividend (Rs)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">29 Oct 2024</td>
-                      <td className="text-gray-600 p-3">21.00</td>
-                      <td className="text-gray-600 p-3">29 Oct 2024</td>
+                      <td className="text-gray-600 p-3">01 Mar, 2024</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      31 May 2024
+                      23 Jan, 2023
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">8.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">31 May 2024</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">31 May 2024</td>
-                      <td className="text-gray-600 p-3">20.00</td>
-                      <td className="text-gray-600 p-3">31 May 2024</td>
+                      <td className="text-gray-600 p-3">27 Jan, 2022</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">2.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      25 Oct 2023
+                      26 Feb, 202
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">18.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">25 Oct 2023</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">2.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">02 Jun 2023</td>
-                      <td className="text-gray-600 p-3">17.50</td>
-                      <td className="text-gray-600 p-3">02 Jun 2023</td>
+                      <td className="text-gray-600 p-3">09 Mar, 2020</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">1.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      27 Oct 2022
+                      21 May, 2019
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16.50</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">28 Oct 2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.20</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">31 May 2022</td>
-                      <td className="text-gray-600 p-3">16.00</td>
-                      <td className="text-gray-600 p-3">01 Jun 2022</td>
+                      <td className="text-gray-600 p-3">17 May, 2018</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">1.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      26 Oct 2021
+                      12 May, 2017
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">15.00</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">27 Oct 2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">0.60</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">31 May 2021</td>
-                      <td className="text-gray-600 p-3">15.00</td>
-                      <td className="text-gray-600 p-3">01 Jun 2021</td>
+                      <td className="text-gray-600 p-3">23 May, 2016</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">0.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      23 Oct 2020
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">12.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">26 Oct 2020</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May 2020</td>
-                      <td className="text-gray-600 p-3">9.50</td>
-                      <td className="text-gray-600 p-3">01 Jun 2020</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      23 Oct 2019
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">8.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">24 Oct 2019</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">13 Jun 2019</td>
-                      <td className="text-gray-600 p-3">10.50</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      24 Jan 2019
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">4.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">25 Jan 2019</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">25 Oct 2018</td>
-                      <td className="text-gray-600 p-3">7.00</td>
-                      <td className="text-gray-600 p-3">27 Oct 2018</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      14 Jun 2018
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">10.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">14 Jun 2018</td>
-                      <td className="text-gray-600 p-3">20.50</td>
-                      <td className="text-gray-600 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      14 Jun, 2007
+                      28 May, 2015
                       </td>
                       <td className="text-gray-600 p-3 bg-gray-100">Final</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">10.00</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">0.40</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">31 Oct 2017</td>
-                      <td className="text-gray-600 p-3">13.00</td>
-                      <td className="text-gray-600 p-3">01 Nov 2017</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      01 Jun 2017
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">14.75</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">21 Oct 2016</td>
-                      <td className="text-gray-600 p-3">11.00</td>
-                      <td className="text-gray-600 p-3">24 Oct 2016</td>
+                      <td className="text-gray-600 p-3">15 May, 2014</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">0.20</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      09 Jun 2016
+                      22 May, 2013
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">14.25</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">0.20</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">16 Oct 2015</td>
-                      <td className="text-gray-600 p-3">10.00</td>
-                      <td className="text-gray-600 p-3">19 Oct 2015</td>
+                      <td className="text-gray-600 p-3">29 May, 2012</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">0.20</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      15 Jun 2015
+                      23 May, 2011
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">29.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">0.20</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">16 Oct 2014</td>
-                      <td className="text-gray-600 p-3">30.00</td>
-                      <td className="text-gray-600 p-3">17 Oct 2014</td>
+                      <td className="text-gray-600 p-3">28 May, 2010</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">0.20</td>
                     </tr>
 
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      29 May 2014
+                      22 Jun, 2009
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">43.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">0.20</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">17 Oct 2013</td>
-                      <td className="text-gray-600 p-3">20.00</td>
-                      <td className="text-gray-600 p-3">18 Oct 2013</td>
+                      <td className="text-gray-600 p-3">19 Jun, 200</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">0.50</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      30 May 2013
+                      21 May, 2007
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">27.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">0.50</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">18 Oct 2012</td>
-                      <td className="text-gray-600 p-3">15.00</td>
-                      <td className="text-gray-600 p-3">19 Oct 2012</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      24 May 2012
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">32.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">20 Oct 2011</td>
-                      <td className="text-gray-600 p-3">15.00</td>
-                      <td className="text-gray-600 p-3">21 Oct 2011</td>
+                      <td className="text-gray-600 p-3">11 May, 2006</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">2.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 p-3 bg-gray-100">
-                      26 May 2011
+                      17 May, 2005
                       </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">20.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">21 Oct 2010</td>
-                      <td className="text-gray-600 p-3">40.00</td>
-                      <td className="text-gray-600 p-3">22 Oct 2010</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      26 May 2010
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">15.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">15 Oct 2009</td>
-                      <td className="text-gray-600 p-3">10.00</td>
-                      <td className="text-gray-600 p-3">16 Oct 2009</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      04 Jun 2009
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">13.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">16 Oct 2008</td>
-                      <td className="text-gray-600 p-3">10.00</td>
-                      <td className="text-gray-600 p-3">17 Oct 2008</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      29 May 2008
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">27.25</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">18 Oct 2007</td>
-                      <td className="text-gray-600 p-3">6.00</td>
-                      <td className="text-gray-600 p-3">19 Oct 2007</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      06 Jun 2007
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">19 Oct 2006</td>
-                      <td className="text-gray-600 p-3">5.00</td>
-                      <td className="text-gray-600 p-3">20 Oct 2006</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      25 May 2006
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">38.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">17 Oct 2005</td>
-                      <td className="text-gray-600 p-3">6.50</td>
-                      <td className="text-gray-600 p-3">18 Oct 2005</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      01 Jun 2005
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">6.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">18 Oct 2004</td>
-                      <td className="text-gray-600 p-3">5.00</td>
-                      <td className="text-gray-600 p-3">19 Oct 2004</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      26 May 2004
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">115.00</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">16 Oct 2003</td>
-                      <td className="text-gray-600 p-3">14.50</td>
-                      <td className="text-gray-600 p-3">17 Oct 2003</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      28 May 2003
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">14.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">30 Oct 2002</td>
-                      <td className="text-gray-600 p-3">0.00</td>
-                      <td className="text-gray-600 p-3">01 Nov 2002</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3 bg-gray-100">
-                      21 May 2002
-                      </td>
-                      <td className="text-gray-600 p-3 bg-gray-100">12.50</td>
-                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">1.00</td>
                     </tr>
                   </tbody>
                 </table>
@@ -660,37 +473,7 @@ export default function InfosysLimited() {
                   Bonus
                 </h2>
               </div>
-              <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                <thead className="bg-[#00BE5D] text-white">
-                  <tr>
-      
-                    <th className="text-left p-3">Bonus Ratio</th>
-                    <th className="text-left p-3">Record Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="text-gray-600 p-3">1:1</td>
-                    <td className="text-gray-600 p-3">05 Sep 2018</td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">1:1</td>
-                    <td className="text-gray-600 p-3">-</td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">1:1</td>
-                    <td className="text-gray-600 p-3">03 Dec 2014</td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">1:1</td>
-                    <td className="text-gray-600 p-3">14 Jul 2006</td>
-                  </tr>
-                  <tr>
-                    <td className="text-gray-600 p-3">3:1</td>
-                    <td className="text-gray-600 p-3">02 Jul 2004</td>
-                  </tr>
-                </tbody>
-              </table>
+              <p className="text-gray-500">NA</p>
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -701,7 +484,25 @@ export default function InfosysLimited() {
                   Split
                 </h2>
               </div>
-              <p className="text-gray-500">NA</p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                <thead className="bg-[#00BE5D] text-white">
+                  <tr>
+                  <th className="text-left p-3">Announcement Date</th>
+                  <th className="text-left p-3">Old FV</th>
+                    <th className="text-left p-3">New FV</th>
+                    <th className="text-left p-3">Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="text-gray-600 p-3">13 Sep, 2006</td>
+                    <td className="text-gray-600 p-3">10</td>
+                    <td className="text-gray-600 p-3">2</td>
+                    <td className="text-gray-600 p-3">For every share held, the holder will receive 5 shares post the split adjustment.</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
             </section>
             {/* Add more content to demonstrate scrolling */}
             <section id="mergers-amalgamation" className="mt-8 bg-white p-6 ">
@@ -719,7 +520,8 @@ export default function InfosysLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Infosys Limited are in IEPF. 
+                Unclaimed Shares and Dividends Of KEI Industries Limited are in IEPF 
+ 
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
@@ -731,7 +533,7 @@ export default function InfosysLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Infosys Limited are in IEPF?
+                Why my shares of KEI Industries Limited are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
@@ -789,16 +591,16 @@ export default function InfosysLimited() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Infosys Limited 
+                  KEI Industries Limited  
 
                    </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://www.infosys.com/ "
+                    href="https://www.kei-ind.com/  "
                   >
-                  https://www.infosys.com/   
+                  https://www.kei-ind.com/    
                   </Link>
                 </div>
               </div>
