@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import LT from "../../../../public/casestudy/LTI.jpg";
+import Lifeinsurance from "../../../../public/casestudy/Life_Insurance_Corporation_of_India_(logo).svg.png";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 
 
-export default function LarsenandToubro() {
+export default function LIFEINSURANCECORPORATIONOFINDIA() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8); 
@@ -291,28 +291,25 @@ export default function LarsenandToubro() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            Larsen
-              <span className="text-green-600"> And Toubro</span>
+            LIFE INSURANCE
+              <span className="text-green-600">CORPORATION OF INDIA</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Larsen & Toubro (L&T) is a renowned Indian multinational conglomerate, established in 1938 by two Danish engineers, Henning Holck-Larsen and Soren Kristian Toubro. Headquartered in Mumbai, India, L&T operates in a wide array of sectors, including engineering, construction, manufacturing, technology, and financial services. It has become one of the largest and most respected companies in India and globally.
+            Life Insurance Corporation of India (LIC) is a prominent public sector life insurance entity based in Mumbai, India. It holds the distinction of being the largest insurance provider in the country and the foremost institutional investor, with total assets under management amounting to ₹52.52 trillion (approximately US$630 billion) as of March 2024. 
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            L&T’s core business is in the construction and infrastructure sector, where it has built iconic projects such as highways, bridges, dams, and airports, playing a critical role in India’s urbanization and infrastructure development. The company also has a strong presence in the defense, power, and heavy engineering industries, offering solutions in power generation, water treatment, and defense systems.
+            The corporation is owned by the Government of India and operates under the administrative oversight of the Ministry of Finance.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            L&T's technological division is highly regarded for innovation and includes products like IT services, automation, and smart city technologies. Through its subsidiary L&T Infotech, the company is a major player in the global IT services industry.
+            The Oriental Life Insurance Company, the first company in India to offer life insurance coverage, was established in Kolkata in 1818 by Bipin Das Gupta. Its primary target market was India.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            L&T’s financial services division encompasses a wide range of products, from investment and insurance services to asset management, enhancing its footprint in the financial sector.
-            </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-            The company prides itself on its commitment to quality, sustainability, and corporate responsibility. Its dedication to excellence, long-term partnerships, and a strong focus on customer satisfaction have earned L&T a reputation as a leader in engineering and construction. It continues to drive economic growth and progress in India and across the world.
+            LIC was founded on September 1, 1956, following the enactment of the Life Insurance of India Act by the Indian Parliament, which led to the nationalization of the insurance sector in the country. This significant move resulted in the consolidation of over 245 insurance companies and provident societies. 
             </p>
             <Image
-              src={LT}
-              alt="LT"
-              className="mb-6 mx-auto w-52 h-30"
+              src={Lifeinsurance}
+              alt="Lifeinsurance"
+              className="mb-6 mx-auto w-50 h-30"
             />
             <section className="bg-white p-4">
               <div className="flex gap-4">
@@ -323,13 +320,13 @@ export default function LarsenandToubro() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Larsen And Toubro
+                  <b>Registered Name: </b> Life Insurance Corporation of India
                 </li>
                 <li>
-                  <b>CIN Number: </b>L99999MH1946PLC004768
+                  <b>CIN Number: </b>L65922MH1989PLC052257
                 </li>
                 <li>
-                  <b>ISIN Number: </b>INE018A01030
+                  <b>ISIN Number: </b>INE0J1Y01017
                 </li>
               </ul>
             </section>
@@ -339,8 +336,7 @@ export default function LarsenandToubro() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of Adani Ports and Special Economic Zone
-                  Limited
+                  Dividend History Of LIFE INSURANCE CORPORATION OF INDIA
                 </h2>
               </div>
 
@@ -348,178 +344,44 @@ export default function LarsenandToubro() {
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
+                    <th className="text-left p-3">Announcement Date</th>
                       <th className="text-left p-3">Ex-Dividend Date </th>
                       <th className="text-left p-3">Dividend Type </th>
                       <th className="text-left p-3">Dividend (Rs)</th>
-                      <th className="text-left p-3">-</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">08 May, 2024</td>
-                      <td className="text-gray-600 p-3">20 Jun, 2024</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">28.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      10 May, 2023
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      02 Aug, 2023
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">24.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">20 Jul, 2023</td>
-                      <td className="text-gray-600 p-3">02 Aug, 2023 </td>
+                      <td className="text-gray-600 p-3">27 May, 2024</td>
+                      <td className="text-gray-600 p-3">19 Jul, 2024</td>
                       <td className="text-gray-600 p-3">Final</td>
                       <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      12 May, 2022
+                      08 Feb, 2024
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      21 Jul, 2022
+                      21 Feb, 2024
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">26 May, 2023</td>
+                      <td className="text-gray-600 p-3">21 Jul, 2023 </td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      31 May, 2022
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      25 Aug, 2022
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">22.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">14 May, 2021</td>
-                      <td className="text-gray-600 p-3">28 Jul, 2021 </td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">18.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      23 Oct, 2020
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      04 Nov, 2020
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">18.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">05 Jun, 2020 </td>
-                      <td className="text-gray-600 p-3">05 Aug, 2020</td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">8.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        24 May, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        31 Jul, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1.30</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">13 Mar, 2020 </td>
-                      <td className="text-gray-600 p-3">24 Mar, 2020</td>
-                      <td className="text-gray-600 p-3">Interim </td>
-                      <td className="text-gray-600 p-3">10.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      10 May, 2019
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      24 Jul, 2019
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">18.00 </td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">28 May, 2018 </td>
-                      <td className="text-gray-600 p-3">14 Aug, 2018</td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">16.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      31 May, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      11 Aug, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">25 May, 2016 </td>
-                      <td className="text-gray-600 p-3">18 Aug, 2016 </td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">18.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      01 Jun, 2015
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      01 Sep, 2015
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">30 May, 2014</td>
-                      <td className="text-gray-600 p-3">13 Aug, 2014 </td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">14.25</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      22 May, 2013
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      13 Aug, 2013
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12.33</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">14 May, 2012 </td>
-                      <td className="text-gray-600 p-3">14 Aug, 2012 </td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">16.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      19 May, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17 Aug, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">17 May, 2010 </td>
-                      <td className="text-gray-600 p-3">17 Aug, 2010 </td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">12.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                        03 Feb, 2009
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      18 Aug, 2009
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2008</td>
-                      <td className="text-gray-600 p-3">20 Aug, 2008</td>
-                      <td className="text-gray-600 p-3">Final </td>
-                      <td className="text-gray-600 p-3">15.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1.50</td>
                     </tr>
                   </tbody>
                 </table>
@@ -534,87 +396,9 @@ export default function LarsenandToubro() {
                   Bonus
                 </h2>
               </div>
-              <table className="min-w-full border-collapse border border-gray-200 mt-4">
-                  <thead className="bg-[#00BE5D] text-white">
-                    <tr>
-                      <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Bonus Date</th>
-                      <th className="text-left p-3">Bonus Ratio</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2017</td>
-                      <td className="text-gray-600 p-3">13 Jul, 2017</td>
-                      <td className="text-gray-600 p-3">1:2</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      22 May, 2013
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      11 Jul, 2013
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1:2</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2008</td>
-                      <td className="text-gray-600 p-3">01 Oct, 2008</td>
-                      <td className="text-gray-600 p-3">1:1</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      07 Jun, 2006
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      28 Sep, 2006
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1:1</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">15 Apr, 1986</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">3.5</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      10 Nov, 1981
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      -
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">3:5</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">20 Sep, 1976</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">1.2</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17 Feb, 1973
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      -
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1:3</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">01 Aug, 1969</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">1.10</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      09 Dec, 1964
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      -
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1:7</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <p className="text-[#00000099] p-4">
+                NA
+              </p>
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -637,14 +421,14 @@ export default function LarsenandToubro() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">Under the demerger scheme, shareholders of L&T received 5 shares of L&T and 4 shares of the newly formed UltraTech CemCo Limited for every 10 shares held in L&T prior to the demerger.  Fractional shares were partially sold in Grasim's open offer, and the remaining fractional shares of both companies were sold in the open market with proceeds sent to shareholders. L&T shares resumed trading on June 23, 2004 on the BSE and NSE, while UltraTech CemCo Limited shares began trading on August 24, 2004 on both exchanges after the demerger.</p>
+              <p className="text-gray-500">The Life Insurance Corporation of India (LIC) is in discussions to acquire up to 50% of ManipalCigna Health Insurance, a joint venture between Manipal Education & Medical Group and Cigna Corporation. The deal could be worth ₹4,000 crore.</p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Larsen and Toubro are in IEPF 
+                Unclaimed Shares and Dividends Of LIC of India Transferred To IEPF 
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
@@ -657,18 +441,11 @@ export default function LarsenandToubro() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Larsen and Toubro are in IEPF?
+                Why my shares of LIC of India are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                Before transferring the shares to IEPF the company has to notify
-                the shareholder by sending letter to the registered address of
-                the shareholder. The company also has to notify by giving a
-                public notification in the newspaper. If the shareholder does not
-                communicate back, the company can transfer the shares to IEPF.
-                The company transfers the shares to IEPF when the dividends of
-                seven or more consecutive years are not claimed by the
-                shareholder.
+              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholder's registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
               </p>
             </section>
 
@@ -718,15 +495,15 @@ export default function LarsenandToubro() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Larsen and Toubro 
+                  LIC of India
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://investors.larsentoubro.com/"
+                    href="https://licindia.in/"
                   >
-                  https://investors.larsentoubro.com/ 
+                  https://licindia.in/ 
                   </Link>
                 </div>
               </div>
