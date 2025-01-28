@@ -128,12 +128,22 @@ export default function UnclaimedSharesofLupinLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedSharesofLupinLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -270,7 +320,7 @@ export default function UnclaimedSharesofLupinLtd() {
             Lupin Limited is a global pharmaceutical leader known for its innovative and high-quality healthcare products. Established in 1968 by Dr. Desh Bandhu Gupta, Lupin focuses on developing, manufacturing, and marketing a wide range of generic, branded, and specialty pharmaceuticals globally. Headquartered in Mumbai, India, the company operates in over 100 countries, including major markets in North America, India, Europe, and Asia-Pacific.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Lupin's portfolio includes treatments across key therapeutic areas like cardiology, respiratory, anti-infectives, diabetology, and gastrointestinal. It is also a prominent player in the complex generics space, including inhalation and injectable therapies, which form a significant part of its U.S. revenue. In India, Lupin continues to excel with innovative product launches and strong performance in core therapies, outpacing the market growth.
+            Lupins portfolio includes treatments across key therapeutic areas like cardiology, respiratory, anti-infectives, diabetology, and gastrointestinal. It is also a prominent player in the complex generics space, including inhalation and injectable therapies, which form a significant part of its U.S. revenue. In India, Lupin continues to excel with innovative product launches and strong performance in core therapies, outpacing the market growth.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             The company invests significantly in R&D, focusing on developing advanced generics and biosimilars. With a robust pipeline of over 40 complex products and successful global launches, Lupin is recognized for its commitment to innovation and regulatory excellence. Its sustainability initiatives, including rural development and environmental stewardship, further exemplify its dedication to creating a positive societal impact.
@@ -613,7 +663,7 @@ export default function UnclaimedSharesofLupinLtd() {
                 In recent years, Lupin has actively expanded its portfolio through various acquisitions, including notable transactions such as the acquisition of Symbiomix Therapeutics LLC in 2017 for USD 150 million. In 2022, Lupin also acquired a significant portfolio of 343 brands from Anglo French Drugs & Industries Limited (AFDIL), enhancing its presence in the respiratory and skin care segments​.
                 </li>
                 <li>
-                These strategic moves reflect Lupin's commitment to strengthening its position in the global market, particularly in the areas of generics, biotechnology, and branded formulations. Additionally, the company has divested some of its assets, such as a commercial women's health specialty business in 2024, further refining its focus on high-growth areas​.
+                These strategic moves reflect Lupins commitment to strengthening its position in the global market, particularly in the areas of generics, biotechnology, and branded formulations. Additionally, the company has divested some of its assets, such as a commercial womens health specialty business in 2024, further refining its focus on high-growth areas​.
                 </li>
               </div>
             </section>
@@ -626,7 +676,7 @@ export default function UnclaimedSharesofLupinLtd() {
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Physical shares of Lupin Limited, like other companies in India, are governed by the regulations issued by the Securities and Exchange Board of India (SEBI), which mandate the dematerialization of physical share certificates. SEBI's directive, which came into effect on April 1, 2019, prohibits the transfer of physical shares. Shareholders holding physical shares of Lupin Limited must convert them into electronic form (Demat) to continue trading, transferring, or pledging the shares.
+              Physical shares of Lupin Limited, like other companies in India, are governed by the regulations issued by the Securities and Exchange Board of India (SEBI), which mandate the dematerialization of physical share certificates. SEBI directive, which came into effect on April 1, 2019, prohibits the transfer of physical shares. Shareholders holding physical shares of Lupin Limited must convert them into electronic form (Demat) to continue trading, transferring, or pledging the shares.
 
               </p>
             </section>
@@ -649,7 +699,7 @@ export default function UnclaimedSharesofLupinLtd() {
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                FAQ's about unclaimed shares of Lupin Ltd.
+                FAQ about unclaimed shares of Lupin Ltd.
                 </h2>
               </div>
             </section>

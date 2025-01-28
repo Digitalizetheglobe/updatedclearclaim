@@ -128,12 +128,22 @@ export default function UnclaimedSharesofJioFinancialServicesLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedSharesofJioFinancialServicesLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -374,7 +424,7 @@ export default function UnclaimedSharesofJioFinancialServicesLtd() {
               Jio Financial Services Ltd. (JFSL) shares, like most modern equity instruments, are issued in electronic (dematerialized) form and are credited to the demat accounts of shareholders. Physical share certificates are generally not issued for newly demerged or listed companies, as dematerialization has become the norm in Indian markets for efficiency, security, and compliance with SEBI regulations.
               </p>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              For those holding physical shares of Reliance Industries Ltd. (RIL) before the demerger, these need to be dematerialized to receive the corresponding JFSL shares. If you are holding physical shares of RIL and haven't dematerialized them, it's recommended to initiate the process with your depository participant (DP) to claim the JFSL shares.
+              For those holding physical shares of Reliance Industries Ltd. (RIL) before the demerger, these need to be dematerialized to receive the corresponding JFSL shares. If you are holding physical shares of RIL and have not dematerialized them, its recommended to initiate the process with your depository participant (DP) to claim the JFSL shares.
               </p>
             </section>
 

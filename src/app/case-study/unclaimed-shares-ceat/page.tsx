@@ -176,6 +176,26 @@ export default function UnclaimedshareCEAT() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
 
   // Filter companies based on search query

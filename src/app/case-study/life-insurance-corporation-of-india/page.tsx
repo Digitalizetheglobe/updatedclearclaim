@@ -174,6 +174,26 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
 
  // Filter companies based on search query
@@ -445,7 +465,7 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholder's registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
+              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholders registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
               </p>
             </section>
 

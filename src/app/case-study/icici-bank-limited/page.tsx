@@ -144,17 +144,57 @@ export default function IciciBankLimited() {
       path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
     },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>

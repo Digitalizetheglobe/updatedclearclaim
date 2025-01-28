@@ -128,12 +128,22 @@ export default function UnclaimedSharesofJSWHoldingsLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedSharesofJSWHoldingsLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -270,13 +320,13 @@ export default function UnclaimedSharesofJSWHoldingsLtd() {
             JSW Holdings Limited is a prominent non-banking financial company (NBFC) under the JSW Group, one of India’s leading conglomerates with diversified interests in steel, energy, infrastructure, and cement. Established primarily as an investment arm, JSW Holdings focuses on managing and holding strategic investments in the equity shares of group companies. It plays a critical role in the financial ecosystem of the JSW Group, leveraging its investments to create long-term shareholder value.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The company's primary portfolio includes substantial stakes in flagship JSW entities such as JSW Steel, JSW Energy, and JSW Infrastructure. By holding these investments, JSW Holdings provides financial stability and support to the group, acting as a key intermediary for managing group synergies. Despite being an NBFC, JSW Holdings does not engage in traditional lending or credit services but focuses on maximizing the value of its equity investments.
+            The companys primary portfolio includes substantial stakes in flagship JSW entities such as JSW Steel, JSW Energy, and JSW Infrastructure. By holding these investments, JSW Holdings provides financial stability and support to the group, acting as a key intermediary for managing group synergies. Despite being an NBFC, JSW Holdings does not engage in traditional lending or credit services but focuses on maximizing the value of its equity investments.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             JSW Holdings emphasizes sound financial practices, ensuring consistent returns for its shareholders. Its low-risk business model is designed to weather market fluctuations while benefiting from the growth trajectories of the JSW Group companies. Additionally, the company is listed on the Indian stock exchanges, making it accessible to retail and institutional investors seeking exposure to the JSW Group’s diverse operations.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            In recent years, JSW Holdings has benefitted from the strong performance of its group companies, reflecting its strategic importance within the conglomerate. With its steady approach to investment management, JSW Holdings continues to be a vital contributor to the JSW Group's overall financial and operational success.
+            In recent years, JSW Holdings has benefitted from the strong performance of its group companies, reflecting its strategic importance within the conglomerate. With its steady approach to investment management, JSW Holdings continues to be a vital contributor to the JSW Groups overall financial and operational success.
             </p>
 
             <Image

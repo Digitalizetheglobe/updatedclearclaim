@@ -128,12 +128,22 @@ export default function UnclaimedsharesofKPITTechnologiesLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedsharesofKPITTechnologiesLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -270,7 +320,7 @@ export default function UnclaimedsharesofKPITTechnologiesLtd() {
             KPIT Technologies Limited is a global technology company specializing in automotive engineering and software solutions. Headquartered in Pune, India, the company was founded in 1990 and has emerged as a trusted partner for the automotive and mobility industries, focusing on innovation in electric, autonomous, connected, and software-defined vehicles.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            KPIT's expertise lies in providing cutting-edge solutions for mobility ecosystems, including software integration, embedded systems, and digital technologies. The company serves leading automotive original equipment manufacturers (OEMs) and Tier 1 suppliers worldwide, helping them accelerate their journey toward sustainable and intelligent mobility.
+            KPIT expertise lies in providing cutting-edge solutions for mobility ecosystems, including software integration, embedded systems, and digital technologies. The company serves leading automotive original equipment manufacturers (OEMs) and Tier 1 suppliers worldwide, helping them accelerate their journey toward sustainable and intelligent mobility.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             With a strong focus on research and development, KPIT operates state-of-the-art innovation centers globally, where it develops advanced technologies in areas such as powertrain electrification, autonomous driving, vehicle diagnostics, and over-the-air (OTA) updates. The company’s proprietary platforms and solutions are tailored to address critical challenges in modern mobility, including energy efficiency, safety, and connectivity.
@@ -487,7 +537,7 @@ For instance, unclaimed dividends and shares for financial years 2014-15 and bey
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                FAQ's about unclaimed shares of KPIT Technologies Ltd.
+                FAQ about unclaimed shares of KPIT Technologies Ltd.
                 </h2>
               </div>
             </section>

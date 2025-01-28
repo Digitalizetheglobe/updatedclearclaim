@@ -144,17 +144,57 @@ export default function IKEIIndustriesLimited() {
       path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
     },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
@@ -279,7 +319,7 @@ export default function IKEIIndustriesLimited() {
             KEI Industries Limited is a leading Indian manufacturer of electrical cables and wires. Founded in 1968, the company has grown to become one of the top players in the sector, offering a wide range of products, including power cables, industrial cables, flexible cables, and instrumentation cables. KEI Industries is known for its high-quality products, which are used in various sectors such as power, construction, telecommunications, and infrastructure.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The company operates across India and exports its products to several countries, maintaining a global footprint. KEI's manufacturing facilities are equipped with state-of-the-art technology, ensuring the highest standards of production and quality control. The company’s products meet national and international standards, making them suitable for both domestic and international markets.
+            The company operates across India and exports its products to several countries, maintaining a global footprint. KEIs manufacturing facilities are equipped with state-of-the-art technology, ensuring the highest standards of production and quality control. The company’s products meet national and international standards, making them suitable for both domestic and international markets.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             KEI Industries places a strong emphasis on innovation and customer satisfaction. With a focus on sustainability, it has adopted eco-friendly manufacturing practices. The company is also committed to corporate social responsibility, contributing to social development initiatives.

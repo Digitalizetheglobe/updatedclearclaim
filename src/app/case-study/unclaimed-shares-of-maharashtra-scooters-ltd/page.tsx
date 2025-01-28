@@ -128,12 +128,22 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -267,7 +317,7 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
               <span className="text-green-600">Maharashtra Scooters Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Maharashtra Scooters Limited (MSL), established in 1975, is an Indian manufacturing company based in Satara, Maharashtra. A part of the Bajaj Group, MSL originally focused on producing geared scooters and was a significant contributor to India's two-wheeler market during its earlier years. It operated as a joint venture between the Bajaj Group and Western Maharashtra Development Corporation (WMDC), a state-owned entity.
+            Maharashtra Scooters Limited (MSL), established in 1975, is an Indian manufacturing company based in Satara, Maharashtra. A part of the Bajaj Group, MSL originally focused on producing geared scooters and was a significant contributor to Indias two-wheeler market during its earlier years. It operated as a joint venture between the Bajaj Group and Western Maharashtra Development Corporation (WMDC), a state-owned entity.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             Over time, with the shifting preferences in the automobile sector, MSL transitioned from scooter manufacturing to functioning primarily as an investment company. Currently, it manages a robust portfolio of investments, including shares in prominent Bajaj Group companies such as Bajaj Auto, Bajaj Finserv, and Bajaj Holdings & Investment.
@@ -641,7 +691,7 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
 
                 </li>
                 <li>
-                A pivotal merger-related development occurred in 2019 when WMDC sold its 27% stake in MSL to Bajaj Holdings and Investment Limited (BHIL) after a prolonged legal dispute. This transaction made MSL a subsidiary of BHIL, with BHIL's total holding in the company increasing to 51%. The sale was finalized after the Supreme Court directed BHIL to pay Rs. 232 per share along with accrued interest​
+                A pivotal merger-related development occurred in 2019 when WMDC sold its 27% stake in MSL to Bajaj Holdings and Investment Limited (BHIL) after a prolonged legal dispute. This transaction made MSL a subsidiary of BHIL, with BHIL total holding in the company increasing to 51%. The sale was finalized after the Supreme Court directed BHIL to pay Rs. 232 per share along with accrued interest​
                 </li>
                 <li>
                 With its primary revenue derived from investments in Bajaj group companies, MSL is increasingly considered a core investment entity rather than a manufacturing business. Experts speculate that BHIL might eventually merge MSL into itself for operational and financial consolidation.
@@ -660,7 +710,7 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
               The physical shares of Maharashtra Scooters Limited, like all physical share certificates in India, were subject to the Securities and Exchange Board of India (SEBI) mandate requiring conversion to electronic form (dematerialization). This move was aimed at improving security, transparency, and efficiency in the trading of securities. SEBI banned the transfer of physical shares after April 1, 2019, except in cases of inheritance or transmission.
               </p>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Shareholders holding physical certificates were required to dematerialize them by submitting the certificates along with a Dematerialization Request Form (DRF) to their Depository Participant (DP). After verification, the physical certificates were canceled, and the shares were credited electronically to the shareholder's Demat account.
+              Shareholders holding physical certificates were required to dematerialize them by submitting the certificates along with a Dematerialization Request Form (DRF) to their Depository Participant (DP). After verification, the physical certificates were canceled, and the shares were credited electronically to the shareholdes Demat account.
               </p>
             </section>
 
@@ -674,7 +724,7 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Unclaimed shares and dividends of Maharashtra Scooters Limited (MSL) are transferred to the Investor Education and Protection Fund (IEPF) Authority in compliance with Section 124(6) of the Companies Act, 2013, and associated rules. If shareholders fail to claim dividends for seven consecutive years, these amounts, along with the corresponding shares, are moved to the IEPF. This ensures dormant funds and securities are consolidated under the government's oversight.
+              Unclaimed shares and dividends of Maharashtra Scooters Limited (MSL) are transferred to the Investor Education and Protection Fund (IEPF) Authority in compliance with Section 124(6) of the Companies Act, 2013, and associated rules. If shareholders fail to claim dividends for seven consecutive years, these amounts, along with the corresponding shares, are moved to the IEPF. This ensures dormant funds and securities are consolidated under the governments oversight.
               </p>
             </section>
 
@@ -682,7 +732,7 @@ export default function UnclaimedSharesofMaharashtraScootersLtd() {
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                FAQ's about unclaimed shares of Maharashtra Scooters Ltd.
+                FAQ about unclaimed shares of Maharashtra Scooters Ltd.
                 </h2>
               </div>
             </section>

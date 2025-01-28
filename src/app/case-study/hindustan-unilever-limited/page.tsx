@@ -144,17 +144,57 @@ export default function HindustanUnileverLimited () {
       path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
     },
     {
-        name: "Graphite India Limited",
-        path: "/case-study/graphite-india-limited",
-      },
-      {
-        name: "Grasim Industries Limited",
-        path: "/case-study/grasim-industries-limited",
-      },
-      {
-        name: "Grindwell Norton Limited",
-        path: "/case-study/grindwell-norton-limited",
-      },
+      name: "Graphite India Limited",
+      path: "/case-study/graphite-india-limited",
+    },
+    {
+      name: "Grasim Industries Limited",
+      path: "/case-study/grasim-industries-limited",
+    },
+    {
+      name: "Grindwell Norton Limited",
+      path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>
@@ -279,13 +319,13 @@ export default function HindustanUnileverLimited () {
             Hindustan Unilever Limited (HUL) is one of India’s largest and most prominent fast-moving consumer goods (FMCG) companies, known for its extensive portfolio of trusted brands. A subsidiary of Unilever, HUL was established in 1933 and operates across various sectors, including home care, personal care, foods and refreshments, and health and wellness. Its brands such as Dove, Surf Excel, Lipton, Knorr, and TRESemmé are household names in India and worldwide, contributing to its dominant market presence.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            HUL has earned a reputation for its strong commitment to sustainability and corporate social responsibility (CSR). The company emphasizes reducing its environmental footprint, with efforts focused on water conservation, waste management, and renewable energy. HUL’s social initiatives, like the Project Shakti program, empower rural women by involving them in the distribution of HUL products, thereby fostering economic growth and social inclusion.
+            HUL has earned a reputation for its strong commitment to sustainability and corporate social responsibility (CSR). The company emphasizes reducing its environmental footprint, with efforts focused on water conservation, waste management, and renewable energy. HUL social initiatives, like the Project Shakti program, empower rural women by involving them in the distribution of HUL products, thereby fostering economic growth and social inclusion.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            In terms of financials, HUL has consistently shown robust growth and strong profitability, driven by its diverse product range and widespread distribution network. The company’s adaptability to changing consumer preferences and its ability to innovate with new product lines have kept it at the forefront of the Indian FMCG market.
+            In terms of financials, HUL has consistently shown robust growth and strong profitability, driven by its diverse product range and widespread distribution network. The companys adaptability to changing consumer preferences and its ability to innovate with new product lines have kept it at the forefront of the Indian FMCG market.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            HUL continues to focus on enhancing its digital presence, embracing e-commerce, and expanding its product offerings to meet the evolving needs of a diverse consumer base. It remains a key player in the Indian FMCG industry and a significant contributor to Unilever's global success.
+            HUL continues to focus on enhancing its digital presence, embracing e-commerce, and expanding its product offerings to meet the evolving needs of a diverse consumer base. It remains a key player in the Indian FMCG industry and a significant contributor to Unilevers global success.
 
 
             </p>

@@ -174,6 +174,26 @@ export default function LarsenandToubro() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
   ];
 
  // Filter companies based on search query
@@ -301,7 +321,7 @@ export default function LarsenandToubro() {
             L&T’s core business is in the construction and infrastructure sector, where it has built iconic projects such as highways, bridges, dams, and airports, playing a critical role in India’s urbanization and infrastructure development. The company also has a strong presence in the defense, power, and heavy engineering industries, offering solutions in power generation, water treatment, and defense systems.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            L&T's technological division is highly regarded for innovation and includes products like IT services, automation, and smart city technologies. Through its subsidiary L&T Infotech, the company is a major player in the global IT services industry.
+            L&T technological division is highly regarded for innovation and includes products like IT services, automation, and smart city technologies. Through its subsidiary L&T Infotech, the company is a major player in the global IT services industry.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             L&T’s financial services division encompasses a wide range of products, from investment and insurance services to asset management, enhancing its footprint in the financial sector.
@@ -637,7 +657,7 @@ export default function LarsenandToubro() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">Under the demerger scheme, shareholders of L&T received 5 shares of L&T and 4 shares of the newly formed UltraTech CemCo Limited for every 10 shares held in L&T prior to the demerger.  Fractional shares were partially sold in Grasim's open offer, and the remaining fractional shares of both companies were sold in the open market with proceeds sent to shareholders. L&T shares resumed trading on June 23, 2004 on the BSE and NSE, while UltraTech CemCo Limited shares began trading on August 24, 2004 on both exchanges after the demerger.</p>
+              <p className="text-gray-500">Under the demerger scheme, shareholders of L&T received 5 shares of L&T and 4 shares of the newly formed UltraTech CemCo Limited for every 10 shares held in L&T prior to the demerger.  Fractional shares were partially sold in Grasims open offer, and the remaining fractional shares of both companies were sold in the open market with proceeds sent to shareholders. L&T shares resumed trading on June 23, 2004 on the BSE and NSE, while UltraTech CemCo Limited shares began trading on August 24, 2004 on both exchanges after the demerger.</p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">

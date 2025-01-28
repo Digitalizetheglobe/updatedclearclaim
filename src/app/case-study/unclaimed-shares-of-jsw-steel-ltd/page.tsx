@@ -128,12 +128,22 @@ export default function UnclaimedsharesofJSWSteelLtd() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
-    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
-    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
-    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
+    {
+      name: "Exide Industries",
+      path: "/case-study/unclaimed-shares-exide-industries",
+    },
+    {
+      name: "Finolex Industries",
+      path: "/case-study/unclaimed-shares-finolex-industries",
+    },
+    {
+      name: "GE Vernova T&D India",
+      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
+    },
+    {
+      name: "GlaxoSmithKline Pharmaceuticals Limited",
+      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
+    },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -145,6 +155,46 @@ export default function UnclaimedsharesofJSWSteelLtd() {
     {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
+    },
+    {
+      name: "Gujarat Heavy Chemicals",
+      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
+    },
+    {
+      name: "HCL Technologies Limited",
+      path: "/case-study/hcl-technologies-limited",
+    },
+    {
+      name: "HDFC Bank Limited",
+      path: "/case-study/hdfc-bank-limited",
+    },
+    {
+      name: "HEG Limited",
+      path: "/case-study/unclaimed-shares-heg",
+    },
+    {
+      name: "Hitachi Energy India Ltd.",
+      path: "/case-study/unclaimed-shares-hitachi-energy-india",
+    },
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
     },
   ];
 
@@ -267,7 +317,7 @@ export default function UnclaimedsharesofJSWSteelLtd() {
               <span className="text-green-600">JSW Steel Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            The US$ 24 billion JSW Group is ranked among India's leading business houses. JSW's innovative and sustainable presence in various sectors including Steel, Energy, Infrastructure, Cement, Paints, B2B Ecommerce, Venture Capital, Defence, Green Mobility and Sports is helping the Group play an important role in driving India’s economic growth. The Group strives for excellence by leveraging its strengths & capabilities including a successful track record of executing large capital-intensive & technically complex projects, differentiated product-mix, state-of-the-art manufacturing facilities and a greater focus on pursuing sustainable growth.
+            The US$ 24 billion JSW Group is ranked among Indias leading business houses. JSWs innovative and sustainable presence in various sectors including Steel, Energy, Infrastructure, Cement, Paints, B2B Ecommerce, Venture Capital, Defence, Green Mobility and Sports is helping the Group play an important role in driving India’s economic growth. The Group strives for excellence by leveraging its strengths & capabilities including a successful track record of executing large capital-intensive & technically complex projects, differentiated product-mix, state-of-the-art manufacturing facilities and a greater focus on pursuing sustainable growth.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             With a culturally diverse workforce spread across India, USA, Europe and Africa, JSW Group directly employs nearly 40,000 people.
