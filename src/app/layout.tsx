@@ -18,6 +18,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Clearclaim",
   description: "Physical shares to DEMAT conversion",
+  other: {
+    "google-site-verification": "5Drr5xwe4K0Ni-4z4UtEbxIlGiyA8uuCy5K4Xh8JVyQ",
+  },
 };
 
 export default function RootLayout({
@@ -27,15 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      
-      >
-        <Header/>
-
+      <head>
+      <meta name="google-site-verification" content="5Drr5xwe4K0Ni-4z4UtEbxIlGiyA8uuCy5K4Xh8JVyQ" />    
+      </head>
+      <body>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
-      
     </html>
   );
 }
