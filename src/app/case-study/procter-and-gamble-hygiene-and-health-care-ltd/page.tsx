@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import Lifeinsurance from "../../../../public/casestudy/Life_Insurance_Corporation_of_India_(logo).svg.png";
+import Procter from "../../../../public/casestudy/p&g.png";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 
 
-export default function LIFEINSURANCECORPORATIONOFINDIA() {
+export default function ProcterAndGambleHygieneandHealthCareLtd() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8); 
@@ -174,26 +174,6 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
-    {
-      name: "Hindustan Aeronautics Limited",
-      path: "/case-study/hindustan-aeronautics-limited",
-    },
-    {
-      name: "Hindustan Unilever Limited",
-      path: "/case-study/hindustan-unilever-limited",
-    },
-    {
-      name: "ICICI Bank",
-      path: "/case-study/icici-bank-limited",
-    },
-    {
-      name: "Unclaimed Shares of IG Petrochemicals Ltd",
-      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
-    },
-    {
-      name: "Infosys Limited",
-      path: "/case-study/infosys-limited",
-    },
   ];
 
  // Filter companies based on search query
@@ -311,25 +291,25 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            LIFE INSURANCE
-              <span className="text-green-600">CORPORATION OF INDIA</span>
+            Procter & Gamble Hygiene
+              <span className="text-green-600"> and Health Care Ltd </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Life Insurance Corporation of India (LIC) is a prominent public sector life insurance entity based in Mumbai, India. It holds the distinction of being the largest insurance provider in the country and the foremost institutional investor, with total assets under management amounting to ₹52.52 trillion (approximately US$630 billion) as of March 2024. 
+            Procter & Gamble Hygiene and Healthcare Limited (P&G India) is a leading player in the Indian health and hygiene industry, known for providing a diverse range of products aimed at improving daily living standards. A subsidiary of the multinational giant Procter & Gamble (P&G), the company has a significant presence in India and has been committed to delivering high-quality products that cater to hygiene, health, and personal care needs.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The corporation is owned by the Government of India and operates under the administrative oversight of the Ministry of Finance.
+            Founded in 1964, P&G India has established itself as a household name, with its portfolio including brands such as Tide, Ariel, Pampers, Gillette, Olay, Head & Shoulders, and Pantene. The company’s operations in India focus on manufacturing and marketing products in categories like baby care, feminine hygiene, fabric care, home care, and personal health.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The Oriental Life Insurance Company, the first company in India to offer life insurance coverage, was established in Kolkata in 1818 by Bipin Das Gupta. Its primary target market was India.
+            P&G India’s commitment to innovation and sustainability is reflected in its continuous effort to develop new solutions that enhance consumer well-being. The company also emphasizes corporate social responsibility, engaging in initiatives related to clean water access, sanitation, and women’s health.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            LIC was founded on September 1, 1956, following the enactment of the Life Insurance of India Act by the Indian Parliament, which led to the nationalization of the insurance sector in the country. This significant move resulted in the consolidation of over 245 insurance companies and provident societies. 
+            With a focus on providing reliable, effective, and affordable products, Procter & Gamble Hygiene and Healthcare Limited plays a vital role in improving the health and hygiene standards across India. The company’s operations are centered on creating value for both consumers and the community, and it continues to lead in various segments of the consumer goods market through its robust distribution network and strong consumer trust.
             </p>
             <Image
-              src={Lifeinsurance}
-              alt="Lifeinsurance"
-              className="mb-6 mx-auto w-50 h-30"
+              src={Procter}
+              alt="Procter logo"
+              className="mb-6 mx-auto w-100 h-30"
             />
             <section className="bg-white p-4">
               <div className="flex gap-4">
@@ -340,13 +320,13 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Life Insurance Corporation of India
+                  <b>Registered Name: </b> Procter & Gamble Hygiene and Health Care Ltd.
                 </li>
                 <li>
-                  <b>CIN Number: </b>L65922MH1989PLC052257
+                  <b>CIN Number: </b> L24239MH1964PLC012971
                 </li>
                 <li>
-                  <b>ISIN Number: </b>INE0J1Y01017
+                  <b>ISIN Number: </b> INE199A01012
                 </li>
               </ul>
             </section>
@@ -356,7 +336,8 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of LIFE INSURANCE CORPORATION OF INDIA
+                  Dividend History Of Procter & Gamble Hygiene and Health Care Ltd
+
                 </h2>
               </div>
 
@@ -364,44 +345,179 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                    <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date </th>
-                      <th className="text-left p-3">Dividend Type </th>
-                      <th className="text-left p-3">Dividend (Rs)</th>
+                    <th className="text-left p-3">Ex/EFF DATE</th>
+                      <th className="text-left p-3">TYPE </th>
+                      <th className="text-left p-3">CASH AMOUNT </th>
+                      <th className="text-left p-3">DECLARATION DATE</th>
+                      <th className="text-left p-3">RECORD DATE</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">27 May, 2024</td>
-                      <td className="text-gray-600 p-3">19 Jul, 2024</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">6.00</td>
+                      <td className="text-gray-600 p-3">19/11/2024</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹95</td>
+                      <td className="text-gray-600 p-3">28/08/2024</td>
+                      <td className="text-gray-600 p-3">20/11/2024</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      08 Feb, 2024
+                      09/02/2024
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      21 Feb, 2024
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹100</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">31/01/2024</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">09/02/2024</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">26 May, 2023</td>
-                      <td className="text-gray-600 p-3">21 Jul, 2023 </td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">3.00</td>
+                      <td className="text-gray-600 p-3">09/02/2024</td>
+                      <td className="text-gray-600 p-3">CASH </td>
+                      <td className="text-gray-600 p-3">₹60</td>
+                      <td className="text-gray-600 p-3">31/01/2024</td>
+                      <td className="text-gray-600 p-3">09/02/2024</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      31 May, 2022
+                      17/11/2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      25 Aug, 2022
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹105</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">28/08/2023</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">18/11/2023</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">08/02/2023</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹80</td>
+                      <td className="text-gray-600 p-3">31/01/2023</td>
+                      <td className="text-gray-600 p-3">08/02/2023</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      04/11/2022
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹65</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">23/08/2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">09/11/2022</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">08/02/2022</td>
+                      <td className="text-gray-600 p-3">CASH </td>
+                      <td className="text-gray-600 p-3">₹95</td>
+                      <td className="text-gray-600 p-3">01/02/2022</td>
+                      <td className="text-gray-600 p-3">09/02/2022</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      09/11/2021
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹80</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">25/08/2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">11/11/2021</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">11/05/2021</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹150</td>
+                      <td className="text-gray-600 p-3">04/05/2021</td>
+                      <td className="text-gray-600 p-3">12/05/2021</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      10/02/2021
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹85</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">03/02/2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">11/02/2021</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">13/11/2020</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹105</td>
+                      <td className="text-gray-600 p-3">25/08/2020</td>
+                      <td className="text-gray-600 p-3">18/11/2020</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      19/11/2019
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹48</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21/08/2019</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21/11/2019</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">15/02/2019</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹40</td>
+                      <td className="text-gray-600 p-3">07/02/2019</td>
+                      <td className="text-gray-600 p-3">19/02/2019</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      20/11/2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹40</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22/08/2018</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22/08/2018</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">07/11/2017</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹27</td>
+                      <td className="text-gray-600 p-3">23/08/2017</td>
+                      <td className="text-gray-600 p-3">09/11/2017</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      17/05/2017
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹362</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">05/05/2017</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">18/05/2017</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">24/11/2016</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹36</td>
+                      <td className="text-gray-600 p-3">26/08/2016</td>
+                      <td className="text-gray-600 p-3">26/11/2016</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      19/10/2015
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹30.25</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">28/08/2015</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21/10/2015</td>
                     </tr>
                   </tbody>
                 </table>
@@ -416,9 +532,46 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                   Bonus
                 </h2>
               </div>
-              <p className="text-[#00000099] p-4">
-                NA
-              </p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                    <th className="text-left p-3">Announcement Date</th>
+                      <th className="text-left p-3">Bonus Ratio</th>
+                      <th className="text-left p-3">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">08 Sep, 2003</td>
+                      <td className="text-gray-600 p-3">1:2</td>
+                      <td className="text-gray-600 p-3">For every 2 share held; Holder will receive 1 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      24 Sep, 1997
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1:4</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">For every 2 share held; Holder will receive 1 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Aug, 1989</td>
+                      <td className="text-gray-600 p-3">4:5</td>
+                      <td className="text-gray-600 p-3">For every 5 share held; Holder will receive 4 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      22 Aug, 1985
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1:2</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">For every 2 share held; Holder will receive 1 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Aug, 1981</td>
+                      <td className="text-gray-600 p-3">1:5</td>
+                      <td className="text-gray-600 p-3">For every 5 share held; Holder will receive 1 bonus shares</td>
+                    </tr>
+                    </tbody>
+                    </table> 
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -441,19 +594,20 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">The Life Insurance Corporation of India (LIC) is in discussions to acquire up to 50% of ManipalCigna Health Insurance, a joint venture between Manipal Education & Medical Group and Cigna Corporation. The deal could be worth ₹4,000 crore.</p>
+              <p className="text-[#00000099] p-4">
+                NA
+              </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of LIC of India Transferred To IEPF 
+                Unclaimed Shares and Dividends Of Procter & Gamble Hygiene and Health Care Ltd are in IEPF 
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
               The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
-
               </p>
             </section>
 
@@ -461,11 +615,11 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of LIC of India are in IEPF?
+                Why my shares of Procter & Gamble Hygiene and Health Care Ltd are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholders registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
+              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
               </p>
             </section>
 
@@ -515,15 +669,15 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  LIC of India
+                  Procter & Gamble Hygiene and Health Care Ltd
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://licindia.in/"
+                    href="https://us.pg.com/ "
                   >
-                  https://licindia.in/ 
+                  https://us.pg.com/
                   </Link>
                 </div>
               </div>
@@ -579,7 +733,7 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my Shares of LIC of India are in IEPF?
+                  Why my Shares of Procter & Gamble Hygiene and Health Care Ltd are in IEPF?
                 </a>
               </li>
               <li

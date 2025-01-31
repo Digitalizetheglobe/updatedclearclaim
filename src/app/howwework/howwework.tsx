@@ -26,42 +26,22 @@ export default function Howwework() {
             {/* Content Section */}
             <div className="text-xl text-left md:text-left">
               <div className="grid sm:grid-cols-2 gap-4 mx-auto w-full">
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Find your real worth of shares
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Know your exact claim type of shares
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Get exclusive consultation from experts
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Accurate documentation of your claim
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Get your shares in your DEMAT
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Superior Follow-up of your claim
-                  </h3>
-                </div>
+                {[
+                  "Find your real worth of shares",
+                  "Know your exact claim type of shares",
+                  "Get exclusive consultation from experts",
+                  "Accurate documentation of your claim",
+                  "Get your shares in your DEMAT",
+                  "Superior Follow-up of your claim",
+                ].map((text, index) => (
+                  <div
+                    key={index}
+                    className="flex md:grid md:grid-cols-[auto_1fr] md:items-start items-center gap-3 hover:shadow-md transition-all duration-300 rounded-xl h-28 p-4 w-full bg-[#d9fce9]"
+                  >
+                    <Image src={tick} alt="tick" className="w-6 h-6" />
+                    <h3 className="text-gray-800 text-base">{text}</h3>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

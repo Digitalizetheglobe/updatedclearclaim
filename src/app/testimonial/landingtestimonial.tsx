@@ -1,161 +1,119 @@
 "use client";
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import eclipse from "../../../public/images/Ellipse.png";
 import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
+import google from '../../../public/images/google.webp'
 
 export default function LandingTestimonial() {
-  const testimonials = [
-    
-   
-    // {
-    //   content:
-    //     "I had a great experience working with Clearclaim. They helped me recover my parents SBI Limited unclaimed shares and dividends from IEPF and convert them to DEMAT. Their team was very responsive and kept me updated throughout the process. I would definitely recommend their services to anyone looking to recover their shares.",
-    //   author: "Mukund Shah",
-    //   rating: 5,
-    // },
+  const reviews = [
     {
-      content:
-        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
-      author: "RAKESH G PATIL",
-      rating: 5,
-    },
-   
-    {
-      content:
-        "Mr.Srikant is a good person and guide us in a proper way with his Expertise in his business areas.  You may negotiate and go with them for your requirements.",
-      author: "Rajagopalan V",
-      rating: 5,
-    },
-    {
-      content:
-        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!",
-      author: "Piyush Dhimate",
-      rating: 5,
-    },
-    {
-      content:
-        "Thanks team of clear claim.... Nice service as well as nice guidline and thx for sorting and clearing my case ... And thanks help us...",
-      author: "INDRANEEL TAMBE",
-      rating: 5,
-    },
-    {
+      name: "Vinayak Gaitonde",
+      date: "22 January 2025",
+      stars: 5,
       content:
         "Very reliable, gives personal attention & above all, very reasonable charges.I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
-      author: "Vinayak Gaitonde",
-      rating: 5,
+    },
+    {
+      name: "Vicky Jain",
+      date: "17 January 2025",
+      stars: 5,
+      content:
+        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
+    },
+    {
+      name: "Rajagopalan V",
+      date: "6 January 2025",
+      stars: 5,
+      content:
+        "Mr.Srikant is a good person and guide us in a proper way with his Expertise in his business areas. You may negotiate and go with them for your requirements.",
+    },
+    {
+      name: "Piyush Dhimate",
+      date: "4 January 2025",
+      stars: 5,
+      content:
+        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!.",
+    },
+    {
+      name: "INDRANEEL TAMBE",
+      date: "3 January 2025",
+      stars: 4,
+      content:
+        "Thanks team of clear claim.... Nice service as well as nice guidline and thx for sorting and clearing my case ... And thanks help us...",
+    },
+    {
+      name: "Saikat Dastidar",
+      date: "2 January 2025",
+      stars: 5,
+      content:
+        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
+    },
+    {
+      name: "RAJESH TATED",
+      date: "29 December 2024",
+      stars: 5,
+      content:
+        "Company is doing a good job with constant follow up.",
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(3); // Default to 3 cards for desktop
+  
 
-  useEffect(() => {
-    const updateVisibleCards = () => {
-      // Set visible cards to 1 if screen width <= 768px (mobile)
-      if (window.innerWidth <= 768) {
-        setVisibleCards(1);
-      } else {
-        setVisibleCards(3);
-      }
-    };
-
-    updateVisibleCards();
-    window.addEventListener("resize", updateVisibleCards);
-
-    return () => window.removeEventListener("resize", updateVisibleCards);
-  }, []);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const getVisibleTestimonials = () => {
-    const visible = [];
-    for (let i = 0; i < visibleCards; i++) {
-      visible.push(testimonials[(currentIndex + i) % testimonials.length]);
-    }
-    return visible;
-  };
 
   return (
     <>
-         <div className="mt-20 p-8 bg-[#283655] max-w-6xl mx-auto overflow-hidden">
-        <style jsx>{`
-          @media (max-width: 768px) {
-            .testimonial-card {
-              height: auto; /* Adjust height dynamically */
-              padding-bottom: 60px; 
-              // width: 400px !important; 
-            }
-            .testimonial-content {
-              position: static; /* Avoid overlapping */
-              margin-bottom: 20px; /* Space between content and footer */
-            }
-            .testimonial-author {
-              position: relative; /* Keep footer at the bottom */
-              text-align: center; /* Center-align author and rating */
-            }
-          }
-        `}</style>
-
-        <div className="mb-12 text-center">
-          <h2 className="md:text-3xl text-xl font-semibold text-white">
-            Google Reviews That Speak for Themselves
-          </h2>
-        </div>
-        <div className="flex items-center gap-6">
-          {/* Previous Arrow */}
-          <button
-            onClick={handlePrev}
-            className="p-3 bg-white rounded-full shadow-lg text-[#283655] hover:bg-gray-200"
-          >
-            &lt;
-          </button>
-
-          {/* Testimonials */}
-          <div className="flex gap-6 flex-1 overflow-hidden">
-            {getVisibleTestimonials().map((testimonial, index) => (
+         <section className="bg-gray-100 py-12 px-6">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold">Google Reviews That Speak for Themselves</h2>
+      </div>
+<div className="relative max-w-6xl mx-auto">
+        <div className="h-[500px] overflow-y-scroll rounded-lg bg-grey shadow-md p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {reviews.map((review, index) => (
               <div
                 key={index}
-                className="testimonial-card relative flex-1 w-[300px] h-[450px] p-6 rounded-lg bg-gray-100 text-center flex flex-col justify-between"
+                className="bg-white border rounded-lg p-4 shadow-sm"
               >
-                <div className="testimonial-content">
-                  <p className="text-gray-600 text-md leading-relaxed">
-                    {testimonial.content}
-                  </p>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {review.name}
+                  </h3>
+                  <Image
+                    src={google}
+                    alt="Google"
+                    className="w-12 h-6"
+                  />
                 </div>
-                <div className="testimonial-author">
-                  <hr className="my-4 border-t border-gray-300" />
-                  <h1 className="text-gray-800 mt-2 text-lg font-bold">
-                    {testimonial.author}
-                  </h1>
-                  <p className="text-yellow-500 font-semibold">
-                    {"★".repeat(Math.floor(testimonial.rating)) +
-                      "☆".repeat(5 - Math.floor(testimonial.rating))}
-                  </p>
+                <p className="text-sm text-gray-500 mb-2">{review.date}</p>
+                <div className="flex items-center mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill={i < review.stars ? "gold" : "gray"}
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11.48 3.499a.75.75 0 011.04 0l1.755 2.26a.75.75 0 00.57.3l2.698.02a.75.75 0 01.548 1.277l-2.158 1.89a.75.75 0 00-.24.669l.5 2.698a.75.75 0 01-1.11.79l-2.39-1.33a.75.75 0 00-.75 0l-2.39 1.33a.75.75 0 01-1.11-.79l.5-2.698a.75.75 0 00-.24-.669l-2.158-1.89a.75.75 0 01.548-1.277l2.698-.02a.75.75 0 00.57-.3l1.755-2.26z"
+                      />
+                    </svg>
+                  ))}
                 </div>
+                <p className="text-gray-700 text-sm">{review.content}</p>
               </div>
             ))}
           </div>
-
-          {/* Next Arrow */}
-          <button
-            onClick={handleNext}
-            className="p-3 bg-white rounded-full shadow-lg text-[#283655] hover:bg-gray-200"
-          >
-            &gt;
-          </button>
         </div>
       </div>
+    </section>
 
 {/* Scammers Exposed */}
       <div className="max-w-6xl mx-auto mt-20">
@@ -210,7 +168,7 @@ export default function LandingTestimonial() {
       </div>
 
 {/* How it works */}
-      <div className="max-w-6xl mx-auto mt-16">
+<div className="max-w-6xl mx-auto mt-16">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
             <span className="text-[#283655]">How It</span> Works
@@ -229,47 +187,28 @@ export default function LandingTestimonial() {
             {/* Content Section */}
             <div className="text-xl text-left md:text-left">
               <div className="grid sm:grid-cols-2 gap-4 mx-auto w-full">
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Find your real worth of shares
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Know your exact claim type of shares
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Get exclusive consultation from experts
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Accurate documentation of your claim
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Get your shares in your DEMAT
-                  </h3>
-                </div>
-                <div className="text-center hover:shadow-md transition-all duration-300 rounded-xl p-4 w-full bg-[#d9fce9]">
-                  <Image src={tick} alt="clearclaim" />
-                  <h3 className="text-gray-800 text-base mt-1 mb-2">
-                    Superior Follow-up of your claim
-                  </h3>
-                </div>
+                {[
+                  "Find your real worth of shares",
+                  "Know your exact claim type of shares",
+                  "Get exclusive consultation from experts",
+                  "Accurate documentation of your claim",
+                  "Get your shares in your DEMAT",
+                  "Superior Follow-up of your claim",
+                ].map((text, index) => (
+                  <div
+                    key={index}
+                    className="flex md:grid md:grid-cols-[auto_1fr] md:items-start items-center gap-3 hover:shadow-md transition-all duration-300 rounded-xl h-28 p-4 w-full bg-[#d9fce9]"
+                  >
+                    <Image src={tick} alt="tick" className="w-6 h-6" />
+                    <h3 className="text-gray-800 text-base">{text}</h3>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
+
 
 {/* REquest acll back form  */}
 <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -289,21 +228,21 @@ export default function LandingTestimonial() {
             {/* Input Fields */}
             <input
               type="text"
-              placeholder="Name"
+              placeholder="First Name"
               className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
             />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Last Name"
               className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
             />
             <input
               type="text"
-              placeholder="Subject"
+              placeholder="Phone Number"
               className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
             />
             <textarea
-              placeholder="Message"
+              placeholder=""
               rows={6}
               className="w-full mb-6 text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-blue-500"
               defaultValue={""}

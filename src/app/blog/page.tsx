@@ -21,6 +21,11 @@ import blog15 from "../../../public/blogs/18.png";
 import blog16 from "../../../public/blogs/accouncment.png";
 import blog17 from "../../../public/blogs/20.png";
 import blog18 from "../../../public/blogs/21.png";
+import blog19 from "../../../public/blogs/unclaim shares.png";
+import blog20 from "../../../public/blogs/document.png";
+import blog21 from "../../../public/blogs/Digital.png";
+import blog22 from "../../../public/blogs/kyc.png";
+
 
 export default function Blog() {
   return (
@@ -33,6 +38,96 @@ export default function Blog() {
             </h2>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+          <div className="bg-white rounded overflow-hidden">
+              <Image
+                src={blog22}
+                alt="Blog Post 1"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                The Role of KYC Updates in Preventing Unclaimed Financial Assets
+                </h3>
+                <p className="text-orange-500 text-[13px] font-semibold mt-4">
+                  Jan 30th 2025
+                </p>
+                <Link
+                  href="the-role-of-kyc-updates"
+                  className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#00BE5D] text-white text-[13px]"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded overflow-hidden">
+              <Image
+                src={blog21}
+                alt="Blog Post 1"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                The Rise of Digital Platforms for Tracing Inactive Financial Assets: What You Need to Know
+                  </h3>
+                <p className="text-orange-500 text-[13px] font-semibold mt-4">
+                Jan 29th 2025
+                </p>
+                <Link
+                  href="the-rise-of-digital-platforms"
+                  className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#00BE5D] text-white text-[13px]"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded overflow-hidden">
+              <Image
+                src={blog20}
+                alt="Blog Post 1"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                The Importance of Document Verification in IEPF Claims: A Guide to an Effective Recovery Process
+                                </h3>
+                <p className="text-orange-500 text-[13px] font-semibold mt-4">
+                Jan 2th 2025
+                </p>
+                <Link
+                  href="the-importance-of-document-verification"
+                  className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#00BE5D] text-white text-[13px]"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white rounded overflow-hidden">
+              <Image
+                src={blog19}
+                alt="Blog Post 1"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                Unclaimed Dividends vs. Unclaimed Shares: How to Navigate the Recovery Process
+                                </h3>
+                <p className="text-orange-500 text-[13px] font-semibold mt-4">
+                Jan 1st 2025
+                </p>
+                <Link
+                  href="unclaimed-dividends-vs-unclaimed-shares"
+                  className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#00BE5D] text-white text-[13px]"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+
+
+            {/* -------------------------------------------------------- */}
+
+
+
           <div className="bg-white rounded overflow-hidden">
               <Image
                 src={blog18}

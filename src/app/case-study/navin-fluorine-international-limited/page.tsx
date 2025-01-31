@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import Lifeinsurance from "../../../../public/casestudy/Life_Insurance_Corporation_of_India_(logo).svg.png";
+import Navin from "../../../../public/casestudy/Navin Fluorine.webp";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 
 
-export default function LIFEINSURANCECORPORATIONOFINDIA() {
+export default function  NavinFluorineInternationalLimited() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8); 
@@ -174,26 +174,6 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
-    {
-      name: "Hindustan Aeronautics Limited",
-      path: "/case-study/hindustan-aeronautics-limited",
-    },
-    {
-      name: "Hindustan Unilever Limited",
-      path: "/case-study/hindustan-unilever-limited",
-    },
-    {
-      name: "ICICI Bank",
-      path: "/case-study/icici-bank-limited",
-    },
-    {
-      name: "Unclaimed Shares of IG Petrochemicals Ltd",
-      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
-    },
-    {
-      name: "Infosys Limited",
-      path: "/case-study/infosys-limited",
-    },
   ];
 
  // Filter companies based on search query
@@ -311,25 +291,25 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            LIFE INSURANCE
-              <span className="text-green-600">CORPORATION OF INDIA</span>
+            Navin Fluorine
+              <span className="text-green-600"> International Limited</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Life Insurance Corporation of India (LIC) is a prominent public sector life insurance entity based in Mumbai, India. It holds the distinction of being the largest insurance provider in the country and the foremost institutional investor, with total assets under management amounting to ₹52.52 trillion (approximately US$630 billion) as of March 2024. 
+            Navin Fluorine International Limited (NFIL) is a prominent Indian company specializing in the production of high-performance fluorochemicals. Established in 1997, NFIL is a leading player in the chemical industry, with a diverse range of products catering to various sectors such as pharmaceuticals, agrochemicals, automotive, electronics, and refrigerants. The company operates through multiple business segments, including Fluorochemicals, Contract Research and Manufacturing Services (CRAMS), and Specialty Chemicals.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The corporation is owned by the Government of India and operates under the administrative oversight of the Ministry of Finance.
+            With a strong focus on research and development (R&D), NFIL has established state-of-the-art facilities that ensure the highest quality standards. The company has adopted sustainable practices in its production processes and maintains a commitment to environmental responsibility.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            The Oriental Life Insurance Company, the first company in India to offer life insurance coverage, was established in Kolkata in 1818 by Bipin Das Gupta. Its primary target market was India.
+            NFIL has expanded its global footprint through strategic partnerships and exports to international markets, strengthening its position in the global fluorochemical industry. The company is also listed on the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE), highlighting its robust financial performance and growth prospects.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            LIC was founded on September 1, 1956, following the enactment of the Life Insurance of India Act by the Indian Parliament, which led to the nationalization of the insurance sector in the country. This significant move resulted in the consolidation of over 245 insurance companies and provident societies. 
+            Navin Fluorine continues to thrive due to its technical expertise, operational efficiency, and commitment to customer satisfaction, making it a respected name in the Indian chemical industry.
             </p>
             <Image
-              src={Lifeinsurance}
-              alt="Lifeinsurance"
-              className="mb-6 mx-auto w-50 h-30"
+              src={Navin}
+              alt="Navin logo"
+              className="mb-6 mx-auto w-100 h-30"
             />
             <section className="bg-white p-4">
               <div className="flex gap-4">
@@ -340,13 +320,13 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Life Insurance Corporation of India
+                  <b>Registered Name: </b> Navin Fluorine International Limited 
                 </li>
                 <li>
-                  <b>CIN Number: </b>L65922MH1989PLC052257
+                  <b>CIN Number: </b>L24110MH1998PLC115499
                 </li>
                 <li>
-                  <b>ISIN Number: </b>INE0J1Y01017
+                  <b>ISIN Number: </b>INE048G01026
                 </li>
               </ul>
             </section>
@@ -356,7 +336,7 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of LIFE INSURANCE CORPORATION OF INDIA
+                  Dividend History Of Navin Fluorine International Limited 
                 </h2>
               </div>
 
@@ -364,7 +344,6 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                    <th className="text-left p-3">Announcement Date</th>
                       <th className="text-left p-3">Ex-Dividend Date </th>
                       <th className="text-left p-3">Dividend Type </th>
                       <th className="text-left p-3">Dividend (Rs)</th>
@@ -372,36 +351,130 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">27 May, 2024</td>
-                      <td className="text-gray-600 p-3">19 Jul, 2024</td>
+                      <td className="text-gray-600 p-3">07 Nov, 2024</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      05 Jul, 2024
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">7.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">10 Nov, 2023</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      10 Nov, 2023
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.00</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">07 Jul, 2023</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">7.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      03 Nov, 2022
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">07 Jul, 2022</td>
                       <td className="text-gray-600 p-3">Final</td>
                       <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      08 Feb, 2024
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      21 Feb, 2024
+                      01 Nov, 2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">09 Jul, 2021</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">26 May, 2023</td>
-                      <td className="text-gray-600 p-3">21 Jul, 2023 </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      10 Nov, 2020
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      Interim
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">07 Aug, 2020</td>
                       <td className="text-gray-600 p-3">Final</td>
                       <td className="text-gray-600 p-3">3.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      31 May, 2022
+                      05 Mar, 2020
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">05 Nov, 2019</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">4.00</td>
+                    </tr>
+                    <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      25 Aug, 2022
+                      07 Jun, 2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">1.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">14 Nov, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.80</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      13 Jul, 2018
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.60</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">13 Jul, 2018</td>
+                      <td className="text-gray-600 p-3">Special</td>
+                      <td className="text-gray-600 p-3">3.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      08 Nov, 2017
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.40</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">16 Jun, 2017</td>
+                      <td className="text-gray-600 p-3">Final</td>
+                      <td className="text-gray-600 p-3">13.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      04 Nov, 2016
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">7.50</td>
                     </tr>
                   </tbody>
                 </table>
@@ -429,9 +502,26 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                   Split
                 </h2>
               </div>
-              <p className="text-[#00000099] p-4">
-                NA
-              </p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                    <th className="text-left p-3">Announcement Date</th>
+                      <th className="text-left p-3">Ex-Bonus Date </th>
+                      <th className="text-left p-3">Old FV</th>
+                      <th className="text-left p-3">New FV</th>
+                      <th className="text-left p-3">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">28 Apr, 2017</td>
+                      <td className="text-gray-600 p-3">19 Jul, 2017</td>
+                      <td className="text-gray-600 p-3">10</td>
+                      <td className="text-gray-600 p-3">2</td>
+                      <td className="text-gray-600 p-3">For every share held, the holder will receive 5 shares post the split adjustment.</td>
+                    </tr>
+                    </tbody>
+                    </table> 
             </section>
             {/* Add more content to demonstrate scrolling */}
             <section id="mergers-amalgamation" className="mt-8 bg-white p-6 ">
@@ -441,19 +531,18 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">The Life Insurance Corporation of India (LIC) is in discussions to acquire up to 50% of ManipalCigna Health Insurance, a joint venture between Manipal Education & Medical Group and Cigna Corporation. The deal could be worth ₹4,000 crore.</p>
+              <p className="text-gray-500">In 2011, Navin Fluorine International Limited acquired 51% equity stake in Manchester Organics Ltd. </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of LIC of India Transferred To IEPF 
+                Unclaimed Shares and Dividends Of Navin Fluorine International Limited are in IEPF 
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
               The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
-
               </p>
             </section>
 
@@ -461,11 +550,11 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of LIC of India are in IEPF?
+                Why my shares of Navin Fluorine International Limited are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholders registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
+              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
               </p>
             </section>
 
@@ -515,15 +604,15 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  LIC of India
+                  Navin Fluorine International Limited 
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://licindia.in/"
+                    href="https://www.nfil.in/"
                   >
-                  https://licindia.in/ 
+                  https://www.nfil.in/   
                   </Link>
                 </div>
               </div>
@@ -579,7 +668,7 @@ export default function LIFEINSURANCECORPORATIONOFINDIA() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my Shares of LIC of India are in IEPF?
+                  Why my Shares of Navin Fluorine International Limited are in IEPF?
                 </a>
               </li>
               <li

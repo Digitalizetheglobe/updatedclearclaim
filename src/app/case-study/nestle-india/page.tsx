@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import mahindra from "../../../../public/casestudy/mh.png";
+import nestle from "../../../../public/casestudy/nestle.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 
 
-export default function  MAHINDRAANDMAHINDRALIMITED() {
+export default function  NestleIndia() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8); 
@@ -174,26 +174,6 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
-    {
-      name: "Hindustan Aeronautics Limited",
-      path: "/case-study/hindustan-aeronautics-limited",
-    },
-    {
-      name: "Hindustan Unilever Limited",
-      path: "/case-study/hindustan-unilever-limited",
-    },
-    {
-      name: "ICICI Bank",
-      path: "/case-study/icici-bank-limited",
-    },
-    {
-      name: "Unclaimed Shares of IG Petrochemicals Ltd",
-      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
-    },
-    {
-      name: "Infosys Limited",
-      path: "/case-study/infosys-limited",
-    },
   ];
 
  // Filter companies based on search query
@@ -311,31 +291,25 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            MAHINDRA AND
-              <span className="text-green-600">MAHINDRA LIMITED</span>
+            Nestle 
+              <span className="text-green-600"> India </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Mahindra & Mahindra is an Indian automobile manufacturing company headquartered in Mumbai, Maharashtra. It was established in 1945 as Mahindra & Mohammed and later renamed Mahindra & Mahindra. Part of the Mahindra Group, M&M is one of the largest vehicle manufacturers by production in India.
+            Nestlé India is one of the leading food and beverage companies in the country, with a strong presence in various product categories. It is a subsidiary of the Swiss multinational Nestlé S.A., which operates in over 190 countries globally. Nestlé India was established in 1959 and has since become a household name, offering a wide range of products that include dairy, nutrition, chocolates, beverages, culinary products, and more.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Mahindra Group is a global organization, present in over 100+ countries. The corporate head office of the Mahindra Group is located in Mumbai at Mahindra Towers
+            The company’s portfolio includes well-known brands like Maggi, Nescafé, KitKat, Nestea, and Lactogen, among others. Nestlé India has consistently focused on providing high-quality products that cater to the evolving tastes and health preferences of Indian consumers. With a robust supply chain and distribution network, the company has managed to reach even remote corners of the country, making its products widely accessible.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Mahindra & Mahindra Ltd. is a holding company, which engages in the manufacturing of automotive vehicles.
+            Nestlé India is also committed to sustainability, investing in initiatives that support environmental conservation, responsible sourcing, and community development. The company has implemented water management programs, reduced carbon emissions, and is actively working towards promoting healthier diets through its products.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Mahindra & Mahindra Ltd (M&M), the flagship company of the Mahindra Group, is a diversified business company.
-            </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-            Mahindra & Mahindra Ltd. manufactures automobiles, farm equipment and automotive components.
-            </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-            A USD 19.4 billion multinational group based in Mumbai, India, Mahindra provides employment opportunities to over 256,000 people across 100 countries.
+            Headquartered in Gurgaon, the company operates several manufacturing units across India, creating significant employment opportunities. Over the years, Nestlé India has built a strong reputation for quality, innovation, and trust. Its focus on consumer well-being, coupled with its commitment to sustainability, has positioned it as a leader in the Indian food and beverage market.
             </p>
             <Image
-              src={mahindra}
-              alt="mahindra logo"
-              className="mb-6 mx-auto w-50 h-30"
+              src={nestle}
+              alt="nestle logo"
+              className="mb-6 mx-auto w-100 h-30"
             />
             <section className="bg-white p-4">
               <div className="flex gap-4">
@@ -346,13 +320,13 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Mahindra & Mahindra Ltd.
+                  <b>Registered Name: </b> Nestle India.
                 </li>
                 <li>
-                  <b>CIN Number: </b>L65990MH1945PLC004558
+                  <b>CIN Number: </b> L15202DL1959PLC003786
                 </li>
                 <li>
-                  <b>ISIN Number: </b>INE101A08088
+                  <b>ISIN Number: </b> INE239A01024
                 </li>
               </ul>
             </section>
@@ -362,7 +336,7 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of MAHINDRA AND MAHINDRA LIMITED
+                  Dividend History Of Nestle India
                 </h2>
               </div>
 
@@ -370,463 +344,331 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                    <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Dividend Date </th>
-                      <th className="text-left p-3">Dividend Type </th>
-                      <th className="text-left p-3">Dividend (Rs)</th>
+                    <th className="text-left p-3">Ex/EFF DATE</th>
+                      <th className="text-left p-3">TYPE </th>
+                      <th className="text-left p-3">CASH AMOUNT </th>
+                      <th className="text-left p-3">DECLARATION DATE</th>
+                      <th className="text-left p-3">RECORD DATE</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">16 May, 2024</td>
-                      <td className="text-gray-600 p-3">05 Jul, 2024</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">21.10</td>
+                      <td className="text-gray-600 p-3">16/07/2024</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹2.75</td>
+                      <td className="text-gray-600 p-3">08/07/2024</td>
+                      <td className="text-gray-600 p-3">16/07/2024</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      26 May, 2023
+                      16/07/2024
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      14 Jul, 2023
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16.25</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹8.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">25/04/2024</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">16/07/2024</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2022</td>
-                      <td className="text-gray-600 p-3">14 Jul, 2022 </td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">11.55</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      28 May, 2021
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      15 Jul, 2021
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">8.75</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">12 Jun, 2020</td>
-                      <td className="text-gray-600 p-3">16 Jul, 2020</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">2.35</td>
+                      <td className="text-gray-600 p-3">15/02/2024</td>
+                      <td className="text-gray-600 p-3">CASH </td>
+                      <td className="text-gray-600 p-3">₹7</td>
+                      <td className="text-gray-600 p-3">07/02/2024</td>
+                      <td className="text-gray-600 p-3">15/02/2024</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2019
+                      01/11/2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18 Jul, 2019
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">8.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2018</td>
-                      <td className="text-gray-600 p-3">12 Jul, 2018 </td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">7.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      13 Jul, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">13.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹140</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">19/09/2023</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">01/11/2023</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2016</td>
-                      <td className="text-gray-600 p-3">21 Jul, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">21/04/2023</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹27</td>
+                      <td className="text-gray-600 p-3">12/04/2023</td>
+                      <td className="text-gray-600 p-3">21/04/2023</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2015
+                      21/04/2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      16 Jul, 2015
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹75</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">16/02/2023</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21/04/2023</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">29 May, 2014</td>
-                      <td className="text-gray-600 p-3">17 Jul, 2014 </td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17 Jul, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.50</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">30 May, 2016</td>
-                      <td className="text-gray-600 p-3">21 Jul, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">31/10/2022</td>
+                      <td className="text-gray-600 p-3">CASH </td>
+                      <td className="text-gray-600 p-3">₹120</td>
+                      <td className="text-gray-600 p-3">19/10/2022</td>
+                      <td className="text-gray-600 p-3">01/11/2022</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2015
+                      21/04/2022
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      16 Jul, 2015
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2014</td>
-                      <td className="text-gray-600 p-3">17 Jul, 2014 </td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17 Jul, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹25</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">11/04/2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22/04/2022</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2013</td>
-                      <td className="text-gray-600 p-3">18 Jul, 2013</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.00</td>
+                      <td className="text-gray-600 p-3">21/04/2022</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹65</td>
+                      <td className="text-gray-600 p-3">17/02/2022</td>
+                      <td className="text-gray-600 p-3">22/04/2022</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2013
+                      26/10/2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18 Jul, 2013
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final&Spl</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹110</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">19/10/2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">27/10/2021</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2012</td>
-                      <td className="text-gray-600 p-3">12 Jul, 2012</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      14 Jul, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">11.50</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">24 May, 2010</td>
-                      <td className="text-gray-600 p-3">08 Jul, 2010</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">9.50</td>
+                      <td className="text-gray-600 p-3">29/04/2021</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹25</td>
+                      <td className="text-gray-600 p-3">20/04/2021</td>
+                      <td className="text-gray-600 p-3">01/05/2021</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      19 May, 2009
+                      29/04/2021
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      09 Jul, 2009
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final&Spl</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">16 May, 2008</td>
-                      <td className="text-gray-600 p-3">03 Jul, 2008</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">11.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      23 May, 2007
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      05 Jul, 2007
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹65</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">16/02/2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">01/05/2021</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">29 May, 2019</td>
-                      <td className="text-gray-600 p-3">18 Jul, 2019</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">8.50</td>
+                      <td className="text-gray-600 p-3">29/10/2020</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹135</td>
+                      <td className="text-gray-600 p-3">23/10/2020</td>
+                      <td className="text-gray-600 p-3">02/11/2020</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2018
+                      11/06/2020
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      12 Jul, 2018
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">7.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹61</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/02/2020</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/06/2020</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2017</td>
-                      <td className="text-gray-600 p-3">13 Jul, 2017</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2016
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      21 Jul, 2016
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12.00</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2015</td>
-                      <td className="text-gray-600 p-3">16 Jul, 2015</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">10/12/2019</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹55</td>
+                      <td className="text-gray-600 p-3">03/12/2019</td>
+                      <td className="text-gray-600 p-3">11/12/2019</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2019
+                      09/08/2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18 Jul, 2019
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">8.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 May, 2018</td>
-                      <td className="text-gray-600 p-3">12 Jul, 2018</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">7.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2016
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      13 Jul, 2017
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">13.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹23</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">02/08/2019</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/08/2019</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">30 May, 2016</td>
-                      <td className="text-gray-600 p-3">21 Jul, 2016</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.00</td>
+                      <td className="text-gray-600 p-3">09/08/2019</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹180</td>
+                      <td className="text-gray-600 p-3">02/08/2019</td>
+                      <td className="text-gray-600 p-3">13/08/2019</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 May, 2015
+                      06/05/2019
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      16 Jul, 2015
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹23</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">25/04/2019</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">07/05/2019</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">29 May, 2014</td>
-                      <td className="text-gray-600 p-3">17 Jul, 2014</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17 Jul, 2014
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Special</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.50</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">30 May, 2013</td>
-                      <td className="text-gray-600 p-3">18 Jul, 2013</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.00</td>
+                      <td className="text-gray-600 p-3">30/04/2019</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹25</td>
+                      <td className="text-gray-600 p-3">14/02/2019</td>
+                      <td className="text-gray-600 p-3">03/05/2019</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2013
+                      12/12/2018
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18 Jul, 2013
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final&Spl</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">30 May, 2012</td>
-                      <td className="text-gray-600 p-3">12 Jul, 2012</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">12.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      30 May, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      14 Jul, 2011
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">11.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">05/12/2018</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/12/2018</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">24 May, 2010</td>
-                      <td className="text-gray-600 p-3">08 Jul, 2010</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">9.50</td>
+                      <td className="text-gray-600 p-3">10/08/2018</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹20</td>
+                      <td className="text-gray-600 p-3">03/08/2018</td>
+                      <td className="text-gray-600 p-3">13/08/2018</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      19 May, 2009
+                      16/05/2018
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      09 Jul, 2009
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹20</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">10/05/2018</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">18/05/2018</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">16 May, 2008</td>
-                      <td className="text-gray-600 p-3">03 Jul, 2008</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">11.50</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      23 May, 2007
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      05 Jul, 2007
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">4.00</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">07 Mar, 2007</td>
-                      <td className="text-gray-600 p-3">23 Mar, 2007</td>
-                      <td className="text-gray-600 p-3">Interim</td>
-                      <td className="text-gray-600 p-3">7.50</td>
+                      <td className="text-gray-600 p-3">16/05/2018</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹23</td>
+                      <td className="text-gray-600 p-3">14/02/2018</td>
+                      <td className="text-gray-600 p-3">18/05/2018</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      19 May, 2006
+                      11/12/2017
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29 Jun, 2006
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">10 May, 2005</td>
-                      <td className="text-gray-600 p-3">29 Jun, 2005</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">13.00</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      13 May, 2004
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      28 Jun, 2004
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">9.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹33</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">04/12/2017</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">12/12/2017</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">09 May, 2003</td>
-                      <td className="text-gray-600 p-3">26 Jun, 2003</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">5.50</td>
+                      <td className="text-gray-600 p-3">02/08/2017</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹15</td>
+                      <td className="text-gray-600 p-3">26/07/2017</td>
+                      <td className="text-gray-600 p-3">03/08/2017</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      10 May, 2002
+                      19/05/2017
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      26 Jun, 2002
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹15</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">12/05/2017</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">23/05/2017</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">17 Apr, 2001</td>
-                      <td className="text-gray-600 p-3">23 May, 2001</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">0.00</td>
+                      <td className="text-gray-600 p-3">19/05/2017</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹23</td>
+                      <td className="text-gray-600 p-3">15/02/2017</td>
+                      <td className="text-gray-600 p-3">23/05/2017</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      28 Mar, 2000
+                      09/12/2016
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      -
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹16</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">05/12/2016</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/12/2016</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">02 May, 1997</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">0.00</td>
+                      <td className="text-gray-600 p-3">05/08/2016</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹12</td>
+                      <td className="text-gray-600 p-3">29/07/2016</td>
+                      <td className="text-gray-600 p-3">08/08/2016</td>
                     </tr>
+
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      31 May, 1999
+                      18/05/2016
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      -
+                      CASH
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">0.00</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹12</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">12/05/2016</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">20/05/2016</td>
                     </tr>
+
                     <tr>
-                      <td className="text-gray-600 p-3">11 Jun, 1998</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">Final</td>
-                      <td className="text-gray-600 p-3">0.00</td>
+                      <td className="text-gray-600 p-3">18/05/2016</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹18.50</td>
+                      <td className="text-gray-600 p-3">12/02/2016</td>
+                      <td className="text-gray-600 p-3">20/05/2016</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      11/12/2015
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹16</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">04/12/2015</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">14/12/2015</td>
+                    </tr>
+
+                    <tr>
+                      <td className="text-gray-600 p-3">19/05/201</td>
+                      <td className="text-gray-600 p-3">CASH</td>
+                      <td className="text-gray-600 p-3">₹14</td>
+                      <td className="text-gray-600 p-3">15/05/2015</td>
+                      <td className="text-gray-600 p-3">21/05/2015</td>
+                    </tr>
+                    
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      19/05/2015
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      CASH
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">₹12.50</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">13/02/2015</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21/05/201</td>
                     </tr>
                   </tbody>
                 </table>
@@ -845,49 +687,39 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
                     <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Bonus Date </th>
                       <th className="text-left p-3">Bonus Ratio</th>
                       <th className="text-left p-3">Remarks</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">10 Nov, 2017</td>
-                      <td className="text-gray-600 p-3">21 Dec, 2017</td>
-                      <td className="text-gray-600 p-3">1:1</td>
-                      <td className="text-gray-600 p-3">For every 1 share held; Holder will receive 1 bonus shares.</td>
+                      <td className="text-gray-600 p-3">23 Apr, 1996</td>
+                      <td className="text-gray-600 p-3">1:2</td>
+                      <td className="text-gray-600 p-3">For every 2 share held; Holder will receive 1 bonus shares.</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      14 Jun, 2005
+                      30 Sep, 1993
                       </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1:4</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">For every 4 share held; Holder will receive 1 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">18 Jul, 1989</td>
+                      <td className="text-gray-600 p-3">3:5</td>
+                      <td className="text-gray-600 p-3">For every 5 share held; Holder will receive 3 bonus shares.</td>
+                    </tr>
+                    <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      01 Sep, 2005
+                      18 Jul, 1986
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">1:1</td>
                       <td className="text-gray-600 bg-gray-100 p-3">For every 1 share held; Holder will receive 1 bonus shares.</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">07 Nov, 1995</td>
-                      <td className="text-gray-600 p-3">20 Dec, 1995</td>
-                      <td className="text-gray-600 p-3">2:3</td>
-                      <td className="text-gray-600 p-3">For every 3 share held; Holder will receive 2 bonus shares.</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      29 Apr, 1984
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      -
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">2:3</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">For every 3 share held; Holder will receive 2 bonus shares.</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">29 Apr, 1980</td>
-                      <td className="text-gray-600 p-3">-</td>
-                      <td className="text-gray-600 p-3">1.1</td>
-                      <td className="text-gray-600 p-3">For every 1 share held; Holder will receive 1 bonus shares.</td>
+                      <td className="text-gray-600 p-3">18 Jul, 1983</td>
+                      <td className="text-gray-600 p-3">3:5</td>
+                      <td className="text-gray-600 p-3">For every 5 share held; Holder will receive 3 bonus shares</td>
                     </tr>
                     </tbody>
                     </table> 
@@ -905,7 +737,6 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
                     <th className="text-left p-3">Announcement Date</th>
-                      <th className="text-left p-3">Ex-Bonus Date </th>
                       <th className="text-left p-3">Old FV</th>
                       <th className="text-left p-3">New FV</th>
                       <th className="text-left p-3">Remarks</th>
@@ -913,11 +744,10 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">29 Apr, 1980</td>
-                      <td className="text-gray-600 p-3">29 Mar, 2010</td>
+                      <td className="text-gray-600 p-3">05 Jan, 2024</td>
                       <td className="text-gray-600 p-3">10</td>
-                      <td className="text-gray-600 p-3">10</td>
-                      <td className="text-gray-600 p-3">For every share held, the holder will receive 2 shares post the split adjustment.</td>
+                      <td className="text-gray-600 p-3">1</td>
+                      <td className="text-gray-600 p-3">For every share held, the holder will receive 10 shares post the split adjustment.</td>
                     </tr>
                     </tbody>
                     </table> 
@@ -930,36 +760,20 @@ export default function  MAHINDRAANDMAHINDRALIMITED() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">Mahindra & Mahindra (M&M) has completed multiple mergers with its subsidiaries, including:</p>
-              <li>
-              Mahindra Electric Mobility Limited (MEML)
-In February 2023, MEML merged with M&M to combine EV development, manufacturing, and sales operations. The merger was approved by the National Company Law Tribunal (NCLT) in January 2023. 
-
-              </li>
-              <li>
-              Mahindra Heavy Engines Ltd (MHEL), Mahindra Two Wheelers Ltd (MTWL), and Trringo.com Ltd (TCL)
-In June 2024, M&M absorbed these three subsidiaries, transferring their assets and liabilities to M&M. The merger was intended to streamline operations, reduce costs, and simplify the holding structure
-
-              </li>
-              <li>
-              Tech Mahindra Americas (TMA) and Born
-In March 2024, Tech Mahindra announced a merger of these two subsidiaries. The merger will not involve the exchange of cash or issuance of new shares.
-
-              </li>
+              <p className="text-[#00000099] p-4">
+                NA
+              </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Mahindra and Mahaindra Ltd Transferred To IEPF
+                Unclaimed Shares and Dividends Of Nestle India are in IEPF 
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government set up the Investor Education and Protection Fund (IEPF) to safeguard investors interests and raise awareness. This fund was created under Section 125 of the Companies Act, 2013. Any unpaid or unclaimed money from investors is collected and added to the IEPF. The funds in the 
-are used for various purposes as outlined in the Act. The IEPFA Authority is responsible for managing the IEPF, handling refunds for shares, unclaimed dividends, matured deposits, and debentures, while also working to educate investors and protect their interests.
-
-
+              The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
               </p>
             </section>
 
@@ -967,11 +781,11 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Mahindra and Mahindra Ltd are in IEPF?
+                Why my shares of Nestle India are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The company needs to let the shareholder know before moving the shares to IEPF. They do this by sending a letter to the shareholders registered address and also by posting a public notice in the newspaper. If the shareholder doesn’t respond, the company can go ahead and transfer the shares to IEPF. This transfer happens when the shareholder hasn’t claimed dividends for seven or more years in a row.
+              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
               </p>
             </section>
 
@@ -1021,15 +835,15 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Mahindra & Mahindra Ltd
+                  Nestle India
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://www.mahindra.com/"
+                    href="http://www.nestle.in/ "
                   >
-                  https://www.mahindra.com/ 
+                  http://www.nestle.in/
                   </Link>
                 </div>
               </div>
@@ -1085,7 +899,7 @@ are used for various purposes as outlined in the Act. The IEPFA Authority is res
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my Shares of Mahindra & Mahindra Ltd are in IEPF?
+                  Why my Shares of Nestle India are in IEPF?
                 </a>
               </li>
               <li

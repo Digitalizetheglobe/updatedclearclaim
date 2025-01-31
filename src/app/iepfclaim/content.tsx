@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
-import LandingTestimonial from "../testimonial/landingtestimonial";
 import iepf from "../../../public/images/iepf (1).svg";
 import iepf1 from "../../../public/images/iepf (2).svg";
 import iepf2 from "../../../public/images/iepf (3).svg";
+import LandingTestimonial from "../testimonial/landingtestimonial";
 
 export default function Content() {
   return (
