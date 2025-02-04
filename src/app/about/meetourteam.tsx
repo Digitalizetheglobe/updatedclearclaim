@@ -322,7 +322,7 @@ export default function Meetourteam() {
         </div>
 
         {/* gallery */}
-        <div className="mt-8 mb-24 max-w-6xl mx-auto">
+        <div className="mt-8 mb-24 max-w-6xl mx-auto max-md:px-4">
       <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
         {images.map((image, index) => (

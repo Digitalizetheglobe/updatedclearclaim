@@ -8,16 +8,16 @@ import Meetourteam from "./meetourteam";
 export default function About() {
   return (
     <>
-      <div className="p-16 ">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
-            <span className="text-[#283655]"> What </span> We Do
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 items-center md:gap-4 gap-8 max-w-5xl max-md:max-w-md mx-auto">
-          <div className="max-md:order-1 max-md:text-center mt-10 max-md:mt-0">
-            <p className="mt-4 text-[18px] text-black text-justify">
-              In a nation where aspirations and dreams fuel the pursuit of
+     <div className="p-10 md:p-16">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
+      <span className="text-[#283655]"> What </span> We Do
+    </h2>
+  </div>
+  <div className="grid md:grid-cols-2 items-center md:gap-4 gap-6 max-w-5xl max-md:max-w-md mx-auto">
+    <div className="max-md:order-1 max-md:text-center mt-6 max-md:mt-0">
+      <p className="mt-2 text-[18px] text-black text-justify">
+      In a nation where aspirations and dreams fuel the pursuit of
               financial security, we understand the importance of investing to
               fulfil those desires. All individuals try to invest to meet their
               basic needs, save a portion of their income, and invest in various
@@ -29,27 +29,29 @@ export default function About() {
               from paper- based transactions to digital platforms has become the
               norm. Yet, not everyone has made this shift, and numerous
               investors still hold their investments in paper format.
-            </p>
-          </div>
-          <div className="md:h-[470px]">
-            <Image
-              src={aboutgif}
-              alt="about"
-              className="w-full h-full md:object-contain"
-              priority
-            />
-            <p className="mt-4 text-[18px] text-black text-justify max-md:mt-0">
-              The Government of India has made substantial efforts to streamline
+      </p>
+      <p className="mt-2 text-[18px] text-black text-justify max-md:mt-0">
+      The Government of India has made substantial efforts to streamline
               this transition. However, considering India vast population of
               1.25 billion people, it will naturally take time to complete the
-              process.{" "}
-            </p>
-          </div>
-        </div>
-      </div>
+              process.
+      </p>
+    </div>
+    <div className="md:h-[470px]">
+      <Image
+        src={aboutgif}
+        alt="about"
+        className="w-full h-full md:object-contain"
+        priority
+      />
+      
+    </div>
+  </div>
+</div>
+
 
       {/* VISSION/MISSION */}
-      <div className="max-w-5xl mx-auto mt-40 mb-12">
+      <div className="max-w-5xl mx-auto mb-12 py-12 max-md:px-4">
         <div className="grid md:grid-cols-2 gap-4 mt-4">
           <div
             className="relative bg-cover bg-center bg-no-repeat text-white max-sm:px-8 px-12 py-8 w-full rounded-[60px]"
@@ -94,13 +96,13 @@ export default function About() {
       {/* MEET PEOPLE */}
       <div className=" bg-white p-4 mb-20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
+          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
             <span className="text-[#283655]"> Meet </span> The Team
           </h2>
           <p className="text-black text-sm">Clearclaim Ventures Pvt. Ltd.</p>
         </div>
 
-        <div className="md:max-w-5xl max-w-xl mx-auto mt-24">
+        <div className="md:max-w-5xl max-w-xl mx-auto mt-14">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="max-h-72 max-md:order-1">
               <Image
@@ -109,7 +111,7 @@ export default function About() {
                 className="rounded-lg object-contain w-full h-[350px]"
               />
             </div>
-            <div className="text-left">
+            <div className="text-left max-md:px-4">
               <h2 className="text-black text-2xl font-bold mb-4">
                 Shrikant Pandore
               </h2>
@@ -131,7 +133,7 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mt-24">
-            <div className="text-left">
+            <div className="text-left max-md:px-4">
               <h2 className="text-black text-2xl font-bold mb-4">
                 Hardik Manek
               </h2>

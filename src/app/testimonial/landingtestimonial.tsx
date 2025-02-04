@@ -1,13 +1,73 @@
 "use client";
 
-// import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import eclipse from "../../../public/images/Ellipse.png";
 import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import google from '../../../public/images/google.webp'
+import emailjs from "emailjs-com";
 
-export default function LandingTestimonial() {
+
+export default function LandingTestimonial(){
+  const formRef = useRef<HTMLFormElement>(null);
+  const [showToast, setShowToast] = useState(false); // State to control toast visibility
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    // Get the phone number input value
+    const phoneNumber = formRef.current.phoneNumber.value;
+
+    // Validate phone number (must be exactly 10 digits)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+      setMessage("Phone number must be exactly 10 digits.");
+      setShowToast(true);
+
+      // Hide the toast after 3 seconds
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+      return; // Stop form submission if validation fails
+    }
+emailjs
+.sendForm(
+  "service_0m8kbz9", // Replace with your Email.js service ID
+  "template_gs8t31r", // Replace with your Email.js template ID
+  formRef.current,
+  "Fkjr_xe9jDFgk_BFj" // Replace with your public key
+)
+.then(
+  (result) => {
+    console.log("Email sent successfully:", result.text);
+    setMessage("Your message has been sent successfully!");
+    setShowToast(true); // Show toast notification
+    if (formRef.current) formRef.current.reset();
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  },
+  (error) => {
+    console.error("Error sending email:", error.text);
+    setMessage(
+      "There was an error sending your message. Please try again."
+    );
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+  }
+);
+};
+
+ 
   const reviews = [
     {
       name: "Vinayak Gaitonde",
@@ -211,80 +271,69 @@ export default function LandingTestimonial() {
 
 
 {/* REquest acll back form  */}
-<div className="bg-white py-6 sm:py-8 lg:py-12">
+<div className="bg-white py-6 sm:py-8 lg:py-12 max-md:px-4">
   <div className="mx-auto max-w-screen-xl">
     <div className="lg:max-w-7xl max-w-xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-24">
+      <div className="grid lg:grid-cols-[1.3fr_1fr] items-center gap-12 lg:gap-16">
         
-        {/* Form Section */}
-        <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto">
-          <form className="max-w-lg p-4 mx-auto w-full">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold text-[#FEB066]">
-                REQUEST A CALL BACK
-              </h3>
+        {/* Left Side: Form Section */}
+        <div className="flex bg-black border border-white items-center justify-center relative p-6 md:p-8 w-full md:w-[60%] lg:w-[70%] lg:ml-0">
+          {showToast && (
+            <div className="absolute top-[-40px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
+              {message}
+            </div>
+          )}
+          <form ref={formRef} className="max-w-lg w-full" onSubmit={handleSubmit}>
+            <div className="mb-6 text-left">
+              <h3 className="text-3xl font-bold text-[#FEB066]">REQUEST A CALL BACK</h3>
             </div>
 
             {/* Input Fields */}
-            <input
-              type="text"
-              placeholder="First Name"
-              className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-            />
-            <input
-              type="email"
-              placeholder="Last Name"
-              className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-            />
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-            />
-            <textarea
-              placeholder=""
-              rows={6}
-              className="w-full mb-6 text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-blue-500"
-              defaultValue={""}
-            />
+            <input type="text" name="firstName" placeholder="First Name"
+              className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+            <input type="text" name="lastName" placeholder="Last Name"
+              className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+            <input type="tel" name="phoneNumber" placeholder="Phone Number"
+              className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+            <input type="text" name="city" placeholder="City"
+              className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
             {/* Submit Button */}
-            <div className="">
-              <button
-                type="button"
-                className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
-              >
+            <div className="text-left">
+              <button type="submit"
+                className="w-max py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FCA45D] focus:outline-none">
                 Get Free Consulting
               </button>
             </div>
           </form>
         </div>
-        
-        {/* Document List Section */}
-        <div className="text-left">
-          <div className="bg-[#00BE5D] text-white p-3">
-            <h2 className="text-2xl font-bold">
-              Document Required For Shares Transmission
-            </h2>
+
+        {/* Right Side: Text Content */}
+        <div className="text-left flex flex-col justify-center pl-6 md:pl-10 lg:pl-14 max-md:px-4">
+          <div className="bg-[#00BE5D] text-white py-4 px-6">
+            <h2 className="text-2xl font-bold">India’s No.1 Shares Recovery Experts</h2>
           </div>
-          <ul className="space-y-8 mt-12 mb-6 text-gray-500 sm:text-md md:mb-8">
-            <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-              <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-              Certified copy of death certificate.
+          <ul className="space-y-6 mt-8 text-gray-600 text-[16px]">
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Old shares and dividends recovery
             </li>
-            <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-              <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-              Request application for the transmission from legal heir(s)
-              or representatives.
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Physical shares to DEMAT conversion
             </li>
-            <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-              <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-              Letter of Administration or Succession Certificate or
-              Probate of Will.
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Transmission of shares for death claims
             </li>
-            <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-              <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-              Specimen signature of the successor(s).
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Recovery of lost shares
+            </li>
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Issue of duplicate shares
+            </li>
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> IEPF claims of shares
+            </li>
+            <li className="flex gap-3">
+              <Image src={tick} alt="clearclaim" className="w-5 h-6" /> IEPF claim of dividends
             </li>
           </ul>
         </div>
@@ -292,6 +341,7 @@ export default function LandingTestimonial() {
     </div>
   </div>
 </div>
+
 
     </>
   );

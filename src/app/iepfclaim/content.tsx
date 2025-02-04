@@ -10,10 +10,10 @@ import LandingTestimonial from "../testimonial/landingtestimonial";
 export default function Content() {
   return (
     <>
-      <div className="bg-white py-6 sm:py-8 lg:py-12 overflow-hidden">
+      <div className="bg-white py-6 sm:py-8 lg:py-12 overflow-hidden max-md:px-4">
         <div className="mx-auto max-w-screen-xl">
           <div className="lg:max-w-7xl max-w-xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-20 ">
+          <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
               <div className=" max-md:order-1">
                 <Image
                   src={iepf}
@@ -57,7 +57,7 @@ export default function Content() {
           </div>
 
           <div className="lg:max-w-7xl max-w-xl mx-auto mt-24">
-            <div className="grid md:grid-cols-2 gap-24">
+          <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
               <div className="text-left text-justify">
                 <div className="bg-[#00BE5D] text-white p-2 ">
                   <h2 className=" text-2xl font-semibold ">

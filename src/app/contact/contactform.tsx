@@ -48,101 +48,78 @@ export default function ContactForm() {
           </div>
         )}
 
-        <div className="mb-6 px-4">
-          <div className="pb-16 mx-auto max-w-5xl shadow-lg px-36 bg-[#161d34] rounded-md relative">
-            <h2 className="text-4xl text-center text-white font-bold pt-16">
-              Contact Us
-            </h2>
-            <div className="flex justify-center mt-2">
-              <div className="h-[4px] w-[80px] bg-[#00BE5D]"></div>
-            </div>
+<div className="mb-6 px-4">
+  <div className="pb-16 mx-auto max-w-5xl shadow-lg px-6 sm:px-12 lg:px-24 bg-[#161d34] rounded-md relative">
+    <h2 className="text-4xl text-center text-white font-bold pt-16">
+      Contact Us
+    </h2>
+    <div className="flex justify-center mt-2">
+      <div className="h-[4px] w-[80px] bg-[#00BE5D]"></div>
+    </div>
 
-            <form
-             ref={formRef}
-              onSubmit={sendEmail}
-              className="mt-16 grid sm:grid-cols-2 gap-6"
-            >
-              <div>
-                <label htmlFor="first_name" className="text-white text-sm block mb-2">
-                  First Name
-                </label>
-                <input
-                  id="first_name"
-                  name="first_name"
-                  type="text"
-                  placeholder="Enter First Name"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                />
-              </div>
-              <div>
-                <label htmlFor="last_name" className="text-white text-sm block mb-2">
-                  Last Name
-                </label>
-                <input
-                  id="last_name"
-                  name="last_name"
-                  type="text"
-                  placeholder="Enter Last Name"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                />
-              </div>
-              <div className="col-span-full">
-                <label htmlFor="email" className="text-white text-sm block mb-2">
-                  Email Address
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter Email Address"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                />
-              </div>
-              <div className="col-span-full">
-                <label htmlFor="phone" className="text-white text-sm block mb-2">
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="Enter Phone Number"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                />
-              </div>
-              <div className="col-span-full">
-                <label htmlFor="city" className="text-white text-sm block mb-2">
-                  Subject
-                </label>
-                <input
-                  id="city"
-                  name="subject"
-                  type="text"
-                  placeholder="Enter Subject"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                />
-              </div>
-              <div className="col-span-full">
-                <label htmlFor="message" className="text-white text-sm block mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Enter Message"
-                  rows={6}
-                  className="w-full rounded-md px-4 border border-gray-300 text-sm pt-3 outline-[#007bff]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
+    <form
+      ref={formRef}
+      onSubmit={sendEmail}
+      className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6"
+    >
+      <div>
+        <label htmlFor="first_name" className="text-white text-sm block mb-2">
+          First Name
+        </label>
+        <input
+          id="first_name"
+          name="first_name"
+          type="text"
+          placeholder="Enter First Name"
+          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+        />
+      </div>
+      <div>
+        <label htmlFor="last_name" className="text-white text-sm block mb-2">
+          Last Name
+        </label>
+        <input
+          id="last_name"
+          name="last_name"
+          type="text"
+          placeholder="Enter Last Name"
+          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+        />
+      </div>
+      <div className="col-span-full">
+        <label htmlFor="phone" className="text-white text-sm block mb-2">
+          Phone Number
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="Enter Phone Number"
+          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+        />
+      </div>
+      <div className="col-span-full">
+        <label htmlFor="city" className="text-white text-sm block mb-2">
+          City
+        </label>
+        <input
+          id="city"
+          name="subject"
+          type="text"
+          placeholder="Enter City"
+          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+        />
+      </div>
+      <button
+        type="submit"
+        className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
+      >
+        Get Free Consulting
+      </button>
+    </form>
+  </div>
+</div>
+
  
         <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white">
           <div className="p-6">

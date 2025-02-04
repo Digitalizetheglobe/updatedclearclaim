@@ -3,12 +3,12 @@ import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import shree from "../../../../public/casestudy/113878.Shree-cement.jpg";
+import srf from "../../../../public/casestudy/SRF_Limited.png";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
 
 
-export default function  ShreeCementLimited() {
+export default function  RatnamaniMetalsAndTubesLimited() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(8); 
@@ -291,24 +291,24 @@ export default function  ShreeCementLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            Shree
-              <span className="text-green-600"> Cement Limited </span>
+            SRF
+              <span className="text-green-600"> Limited </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Shree Cement Limited is one of Indias leading cement manufacturers, renowned for its strong presence in the building materials industry. Founded in 1979, the company is headquartered in Kolkata, West Bengal. It has consistently been a frontrunner in the Indian cement market, primarily focusing on high-quality products and operational efficiency. The company operates a diverse portfolio of cement brands, including Shree Ultra, Shree Jung Rodhak, and Bangur Cement, which are widely recognized for their durability and performance. Shree Cements products cater to various sectors, such as residential, commercial, and infrastructure projects, making it a key player in Indias growing construction industry.
+            SRF Limited is a prominent Indian multinational company that specializes in the manufacturing of a wide range of products, including chemicals, textiles, and packaging materials. Founded in 1970, SRF has evolved from a small textiles manufacturer into a global player with operations in various sectors such as industrial chemicals, fluorochemicals, packaging films, and performance materials. The company is headquartered in Gurugram, Haryana, and has a strong presence in over 20 countries.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            With an installed capacity of over 44 million tonnes per annum (MTPA) across its plants in Rajasthan, Uttar Pradesh, Uttarakhand, and Bihar, Shree Cement has a robust manufacturing and distribution network. Its plants are equipped with state-of-the-art technology, enabling energy-efficient production processes and a lower environmental impact. The company has also embraced sustainability through initiatives like waste heat recovery systems, rainwater harvesting, and reduction of carbon emissions.
+            SRF’s primary areas of business include technical textiles, which cover products like tire fabrics, coated fabrics, and industrial yarns; chemicals, such as refrigerant gases and agrochemicals; and packaging films, which are used in industries like food and beverage, pharmaceuticals, and consumer goods. The company also has a significant footprint in the specialty chemicals and fluorochemicals sectors.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Shree Cement has earned numerous accolades for its business practices and corporate governance. Its strong financial performance and consistent growth have made it one of the most valuable companies in the Indian cement sector. Additionally, the company is listed on both the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE), highlighting its prominence in the Indian capital markets.
+            SRF is known for its commitment to sustainability and innovation, investing heavily in research and development to enhance its product offerings and manufacturing processes. Its products are used in a variety of industries, including automotive, construction, and healthcare, making it a key supplier to global markets.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            As part of its expansion strategy, Shree Cement continues to invest in new capacities and innovations, reinforcing its leadership position in the cement industry.
+            With a strong focus on quality, customer satisfaction, and environmental responsibility, SRF has established itself as a leader in its industry. The company continues to expand its global presence, striving to achieve its mission of creating sustainable value and contributing to the economic growth of the countries in which it operates.
             </p>
             <Image
-              src={shree}
-              alt="shree logo"
+              src={srf}
+              alt="srf logo"
               className="mb-6 mx-auto w-100 h-30"
             />
             <section className="bg-white p-4">
@@ -320,13 +320,13 @@ export default function  ShreeCementLimited() {
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Shree Cement Limited .
+                  <b>Registered Name: </b> SRF Limited.
                 </li>
                 <li>
-                  <b>CIN Number: </b> L26943RJ1979PLC001935
+                  <b>CIN Number: </b> L18101DL1970PLC005197
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE070A01015
+                  <b>ISIN Number: </b> INE647A01010
                 </li>
               </ul>
             </section>
@@ -336,7 +336,7 @@ export default function  ShreeCementLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of Shree Cement Limited 
+                Dividend Of SRF Limited 
                 </h2>
               </div>
 
@@ -344,184 +344,138 @@ export default function  ShreeCementLimited() {
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                    <th className="text-left p-3">Ex/EFF DATE</th>
-                      <th className="text-left p-3">TYPE </th>
-                      <th className="text-left p-3">CASH AMOUNT </th>
-                      <th className="text-left p-3">DECLARATION DATE</th>
-                      <th className="text-left p-3">RECORD DATE</th>  
+                    <th className="text-left p-3">Ex-Dividend Date</th>
+                      <th className="text-left p-3">Dividend Type </th>
+                      <th className="text-left p-3">Dividend (Rs)</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="text-gray-600 p-3">23/07/2024</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹55</td>
-                      <td className="text-gray-600 p-3">14/05/2024</td>
-                      <td className="text-gray-600 p-3">23/07/2024</td>
+                      <td className="text-gray-600 p-3">31 Jul, 2024</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.60</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      08/02/2024
+                      07 Feb, 2024
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹50</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">31/01/2024</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">08/02/2024</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.60</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">01/06/2023</td>
-                      <td className="text-gray-600 p-3">CASH </td>
-                      <td className="text-gray-600 p-3">₹55</td>
-                      <td className="text-gray-600 p-3">22/05/2023</td>
-                      <td className="text-gray-600 p-3">01/06/2023</td>
+                      <td className="text-gray-600 p-3">01 Aug, 2023</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.60</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      16/02/2023
+                      07 Feb, 2023
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹45</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">08/02/2023</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16/02/2023</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">3.60</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">13/07/2022</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹45</td>
-                      <td className="text-gray-600 p-3">21/05/2022</td>
-                      <td className="text-gray-600 p-3">14/07/2022</td>
+                      <td className="text-gray-600 p-3">28 Jul, 2022</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">3.60</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      10/02/2022
+                      03 Feb, 2022
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹45</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">04/02/2022</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12/02/2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">4.75</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22/07/2021</td>
-                      <td className="text-gray-600 p-3">CASH </td>
-                      <td className="text-gray-600 p-3">₹60</td>
-                      <td className="text-gray-600 p-3">21/05/2021</td>
-                      <td className="text-gray-600 p-3">24/07/2021</td>
+                      <td className="text-gray-600 p-3">05 Aug, 2021</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">12.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      24/02/2020
+                      29 Jan, 2021
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹110</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14/02/2020</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">25/02/2020</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">19.00</td>
                     </tr>
-
                     <tr>
-                      <td className="text-gray-600 p-3">31/07/2019</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹35</td>
-                      <td className="text-gray-600 p-3">18/05/2019</td>
-                      <td className="text-gray-600 p-3">02/08/2019</td>
+                      <td className="text-gray-600 p-3">06 Aug, 2020</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">5.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29/01/2019
+                      10 Feb, 2020
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹25</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">22/01/2019</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">30/01/2019</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">7.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">20/07/2018</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹30</td>
-                      <td className="text-gray-600 p-3">28/04/2018</td>
-                      <td className="text-gray-600 p-3">24/07/2018</td>
+                      <td className="text-gray-600 p-3">13 Aug, 2019</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">7.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18/01/2018
+                      11 Feb, 2019
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹20</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">11/01/2018</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">19/01/2018</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">6.00</td>
                     </tr>
-
                     <tr>
-                      <td className="text-gray-600 p-3">21/07/2017</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹24</td>
-                      <td className="text-gray-600 p-3">16/05/2017</td>
-                      <td className="text-gray-600 p-3">25/07/2017</td>
+                      <td className="text-gray-600 p-3">14 Aug, 2018</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      06/02/2017
+                      15 Feb, 2018
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹100</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">30/01/2017</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">07/02/2017</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">6.00</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22/08/2016</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹16</td>
-                      <td className="text-gray-600 p-3">12/08/2016</td>
-                      <td className="text-gray-600 p-3">23/08/2016</td>
+                      <td className="text-gray-600 p-3">16 Aug, 2017</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      17/03/2016
+                      17 Feb, 2017
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹12</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10/03/2016</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">18/03/2016</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">6.00</td>
                     </tr>
-
                     <tr>
-                      <td className="text-gray-600 p-3">10/02/2016</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹12</td>
-                      <td className="text-gray-600 p-3">02/02/2016</td>
-                      <td className="text-gray-600 p-3">11/02/2016</td>
+                      <td className="text-gray-600 p-3">16 Aug, 2016</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">6.00</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      05/11/2015
+                      15 Feb, 2016
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹14</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">05/08/2015</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">07/11/2015</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
                     </tr>
-                  </tbody>
-                </table>
-              </div>
+                    <tr>
+                      <td className="text-gray-600 p-3">28 Aug, 2015</td>
+                      <td className="text-gray-600 p-3">Interim</td>
+                      <td className="text-gray-600 p-3">5.00</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      13 Feb, 2015
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Interim</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">5.00</td>
+                    </tr>
+                    </tbody>
+                    </table> 
+                    </div>
             </section>
+
 
             <section id="bonus" className="bg-white p-4 mt-6">
               <div className="flex gap-4">
@@ -531,9 +485,29 @@ export default function  ShreeCementLimited() {
                   Bonus
                 </h2>
               </div>
-              <p className="text-[#00000099] p-4">
-                NA
-              </p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                    <th className="text-left p-3">Announcement Date</th>
+                      <th className="text-left p-3">Bonus Ratio</th>
+                      <th className="text-left p-3">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">13 Oct, 2021</td>
+                      <td className="text-gray-600 p-3">4:1</td>
+                      <td className="text-gray-600 p-3">For every 1 share held, Holder will receive 4 bonus shares.</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      -
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">1:2</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">For every 2 share held; Holder will receive 1 bonus shares.</td>
+                    </tr>
+                    </tbody>
+                    </table> 
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -545,7 +519,7 @@ export default function  ShreeCementLimited() {
                 </h2>
               </div>
               <p className="text-[#00000099] p-4">
-                NA
+              NA
               </p>
             </section>
             {/* Add more content to demonstrate scrolling */}
@@ -556,7 +530,8 @@ export default function  ShreeCementLimited() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">NA
+              <p className="text-[#00000099] p-4">
+              NA
               </p>
             </section>
 
@@ -564,7 +539,7 @@ export default function  ShreeCementLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Shree Cement Limited Transferred To IEPF
+                Unclaimed Shares and Dividends Of SRF are in IEPF
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
@@ -576,7 +551,7 @@ export default function  ShreeCementLimited() {
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Shree Cement Limited are in IEPF?
+                Why my shares of SRF are in IEPF?
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
@@ -630,15 +605,15 @@ export default function  ShreeCementLimited() {
                 <div className="flex flex-col gap-2">
                   {/* First Text */}
                   <p className="text-md text-[#00000099]">
-                  Shree Cement Limited
+                  SRF Limited 
                   </p>
 
                   {/* Link */}
                   <Link
                     className="text-md text-[#00000099] "
-                    href="https://www.shreecement.com/ "
+                    href="http://www.srf.com/"
                   >
-                  https://www.shreecement.com/
+                  http://www.srf.com/
                   </Link>
                 </div>
               </div>
@@ -694,7 +669,7 @@ export default function  ShreeCementLimited() {
                 }`}
               >
                 <a href="#why-my-Share">
-                  Why my Shares of Shree Cement Limited are in IEPF?
+                  Why my Shares of Ratnamani Metals And Tubes Limited  are in IEPF?
                 </a>
               </li>
               <li

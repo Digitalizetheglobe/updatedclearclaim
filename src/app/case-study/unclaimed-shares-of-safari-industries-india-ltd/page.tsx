@@ -1,21 +1,23 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
-import shree from "../../../../public/casestudy/113878.Shree-cement.jpg";
+import safari from "../../../../public/casestudy/safari.jpg";
 import fileimg from "../../../../public/images/server-01.png";
 import tick from "../../../../public/images/tick.svg";
+import phone from "../../../../public/images/phone.png";
+import email from "../../../../public/images/mail-02.png";
+import pin from "../../../../public/images/marker-pin-01.png";
+import { useEffect, useState, useRef } from "react";
+import FaqAparm from "../unclaimed-shares-apar-industries/faqapar";
 
-
-export default function  ShreeCementLimited() {
+export default function UnclaimedsharesofSafariIndustriesIndiaLtd() {
   const [activeSection, setActiveSection] = useState("");
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(8); 
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const [searchQuery, setSearchQuery] = useState("");
   const sidebarRef = useRef<HTMLElement | null>(null); // Sidebar reference
-  // Handle outside click
   const handleClickOutside = (event: MouseEvent) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
       setSidebarOpen(false);
@@ -126,22 +128,12 @@ export default function  ShreeCementLimited() {
       path: "/case-study/unclaimed-shares-deepak-nitrite",
     },
     { name: "DLF Limited", path: "/case-study/dlf-limited" },
-    {
-      name: "Exide Industries",
-      path: "/case-study/unclaimed-shares-exide-industries",
-    },
-    {
-      name: "Finolex Industries",
-      path: "/case-study/unclaimed-shares-finolex-industries",
-    },
-    {
-      name: "GE Vernova T&D India",
-      path: "/case-study/unclaimed-shares-ge-vernova-t&d-india",
-    },
-    {
-      name: "GlaxoSmithKline Pharmaceuticals Limited",
-      path: "/case-study/glaxosmithkline-pharmaceuticals-limited",
-    },
+    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
+    { name: "DLF Limited", path: "/case-study/dlf-limited" },
+    { name: "Exide Industries", path: "/case-study/unclaimed-shares-exide-industries" },
+    { name: "Finolex Industries", path: "/case-study/unclaimed-shares-finolex-industries" },
+    { name: "GE Vernova T&D India", path: "/case-study/unclaimed-shares-ge-vernova-t&d-india" },
+    { name: "GlaxoSmithKline Pharmaceuticals Limited", path: "/case-study/glaxosmithkline-pharmaceuticals-limited" },
     {
       name: "Graphite India Limited",
       path: "/case-study/graphite-india-limited",
@@ -154,38 +146,18 @@ export default function  ShreeCementLimited() {
       name: "Grindwell Norton Limited",
       path: "/case-study/grindwell-norton-limited",
     },
-    {
-      name: "Gujarat Heavy Chemicals",
-      path: "/case-study/unclaimed-shares-gujarat-heavy-chemicals",
-    },
-    {
-      name: "HCL Technologies Limited",
-      path: "/case-study/hcl-technologies-limited",
-    },
-    {
-      name: "HDFC Bank Limited",
-      path: "/case-study/hdfc-bank-limited",
-    },
-    {
-      name: "HEG Limited",
-      path: "/case-study/unclaimed-shares-heg",
-    },
-    {
-      name: "Hitachi Energy India Ltd.",
-      path: "/case-study/unclaimed-shares-hitachi-energy-india",
-    },
   ];
 
- // Filter companies based on search query
- const filteredCompanies = companies.filter((company) =>
+  // Filter companies based on search query
+  const filteredCompanies = companies.filter((company) =>
     company.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   // Handle showing more companies
   const handleReadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 8); 
+    setVisibleCount((prevCount) => prevCount + 8);
   };
-  
+
   // const toggleSidebar = () => {
   //   setSidebarOpen(!isSidebarOpen);
   // };
@@ -291,42 +263,41 @@ export default function  ShreeCementLimited() {
               }
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
-            Shree
-              <span className="text-green-600"> Cement Limited </span>
+              Unclaimed Shares of{" "}
+              <span className="text-green-600">Safari Industries India Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Shree Cement Limited is one of Indias leading cement manufacturers, renowned for its strong presence in the building materials industry. Founded in 1979, the company is headquartered in Kolkata, West Bengal. It has consistently been a frontrunner in the Indian cement market, primarily focusing on high-quality products and operational efficiency. The company operates a diverse portfolio of cement brands, including Shree Ultra, Shree Jung Rodhak, and Bangur Cement, which are widely recognized for their durability and performance. Shree Cements products cater to various sectors, such as residential, commercial, and infrastructure projects, making it a key player in Indias growing construction industry.
+            Safari Industries India Ltd. is a leading Indian manufacturer of luggage, travel bags, and accessories, known for its wide range of high-quality products designed for both domestic and international markets. Established in 1974 and headquartered in Mumbai, Maharashtra, Safari Industries has built a strong brand presence in the travel and lifestyle segment over the years.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            With an installed capacity of over 44 million tonnes per annum (MTPA) across its plants in Rajasthan, Uttar Pradesh, Uttarakhand, and Bihar, Shree Cement has a robust manufacturing and distribution network. Its plants are equipped with state-of-the-art technology, enabling energy-efficient production processes and a lower environmental impact. The company has also embraced sustainability through initiatives like waste heat recovery systems, rainwater harvesting, and reduction of carbon emissions.
+            The company is primarily engaged in the design, manufacture, and sale of suitcases, trolley bags, backpacks, travel accessories, and other related products. Safari Industries is known for its emphasis on product quality, durability, and innovation, offering a variety of luggage products in different sizes, styles, and materials, such as hard-shell and soft-shell options. The company caters to diverse consumer needs, including budget-friendly options and premium high-end luggage.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
-            Shree Cement has earned numerous accolades for its business practices and corporate governance. Its strong financial performance and consistent growth have made it one of the most valuable companies in the Indian cement sector. Additionally, the company is listed on both the Bombay Stock Exchange (BSE) and National Stock Exchange (NSE), highlighting its prominence in the Indian capital markets.
+            The company’s growth has been driven by its strong brand equity, focus on consumer preferences, and constant innovation. Safari Industries has also made strategic partnerships with international brands and has expanded its presence in the global markets. With a commitment to quality, customer satisfaction, and sustainable growth, Safari Industries India Ltd. continues to be a dominant player in the Indian travel accessories market.
             </p>
-            <p className="mb-6 text-[#00000099] text-justify">
-            As part of its expansion strategy, Shree Cement continues to invest in new capacities and innovations, reinforcing its leadership position in the cement industry.
-            </p>
+
             <Image
-              src={shree}
-              alt="shree logo"
-              className="mb-6 mx-auto w-100 h-30"
+              src={safari}
+              alt="safari Logo"
+              className="mb-6 mx-auto w-[400px] h-[200px]"
             />
-            <section className="bg-white p-4">
+            <section className="bg-white p-4 ">
               <div className="flex gap-4">
                 <Image src={tick} alt="file" className="w-5 h-6" />
+
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
                   Company Details
                 </h2>
               </div>
               <ul className="space-y-4 mt-4 text-gray-500">
                 <li>
-                  <b>Registered Name: </b> Shree Cement Limited .
+                  <b>Registered Name: </b>  Safari Industries (India) Ltd.
                 </li>
                 <li>
-                  <b>CIN Number: </b> L26943RJ1979PLC001935
+                  <b>CIN Number: </b> L25200MH1980PLC022812
                 </li>
                 <li>
-                  <b>ISIN Number: </b> INE070A01015
+                  <b>ISIN Number: </b> INE429E01023
                 </li>
               </ul>
             </section>
@@ -336,187 +307,139 @@ export default function  ShreeCementLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend History Of Shree Cement Limited 
-                </h2>
+                  Dividend’s History of Safari Industries (India) Ltd.</h2>
               </div>
-
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 mt-4">
                   <thead className="bg-[#00BE5D] text-white">
                     <tr>
-                    <th className="text-left p-3">Ex/EFF DATE</th>
-                      <th className="text-left p-3">TYPE </th>
-                      <th className="text-left p-3">CASH AMOUNT </th>
-                      <th className="text-left p-3">DECLARATION DATE</th>
-                      <th className="text-left p-3">RECORD DATE</th>  
+                      <th className="text-left p-3">Ex-Date</th>
+                      <th className="text-left p-3">Dividend Amount</th>
+                      <th className="text-left p-3">Dividend Type</th>
+                      <th className="text-left p-3">Record Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className="text-gray-600 p-3">23/07/2024</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹55</td>
-                      <td className="text-gray-600 p-3">14/05/2024</td>
-                      <td className="text-gray-600 p-3">23/07/2024</td>
+                  <tr>
+                      <td className="text-gray-600 p-3">19 Nov 2024</td>
+                      <td className="text-gray-600 p-3">1.50</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">19 Nov 2024</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      08/02/2024
+                      12 Jul 2024
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      1.50
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹50</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">31/01/2024</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">08/02/2024</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">01/06/2023</td>
-                      <td className="text-gray-600 p-3">CASH </td>
-                      <td className="text-gray-600 p-3">₹55</td>
-                      <td className="text-gray-600 p-3">22/05/2023</td>
-                      <td className="text-gray-600 p-3">01/06/2023</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      16/02/2023
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹45</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">08/02/2023</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16/02/2023</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">13/07/2022</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹45</td>
-                      <td className="text-gray-600 p-3">21/05/2022</td>
-                      <td className="text-gray-600 p-3">14/07/2022</td>
+                      <td className="text-gray-600 p-3">10 Nov 2023</td>
+                      <td className="text-gray-600 p-3">2.50</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">10 Nov 2023</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      10/02/2022
+                      14 Jul 2023
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      2.00
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹45</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">04/02/2022</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">12/02/2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">14 Jul 2023</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22/07/2021</td>
-                      <td className="text-gray-600 p-3">CASH </td>
-                      <td className="text-gray-600 p-3">₹60</td>
-                      <td className="text-gray-600 p-3">21/05/2021</td>
-                      <td className="text-gray-600 p-3">24/07/2021</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      24/02/2020
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹110</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">14/02/2020</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">25/02/2020</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">31/07/2019</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹35</td>
-                      <td className="text-gray-600 p-3">18/05/2019</td>
-                      <td className="text-gray-600 p-3">02/08/2019</td>
+                      <td className="text-gray-600 p-3">17 Feb 2023</td>
+                      <td className="text-gray-600 p-3">1.50</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">17 Feb 2023</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      29/01/2019
+                      14 Jul 2022
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      0.80
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹25</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">22/01/2019</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">30/01/2019</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">FINAL</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">20/07/2018</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹30</td>
-                      <td className="text-gray-600 p-3">28/04/2018</td>
-                      <td className="text-gray-600 p-3">24/07/2018</td>
+                      <td className="text-gray-600 p-3">01 Aug 2019</td>
+                      <td className="text-gray-600 p-3">0.50</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">-</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      18/01/2018
+                      02 Aug 2018
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      0.50
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹20</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">11/01/2018</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">19/01/2018</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Final</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Aug 2017</td>
+                      <td className="text-gray-600 p-3">2.00</td>
+                      <td className="text-gray-600 p-3">FINAL</td>
+                      <td className="text-gray-600 p-3">-</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      03 Aug 2016
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      1.20
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">
+                      28 Jul 2015
+                      </td>
+                      <td className="text-gray-600 p-3 ">
+                      1.00
+                      </td>
+                      <td className="text-gray-600 p-3 ">FINAL</td>
+                      <td className="text-gray-600 p-3 ">-</td>
                     </tr>
 
                     <tr>
-                      <td className="text-gray-600 p-3">21/07/2017</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹24</td>
-                      <td className="text-gray-600 p-3">16/05/2017</td>
-                      <td className="text-gray-600 p-3">25/07/2017</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      14 Jul 2011
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      2.50
+                      </td>
+                      <td className="text-gray-600 p-3 bg-gray-100">Final</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      06/02/2017
+                      <td className="text-gray-600 p-3">
+                      09 Jul 2010
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      <td className="text-gray-600 p-3 ">
+                      2.00
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹100</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">30/01/2017</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">07/02/2017</td>
+                      <td className="text-gray-600 p-3 ">FINAL</td>
+                      <td className="text-gray-600 p-3 ">-</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22/08/2016</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹16</td>
-                      <td className="text-gray-600 p-3">12/08/2016</td>
-                      <td className="text-gray-600 p-3">23/08/2016</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      17/03/2016
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      13 Jul 2005
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
+                      <td className="text-gray-600 p-3 bg-gray-100">
+                      1.00
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹12</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">10/03/2016</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">18/03/2016</td>
-                    </tr>
-
-                    <tr>
-                      <td className="text-gray-600 p-3">10/02/2016</td>
-                      <td className="text-gray-600 p-3">CASH</td>
-                      <td className="text-gray-600 p-3">₹12</td>
-                      <td className="text-gray-600 p-3">02/02/2016</td>
-                      <td className="text-gray-600 p-3">11/02/2016</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      05/11/2015
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      CASH
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">₹14</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">05/08/2015</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">07/11/2015</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">FINAL</td>
+                      <td className="text-gray-600 p-3 bg-gray-100">-</td>
                     </tr>
                   </tbody>
                 </table>
@@ -531,9 +454,22 @@ export default function  ShreeCementLimited() {
                   Bonus
                 </h2>
               </div>
-              <p className="text-[#00000099] p-4">
-                NA
-              </p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                      <th className="text-left p-3">Ex-Date</th>
+                      <th className="text-left p-3">Bonus Ratio</th>
+                      <th className="text-left p-3">Record Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">12 Dec 2023</td>
+                      <td className="text-gray-600 p-3">1:1</td>
+                      <td className="text-gray-600 p-3">12 Dec 2023</td>
+                    </tr>
+                    </tbody>
+                    </table>
             </section>
 
             <section id="split" className="mt-6 bg-white p-4 ">
@@ -544,9 +480,24 @@ export default function  ShreeCementLimited() {
                   Split
                 </h2>
               </div>
-              <p className="text-[#00000099] p-4">
-                NA
-              </p>
+              <table className="min-w-full border-collapse border border-gray-200 mt-4">
+                  <thead className="bg-[#00BE5D] text-white">
+                    <tr>
+                      <th className="text-left p-3">Ex-Date</th>
+                      <th className="text-left p-3">Old FV</th>
+                      <th className="text-left p-3">New FV</th>
+                      <th className="text-left p-3">Record Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-gray-600 p-3">22 Sep 2017</td>
+                      <td className="text-gray-600 p-3">10</td>
+                      <td className="text-gray-600 p-3">2</td>
+                      <td className="text-gray-600 p-3">25 Sep 2017</td>
+                    </tr>
+                    </tbody>
+                    </table>
             </section>
             {/* Add more content to demonstrate scrolling */}
             <section id="mergers-amalgamation" className="mt-8 bg-white p-6 ">
@@ -556,69 +507,53 @@ export default function  ShreeCementLimited() {
                   Mergers / Amalgamation
                 </h2>
               </div>
-              <p className="text-gray-500">NA
+
+              <p className="text-gray-500">One of the significant milestones in the companys history was the acquisition of the Travel Time brand in 2013. This move allowed Safari Industries to tap into a new segment of the luggage market, catering to the affordable and value-oriented consumer base. The acquisition helped broaden the companys product range and strengthen its position in the highly competitive luggage market.
+              </p>
+              <p className="text-gray-500">Another important event occurred in 2015, when Safari Industries India Ltd. merged its subsidiary, Safari India Pvt. Ltd. into the parent company. This merger streamlined operations and consolidated the companys various divisions, allowing for better synergies, cost efficiencies, and enhanced focus on its core business of manufacturing travel products.
+              </p>
+            </section>
+
+            <section id="physical-shares" className="mt-8 bg-white p-6 ">
+              <div className="flex gap-4 items-center mb-4">
+                <Image src={tick} alt="tick" className="w-6 h-6" />
+                <h2 className="text-2xl text-gray-700 ">
+                Physical Shares of Safari Industries India Ltd.
+                </h2>
+              </div>
+              <p className="text-[#00000099] leading-6 mb-6 text-justify">
+              Physical shares of Safari Industries India Ltd. are no longer eligible for trading on stock exchanges as per SEBI regulations implemented on April 1, 2019. Investors holding such shares must dematerialize them to trade or transfer ownership. Dematerialization involves converting physical share certificates into an electronic format through a Demat account held with a Depository Participant (DP).
+
               </p>
             </section>
 
             <section id="unclaimed-shares" className="mt-8 bg-white p-6 ">
               <div className="flex gap-4 items-center mb-4">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
-                <h2 className="text-2xl text-gray-700">
-                Unclaimed Shares and Dividends Of Shree Cement Limited Transferred To IEPF
+                <h2 className="text-2xl text-gray-700 ">
+                Unclaimed Shares and Dividends of Safari Industries India Ltd.
+
+
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              The Central Government introduced the Investor Education and Protection Fund (IEPF) to protect investors’  interests and promote awareness. It is established under Section 125 of the Companies Act, 2013 (Act). The unpaid or unclaimed amounts belonging to a company’s investors are pooled and credited into the IEPF. The IEPF funds are utilized for various purposes as provided under the Act.  The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed  dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
+              Safari Industries India Ltd., in accordance with the Investor Education and Protection Fund (IEPF) regulations, has been transferring equity shares to the IEPF if dividends remain unclaimed for seven consecutive years. As per the rules under the Companies Act, 2013, shares of individuals who have not claimed their dividends for seven years are moved to the IEPF’s demat account.
+For instance, unclaimed dividends and shares for financial years 2014-15 and beyond are being transferred, with a specific cutoff date. If the dividends have not been claimed by shareholders, their respective shares will be transferred to IEPF, and the original share certificates become void and non-negotiable. Affected shareholders are notified, and are given the chance to claim unclaimed dividends before the transfer happens.
               </p>
             </section>
 
-            <section id="why-my-Share" className="mt-8 bg-white p-6 ">
-              <div className="flex gap-4 items-center mb-4">
+            <section id="faq" className="mt-8 p-6 ">
+              <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                Why my shares of Shree Cement Limited are in IEPF?
+                FAQs about unclaimed shares of Reliance Industries Ltd.
                 </h2>
-              </div>
-              <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Before transferring the shares to IEPF the company has to notify the shareholder by sending letter to the registered address of the shareholder. The company also has to notify by giving a public notification in the newspaper. If the shareholder doesn’t communicate back, the company can transfer the shares to IEPF. The company transfers the shares to IEPF when the dividends of seven or more consecutive years are not claimed by the shareholder.
-              </p>
-            </section>
-
-            <section id="how-can-claim" className="mt-8 p-6 ">
-              <div className="flex gap-4 items-center mb-5">
-                <Image src={tick} alt="tick" className="w-6 h-6" />
-                <h2 className="text-2xl text-gray-700">
-                  How can I claim IEPF Shares?
-                </h2>
-              </div>
-              <div className="">
-              <p className="text-[#00000099] leading-6 mb-6 text-justify">
-                If you want to claim your IEPF shares{" "}
-                <b>
-                  <i>CLEARCLAIM VENTURES PRIVATE LIMITED</i>
-                </b>{" "}
-                can help you recover them.
-                <br />
-                <b>
-                  <i>
-                    {" "}
-                    Clearclaim Ventures Private Limited helps you to recover
-                    your old shares which you cannot access due to several
-                    reasons. Clearclaim ventures private limited has recovered
-                    immense number of IEPF shares smoothly.
-                  </i>
-                </b>
-                <br />
-                You can visit us at- Office No. C 201, Vantage Tower by Bramha
-                Corp, NDA Pashan Rd, Ram Nagar, Bavdhan, Pune, Maharashtra
-                411021
-               
-              </p>
-              <Link className="text-md text-[#00000099] " href="https://www.clearclaim.in/">https://www.clearclaim.in/</Link>
               </div>
             </section>
 
-            <section id="company-details" className="p-4 mt-4">
+            <FaqAparm/>
+
+            <section id="company-details" className="p-4 mt-8">
               {/* Header Section */}
               <div className="flex items-center gap-4 mb-4 ">
                 <Image src={tick} alt="file" className="w-5 h-6" />
@@ -626,30 +561,43 @@ export default function  ShreeCementLimited() {
               </div>
 
               {/* Numbers with Icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mb-4">
-                <div className="flex flex-col gap-2">
-                  {/* First Text */}
-                  <p className="text-md text-[#00000099]">
-                  Shree Cement Limited
-                  </p>
-
-                  {/* Link */}
-                  <Link
-                    className="text-md text-[#00000099] "
-                    href="https://www.shreecement.com/ "
-                  >
-                  https://www.shreecement.com/
-                  </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                <div className="flex items-center gap-2">
+                  <Image src={phone} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099]">+91 9156701900</p>
                 </div>
+                <div className="flex items-center gap-2">
+                  <Image src={phone} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099] ">+91 9970651900</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Image src={email} alt="file" className="w-4 h-4" />
+                  <p className="text-md text-[#00000099] ">
+                    sales@clearclaim.in
+                  </p>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex gap-2">
+                <Image src={pin} alt="file" className="w-4 h-4" />
+                <p className="text-md text-[#00000099]">
+                  Office No C-201, 2nd Floor, Vantage Tower, Bramha Corp,
+                  Opposite to Bavdhan Police Chowky, NDA Pashan Road, Bavdhan,
+                  Pune – 411021
+                </p>
               </div>
             </section>
           </main>
 
           {/* Right Sidebar */}
-          <aside className="w-1/5 bg-white shadow-md p-4 hidden md:block overflow-y-auto"  style={{
+          <aside
+            className="w-1/5 bg-white shadow-md p-4 hidden md:block overflow-y-auto"
+            style={{
               scrollbarWidth: "none",
-              msOverflowStyle: "none", 
-            }}>
+              msOverflowStyle: "none",
+            }}
+          >
             <h2 className="font-bold mb-4">Content</h2>
             <ul className="space-y-2">
               <li
@@ -667,7 +615,7 @@ export default function  ShreeCementLimited() {
                 <a href="#bonus">Bonus</a>
               </li>
               <li
-                className={`hover:bg-gray-200 p-2 rounded-mdtext-[15px] ${
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
                   activeSection === "split" ? "bg-gray-300" : ""
                 }`}
               >
@@ -680,7 +628,13 @@ export default function  ShreeCementLimited() {
               >
                 <a href="#mergers-amalgamation">Mergers / Amalgamation</a>
               </li>
-
+              <li
+                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
+                  activeSection === "physical-shares" ? "bg-gray-300" : ""
+                }`}
+              >
+                <a href="#physical-shares">Physical Shares</a>
+              </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
                   activeSection === "unclaimed-shares" ? "bg-gray-300" : ""
@@ -690,19 +644,10 @@ export default function  ShreeCementLimited() {
               </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
-                  activeSection === "why-my-Share" ? "bg-gray-300" : ""
+                  activeSection === "faq" ? "bg-gray-300" : ""
                 }`}
               >
-                <a href="#why-my-Share">
-                  Why my Shares of Shree Cement Limited are in IEPF?
-                </a>
-              </li>
-              <li
-                className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
-                  activeSection === "how-can-claim" ? "bg-gray-300" : ""
-                }`}
-              >
-                <a href="#how-can-claim">How can I claim IEPF Shares?</a>
+                <a href="#faq">FAQ</a>
               </li>
               <li
                 className={`hover:bg-gray-200 p-2 rounded-md text-[15px]${
