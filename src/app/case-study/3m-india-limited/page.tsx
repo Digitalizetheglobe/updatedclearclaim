@@ -195,7 +195,67 @@ export default function IndiaLimited() {
       name: "Infosys Limited",
       path: "/case-study/infosys-limited",
     },
+
+    {
+      name: "Unclaimed Shares of Jio Financial Services Ltd",
+      path: "/case-study/unclaimed-shares-of-jio-financial-services-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of JSW Holdings Ltd",
+      path: "/case-study/unclaimed-shares-of-jsw-holdings-ltd",
+    },
+    {
+      name: "JSW Infrastructure Limited",
+      path: "/case-study/jsw-infrastructure-limited",
+    },
+
+    {
+      name: "Unclaimed shares of JSW Steel Ltd",
+      path: "/case-study/unclaimed-shares-of-jsw-steel-ltd",
+    },
+
+    {
+      name: "Unclaimed shares of Kaynes Technology India Limited",
+      path: "/case-study/unclaimed-shares-of-kaynes-technology-india-limited",
+    },
+
+    {
+      name: "KEI Industries Limited",
+      path: "/case-study/kei-industries-limited",
+    },
+
+    {
+      name: "Unclaimed shares of KPIT Technologies Ltd",
+      path: "/case-study/unclaimed-shares-of-kpit-technologies-ltd",
+    },
+
+    {
+      name: "Larsen & Toubro",
+      path: "/case-study/Larsen-and-toubro",
+    },
+
+    {
+      name: "LIFE INSURANCE CORPORATION OF INDIA",
+      path: "/case-study/life-insurance-corporation-of-india",
+    },
+
+    {
+      name: "Unclaimed Shares of  Linde India Ltd",
+      path: "/case-study/unclaimed-shares-of-linde-india-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of Lupin Ltd",
+      path: "/case-study/unclaimed-shares-of-lupin-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of Lupin Ltd",
+      path: "/case-study/unclaimed-shares-of-lupin-ltd",
+    },
   ];
+
 
   // Filter companies based on search query
   const filteredCompanies = companies.filter((company) =>

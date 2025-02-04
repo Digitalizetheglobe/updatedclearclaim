@@ -31,7 +31,7 @@ export default function Home() {
   </h1>
 
   {/* Call Now Button */}
-  <Link href="tel:+919156701922">
+  <Link href="tel:+919156701900">
     <button className="bg-[#00BE5D] text-white py-3 px-6 rounded-full rounded-tl-none flex items-center gap-2">
       {/* Phone Icon */}
       <svg
@@ -72,7 +72,7 @@ export default function Home() {
         className="bg-[#00BE5D] font-semibold text-white py-8 px-3 rounded-3xl rounded-tr-none flex gap-4 fixed top-1/2 transform -translate-y-1/2 right-0 z-50"
         style={{ writingMode: "vertical-rl", transformOrigin: "right center" }}
       >
-        <Link href="tel:+919156701922" className="flex items-center gap-2">
+        <Link href="tel:+919156701900" className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"

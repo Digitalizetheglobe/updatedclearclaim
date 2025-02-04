@@ -104,7 +104,7 @@ export default function ContactForm() {
         </label>
         <input
           id="city"
-          name="subject"
+          name="city"
           type="text"
           placeholder="Enter City"
           className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
