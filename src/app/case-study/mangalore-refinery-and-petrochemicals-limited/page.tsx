@@ -174,6 +174,177 @@ export default function MangaloreRefineryAndPetrochemicalsLimited() {
       name: "Hitachi Energy India Ltd.",
       path: "/case-study/unclaimed-shares-hitachi-energy-india",
     },
+
+    {
+      name: "Hindustan Aeronautics Limited",
+      path: "/case-study/hindustan-aeronautics-limited",
+    },
+    {
+      name: "Hindustan Unilever Limited",
+      path: "/case-study/hindustan-unilever-limited",
+    },
+    {
+      name: "ICICI Bank",
+      path: "/case-study/icici-bank-limited",
+    },
+    {
+      name: "Unclaimed Shares of IG Petrochemicals Ltd",
+      path: "/case-study/unclaimed-shares-of-iG-petrochemicals-ltd",
+    },
+    {
+      name: "Infosys Limited",
+      path: "/case-study/infosys-limited",
+    },
+
+    {
+      name: "Unclaimed Shares of Jio Financial Services Ltd",
+      path: "/case-study/unclaimed-shares-of-jio-financial-services-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of JSW Holdings Ltd",
+      path: "/case-study/unclaimed-shares-of-jsw-holdings-ltd",
+    },
+    {
+      name: "JSW Infrastructure Limited",
+      path: "/case-study/jsw-infrastructure-limited",
+    },
+
+    {
+      name: "Unclaimed shares of JSW Steel Ltd",
+      path: "/case-study/unclaimed-shares-of-jsw-steel-ltd",
+    },
+
+    {
+      name: "Unclaimed shares of Kaynes Technology India Limited",
+      path: "/case-study/unclaimed-shares-of-kaynes-technology-india-limited",
+    },
+
+    {
+      name: "KEI Industries Limited",
+      path: "/case-study/kei-industries-limited",
+    },
+
+    {
+      name: "Unclaimed shares of KPIT Technologies Ltd",
+      path: "/case-study/unclaimed-shares-of-kpit-technologies-ltd",
+    },
+
+    {
+      name: "Larsen & Toubro",
+      path: "/case-study/Larsen-and-toubro",
+    },
+
+    {
+      name: "LIFE INSURANCE CORPORATION OF INDIA",
+      path: "/case-study/life-insurance-corporation-of-india",
+    },
+
+    {
+      name: "Unclaimed Shares of  Linde India Ltd",
+      path: "/case-study/unclaimed-shares-of-linde-india-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of Lupin Ltd",
+      path: "/case-study/unclaimed-shares-of-lupin-ltd",
+    },
+
+    {
+      name: "Unclaimed Shares of Maharashtra Scooters Ltd",
+      path: "/case-study/unclaimed-shares-of-maharashtra-scooters-ltd",
+    },
+    {
+      name: "MAHINDRA AND MAHINDRA LIMITED",
+      path: "/case-study/mahindra-and-mahindra-limited",
+    },
+    {
+      name: "Mangalore Refinery And Petrochemicals Limited",
+      path: "/case-study/mangalore-refinery-and-petrochemicals-limited",
+    },
+    {
+      name: " MARUTI SUZUKI INDIA LIMITED",
+      path: "/case-study/maruti-suzuki-india-limited",
+    },
+
+    {
+      name: "MRF Limited",
+      path: "/case-study/mrf-limited",
+    },
+
+    {
+      name: "Navin Fluorine International Limited",
+      path: "/case-study/navin-fluorine-international-limited",
+    },
+
+    {
+      name: "Unclaimed shares of NCL Industries Limited",
+      path: "/case-study/unclaimed-shares-of-ncl-industries-limited",
+    },
+
+    {
+      name: "Nestle India",
+      path: "/case-study/nestle-india",
+    },
+
+    {
+      name: "NTPC LIMITED",
+      path: "/case-study/ntpc-limited",
+    },
+    {
+      name: "OIL AND NATURAL GAS CORPORATION LIMITED",
+      path: "/case-study/oil-and-natural-gas-corporation-limited",
+    },
+
+    {
+      name: "Procter & Gamble Hygiene and Health Care Ltd",
+      path: "/case-study/procter-and-gamble-hygiene-and-health-care-ltd",
+    },
+
+    {
+      name: "Ratnamani Metals And Tubes Limited",
+      path: "/case-study/ratnamani-metals-and-tubes-limited",
+    },
+
+    {
+      name: "Unclaimed Shares  of Reliance Industries Ltd",
+      path: "/case-study/Unclaimed-shares-of-reliance-industries-ltd",
+    },
+
+    {
+      name: "Unclaimed shares of Safari Industries India Ltd",
+      path: "/case-study/unclaimed-shares-of-safari-industries-india-ltd",
+    },
+
+    {
+      name: "Shree Cement Limited",
+      path: "/case-study/shree-cement-limited",
+    },
+
+    {
+      name: "SHRIRAM FINANCE LIMITED",
+      path: "/case-study/shriram-finance-limited",
+    },
+
+    {
+      name: "SRF",
+      path: "/case-study/srf-limited",
+    },
+
+    {
+      name: "Unclaimed shares of State Bank of India Ltd",
+      path: "/case-study/unclaimed-shares-of-state-bank-of-india-ltd",
+    },
+
+    {
+      name: "Unclaimed shares of Subros Ltd",
+      path: "/case-study/unclaimed-shares-of-subros-ltd",
+    },
+
+    {
+      name: "Sun Pharmaceuticals Industries Limited",
+      path: "/case-study/sun-pharmaceuticals-industries-limited",
+    },
   ];
 
  // Filter companies based on search query

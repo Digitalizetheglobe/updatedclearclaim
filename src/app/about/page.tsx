@@ -4,9 +4,11 @@ import service from "../../../public/images/services-bg-1.jpg";
 import shrikant from "../../../public/images/shrikant.png";
 import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
+import Layout from '../../app/layout';
 
 export default function About() {
   return (
+    <Layout>
     <>
      <div className="p-10 md:p-16">
   <div className="max-w-4xl mx-auto text-center">
@@ -52,45 +54,49 @@ export default function About() {
 
       {/* VISSION/MISSION */}
       <div className="max-w-5xl mx-auto mb-12 py-12 max-md:px-4">
-        <div className="grid md:grid-cols-2 gap-4 mt-4">
-          <div
-            className="relative bg-cover bg-center bg-no-repeat text-white max-sm:px-8 px-12 py-8 w-full rounded-[60px]"
-            style={{
-              backgroundImage: `url(${service.src})`,
-              backgroundColor: "#4b9f47",
-              backgroundBlendMode: "overlay",
-            }}
-          >
-            {/* Content */}
-            <h2 className="mt-8 text-4xl font-bold">VISION</h2>
-            <div className="mt-7">
-              <p className="text-md leading-relaxed">
-                To help society by offering foremost financial safety which
-                improves the quality of life & contribute to economic
-                development.
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="relative bg-cover bg-center bg-no-repeat text-white max-sm:px-8 px-12 py-8 w-full rounded-[60px]"
-            style={{
-              backgroundImage: `url(${service.src})`,
-              backgroundColor: "#4b9f47",
-              backgroundBlendMode: "overlay",
-            }}
-          >
-            {/* Content */}
-            <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
-            <div className="mt-7">
-              <p className="text-md leading-relaxed">
-                To make sure that every single invested penny of our customer
-                gets clear claim.
-              </p>
-            </div>
-          </div>
+  <div className="grid md:grid-cols-2 gap-4 mt-4">
+    {/* VISION Box */}
+    <div className="relative rounded-[60px] overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${service.src})` }}
+      ></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+      {/* Content */}
+      <div className="relative text-white max-sm:px-8 px-12 py-8">
+        <h2 className="mt-8 text-4xl font-bold">VISION</h2>
+        <div className="mt-7">
+          <p className="text-md leading-relaxed">
+            To help society by offering foremost financial safety which improves the quality of life &amp; contributes to economic development.
+          </p>
         </div>
       </div>
+    </div>
+
+    {/* MISSION Box */}
+    <div className="relative rounded-[60px] overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${service.src})` }}
+      ></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+      {/* Content */}
+      <div className="relative text-white max-sm:px-8 px-12 py-8">
+        <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
+        <div className="mt-7">
+          <p className="text-md leading-relaxed">
+            To make sure that every single invested penny of our customer gets a clear claim.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       {/* VISSION/MISSION */}
 
       {/* MEET PEOPLE */}
@@ -164,5 +170,6 @@ export default function About() {
 
       <Meetourteam />
     </>
+    </Layout>
   );
 }

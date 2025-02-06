@@ -123,57 +123,58 @@ export default function LandingTestimonial2() {
 
 
 
+    const renderStars = (count) => {
+        return (
+          <div className="flex items-center mb-3">
+            {[...Array(5)].map((_, i) => (
+              <svg
+                key={i}
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-5 h-5"
+                fill={i < count ? "#FFD700" : "#E5E7EB"} // Gold for filled stars, light gray for empty stars
+                aria-label={i < count ? "Filled star" : "Empty star"}
+              >
+                <path d="M12 2l2.9 5.9 6.5 1-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4-4.7-4.6 6.5-1L12 2z" />
+              </svg>
+            ))}
+          </div>
+        );
+      };
+    
     return (
         <>
-            <section className="bg-gray-100 py-12 px-6">
-                <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold">Google Reviews That Speak for Themselves</h2>
+           <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
+      <div className="text-center mb-8">
+        <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
+          <span className="text-[#283655]"> Google Reviews That </span> Speak for Themselves
+        </h2>
+      </div>
+      <div className="relative max-w-6xl mx-auto">
+        <div className="h-[500px] overflow-y-scroll rounded-lg bg-gray-200 shadow-md p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="bg-white border rounded-lg p-4 shadow-sm flex flex-col hover:shadow-xl transition-shadow transform hover:scale-105 duration-300"
+                role="article"
+                aria-label={`Review by ${review.name}`}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {review.name}
+                  </h3>
+                  <Image src={google} alt="Google" width={48} height={24} />
                 </div>
-                <div className="relative max-w-6xl mx-auto">
-                    <div className="h-[500px] overflow-y-scroll rounded-lg bg-grey shadow-md p-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {reviews.map((review, index) => (
-                                <div
-                                    key={index}
-                                    className="bg-white border rounded-lg p-4 shadow-sm"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="text-lg font-semibold text-gray-800">
-                                            {review.name}
-                                        </h3>
-                                        <Image
-                                            src={google}
-                                            alt="Google"
-                                            className="w-12 h-6"
-                                        />
-                                    </div>
-                                    <p className="text-sm text-gray-500 mb-2">{review.date}</p>
-                                    <div className="flex items-center mb-3">
-                                        {[...Array(5)].map((_, i) => (
-                                            <svg
-                                                key={i}
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill={i < review.stars ? "gold" : "gray"}
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.5"
-                                                stroke="currentColor"
-                                                className="w-5 h-5"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M11.48 3.499a.75.75 0 011.04 0l1.755 2.26a.75.75 0 00.57.3l2.698.02a.75.75 0 01.548 1.277l-2.158 1.89a.75.75 0 00-.24.669l.5 2.698a.75.75 0 01-1.11.79l-2.39-1.33a.75.75 0 00-.75 0l-2.39 1.33a.75.75 0 01-1.11-.79l.5-2.698a.75.75 0 00-.24-.669l-2.158-1.89a.75.75 0 01.548-1.277l2.698-.02a.75.75 0 00.57-.3l1.755-2.26z"
-                                                />
-                                            </svg>
-                                        ))}
-                                    </div>
-                                    <p className="text-gray-700 text-sm">{review.content}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+                <p className="text-sm text-gray-500 mb-2">{review.date}</p>
+                {renderStars(review.stars)}
+                <p className="text-gray-700 text-sm flex-1">{review.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
             {/* Scammers Exposed */}
             <div className="max-w-6xl mx-auto mt-20">
@@ -278,55 +279,82 @@ export default function LandingTestimonial2() {
 
                             {/* Form Section */}
                             <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto">
-                                {showToast && (
-                                    <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
-                                        {message}
-                                    </div>
-                                )}
-                                <form ref={formRef}
-                                    className="max-w-lg p-4 mx-auto max-md:px-4"
-                                    onSubmit={handleSubmit}>
-                                    <div className="mb-6">
-                                        <h3 className="text-3xl font-bold text-[#FEB066]">REQUEST A CALL BACK</h3>
-                                    </div>
+  {showToast && (
+    <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
+      {message}
+    </div>
+  )}
+  <form
+    ref={formRef}
+    className="max-w-lg p-4 mx-auto max-md:px-4"
+    onSubmit={handleSubmit}
+  >
+    <div className="mb-6">
+      <h3 className="text-3xl font-bold text-[#FEB066]">
+        REQUEST A CALL BACK
+      </h3>
+    </div>
 
-                                    {/* Input Fields */}
-                                    <input
-                                        type="text"
-                                        name="firstName"
-                                        placeholder="First Name"
-                                        className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="lastName"
-                                        placeholder="Last Name"
-                                        className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                                    />
-                                    <input
-                                        type="tel"
-                                        name="phoneNumber"
-                                        placeholder="Phone Number"
-                                        className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                                    />
-                                    <input
-                                        type="text"
-                                        name="city"
-                                        placeholder="City"
-                                        className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                                    />
+    {/* Input Fields */}
+    <input
+      type="text"
+      name="firstName"
+      placeholder="First Name"
+      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+    />
+    <input
+      type="text"
+      name="lastName"
+      placeholder="Last Name"
+      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+    />
 
-                                    {/* Submit Button */}
-                                    <div className="">
-                                        <button
-                                            type="button"
-                                            className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
-                                        >
-                                            Get Free Consulting
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
+    {/* Phone Number Input with +91 Prefix */}
+    <div className="relative w-full mb-4">
+      <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
+        +91
+      </span>
+      <input
+        type="tel"
+        name="phoneNumber"
+        placeholder="Phone Number"
+        className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+      />
+    </div>
+
+    <input
+      type="text"
+      name="city"
+      placeholder="City"
+      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+    />
+
+    {/* Checkbox for Consent */}
+    <div className="flex items-center mb-6">
+      <input
+        type="checkbox"
+        id="agree"
+        name="agree"
+        className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
+        required
+      />
+      <label htmlFor="agree" className="text-sm text-white">
+        I agree to receive updates on email or phone.
+      </label>
+    </div>
+
+    {/* Submit Button */}
+    <div>
+      <button
+        type="submit"
+        className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
+      >
+        Get Free Consulting
+      </button>
+    </div>
+  </form>
+</div>
+
 
 
                             {/* Document List Section */}

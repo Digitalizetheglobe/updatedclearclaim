@@ -99,7 +99,7 @@ export default function Content() {
           </div>
 
           <div className="lg:max-w-7xl max-w-xl mx-auto mt-24">
-            <div className="grid md:grid-cols-2 gap-20">
+  <div className="grid md:grid-cols-2 gap-6 md:gap-20">
               <div className=" max-md:order-1">
                 <Image
                   src={iepf1}

@@ -112,7 +112,7 @@ export default function Meetourteam() {
               className="w-40 h-40 rounded-full inline-block"
             />
             <div className="py-4">
-              <h4 className="text-black text-md">Darshan Kondharkar</h4>
+              <h4 className="text-black text-md">Darshan Kondhare</h4>
             </div>
           </div>
         

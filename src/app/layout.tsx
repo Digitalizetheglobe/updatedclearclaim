@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppPopup from "@/components/WhatsAppButton";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <WhatsAppPopup />
         <Footer />
       </body>
     </html>

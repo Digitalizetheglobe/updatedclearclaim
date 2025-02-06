@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 
-// Export default at the top
 export default function Header() {
   const handleToggleMenu = () => {
     const collapseMenu = document.getElementById("collapseMenu");
@@ -14,34 +13,36 @@ export default function Header() {
     }
   };
 
+  const handleCloseMenu = () => {
+    const collapseMenu = document.getElementById("collapseMenu");
+    if (collapseMenu) {
+      collapseMenu.classList.add("hidden");
+    }
+  };
+
   useEffect(() => {
-    // Type the event parameter explicitly as MouseEvent
-    const handleOutsideClick = (event: MouseEvent) => {
+    const handleOutsideClick = (event) => {
       const toggleButton = document.getElementById("toggleMenu");
       const collapseMenu = document.getElementById("collapseMenu");
 
-      // Close the menu if the click is outside the menu and the toggle button
       if (
         collapseMenu &&
-        !collapseMenu.contains(event.target as Node) &&
+        !collapseMenu.contains(event.target) &&
         toggleButton &&
-        !toggleButton.contains(event.target as Node)
+        !toggleButton.contains(event.target)
       ) {
         collapseMenu.classList.add("hidden");
       }
     };
 
-    // Add event listener to detect clicks outside
     document.addEventListener("click", handleOutsideClick);
-
-    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
   return (
-    <header className="flex py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative ">
+    <header className="flex py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative">
       <div className="flex flex-wrap items-center justify-between gap-5 w-full">
         <Link href="/" className="flex items-center">
           <Image src={logo} alt="Logo" className="w-36" priority />
@@ -69,7 +70,7 @@ export default function Header() {
         >
           <ul className="lg:flex gap-x-5 max-lg:space-y-3">
             <li className="mb-6 hidden max-lg:block">
-              <Link href="/">
+              <Link href="/" onClick={handleCloseMenu}>
                 <Image src={logo} alt="Logo" className="w-36" priority />
               </Link>
             </li>
@@ -77,6 +78,7 @@ export default function Header() {
               <Link
                 href="/"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 Home
               </Link>
@@ -85,6 +87,7 @@ export default function Header() {
               <Link
                 href="/about"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 About
               </Link>
@@ -93,6 +96,7 @@ export default function Header() {
               <Link
                 href="/iepfclaim"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 IEPF Claim
               </Link>
@@ -101,6 +105,7 @@ export default function Header() {
               <Link
                 href="/recovery-of-shares"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 Recovery of Shares
               </Link>
@@ -109,6 +114,7 @@ export default function Header() {
               <Link
                 href="/blog"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 Blog
               </Link>
@@ -117,15 +123,18 @@ export default function Header() {
               <Link
                 href="/contact"
                 className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
+                onClick={handleCloseMenu}
               >
                 Contact
               </Link>
             </li>
-            <Link href="/case-study/3m-india-limited">
-              <button className="py-2 px-3 text-xs bg-transparent text-[#00BE5D] border-[#00BE5D] border-2 hover:text-white font-semibold hover:bg-[#00BE5D] mt-6 md:mt-0">
-                Case Study
-              </button>
-            </Link>
+            <li>
+              <Link href="/case-study/3m-india-limited" onClick={handleCloseMenu}>
+                <button className="py-2 px-3 text-xs bg-transparent text-[#00BE5D] border-[#00BE5D] border-2 hover:text-white font-semibold hover:bg-[#00BE5D] mt-6 md:mt-0">
+                  Case Study
+                </button>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
