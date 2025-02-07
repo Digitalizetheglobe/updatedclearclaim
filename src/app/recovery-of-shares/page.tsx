@@ -18,47 +18,53 @@ export default function IEPFClaim() {
   
     if (!formRef.current) return;
   
-    // Get the phone number input value
-    const phoneNumber = formRef.current.phoneNumber.value;
+    const formData = new FormData(formRef.current);
+  
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const phoneNumber = formData.get("phoneNumber") as string;
+    const city = formData.get("city") as string;
+    const agree = formData.get("agree") as string;
   
     // Validate phone number (must be exactly 10 digits)
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phoneNumber)) {
       setMessage("Phone number must be exactly 10 digits.");
       setShowToast(true);
-  
-      // Hide the toast after 3 seconds
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
+      setTimeout(() => setShowToast(false), 3000);
       return; // Stop form submission if validation fails
+    }
+  
+    // Ensure required fields are not empty
+    if (!firstName || !lastName || !phoneNumber || !city || !agree) {
+      setMessage("All fields are required.");
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+      return;
     }
   
     // If validation passes, proceed with form submission
     emailjs
       .sendForm(
-        "service_0m8kbz9", // Replace with your Email.js service ID
-        "template_gs8t31r", // Replace with your Email.js template ID
+        "service_4fca0ux", // Replace with your Email.js service ID
+        "template_0esr8bw", // Replace with your Email.js template ID
         formRef.current,
-        "Fkjr_xe9jDFgk_BFj" // Replace with your public key
+        "Ycds2m4eCIak1IOcz" // Replace with your public key
       )
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
           setMessage("Your message has been sent successfully!");
-          setShowToast(true); // Show toast notification
+          setShowToast(true);
           if (formRef.current) formRef.current.reset();
   
-          // Hide the toast after 3 seconds
           setTimeout(() => {
             setShowToast(false);
           }, 3000);
         },
         (error) => {
           console.error("Error sending email:", error.text);
-          setMessage(
-            "There was an error sending your message. Please try again."
-          );
+          setMessage("There was an error sending your message. Please try again.");
           setShowToast(true);
   
           setTimeout(() => {
@@ -67,6 +73,7 @@ export default function IEPFClaim() {
         }
       );
   };
+  
   
   return (
     <>
@@ -130,18 +137,20 @@ export default function IEPFClaim() {
 
     {/* First Name */}
     <input
-      type="text"
-      name="firstName"
-      placeholder="First Name"
+       id="first_name"
+       name="first_name"
+       type="text"
+       placeholder="Enter First Name"
       className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
       required
     />
 
     {/* Last Name */}
     <input
-      type="text"
-      name="lastName"
-      placeholder="Last Name"
+      id="phone"
+      name="phone"
+      type="tel"
+      placeholder="Enter Phone Number"
       className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
       required
     />
@@ -162,9 +171,10 @@ export default function IEPFClaim() {
 
     {/* City */}
     <input
-      type="text"
-      name="city"
-      placeholder="City"
+    id="city"
+    name="city"
+    type="text"
+    placeholder="Enter City"
       className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
       required
     />
