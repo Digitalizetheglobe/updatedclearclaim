@@ -21,25 +21,25 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
+    const handleOutsideClick = (event: MouseEvent) => {
       const toggleButton = document.getElementById("toggleMenu");
       const collapseMenu = document.getElementById("collapseMenu");
-
+  
       if (
-        collapseMenu &&
-        !collapseMenu.contains(event.target) &&
-        toggleButton &&
-        !toggleButton.contains(event.target)
+        toggleButton && collapseMenu &&
+        !toggleButton.contains(event.target as Node) &&
+        !collapseMenu.contains(event.target as Node)
       ) {
         collapseMenu.classList.add("hidden");
       }
     };
-
+  
     document.addEventListener("click", handleOutsideClick);
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
+  
 
   return (
     <header className="flex py-4 px-4 sm:px-10 bg-white min-h-[70px] tracking-wide relative">

@@ -121,24 +121,16 @@ emailjs
   ];
 
   
-  const renderStars = (count) => {
+  const renderStars = (count: number) => {
     return (
-      <div className="flex items-center mb-3">
-        {[...Array(5)].map((_, i) => (
-          <svg
-            key={i}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="w-5 h-5"
-            fill={i < count ? "#FFD700" : "#E5E7EB"} // Gold for filled stars, light gray for empty stars
-            aria-label={i < count ? "Filled star" : "Empty star"}
-          >
-            <path d="M12 2l2.9 5.9 6.5 1-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4-4.7-4.6 6.5-1L12 2z" />
-          </svg>
-        ))}
-      </div>
+        <div className="flex items-center mb-3">
+            {[...Array(5)].map((_, i) => (
+                <span key={i}>{i < count ? "⭐" : "☆"}</span>
+            ))}
+        </div>
     );
-  };
+};
+
 
   return (
     <>

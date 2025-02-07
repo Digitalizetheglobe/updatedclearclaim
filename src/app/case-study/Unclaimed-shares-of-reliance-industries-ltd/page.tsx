@@ -853,7 +853,7 @@ That means, shareholders who had bought Reliance Industries shares will receive 
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                FAQ's about unclaimed shares of Reliance Industries Ltd.
+                FAQs about unclaimed shares of Reliance Industries Ltd.
                 </h2>
               </div>
             </section>

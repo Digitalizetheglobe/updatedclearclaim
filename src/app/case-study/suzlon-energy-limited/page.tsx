@@ -466,7 +466,7 @@ export default function SuzlonEnergyLimited() {
               </span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
-            Suzlon Energy Limited is a leading renewable energy solutions provider, primarily known for its wind energy technologies. It was founded in 1995 by Tulsi Tanti in India , the company has grown into one of the world's largest manufacturers of wind turbines. Suzlon designs, manufactures, and installs wind turbines for onshore and offshore wind farms, offering a range of services including project development, operation, and maintenance. With a presence in over 20 countries, Suzlon has made significant contributions to global renewable energy efforts. The company operates across key markets such as India, the United States, Europe, and Southeast Asia, and has installed over 18,000 MW of wind energy capacity worldwide.
+            Suzlon Energy Limited is a leading renewable energy solutions provider, primarily known for its wind energy technologies. It was founded in 1995 by Tulsi Tanti in India , the company has grown into one of the worlds largest manufacturers of wind turbines. Suzlon designs, manufactures, and installs wind turbines for onshore and offshore wind farms, offering a range of services including project development, operation, and maintenance. With a presence in over 20 countries, Suzlon has made significant contributions to global renewable energy efforts. The company operates across key markets such as India, the United States, Europe, and Southeast Asia, and has installed over 18,000 MW of wind energy capacity worldwide.
             </p>
             <p className="mb-6 text-[#00000099] text-justify">
             Suzlons commitment to sustainability and innovation has helped shape the renewable energy landscape. The companys portfolio includes cutting-edge wind turbine technology, with a focus on efficiency and cost-effectiveness. Its turbines are known for their reliability and high performance in diverse environmental conditions.
@@ -505,7 +505,7 @@ export default function SuzlonEnergyLimited() {
                 <Image src={tick} alt="file" className="w-5 h-6" />
 
                 <h2 className="text-2xl text-gray-700 font-[600px] mb-2">
-                  Dividend’s History of Suzlon Energy Limited.
+                  Dividends History of Suzlon Energy Limited.
                 </h2>
               </div>
               <div className="overflow-x-auto">

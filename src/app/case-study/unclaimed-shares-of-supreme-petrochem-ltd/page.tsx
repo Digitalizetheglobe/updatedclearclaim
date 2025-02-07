@@ -843,7 +843,7 @@ export default function UnclaimedSharesofSupremePetrochemLtd() {
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              As of now, there have been no major mergers or amalgamations involving Supreme Petrochem Ltd (SPL). The company operates independently and is a significant player in the Indian petrochemical industry. It is part of the Rajan Raheja Group and is primarily engaged in the production and export of polystyrene, expandable polystyrene, and other polymer-based products. SPL is recognized as India's largest exporter of polystyrene, supplying products to over 90 countries worldwide
+              As of now, there have been no major mergers or amalgamations involving Supreme Petrochem Ltd (SPL). The company operates independently and is a significant player in the Indian petrochemical industry. It is part of the Rajan Raheja Group and is primarily engaged in the production and export of polystyrene, expandable polystyrene, and other polymer-based products. SPL is recognized as Indias largest exporter of polystyrene, supplying products to over 90 countries worldwide
               </p>
             </section>
 
@@ -855,7 +855,7 @@ export default function UnclaimedSharesofSupremePetrochemLtd() {
                 </h2>
               </div>
               <p className="text-[#00000099] leading-6 mb-6 text-justify">
-              Physical shares of Supreme Petrochem Ltd. refer to share certificates issued in paper form before the dematerialization process became common in India. With SEBI's directive that all shares must be held in dematerialized form for trading on stock exchanges, physical shares are now largely obsolete, although they may still be owned by long-term investors who have not converted them to electronic form.
+              Physical shares of Supreme Petrochem Ltd. refer to share certificates issued in paper form before the dematerialization process became common in India. With SEBIs directive that all shares must be held in dematerialized form for trading on stock exchanges, physical shares are now largely obsolete, although they may still be owned by long-term investors who have not converted them to electronic form.
               </p>
             </section>
 

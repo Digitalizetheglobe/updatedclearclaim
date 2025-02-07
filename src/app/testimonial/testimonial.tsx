@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import google from '../../../public/images/google.webp';
+import google from "../../../public/images/google.webp";
 
 export default function ReviewSection() {
   const reviews = [
@@ -46,37 +46,47 @@ export default function ReviewSection() {
       content:
         "Great service, quick response they helped me to recover my father's physical shares. Highly recommended.",
     },
+    {
+      name: "Saikat Dastidar",
+      date: "2 January 2025",
+      stars: 5,
+      content:
+        "Great service, quick response they helped me to recover my father's physical shares. Highly recommended.",
+    },
   ];
 
-  const renderStars = (count) => {
+  const renderStars = (count: number) => {
     return (
-      <div className="flex items-center mb-3">
-        {[...Array(5)].map((_, i) => (
-          <svg
-            key={i}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="w-5 h-5"
-            fill={i < count ? "#FFD700" : "#E5E7EB"} // Gold for filled stars, light gray for empty stars
-            aria-label={i < count ? "Filled star" : "Empty star"}
-          >
-            <path d="M12 2l2.9 5.9 6.5 1-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4-4.7-4.6 6.5-1L12 2z" />
-          </svg>
-        ))}
-      </div>
+        <div className="flex items-center mb-3">
+            {[...Array(5)].map((_, i) => (
+                <span key={i}>{i < count ? "⭐" : "☆"}</span>
+            ))}
+        </div>
     );
-  };
+};
+
+
+const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
+
+const toggleReadMore = (index: number) => {
+  setExpandedReviews((prev) => ({
+    ...prev,
+    [index]: !prev[index], // Toggle the boolean value
+  }));
+};
+
+  
 
   return (
     <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
       <div className="text-center mb-8">
         <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
-          <span className="text-[#283655]"> Google Reviews That </span> Speak for Themselves
+          <span className="text-[#283655]">Google Reviews That</span> Speak for Themselves
         </h2>
       </div>
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-7xl mx-auto">
         <div className="h-[500px] overflow-y-scroll rounded-lg bg-gray-200 shadow-md p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
               <div
                 key={index}
@@ -92,7 +102,18 @@ export default function ReviewSection() {
                 </div>
                 <p className="text-sm text-gray-500 mb-2">{review.date}</p>
                 {renderStars(review.stars)}
-                <p className="text-gray-700 text-sm flex-1">{review.content}</p>
+                <p className="text-gray-700 text-sm flex-1">
+                  {expandedReviews[index]
+                    ? review.content
+                    : `${review.content.substring(0, 100)}...`}
+                </p>
+                <button
+  className="mt-2 text-green-500 text-sm font-semibold hover:underline self-start"
+  onClick={() => toggleReadMore(index)}
+>
+  {expandedReviews[index] ? "Read Less" : "Read More"}
+</button>
+
               </div>
             ))}
           </div>
