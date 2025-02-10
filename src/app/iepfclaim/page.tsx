@@ -26,7 +26,9 @@ export default function IEPFClaim() {
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
-          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+          setToastMessage(
+            "Thank you for your response. Our representative will contact you shortly."
+          );
           setShowModal(true); // Show modal on success
 
           if (formRef.current) {
@@ -46,12 +48,13 @@ export default function IEPFClaim() {
 
   return (
     <>
-
       {/* Modal Popup */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">
+              {toastMessage}
+            </h2>
             <button
               onClick={() => setShowModal(false)}
               className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
@@ -61,10 +64,13 @@ export default function IEPFClaim() {
           </div>
         </div>
       )}
-      {/* Background Section */}
-      <div className="object-cover overflow-hidden min-h-screen flex items-center justify-center" style={{ backgroundImage: `url(${map3.src})` }}>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
 
+      {/* Background Section */}
+      <div
+        className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
+        style={{ backgroundImage: `url(${map3.src})` }}
+      >
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Content Section */}
           <div>
             <div className="max-w-xl bg-[#00BE5D] mt-12">
@@ -82,7 +88,10 @@ export default function IEPFClaim() {
                   "Recovery of share transferred from DEMAT to IEPF",
                   "Discover your forgotten shares/dividends transferred to IEPF",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-md text-white">
+                  <li
+                    key={index}
+                    className="flex items-center gap-3 text-md text-white"
+                  >
                     <Image src={tick} alt="clearclaim" className="w-5 h-6" />
                     {item}
                   </li>
@@ -93,48 +102,83 @@ export default function IEPFClaim() {
 
           {/* Form Section */}
           <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8">
+            <form
+              ref={formRef}
+              onSubmit={sendEmail}
+              className="max-w-lg p-4 mx-auto max-md:px-4"
+            >
+              <div className="mb-12">
+                <h3 className="text-3xl font-bold text-[#FEB066]">
+                  Talk to experts – FREE
+                </h3>
+              </div>
 
-            {/* Popup Notification */}
+              <input
+                type="text"
+                name="first_name"
+                placeholder="First Name"
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                required
+              />
+              <input
+                type="text"
+                name="last_name"
+                placeholder="Last Name"
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                required
+              />
 
+              <div className="relative w-full mb-6">
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
+                  +91
+                </span>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                  maxLength={10} // Restrict to 10 digits
+                  pattern="^\d{10}$" // Ensure exactly 10 digits
+                  onInput={(e) => {
+                    const target = e.target as HTMLInputElement;
+                    target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                  }}
+                  required
+                  title="Phone number must be exactly 10 digits"
+                />
+              </div>
 
-            <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
-  <div className="mb-12">
-    <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
-  </div>
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                required
+              />
 
-  <input type="text" name="first_name" placeholder="First Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
-  <input type="text" name="last_name" placeholder="Last Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+              <div className="flex items-center mb-6">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  name="agree"
+                  className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
+                  required
+                />
+                <label
+                  htmlFor="agree"
+                  className="text-sm text-white"
+                >
+                  I agree to receive updates on email or phone.
+                </label>
+              </div>
 
-  <div className="relative w-full mb-6">
-    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">+91</span>
-    <input
-      type="tel"
-      name="phone"
-      placeholder="Phone Number"
-      className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-      maxLength={10}  // Restrict to 10 digits
-      pattern="^\d{10}$"  // Ensure exactly 10 digits
-      onInput={(e) => {
-        const target = e.target as HTMLInputElement;
-        target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
-      }}
-      required
-      title="Phone number must be exactly 10 digits"
-    />
-  </div>
-
-  <input type="text" name="city" placeholder="City" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
-
-  <div className="flex items-center mb-6">
-    <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer" required />
-    <label htmlFor="agree" className="text-sm text-white">I agree to receive updates on email or phone.</label>
-  </div>
-
-  <button type="submit" className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none">
-    Submit
-  </button>
-</form>
-
+              <button
+                type="submit"
+                className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>

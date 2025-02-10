@@ -162,11 +162,16 @@ export default function ContactForm() {
                 </svg>
               </div>
               <div className="ml-4">
+                <a  href="https://www.google.com/maps/search/?q=Office+No+C-201,+2nd+Floor,+Vantage+Tower,+Bramha+Corp,+Opposite+to+Bavdhan+Police+Chowky,+NDA+Pashan+Road,+Bavdhan,+Pune+-+411021"
+                      target="_blank"
+                      rel="noopener noreferrer">
                 <h1 className="text-black text-lg font-bold">Address</h1>
                 <p className="text-gray-500">Office No C-201, 2nd Floor</p>
                 <p className="text-gray-500">
                   Vantage Tower, Bavdhan, Pune-411021
+                  
                 </p>
+                </a>
               </div>
             </div>
             <hr />
@@ -190,7 +195,7 @@ export default function ContactForm() {
               </div>
               <div className="ml-4">
                 <h1 className="text-black text-lg font-bold">Mail</h1>
-                <p className="text-gray-500">sales@clearclaim.in</p>
+                <a href="mailto:sales@clearclaim.in"><p className="text-gray-500">sales@clearclaim.in</p></a>
               </div>
             </div>
             <hr />
@@ -214,9 +219,11 @@ export default function ContactForm() {
               </div>
               <div className="ml-4">
                 <h1 className="text-black text-lg font-bold">Phone</h1>
-                <p className="text-gray-500">+91 9156701900 / +91 9970651900</p>
+                <a href="tel:+919156701900"><p className="text-gray-500">+91 9156701900</p></a>
+                <a href="tel:+919970651900"><p className="text-gray-500">+91 9970651900</p></a>
               </div>
             </div>
+
           </div>
           <div className="mt-6 rounded-lg overflow-hidden shadow-lg">
             <iframe

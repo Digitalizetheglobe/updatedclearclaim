@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import google from "../../../public/images/google.webp";
+import Howwework from "../howwework/howwework";
 
 export default function ReviewSection() {
   const reviews = [
@@ -78,6 +79,7 @@ const toggleReadMore = (index: number) => {
   
 
   return (
+    <>
     <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
       <div className="text-center mb-8">
         <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
@@ -120,5 +122,8 @@ const toggleReadMore = (index: number) => {
         </div>
       </div>
     </section>
+
+    <Howwework/>
+    </>
   );
 }
