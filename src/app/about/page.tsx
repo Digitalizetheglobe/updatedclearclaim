@@ -4,12 +4,11 @@ import service from "../../../public/images/services-bg-1.jpg";
 import shrikant from "../../../public/images/shrikant.png";
 import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
-import Layout from '../../app/layout';
 import linkedin from '../../../public/images/linkedin.png'
 
 export default function About() {
   return (
-    <Layout>
+
     <>
      <div className="p-10 md:p-16">
   <div className="max-w-4xl mx-auto text-center">
@@ -41,68 +40,68 @@ export default function About() {
               this transition. However, considering India vast population of
               1.25 billion people, it will naturally take time to complete the
               process.
-      </p>
-    </div>
-    <div className="md:h-[470px]">
-      <Image
-        src={aboutgif}
-        alt="about"
-        className="w-full h-full md:object-contain"
-        priority
-      />
-      
-    </div>
-  </div>
-</div>
+            </p>
+          </div>
+          <div className="md:h-[470px]">
+            <Image
+              src={aboutgif}
+              alt="about"
+              className="w-full h-full md:object-contain"
+              priority
+            />
+
+          </div>
+        </div>
+      </div>
 
 
         {/* VISSION/MISSION */}
         <div className="max-w-5xl mx-auto mb-12 py-12 max-md:px-4">
-          <div className="grid md:grid-cols-2 gap-4 mt-4">
-            {/* VISION Box */}
-            <div className="relative rounded-[60px] overflow-hidden">
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${service.src})` }}
-              ></div>
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
-              {/* Content */}
-              <div className="relative text-white max-sm:px-8 px-12 py-8">
-                <h2 className="mt-8 text-4xl font-bold">VISION</h2>
-                <div className="mt-7">
-                  <p className="text-md leading-relaxed">
-                    To help society by offering foremost financial safety which
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {/* VISION Box */}
+                  <div className="relative rounded-[60px] overflow-hidden">
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${service.src})` }}
+                    ></div>
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+                    {/* Content */}
+                    <div className="relative text-white max-sm:px-8 px-12 py-8">
+                      <h2 className="mt-8 text-4xl font-bold">VISION</h2>
+                      <div className="mt-7">
+                        <p className="text-md leading-relaxed">
+                          To help society by offering foremost financial safety which
                     improves the quality of life &amp; contributes to economic
                     development.
-                  </p>
-                </div>
-              </div>
-            </div>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-            {/* MISSION Box */}
-            <div className="relative rounded-[60px] overflow-hidden">
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${service.src})` }}
-              ></div>
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
-              {/* Content */}
-              <div className="relative text-white max-sm:px-8 px-12 py-8">
-                <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
-                <div className="mt-7">
-                  <p className="text-md leading-relaxed">
-                    To make sure that every single invested penny of our
+                  {/* MISSION Box */}
+                  <div className="relative rounded-[60px] overflow-hidden">
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${service.src})` }}
+                    ></div>
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+                    {/* Content */}
+                    <div className="relative text-white max-sm:px-8 px-12 py-8">
+                      <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
+                      <div className="mt-7">
+                        <p className="text-md leading-relaxed">
+                          To make sure that every single invested penny of our
                     customer gets a clear claim.
-                  </p>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
         {/* VISSION/MISSION */}
 
@@ -125,23 +124,23 @@ export default function About() {
               />
             </div>
             <div className="text-left max-md:px-4">
-  <h2 className="text-black text-2xl font-bold mb-4">Shrikant Pandore</h2>
-  
-  {/* Co-Founder & CEO with LinkedIn Link */}
-  <div className="flex items-center gap-2">
-    <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
-    <a
-      href="https://www.linkedin.com/in/shrikant-pandore-a9438b19/" // Replace with the actual LinkedIn profile URL
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-        <Image
-        src={linkedin}
-        alt="LinkedIn"
-        className="w-5 h-5"
-      />
-    </a>
-  </div>
+              <h2 className="text-black text-2xl font-bold mb-4">Shrikant Pandore</h2>
+
+              {/* Co-Founder & CEO with LinkedIn Link */}
+              <div className="flex items-center gap-2">
+                <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
+                <a
+                  href="https://www.linkedin.com/in/shrikant-pandore-a9438b19/" // Replace with the actual LinkedIn profile URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={linkedin}
+                    alt="LinkedIn"
+                    className="w-5 h-5"
+                  />
+                </a>
+              </div>
 
   <p className="mb-4 mt-4 text-md text-justify text-gray-600">
     Shrikant is the Chief Executive Officer (CEO) of Clearlcaim. With a strong 
@@ -159,24 +158,24 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mt-24">
-          <div className="text-left max-md:px-4">
-  <h2 className="text-black text-2xl font-bold mb-4">Hardik Manek</h2>
+            <div className="text-left max-md:px-4">
+              <h2 className="text-black text-2xl font-bold mb-4">Hardik Manek</h2>
 
-  {/* Co-Founder & COO with LinkedIn Link */}
-  <div className="flex items-center gap-2">
-    <p className="text-gray-600 text-sm">Co-Founder & COO</p>
-    <a
-      href="https://www.linkedin.com/in/hardik-manek/" // Replace with the actual LinkedIn profile URL
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Image
-        src={linkedin}
-        alt="LinkedIn"
-        className="w-5 h-5"
-      />
-    </a>
-  </div>
+              {/* Co-Founder & COO with LinkedIn Link */}
+              <div className="flex items-center gap-2">
+                <p className="text-gray-600 text-sm">Co-Founder & COO</p>
+                <a
+                  href="https://www.linkedin.com/in/hardik-manek/" // Replace with the actual LinkedIn profile URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={linkedin}
+                    alt="LinkedIn"
+                    className="w-5 h-5"
+                  />
+                </a>
+              </div>
 
   <p className="mb-4 mt-4 text-md text-justify text-gray-600">
     Hardik, as the Chief Operating Officer (COO) of Clearclaim, plays a pivotal 
@@ -201,8 +200,8 @@ export default function About() {
       </div>
       {/* MEET PEOPLE */}
 
-        <Meetourteam />
-      </>
-    </Layout>
+      <Meetourteam />
+    </>
+
   );
 }
