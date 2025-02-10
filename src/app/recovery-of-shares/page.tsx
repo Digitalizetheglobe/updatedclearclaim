@@ -77,10 +77,11 @@ export default function IEPFClaim() {
   
   return (
     <>
-      <div
-        className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
-        style={{ backgroundImage: `url(${map3.src})` }}
-      >
+     <div
+  className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
+  style={{ backgroundImage: `url(${map3.src})` }} // Corrected template literal
+>
+
         <div className="grid md:grid-cols-2 gap-8 items-center">
   {/* Content Section */}
   <div>
@@ -124,7 +125,8 @@ export default function IEPFClaim() {
   </div>
 
   {/* Form Section */}
-  <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8">
+  {/* Form Section */}
+  <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8 min-h-[400px] w-full md:min-w-[350px]">
   {showToast && (
     <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
       {message}

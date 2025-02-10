@@ -42,16 +42,19 @@ export default function scammerexposed() {
               </ul>
             </div>
             <div className="w-full overflow-hidden rounded-md row-2 ">
-  <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-    <iframe
-      src="https://www.youtube.com/embed/X3Sme--jbkk"
-      title="YouTube video"
-      className="absolute top-0 left-0 w-full h-80"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
+              <div></div>
+              <div className="flex justify-center w-full">
+  <iframe
+    src="https://www.youtube.com/embed/X3Sme--jbkk"
+    title="YouTube video"
+    className="rounded-md shadow-lg"
+    style={{ width: "650px", height: "370px" }}
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
 
   <h2 className="md:text-xl text-xl font-semibold md:!leading-[40px] text-[#000] mt-12">
     Stay Safe: Learn how to identify and avoid scams.

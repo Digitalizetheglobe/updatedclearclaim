@@ -5,119 +5,126 @@ import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
-  const [showToast, setShowToast] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formRef.current) return;
-      emailjs
-        .sendForm(
-          "service_4fca0ux",
-          "template_0esr8bw",
-          formRef.current,
-          "Ycds2m4eCIak1IOcz"
-        )
-        .then(
-          (result) => {
-            console.log("Email sent successfully:", result.text);
-            setToastMessage("Form submitted successfully!");
-            setShowToast(true);
-            if (formRef.current) formRef.current.reset();
 
-            setTimeout(() => setShowToast(false), 3000); // Hide after 3 sec
-          },
-          (error) => {
-            console.error("Error sending email:", error.text);
-            setToastMessage("Failed to send the form. Try again.");
-            setShowToast(true);
-            setTimeout(() => setShowToast(false), 3000);
-          }
-        );
-    
+    emailjs
+      .sendForm(
+        "service_4fca0ux", // Replace with your EmailJS service ID
+        "template_0esr8bw", // Replace with your EmailJS template ID
+        formRef.current,
+        "Ycds2m4eCIak1IOcz" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+          setShowModal(true); // Show modal on success
+          formRef.current.reset();
+
+          setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+          setToastMessage("Failed to send the form. Try again.");
+          setShowModal(true);
+          setTimeout(() => setShowModal(false), 3000);
+        }
+      );
   };
 
   return (
     <>
-      <div className="mb-24 relative">
-        {/* Toaster Notification */}
-        {showToast && (
-          <div className="absolute top-[-1px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md w-[320px] text-center whitespace-nowrap z-30">
-            {toastMessage}
+      {/* Modal Popup */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+            >
+              OK
+            </button>
           </div>
-        )}
+        </div>
+      )}
 
-<div className="mb-6 px-4">
-  <div className="pb-16 mx-auto max-w-5xl shadow-lg px-6 sm:px-12 lg:px-24 bg-[#161d34] rounded-md relative">
-    <h2 className="text-4xl text-center text-white font-bold pt-16">
-      Contact Us
-    </h2>
-    <div className="flex justify-center mt-2">
-      <div className="h-[4px] w-[80px] bg-[#00BE5D]"></div>
-    </div>
+      {/* Contact Form */}
+      <div className="mb-24 relative">
+        <div className="mb-6 px-4">
+          <div className="pb-16 mx-auto max-w-5xl shadow-lg px-6 sm:px-12 lg:px-24 bg-[#161d34] rounded-md relative">
+            <h2 className="text-4xl text-center text-white font-bold pt-16">Contact Us</h2>
+            <div className="flex justify-center mt-2">
+              <div className="h-[4px] w-[80px] bg-[#00BE5D]"></div>
+            </div>
 
-    <form
-      ref={formRef}
-      onSubmit={sendEmail}
-      className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6"
-    >
-      <div>
-        <label htmlFor="first_name" className="text-white text-sm block mb-2">
-          First Name
-        </label>
-        <input
-          id="first_name"
-          name="first_name"
-          type="text"
-          placeholder="Enter First Name"
-          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-        />
-      </div>
-      <div>
-        <label htmlFor="last_name" className="text-white text-sm block mb-2">
-          Last Name
-        </label>
-        <input
-          id="last_name"
-          name="last_name"
-          type="text"
-          placeholder="Enter Last Name"
-          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-        />
-      </div>
-      <div className="col-span-full">
-        <label htmlFor="phone" className="text-white text-sm block mb-2">
-          Phone Number
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder="Enter Phone Number"
-          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-        />
-      </div>
-      <div className="col-span-full">
-        <label htmlFor="city" className="text-white text-sm block mb-2">
-          City
-        </label>
-        <input
-          id="city"
-          name="city"
-          type="text"
-          placeholder="Enter City"
-          className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-        />
-      </div>
-      <button
-        type="submit"
-        className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
-      >
-        Get Free Consulting
-      </button>
-    </form>
-  </div>
+            <form ref={formRef} onSubmit={sendEmail} className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="first_name" className="text-white text-sm block mb-2">
+                  First Name
+                </label>
+                <input
+                  id="first_name"
+                  name="first_name"
+                  type="text"
+                  placeholder="Enter First Name"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="last_name" className="text-white text-sm block mb-2">
+                  Last Name
+                </label>
+                <input
+                  id="last_name"
+                  name="last_name"
+                  type="text"
+                  placeholder="Enter Last Name"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                  required
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="phone" className="text-white text-sm block mb-2">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter Phone Number"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                  required
+                />
+              </div>
+              <div className="col-span-full">
+                <label htmlFor="city" className="text-white text-sm block mb-2">
+                  City
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  placeholder="Enter City"
+                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
+              >
+                Get Free Consulting
+              </button>
+            </form>
+          </div>
 </div>
 
  

@@ -8,189 +8,114 @@ import Content from "./content";
 
 export default function IEPFClaim() {
   const formRef = useRef<HTMLFormElement>(null);
-  const [showToast, setShowToast] = useState(false); // State to control toast visibility
-  const [message, setMessage] = useState("");
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false); // To change color of toast
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
-    if (!formRef.current) return;
-  
-    // Get the phone number input value
-    const phoneNumber = formRef.current.phoneNumber.value;
-  
-    // Validate phone number (must be exactly 10 digits)
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(phoneNumber)) {
-      setMessage("Phone number must be exactly 10 digits.");
-      setShowToast(true);
-  
-      // Hide the toast after 3 seconds
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
-      return; // Stop form submission if validation fails
-    }
-  
-    // If validation passes, proceed with form submission
+
     emailjs
       .sendForm(
-        "service_0m8kbz9", // Replace with your Email.js service ID
-        "template_gs8t31r", // Replace with your Email.js template ID
-        formRef.current,
-        "Fkjr_xe9jDFgk_BFj" // Replace with your public key
+        "service_4fca0ux", // Your EmailJS service ID
+        "template_0esr8bw", // Your EmailJS template ID
+        formRef.current!,
+        "Ycds2m4eCIak1IOcz" // Your public key
       )
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
-          setMessage("Your message has been sent successfully!");
-          setShowToast(true); // Show toast notification
-          if (formRef.current) formRef.current.reset();
-  
-          // Hide the toast after 3 seconds
-          setTimeout(() => {
-            setShowToast(false);
-          }, 3000);
+          setToastMessage("Form submitted successfully!");
+          setIsSuccess(true);
+          setShowToast(true);
+          
+          // Reset form fields
+          formRef.current?.reset();
+
+          setTimeout(() => setShowToast(false), 3000);
         },
         (error) => {
           console.error("Error sending email:", error.text);
-          setMessage(
-            "There was an error sending your message. Please try again."
-          );
+          setToastMessage("Failed to send the form. Try again.");
+          setIsSuccess(false);
           setShowToast(true);
-  
-          setTimeout(() => {
-            setShowToast(false);
-          }, 3000);
+          setTimeout(() => setShowToast(false), 3000);
         }
       );
   };
-  
+
   return (
     <>
-      <div
-        className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
-        style={{ backgroundImage: `url(${map3.src})` }}
-      >
+      {/* Background Section */}
+      <div className="object-cover overflow-hidden min-h-screen flex items-center justify-center" style={{ backgroundImage: `url(${map3.src})` }}>
         <div className="grid md:grid-cols-2 gap-8 items-center">
-  {/* Content Section */}
-  <div>
-    <div className="max-w-xl bg-[#00BE5D] mt-12">
-      <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
-        India’s No.1 IEPF consultant
-      </h2>
-    </div>
-    <div>
-      <ul className="space-y-4 p-12">
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Recover of shares from IEPF
-        </li>
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Recovery of unclaimed dividends from IEPF
-        </li>
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Transmission of shares and recovery from IEPF in death claims
-        </li>
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Issue of duplicate and recovery from IEPF
-        </li>
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Recovery of share transferred from DEMAT to IEPF
-        </li>
-        <li className="flex items-center gap-3 text-md text-white">
-          <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-          Discover your forgotten shares/dividends transferred to IEPF
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  {/* Form Section */}
-  <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8">
-  {showToast && (
-    <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
-      {message}
-    </div>
-  )}
-  <form ref={formRef} className="max-w-lg p-4 mx-auto max-md:px-4" onSubmit={handleSubmit}>
-    <div className="mb-12">
-      <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
-    </div>
+          {/* Content Section */}
+          <div>
+            <div className="max-w-xl bg-[#00BE5D] mt-12">
+              <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
+                India’s No.1 IEPF Consultant
+              </h2>
+            </div>
+            <div>
+              <ul className="space-y-4 p-12">
+                {[
+                  "Recover of shares from IEPF",
+                  "Recovery of unclaimed dividends from IEPF",
+                  "Transmission of shares and recovery from IEPF in death claims",
+                  "Issue of duplicate and recovery from IEPF",
+                  "Recovery of share transferred from DEMAT to IEPF",
+                  "Discover your forgotten shares/dividends transferred to IEPF",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3 text-md text-white">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-    {/* First Name */}
-    <input
-      type="text"
-      name="firstName"
-      placeholder="First Name"
-      className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-      required
-    />
+          {/* Form Section */}
+          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8">
+            
+            {/* Popup Notification */}
+            {showToast && (
+              <div
+                className={`absolute top-[-50px] left-1/2 transform -translate-x-1/2 py-2 px-6 rounded-md shadow-md text-white w-[400px] text-center whitespace-nowrap transition-all duration-300 ${
+                  isSuccess ? "bg-green-600" : "bg-red-600"
+                }`}
+              >
+                {toastMessage}
+              </div>
+            )}
 
-    {/* Last Name */}
-    <input
-      type="text"
-      name="lastName"
-      placeholder="Last Name"
-      className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-      required
-    />
+            <form ref={formRef} className="max-w-lg p-4 mx-auto max-md:px-4" onSubmit={sendEmail}>
+              <div className="mb-12">
+                <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
+              </div>
 
-    {/* Phone Number Input with +91 Prefix */}
-    <div className="relative w-full mb-6">
-      <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-        +91
-      </span>
-      <input
-        type="tel"
-        name="phoneNumber"
-        placeholder="Phone Number"
-        className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-        required
-      />
-    </div>
+              <input type="text" name="first_name" placeholder="First Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+              <input type="text" name="last_name" placeholder="Last Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-    {/* City */}
-    <input
-      type="text"
-      name="city"
-      placeholder="City"
-      className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-      required
-    />
+              <div className="relative w-full mb-6">
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">+91</span>
+                <input type="tel" name="phone" placeholder="Phone Number" className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+              </div>
 
-    {/* Checkbox for Consent */}
-    <div className="flex items-center mb-6">
-      <input
-        type="checkbox"
-        id="agree"
-        name="agree"
-        className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
-        required
-      />
-      <label htmlFor="agree" className="text-sm text-white">
-        I agree to receive updates on email or phone.
-      </label>
-    </div>
+              <input type="text" name="city" placeholder="City" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-    {/* Submit Button */}
-    <div>
-      <button
-        type="submit"
-        className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
-      >
-        Submit
-      </button>
-    </div>
-  </form>
-</div>
+              <div className="flex items-center mb-6">
+                <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer" required />
+                <label htmlFor="agree" className="text-sm text-white">I agree to receive updates on email or phone.</label>
+              </div>
 
-</div>
-
+              <button type="submit" className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
 
       <Content />

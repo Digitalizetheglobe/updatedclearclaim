@@ -91,7 +91,7 @@ export default function Blog() {
                 The Importance of Document Verification in IEPF Claims: A Guide to an Effective Recovery Process
                                 </h3>
                 <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                Jan 2th 2025
+                Jan 2nd 2025
                 </p>
                 <Link
                   href="the-importance-of-document-verification"

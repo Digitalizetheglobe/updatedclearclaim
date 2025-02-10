@@ -1,5 +1,6 @@
 import WhatClientSay from "../../app/whyclearclaim/whatclientsay";
 
+
 export default function numbertalk() {
   return (
     <>
@@ -11,7 +12,7 @@ export default function numbertalk() {
         </div>
         <div className="bg-[#141b2a] px-4 py-16 mt-12">
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-x-6 gap-y-12 lg:max-w-7xl sm:max-w-2xl max-w-sm mx-auto">
-            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md">
+          <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md transition-transform transform hover:scale-105 hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="fill-[#00BE5D] w-10 inline-block"
@@ -31,7 +32,7 @@ export default function numbertalk() {
                 Companies Worked With
               </p>
             </div>
-            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md">
+            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md transition-transform transform hover:scale-105 hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="fill-[#00BE5D] w-10 inline-block"
@@ -49,7 +50,7 @@ export default function numbertalk() {
                 Clients Served
               </p>
             </div>
-            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md">
+            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md transition-transform transform hover:scale-105 hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="fill-[#00BE5D] w-10 inline-block"
@@ -65,7 +66,7 @@ export default function numbertalk() {
                 DEMAT and IEPF Claims Filed
               </p>
             </div>
-            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md">
+            <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-md transition-transform transform hover:scale-105 hover:shadow-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="fill-[#00BE5D] w-10 inline-block"
