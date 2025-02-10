@@ -68,15 +68,15 @@ export default function IEPFClaim() {
   style={{ backgroundImage: `url(${map3.src})` }} // Corrected template literal
 >
 
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
   {/* Content Section */}
-  <div>
+  <div >
     <div className="max-w-xl bg-[#00BE5D] mt-12">
       <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
       India’s No.1 Shares Recovery Experts
       </h2>
     </div>
-    <div className="w-[600px]">
+    <div >
       <ul className="space-y-4 p-12">
         <li className="flex items-center gap-3 text-md text-white">
           <Image src={tick} alt="clearclaim" className="w-5 h-6" />
