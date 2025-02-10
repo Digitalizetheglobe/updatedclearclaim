@@ -8,18 +8,18 @@ import linkedin from '../../../public/images/linkedin.png'
 
 export default function About() {
   return (
-    
+
     <>
-     <div className="p-10 md:p-16">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
-      <span className="text-[#283655]"> What </span> We Do
-    </h2>
-  </div>
-  <div className="grid md:grid-cols-2 items-center md:gap-4 gap-6 max-w-5xl max-md:max-w-md mx-auto">
-    <div className="max-md:order-1 max-md:text-center mt-6 max-md:mt-0">
-      <p className="mt-2 text-[16px] text-black text-justify">
-      In a nation where aspirations and dreams fuel the pursuit of
+      <div className="p-10 md:p-16">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
+            <span className="text-[#283655]"> What </span> We Do
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 items-center md:gap-4 gap-6 max-w-5xl max-md:max-w-md mx-auto">
+          <div className="max-md:order-1 max-md:text-center mt-6 max-md:mt-0">
+            <p className="mt-2 text-[16px] text-black text-justify">
+              In a nation where aspirations and dreams fuel the pursuit of
               financial security, we understand the importance of investing to
               fulfil those desires. All individuals try to invest to meet their
               basic needs, save a portion of their income, and invest in various
@@ -31,71 +31,71 @@ export default function About() {
               from paper- based transactions to digital platforms has become the
               norm. Yet, not everyone has made this shift, and numerous
               investors still hold their investments in paper format.
-      </p>
-      <p className="mt-2 text-[16px] text-black text-justify max-md:mt-0">
-      The Government of India has made substantial efforts to streamline
+            </p>
+            <p className="mt-2 text-[16px] text-black text-justify max-md:mt-0">
+              The Government of India has made substantial efforts to streamline
               this transition. However, considering India vast population of
               1.25 billion people, it will naturally take time to complete the
               process.
-      </p>
-    </div>
-    <div className="md:h-[470px]">
-      <Image
-        src={aboutgif}
-        alt="about"
-        className="w-full h-full md:object-contain"
-        priority
-      />
-      
-    </div>
-  </div>
-</div>
+            </p>
+          </div>
+          <div className="md:h-[470px]">
+            <Image
+              src={aboutgif}
+              alt="about"
+              className="w-full h-full md:object-contain"
+              priority
+            />
+
+          </div>
+        </div>
+      </div>
 
 
       {/* VISSION/MISSION */}
       <div className="max-w-5xl mx-auto mb-12 py-12 max-md:px-4">
-  <div className="grid md:grid-cols-2 gap-4 mt-4">
-    {/* VISION Box */}
-    <div className="relative rounded-[60px] overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${service.src})` }}
-      ></div>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
-      {/* Content */}
-      <div className="relative text-white max-sm:px-8 px-12 py-8">
-        <h2 className="mt-8 text-4xl font-bold">VISION</h2>
-        <div className="mt-7">
-          <p className="text-md leading-relaxed">
-            To help society by offering foremost financial safety which improves the quality of life &amp; contributes to economic development.
-          </p>
-        </div>
-      </div>
-    </div>
+        <div className="grid md:grid-cols-2 gap-4 mt-4">
+          {/* VISION Box */}
+          <div className="relative rounded-[60px] overflow-hidden">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${service.src})` }}
+            ></div>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+            {/* Content */}
+            <div className="relative text-white max-sm:px-8 px-12 py-8">
+              <h2 className="mt-8 text-4xl font-bold">VISION</h2>
+              <div className="mt-7">
+                <p className="text-md leading-relaxed">
+                  To help society by offering foremost financial safety which improves the quality of life &amp; contributes to economic development.
+                </p>
+              </div>
+            </div>
+          </div>
 
-    {/* MISSION Box */}
-    <div className="relative rounded-[60px] overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${service.src})` }}
-      ></div>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
-      {/* Content */}
-      <div className="relative text-white max-sm:px-8 px-12 py-8">
-        <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
-        <div className="mt-7">
-          <p className="text-md leading-relaxed">
-            To make sure that every single invested penny of our customer gets a clear claim.
-          </p>
+          {/* MISSION Box */}
+          <div className="relative rounded-[60px] overflow-hidden">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${service.src})` }}
+            ></div>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[#4b9f47] opacity-70"></div>
+            {/* Content */}
+            <div className="relative text-white max-sm:px-8 px-12 py-8">
+              <h2 className="mt-8 text-4xl font-bold">MISSION</h2>
+              <div className="mt-7">
+                <p className="text-md leading-relaxed">
+                  To make sure that every single invested penny of our customer gets a clear claim.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
       {/* VISSION/MISSION */}
 
@@ -118,69 +118,69 @@ export default function About() {
               />
             </div>
             <div className="text-left max-md:px-4">
-  <h2 className="text-black text-2xl font-bold mb-4">Shrikant Pandore</h2>
-  
-  {/* Co-Founder & CEO with LinkedIn Link */}
-  <div className="flex items-center gap-2">
-    <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
-    <a
-      href="https://www.linkedin.com/in/shrikant-pandore-a9438b19/" // Replace with the actual LinkedIn profile URL
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-        <Image
-        src={linkedin}
-        alt="LinkedIn"
-        className="w-5 h-5"
-      />
-    </a>
-  </div>
+              <h2 className="text-black text-2xl font-bold mb-4">Shrikant Pandore</h2>
 
-  <p className="mb-4 mt-4 text-md text-justify text-black">
-    Shrikant is the Chief Executive Officer (CEO) of Clearlcaim. With a strong 
-    vision and strategic acumen, Shrikant has been instrumental in steering the 
-    company towards its goals. His leadership style fosters innovation and 
-    encourages team collaboration. Shrikant’s commitment to excellence and his 
-    passion for the industry have been key factors in the company’s success. 
-    His responsibilities include setting the company’s overall strategic 
-    direction, making major corporate decisions, and managing the overall 
-    operations and resources of the company. Shrikant’s dedication and 
-    leadership continue to drive the company’s growth and success.
-  </p>
-</div>
+              {/* Co-Founder & CEO with LinkedIn Link */}
+              <div className="flex items-center gap-2">
+                <p className="text-gray-600 text-sm">Co-Founder & CEO</p>
+                <a
+                  href="https://www.linkedin.com/in/shrikant-pandore-a9438b19/" // Replace with the actual LinkedIn profile URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={linkedin}
+                    alt="LinkedIn"
+                    className="w-5 h-5"
+                  />
+                </a>
+              </div>
+
+              <p className="mb-4 mt-4 text-md text-justify text-black">
+                Shrikant is the Chief Executive Officer (CEO) of Clearlcaim. With a strong
+                vision and strategic acumen, Shrikant has been instrumental in steering the
+                company towards its goals. His leadership style fosters innovation and
+                encourages team collaboration. Shrikant’s commitment to excellence and his
+                passion for the industry have been key factors in the company’s success.
+                His responsibilities include setting the company’s overall strategic
+                direction, making major corporate decisions, and managing the overall
+                operations and resources of the company. Shrikant’s dedication and
+                leadership continue to drive the company’s growth and success.
+              </p>
+            </div>
 
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mt-24">
-          <div className="text-left max-md:px-4">
-  <h2 className="text-black text-2xl font-bold mb-4">Hardik Manek</h2>
+            <div className="text-left max-md:px-4">
+              <h2 className="text-black text-2xl font-bold mb-4">Hardik Manek</h2>
 
-  {/* Co-Founder & COO with LinkedIn Link */}
-  <div className="flex items-center gap-2">
-    <p className="text-gray-600 text-sm">Co-Founder & COO</p>
-    <a
-      href="https://www.linkedin.com/in/hardik-manek/" // Replace with the actual LinkedIn profile URL
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Image
-        src={linkedin}
-        alt="LinkedIn"
-        className="w-5 h-5"
-      />
-    </a>
-  </div>
+              {/* Co-Founder & COO with LinkedIn Link */}
+              <div className="flex items-center gap-2">
+                <p className="text-gray-600 text-sm">Co-Founder & COO</p>
+                <a
+                  href="https://www.linkedin.com/in/hardik-manek/" // Replace with the actual LinkedIn profile URL
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={linkedin}
+                    alt="LinkedIn"
+                    className="w-5 h-5"
+                  />
+                </a>
+              </div>
 
-  <p className="mb-4 mt-4 text-md text-justify text-black">
-    Hardik, as the Chief Operating Officer (COO) of Clearclaim, plays a pivotal 
-    role in the company’s success. With his extensive experience in research and 
-    operations, Hardik oversees the company’s day-to-day administrative and 
-    operational functions. He heads the Operations team and ensures smooth claim 
-    processing. His commitment towards excellence plays a very important role in 
-    customer success. This helps in building trust and transparency with clients, 
-    which in turn builds the companys reputation.
-  </p>
-</div>
+              <p className="mb-4 mt-4 text-md text-justify text-black">
+                Hardik, as the Chief Operating Officer (COO) of Clearclaim, plays a pivotal
+                role in the company’s success. With his extensive experience in research and
+                operations, Hardik oversees the company’s day-to-day administrative and
+                operational functions. He heads the Operations team and ensures smooth claim
+                processing. His commitment towards excellence plays a very important role in
+                customer success. This helps in building trust and transparency with clients,
+                which in turn builds the companys reputation.
+              </p>
+            </div>
 
             <div className="max-h-72 max-md:order-1">
               <Image
@@ -196,6 +196,6 @@ export default function About() {
 
       <Meetourteam />
     </>
-   
+
   );
 }
