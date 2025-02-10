@@ -4,12 +4,11 @@ import service from "../../../public/images/services-bg-1.jpg";
 import shrikant from "../../../public/images/shrikant.png";
 import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
-import Layout from '../../app/layout';
 import linkedin from '../../../public/images/linkedin.png'
 
 export default function About() {
   return (
-    <Layout>
+    
     <>
      <div className="p-10 md:p-16">
   <div className="max-w-4xl mx-auto text-center">
@@ -197,6 +196,6 @@ export default function About() {
 
       <Meetourteam />
     </>
-    </Layout>
+   
   );
 }
