@@ -9,8 +9,6 @@ import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import blog from "../../../public/blogs/blog55 (1).png";
 import blog1 from "../../../public/blogs/2.png";
-import blog2 from "../../../public/blogs/3.png";
-import blog3 from "../../../public/blogs/Understanding the Investor Education and Protection Fund (IEPF) Authority in India.png";
 import blog4 from "../../../public/blogs/Understanding IPO and Its Advantages to Retail Investors.png";
 import blog20 from "../../../public/blogs/document.png";
 import blog21 from "../../../public/blogs/Digital.png";
