@@ -65,11 +65,13 @@ export default function WhyClearClaim() {
   return (
     <>
       <div className="p-16 mb-12">
+      <div className="text-center max-w-2xl mx-auto">
+          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pb-6">
+            <span className="text-[#283655]">Why</span> Clear Claim
+                      </h2>
+          </div>
         <div className="bg-[#00BE5D]">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-white pt-6">
-              <span className="text-[#283655]"> why </span> Clearclaim
-            </h2>
           </div>
           <div className="xl:max-w-7xl max-w-4xl mx-auto">
             <Swiper

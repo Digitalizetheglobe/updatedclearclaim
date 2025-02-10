@@ -95,18 +95,26 @@ export default function ContactForm() {
                 />
               </div>
               <div className="col-span-full">
-                <label htmlFor="phone" className="text-white text-sm block mb-2">
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="Enter Phone Number"
-                  className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
-                  required
-                />
-              </div>
+  <label htmlFor="phone" className="text-white text-sm block mb-2">
+    Phone Number
+  </label>
+  <input
+    id="phone"
+    name="phone"
+    type="tel"
+    placeholder="Enter Phone Number"
+    maxLength={10} // Restricts input to 10 characters
+    pattern="^\d{10}$" // Ensures exactly 10 digits
+    onInput={(e) => {
+      const target = e.target as HTMLInputElement;
+      target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    }}
+    className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#007bff]"
+    required
+    title="Phone number must be exactly 10 digits"
+  />
+</div>
+
               <div className="col-span-full">
                 <label htmlFor="city" className="text-white text-sm block mb-2">
                   City

@@ -11,63 +11,43 @@ import emailjs from "emailjs-com";
 
 export default function LandingTestimonial2() {
     const formRef = useRef<HTMLFormElement>(null);
-    const [showToast, setShowToast] = useState(false); // State to control toast visibility
-    const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-        if (!formRef.current) return;
+    if (!formRef.current) return;
 
-        // Get the phone number input value
-        const phoneNumber = formRef.current.phoneNumber.value;
+    emailjs
+      .sendForm(
+        "service_4fca0ux", // Replace with your EmailJS service ID
+        "template_0esr8bw", // Replace with your EmailJS template ID
+        formRef.current,
+        "Ycds2m4eCIak1IOcz" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+          setShowModal(true); // Show modal on success
 
-        // Validate phone number (must be exactly 10 digits)
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(phoneNumber)) {
-            setMessage("Phone number must be exactly 10 digits.");
-            setShowToast(true);
+          if (formRef.current) {
+            formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
+          }
 
-            // Hide the toast after 3 seconds
-            setTimeout(() => {
-                setShowToast(false);
-            }, 3000);
-            return; // Stop form submission if validation fails
+          setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+          setToastMessage("Failed to send the form. Try again.");
+          setShowModal(true);
+          setTimeout(() => setShowModal(false), 3000);
         }
+      );
+  };
 
-        // If validation passes, proceed with form submission
-        emailjs
-            .sendForm(
-                "service_0m8kbz9", // Replace with your Email.js service ID
-                "template_gs8t31r", // Replace with your Email.js template ID
-                formRef.current,
-                "Fkjr_xe9jDFgk_BFj" // Replace with your public key
-            )
-            .then(
-                (result) => {
-                    console.log("Email sent successfully:", result.text);
-                    setMessage("Your message has been sent successfully!");
-                    setShowToast(true); // Show toast notification
-                    if (formRef.current) formRef.current.reset();
 
-                    // Hide the toast after 3 seconds
-                    setTimeout(() => {
-                        setShowToast(false);
-                    }, 3000);
-                },
-                (error) => {
-                    console.error("Error sending email:", error.text);
-                    setMessage(
-                        "There was an error sending your message. Please try again."
-                    );
-                    setShowToast(true);
-
-                    setTimeout(() => {
-                        setShowToast(false);
-                    }, 3000);
-                }
-            );
-    };
     const reviews = [
         {
             name: "Vinayak Gaitonde",
@@ -136,6 +116,21 @@ export default function LandingTestimonial2() {
     
     return (
         <>
+        {/* Modal Popup */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+
            <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
       <div className="text-center mb-8">
         <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
@@ -271,80 +266,45 @@ export default function LandingTestimonial2() {
 
                             {/* Form Section */}
                             <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto">
-  {showToast && (
-    <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
-      {message}
-    </div>
-  )}
-  <form
-    ref={formRef}
-    className="max-w-lg p-4 mx-auto max-md:px-4"
-    onSubmit={handleSubmit}
-  >
-    <div className="mb-6">
-      <h3 className="text-3xl font-bold text-[#FEB066]">
-        REQUEST A CALL BACK
-      </h3>
-    </div>
+  
+                            <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
+  <div className="mb-12">
+    <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
+  </div>
 
-    {/* Input Fields */}
+  <input type="text" name="first_name" placeholder="First Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+  <input type="text" name="last_name" placeholder="Last Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+
+  <div className="relative w-full mb-6">
+    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">+91</span>
     <input
-      type="text"
-      name="firstName"
-      placeholder="First Name"
-      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+      className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+      maxLength={10}  // Restrict to 10 digits
+      pattern="^\d{10}$"  // Ensure exactly 10 digits
+      onInput={(e) => {
+        const target = e.target as HTMLInputElement;
+        target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      }}
+      required
+      title="Phone number must be exactly 10 digits"
     />
-    <input
-      type="text"
-      name="lastName"
-      placeholder="Last Name"
-      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-    />
+  </div>
 
-    {/* Phone Number Input with +91 Prefix */}
-    <div className="relative w-full mb-4">
-      <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-        +91
-      </span>
-      <input
-        type="tel"
-        name="phoneNumber"
-        placeholder="Phone Number"
-        className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-      />
-    </div>
+  <input type="text" name="city" placeholder="City" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-    <input
-      type="text"
-      name="city"
-      placeholder="City"
-      className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-    />
+  <div className="flex items-center mb-6">
+    <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer" required />
+    <label htmlFor="agree" className="text-sm text-white">I agree to receive updates on email or phone.</label>
+  </div>
 
-    {/* Checkbox for Consent */}
-    <div className="flex items-center mb-6">
-      <input
-        type="checkbox"
-        id="agree"
-        name="agree"
-        className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
-        required
-      />
-      <label htmlFor="agree" className="text-sm text-white">
-        I agree to receive updates on email or phone.
-      </label>
-    </div>
+  <button type="submit" className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none">
+    Submit
+  </button>
+</form>
 
-    {/* Submit Button */}
-    <div>
-      <button
-        type="submit"
-        className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
-      >
-        Get Free Consulting
-      </button>
-    </div>
-  </form>
 </div>
 
 
