@@ -6,6 +6,7 @@ import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import map3 from "../../../public/images/geomatric.png";
 import ContentSection from "./contentsection";
+import ScrollButton from "@/components/scrollbutton";
 
 
 export default function IEPFClaim() {
@@ -48,7 +49,7 @@ export default function IEPFClaim() {
   
   return (
     <>
-
+<ScrollButton/>
     {/* Modal Popup */}
     {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

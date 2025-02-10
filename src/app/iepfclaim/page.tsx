@@ -5,6 +5,7 @@ import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import map3 from "../../../public/images/geomatric.png";
 import Content from "./content";
+import ScrollButton from "@/components/scrollbutton";
 
 export default function IEPFClaim() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -48,6 +49,7 @@ export default function IEPFClaim() {
 
   return (
     <>
+    <ScrollButton/>
       {/* Modal Popup */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -70,7 +72,7 @@ export default function IEPFClaim() {
         className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
         style={{ backgroundImage: `url(${map3.src})` }}
       >
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center px-3">
           {/* Content Section */}
           <div>
             <div className="max-w-xl bg-[#00BE5D] mt-12">

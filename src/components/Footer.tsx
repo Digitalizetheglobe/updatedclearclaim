@@ -157,12 +157,12 @@ export default function Footer() {
         <div className="mt-8 border-t bg-[#00BE5D] border-gray-100 py-4">
           <div className="text-center">
             <p className="text-md text-white">
-              Copyright © 2024 Clearclaim |{" "}
+              Copyright © 2025 Clearclaim  |  Crafted By
               <Link
-                className="inline-block text-white hover:text-gray-800 ml-2"
+                className="inline-block text-white hover:text-gray-800 ml-1"
                 href="https://digitalizetheglobe.com/"
               >
-                Crafted By Digitalize The Globe
+                Digitalize The Globe
               </Link>
             </p>
           </div>

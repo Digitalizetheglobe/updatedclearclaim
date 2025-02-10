@@ -5,6 +5,7 @@ import Image from "next/image";
 import gif from "../../public/images/Old-shares-and-dividends-recovery-840-x-1378-px.gif";
 import WhyClearClaim from "../app/whyclearclaim/whyclearclaim";
 import design from "../../public/images/Clear claim banner (400 x 320 px) (2).gif";
+import ScrollButton from "@/components/scrollbutton";
 
 export default function Home() {
   // Function to handle phone call
@@ -14,6 +15,7 @@ export default function Home() {
 
   return (
     <>
+    <ScrollButton/>
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Center content in mobile view */}
         <div className="flex flex-col md:grid md:grid-cols-2 md:items-center md:gap-8 items-center text-center">

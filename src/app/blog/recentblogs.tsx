@@ -20,7 +20,7 @@ export default function RecentBlogs() {
       <div className="bg-white font-[sans-serif] my-4 mt-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto">
-            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
+            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] mb-12">
               <span className="text-[#283655]">Our</span> Blog
             </h2>
           </div>
