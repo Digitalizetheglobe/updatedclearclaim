@@ -1,9 +1,8 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
-import map3 from "../../../public/images/geomatric.png";
 import Content from "./content";
 import ScrollButton from "@/components/scrollbutton";
 
@@ -11,18 +10,25 @@ export default function IEPFClaim() {
   const formRef = useRef<HTMLFormElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [isClient, setIsClient] = useState(false); // Check if we're on the client
+  const [bgImage, setBgImage] = useState(""); // State to manage background image
+
+  useEffect(() => {
+    setIsClient(true); // Ensure we are on the client
+    setBgImage("url(/images/geomatric.png)"); // Set the background image after the component mounts
+  }, []);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     if (!formRef.current) return;
-
+  
     emailjs
       .sendForm(
-        "service_4fca0ux", // Replace with your EmailJS service ID
-        "template_0esr8bw", // Replace with your EmailJS template ID
+        "service_4fca0ux",
+        "template_0esr8bw",
         formRef.current,
-        "Ycds2m4eCIak1IOcz" // Replace with your EmailJS Public Key
+        "Ycds2m4eCIak1IOcz"
       )
       .then(
         (result) => {
@@ -30,13 +36,12 @@ export default function IEPFClaim() {
           setToastMessage(
             "Thank you for your response. Our representative will contact you shortly."
           );
-          setShowModal(true); // Show modal on success
-
+          setShowModal(true);
+          
+          // ✅ Ensure formRef.current exists before calling reset
           if (formRef.current) {
-            formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
+            formRef.current.reset();
           }
-
-          setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
         },
         (error) => {
           console.error("Error sending email:", error.text);
@@ -50,13 +55,13 @@ export default function IEPFClaim() {
   return (
     <>
     <ScrollButton/>
-      {/* Modal Popup */}
-      {showModal && (
+      {isClient && showModal && ( // Ensure modal only renders on the client side
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">
-              {toastMessage}
-            </h2>
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
             <button
               onClick={() => setShowModal(false)}
               className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
@@ -67,21 +72,20 @@ export default function IEPFClaim() {
         </div>
       )}
 
-      {/* Background Section */}
       <div
-        className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
-        style={{ backgroundImage: `url(${map3.src})` }}
+        className="object-cover overflow-hidden min-h-screen flex items-center justify-center px-4 md:px-8"
+        style={{ backgroundImage: bgImage }} // Use bgImage state
       >
         <div className="grid md:grid-cols-2 gap-8 items-center px-3">
           {/* Content Section */}
           <div>
-            <div className="max-w-xl bg-[#00BE5D] mt-12">
-              <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
+            <div className="max-w-xl bg-[#00BE5D] mt-6 md:mt-12 mx-auto md:mx-0">
+              <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white py-4 px-4 text-center md:text-center">
                 India’s No.1 IEPF Consultant
               </h2>
             </div>
-            <div>
-              <ul className="space-y-4 p-12">
+            <div className="max-w-full md:max-w-lg mx-auto md:mx-0">
+              <ul className="space-y-4 p-6 md:p-12">
                 {[
                   "Recover of shares from IEPF",
                   "Recovery of unclaimed dividends from IEPF",
@@ -90,11 +94,8 @@ export default function IEPFClaim() {
                   "Recovery of share transferred from DEMAT to IEPF",
                   "Discover your forgotten shares/dividends transferred to IEPF",
                 ].map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center gap-3 text-md text-white"
-                  >
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                  <li key={index} className="flex items-center gap-3 text-md text-white">
+                    <Image src={tick} alt="clearclaim" width={20} height={24} className="w-5 h-6" />
                     {item}
                   </li>
                 ))}
@@ -102,15 +103,10 @@ export default function IEPFClaim() {
             </div>
           </div>
 
-          {/* Form Section */}
-          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8">
-            <form
-              ref={formRef}
-              onSubmit={sendEmail}
-              className="max-w-lg p-4 mx-auto max-md:px-4"
-            >
-              <div className="mb-12">
-                <h3 className="text-3xl font-bold text-[#FEB066]">
+          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-4 min-h-[400px] w-full md:min-w-[350px] mb-8">
+            <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
+              <div className="mb-6">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066] text-center">
                   Talk to experts – FREE
                 </h3>
               </div>
@@ -119,18 +115,18 @@ export default function IEPFClaim() {
                 type="text"
                 name="first_name"
                 placeholder="First Name"
-                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
                 required
               />
               <input
                 type="text"
                 name="last_name"
                 placeholder="Last Name"
-                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
                 required
               />
 
-              <div className="relative w-full mb-6">
+              <div className="relative w-full mb-4">
                 <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
                   +91
                 </span>
@@ -138,12 +134,12 @@ export default function IEPFClaim() {
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
-                  className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                  maxLength={10} // Restrict to 10 digits
-                  pattern="^\d{10}$" // Ensure exactly 10 digits
+                  className="w-full pl-14 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
+                  maxLength={10}
+                  pattern="^\d{10}$"
                   onInput={(e) => {
                     const target = e.target as HTMLInputElement;
-                    target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                    target.value = target.value.replace(/\D/g, "");
                   }}
                   required
                   title="Phone number must be exactly 10 digits"
@@ -154,11 +150,11 @@ export default function IEPFClaim() {
                 type="text"
                 name="city"
                 placeholder="City"
-                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
                 required
               />
 
-              <div className="flex items-center mb-6">
+              <div className="flex items-top mb-4">
                 <input
                   type="checkbox"
                   id="agree"
@@ -166,17 +162,15 @@ export default function IEPFClaim() {
                   className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
                   required
                 />
-                <label
-                  htmlFor="agree"
-                  className="text-sm text-white"
-                >
+                <label htmlFor="agree" className="text-sm text-white">
                   I agree to receive updates on email or phone.
                 </label>
               </div>
 
               <button
                 type="submit"
-                className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none"
+                className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
+                hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
               >
                 Submit
               </button>

@@ -43,21 +43,22 @@ export default function Home() {
 
             {/* 3. Inline Call Now Button (Always Visible) */}
             <div className="order-3 md:order-none mt-4">
-              <button
-                onClick={handleCall}
-                className="bg-[#00BE5D] text-white py-3 px-6 rounded-full rounded-tl-none flex items-center gap-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.23 1.23 0 011.23-.28 11.42 11.42 0 003.58.57 1.25 1.25 0 011.25 1.25v3.46a1.25 1.25 0 01-1.25 1.25A16.94 16.94 0 013 4.25a1.25 1.25 0 011.25-1.25h3.46a1.25 1.25 0 011.25 1.25 11.42 11.42 0 00.57 3.58 1.23 1.23 0 01-.28 1.23z" />
-                </svg>
-                Call Now
-              </button>
-            </div>
+  <button
+    onClick={handleCall}
+    className="bg-[#00BE5D] border-2 border-[#00BE5D] text-white py-3 px-6 rounded-full rounded-tl-none flex items-center gap-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D]"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.23 1.23 0 011.23-.28 11.42 11.42 0 003.58.57 1.25 1.25 0 011.25 1.25v3.46a1.25 1.25 0 01-1.25 1.25A16.94 16.94 0 013 4.25a1.25 1.25 0 011.25-1.25h3.46a1.25 1.25 0 011.25 1.25 11.42 11.42 0 00.57 3.58 1.23 1.23 0 01-.28 1.23z" />
+    </svg>
+    Call Now
+  </button>
+</div>
+
           </div>
 
           {/* Right Column: Old Man Photo (Centered in Mobile) */}
@@ -78,20 +79,22 @@ export default function Home() {
 
       {/* Vertical Sticky Call Now Button (ALWAYS VISIBLE & WORKS EVERY TIME) */}
       <button
-        onClick={handleCall} // Now the button will work EVERY time
-        className="bg-[#00BE5D] font-semibold text-white py-8 px-3 rounded-3xl rounded-tr-none flex gap-4 fixed top-1/2 transform -translate-y-1/2 right-0 z-50 max-md:py-4 max-md:px-2 max-md:right-2"
-        style={{ writingMode: "vertical-rl", transformOrigin: "right center" }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.23 1.23 0 011.23-.28 11.42 11.42 0 003.58.57 1.25 1.25 0 011.25 1.25v3.46a1.25 1.25 0 01-1.25 1.25A16.94 16.94 0 013 4.25a1.25 1.25 0 011.25-1.25h3.46a1.25 1.25 0 011.25 1.25 11.42 11.42 0 00.57 3.58 1.23 1.23 0 01-.28 1.23z" />
-        </svg>
-        Call Now
-      </button>
+  onClick={handleCall} // Button functionality
+  className="bg-[#00BE5D] border-2 border-[#00BE5D] font-semibold text-white py-8 px-3 rounded-3xl rounded-tr-none flex gap-4 fixed top-1/2 transform -translate-y-1/2 right-0 z-50 max-md:py-4 max-md:px-2 max-md:right-2 transition-all duration-300 ease-in-out hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D]"
+  style={{ writingMode: "vertical-rl", transformOrigin: "right center" }}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-5 h-5"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1.23 1.23 0 011.23-.28 11.42 11.42 0 003.58.57 1.25 1.25 0 011.25 1.25v3.46a1.25 1.25 0 01-1.25 1.25A16.94 16.94 0 013 4.25a1.25 1.25 0 011.25-1.25h3.46a1.25 1.25 0 011.25 1.25 11.42 11.42 0 00.57 3.58 1.23 1.23 0 01-.28 1.23z" />
+  </svg>
+  Call Now
+</button>
+
+
 
       <WhyClearClaim />
     </>
