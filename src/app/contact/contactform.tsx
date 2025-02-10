@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 
+
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [showModal, setShowModal] = useState(false);
@@ -30,7 +31,6 @@ export default function ContactForm() {
             formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
           }
 
-          setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
         },
         (error) => {
           console.error("Error sending email:", error.text);
@@ -128,12 +128,31 @@ export default function ContactForm() {
                   required
                 />
               </div>
+
+              <div className="col-span-full">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  name="agree"
+                  className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
+                  required
+                />
+                <label htmlFor="agree" className="text-sm text-white">
+                  I agree to receive updates on email or phone.
+                </label>
+              </div>
+
+              
+
+            
               <button
-                type="submit"
-                className="text-white w-max bg-[#00BE5D] hover:bg-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-4"
-              >
-                Get Free Consulting
-              </button>
+  type="submit"
+  className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
+             hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
+>
+  Get Free Consulting
+</button>
+
             </form>
           </div>
 </div>

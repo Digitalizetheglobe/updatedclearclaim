@@ -37,9 +37,12 @@ export default function OurServices() {
               done it for hundreds of our other clients.
             </p>
             <Link href="/iepfclaim">
-              <button className="text-white py-2 px-6 bg-green-600 hover:bg-green-700 mt-4 mb-6">
-                Know More
-              </button>
+            <button
+  className="text-white py-2 px-6 bg-green-600 border-2 border-green-600 rounded-md transition-all duration-300 ease-in-out hover:bg-white hover:text-green-600 hover:border-green-600 mt-4 mb-6"
+>
+  Know More
+</button>
+
             </Link>
           </div>
         </div>
@@ -67,9 +70,12 @@ export default function OurServices() {
               due to various reasons.
             </p>
             <Link href="/recovery-of-shares">
-              <button className="text-white py-2 px-6 bg-green-600 hover:bg-green-700 mt-4 mb-6">
-                Know More
-              </button>
+            <button
+  className="text-white py-2 px-6 bg-green-600 border-2 border-green-600 rounded-md transition-all duration-300 ease-in-out hover:bg-white hover:text-green-600 hover:border-green-600 mt-4 mb-6"
+>
+  Know More
+</button>
+
             </Link>
           </div>
         </div>

@@ -36,7 +36,6 @@ export default function LandingTestimonial2() {
             formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
           }
 
-          setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
         },
         (error) => {
           console.error("Error sending email:", error.text);
@@ -117,19 +116,23 @@ export default function LandingTestimonial2() {
     return (
         <>
         {/* Modal Popup */}
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
-            <button
-              onClick={() => setShowModal(false)}
-              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )}
+        {showModal && (
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    {/* Outer container to capture clicks */}
+    <div
+      className="bg-white p-6 rounded-lg shadow-lg text-center"
+      onClick={(e) => e.stopPropagation()} // Prevent clicks inside the modal from closing it
+    >
+      <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+      <button
+        onClick={() => setShowModal(false)} // Closes the modal only when clicked
+        className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+)}
 
            <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
       <div className="text-center mb-8">
@@ -185,15 +188,23 @@ export default function LandingTestimonial2() {
                             </button>
 
                             <ul className="space-y-4 mt-8">
-                                <li className="flex items-center gap-3 text-md text-gray-600">
-                                    <Image src={eclipse} alt="clearclaim" className="w-[17]" />
-                                    Some may charge 15% to 30% commission for claims services.
-                                </li>
-                                <li className="flex items-center gap-3 text-md text-gray-600">
-                                    <Image src={eclipse} alt="clearclaim" className="w-[17]" />
-                                    Trust only verified professionals and genuine claim services.
-                                </li>
-                            </ul>
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Some may charge 15% to 30% commission for claims services.
+  </li>
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Trust only verified professionals and genuine claim services.
+  </li>
+</ul>
                         </div>
                         <div className="w-full overflow-hidden rounded-md row-2 ">
                             <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
@@ -268,7 +279,7 @@ export default function LandingTestimonial2() {
                             <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto">
   
                             <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
-  <div className="mb-12">
+  <div className="mb-10">
     <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
   </div>
 
@@ -295,14 +306,18 @@ export default function LandingTestimonial2() {
 
   <input type="text" name="city" placeholder="City" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-  <div className="flex items-center mb-6">
+  <div className="flex items-top mb-6">
     <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer" required />
     <label htmlFor="agree" className="text-sm text-white">I agree to receive updates on email or phone.</label>
   </div>
 
-  <button type="submit" className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none">
-    Submit
-  </button>
+  <button
+  type="submit"
+  className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
+             hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
+>
+  Submit
+</button>
 </form>
 
 </div>

@@ -27,7 +27,7 @@ export default function Content() {
                     What is IEPFA and IEPF?
                   </h2>
                 </div>
-                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-8">
+                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-4">
                   <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
                     <Image src={tick} alt="clearclaim" className="w-5 h-6" />
                     IEPFA stands for ‘Investor Education and Protection Fund

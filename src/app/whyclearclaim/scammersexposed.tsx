@@ -26,20 +26,24 @@ export default function scammerexposed() {
               </button>
 
               <ul className="space-y-4 mt-8">
-                <li className="flex items-center gap-3 text-md text-gray-600">
-                  <Image src={eclipse} alt="clearclaim" 
-                  className="w-[17]"
-                  />
-                  Some may charge 15% to 30% commission for claims services.
-                </li>
-                <li className="flex items-center gap-3 text-md text-gray-600">
-                <Image src={eclipse} alt="clearclaim"
-                className="w-[17]"
-                />
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Some may charge 15% to 30% commission for claims services.
+  </li>
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Trust only verified professionals and genuine claim services.
+  </li>
+</ul>
 
-                  Trust only verified professionals and genuine claim services.
-                </li>
-              </ul>
             </div>
             <div className="w-full overflow-hidden rounded-md row-2 ">
   <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
