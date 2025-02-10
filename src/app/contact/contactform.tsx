@@ -23,9 +23,12 @@ export default function ContactForm() {
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
-          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
           setShowModal(true); // Show modal on success
-          formRef.current.reset();
+
+          if (formRef.current) {
+            formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
+          }
 
           setTimeout(() => setShowModal(false), 3000); // Auto-close after 3 sec
         },
