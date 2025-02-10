@@ -38,7 +38,7 @@ export default function Home() {
 
             {/* 2. Text */}
             <div className="order-2 md:order-none mt-4">
-              <h1 className="text-[#000] text-xl">Physical shares to DEMAT conversion</h1>
+              <h1 className="text-[#000] text-xl">Physical shares to DEMAT conversion.</h1>
             </div>
 
             {/* 3. Inline Call Now Button (Always Visible) */}

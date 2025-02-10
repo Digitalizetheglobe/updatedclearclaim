@@ -194,8 +194,8 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                 >
                   <h1 className="text-black text-lg font-bold">Address</h1>
-                  <p className="text-gray-500">Office No C-201, 2nd Floor</p>
-                  <p className="text-gray-500">
+                  <p className="text-gray-500 hover:text-[#00BE5D]">Office No C-201, 2nd Floor</p>
+                  <p className="text-gray-500 hover:text-[#00BE5D]">
                     Vantage Tower, Bavdhan, Pune-411021
                   </p>
                 </a>
@@ -212,7 +212,7 @@ export default function ContactForm() {
               <div className="ml-4">
                 <h1 className="text-black text-lg font-bold">Mail</h1>
                 <a href="mailto:sales@clearclaim.in">
-                  <p className="text-gray-500">sales@clearclaim.in</p>
+                  <p className="text-gray-500 hover:text-[#00BE5D]">sales@clearclaim.in</p>
                 </a>
               </div>
             </div>
@@ -227,10 +227,10 @@ export default function ContactForm() {
               <div className="ml-4">
                 <h1 className="text-black text-lg font-bold">Phone</h1>
                 <a href="tel:+919156701900">
-                  <p className="text-gray-500">+91 9156701900</p>
+                  <p className="text-gray-500 hover:text-[#00BE5D]">+91 9156701900</p>
                 </a>
                 <a href="tel:+919970651900">
-                  <p className="text-gray-500">+91 9970651900</p>
+                  <p className="text-gray-500 hover:text-[#00BE5D]">+91 9970651900</p>
                 </a>
               </div>
             </div>

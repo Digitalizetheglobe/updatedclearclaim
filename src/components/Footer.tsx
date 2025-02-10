@@ -26,7 +26,7 @@ export default function Footer() {
                 </Link>
               </div>
               <p className="mt-4 max-w-xs mx-auto sm:mx-0 text-center sm:text-left text-black leading-relaxed">
-                We can help you bring back your old shares and dividends easily
+                We can help you bring back your old shares and dividends easily.
               </p>
             </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
               <div>
                 <p className="text-xl font-bold text-gray-900 mt-5">Follow Us</p>
                 <ul className="mt-4 space-y-2">
-                  <li><a className="text-gray-700 text-[16px] hover:text-gray-700/75" href="#">Facebook</a></li>
+                  {/* <li><a className="text-gray-700 text-[16px] hover:text-gray-700/75" href="#">Facebook</a></li> */}
                   <li><a className="text-gray-700 text-[16px] hover:text-gray-700/75" href="https://www.instagram.com/clear_claim/">Instagram</a></li>
                   <li><a className="text-gray-700 text-[16px] hover:text-gray-700/75" href="https://www.youtube.com/@clearclaim">YouTube</a></li>
                   <li><a className="text-gray-700 text-[16px] hover:text-gray-700/75" href="https://www.linkedin.com/company/clear-claim/">LinkedIn</a></li>
@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="mt-8 border-t bg-[#00BE5D] border-gray-100 py-4">
           <div className="text-center">
             <p className="text-md text-white">
-              Copyright © 2025 Clearclaim  |  Crafted By
+              Copyright © 2025 Clearclaim  | Carefully Crafted By
               <Link
                 className="inline-block text-white hover:text-gray-800 ml-1"
                 href="https://digitalizetheglobe.com/"

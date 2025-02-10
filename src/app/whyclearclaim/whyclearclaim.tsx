@@ -23,42 +23,42 @@ export default function WhyClearClaim() {
       image: gif6,
       title: "Hassle Free",
       description:
-        "You sit at your home and we take care of everything needed for your claim",
+        "You sit at your home and we take care of everything needed for your claim.",
     },
     {
       id: 2,
       image: gif4,
       title: "100% Refund Guarantee",
       description:
-        "We refund all your money if we fail to recover your shares",
+        "We refund all your money if we fail to recover your shares.",
     },
     {
       id: 3,
       image: gif1,
       title: "Trust & Transparency",
       description:
-        "We do a service agreement for the work and keep you updated on every step we perform",
+        "We do a service agreement for the work and keep you updated on every step we perform.",
     },
     {
       id: 4,
       image: gif3,
       title: "Client Oriented Approach",
       description:
-        "Customer satisfaction is our prime value and we do not compromise on it",
+        "Customer satisfaction is our prime value and we do not compromise on it.",
     },
     {
       id: 5,
       image: gif2,
       title: "PAN India Service",
       description:
-        "Our service is available across India. No matter where you are, your job will be done",
+        "Our service is available across India. No matter where you are, your job will be done.",
     },
     {
       id: 6,
       image: gif5,
       title: "Strong Industry Experience",
       description:
-        "We have 125+ years of industry experience as a team. We have a fleet of experts with us",
+        "We have 125+ years of industry experience as a team. We have a fleet of experts with us.",
     },
   ];
 

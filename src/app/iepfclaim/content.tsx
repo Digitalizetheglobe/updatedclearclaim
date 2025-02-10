@@ -13,7 +13,7 @@ export default function Content() {
       <div className="bg-white py-6 sm:py-8 lg:py-12 overflow-hidden max-md:px-4">
         <div className="mx-auto max-w-screen-xl">
           <div className="lg:max-w-7xl max-w-xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
+            <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
               <div className=" max-md:order-1">
                 <Image
                   src={iepf}
@@ -57,14 +57,14 @@ export default function Content() {
           </div>
 
           <div className="lg:max-w-7xl max-w-xl mx-auto mt-24">
-          <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
+            <div className="grid md:grid-cols-2 gap-20 max-md:gap-6 max-md:px-4">
               <div className="text-left text-justify">
                 <div className="bg-[#00BE5D] text-white p-2 ">
                   <h2 className=" text-2xl font-semibold ">
                     Why my shares are transferred to IEPF?
                   </h2>
                 </div>
-                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-6">
+                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-4">
                   <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
                     {/* <Image src={tick} alt="clearclaim" className="w-5 h-6" /> */}
                     The Ministry of Corporate Affairs, Government of India have
@@ -99,7 +99,7 @@ export default function Content() {
           </div>
 
           <div className="lg:max-w-7xl max-w-xl mx-auto mt-24">
-  <div className="grid md:grid-cols-2 gap-6 md:gap-20">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-20">
               <div className=" max-md:order-1">
                 <Image
                   src={iepf1}
@@ -107,13 +107,13 @@ export default function Content() {
                   className=" w-full h-[500px] object-cover"
                 />
               </div>
-              <div className="text-left text-justify">
-                <div className="bg-[#00BE5D] text-white p-2 ">
+              <div className="text-left">
+              <div className="bg-[#00BE5D] text-white py-4 px-6">
                   <h2 className=" text-2xl font-semibold ">
                     Is it possible to recover my shares and dividends from IEPF?
                   </h2>
                 </div>
-                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-8">
+                <ul className="space-y-6 mb-6 text-gray-500 sm:text-md md:mb-8 p-4">
                   <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
                     {/* <Image src={tick} alt="clearclaim" className="w-5 h-6" /> */}
                     It is 100% possible to recover your shares and dividends

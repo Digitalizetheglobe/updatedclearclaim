@@ -33,7 +33,7 @@ export default function Blog() {
       <div className="bg-gray-100 md:px-10 px-4 py-12 font-[sans-serif]">
         <div className="max-w-5xl max-lg:max-w-3xl max-sm:max-w-sm mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
+            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-14">
               <span className="text-[#283655]">Our </span> Blog
             </h2>
           </div>

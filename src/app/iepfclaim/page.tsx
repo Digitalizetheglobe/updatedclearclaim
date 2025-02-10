@@ -78,9 +78,9 @@ export default function IEPFClaim() {
       >
         <div className="grid md:grid-cols-2 gap-8 items-center px-3">
           {/* Content Section */}
-          <div>
+          <div className="w-[680px]">
             <div className="max-w-xl bg-[#00BE5D] mt-6 md:mt-12 mx-auto md:mx-0">
-              <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white py-4 px-4 text-center md:text-center">
+              <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white py-2 px-2 text-start md:text-left">
                 India’s No.1 IEPF Consultant
               </h2>
             </div>

@@ -73,7 +73,7 @@ export default function IEPFClaim() {
   <div>
     <div className="max-w-xl bg-[#00BE5D] mt-12">
       <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
-      India’s No.1 shares recovery experts
+      India’s No.1 Shares Recovery Experts
       </h2>
     </div>
     <div className="w-[600px]">

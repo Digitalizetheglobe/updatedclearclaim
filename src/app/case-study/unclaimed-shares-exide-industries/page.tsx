@@ -395,7 +395,7 @@ export default function UnclaimedsharesExideindustries() {
             onClick={toggleSidebar} // Open/close functionality only here
           />
 
-          <h1 className="font-bold text-md text-[#00BE5D]">All (288)</h1>
+          <h1 className="font-bold text-md text-[#00BE5D]">All (100)</h1>
         </div>
 
         <div className="h-screen flex bg-gray-100">

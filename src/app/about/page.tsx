@@ -19,21 +19,24 @@ export default function About() {
   </div>
   <div className="grid md:grid-cols-2 items-center md:gap-4 gap-6 max-w-5xl max-md:max-w-md mx-auto">
     <div className="max-md:order-1 max-md:text-center mt-6 max-md:mt-0">
-      <p className="mt-2 text-[16px] text-black text-justify">
+      <p className="mt-2 text-[16px] text-gray-600 text-justify">
       In a nation where aspirations and dreams fuel the pursuit of
               financial security, we understand the importance of investing to
               fulfil those desires. All individuals try to invest to meet their
               basic needs, save a portion of their income, and invest in various
               avenues. Whether its a modest vision or a grand ambition, people
               invest their hard-earned money with the hope of realizing their
-              dreams in the future. In India, countless individuals have
+              dreams in the future. 
+      </p>
+      <p className="mt-2 text-[16px] text-gray-600 text-justify max-md:mt-0">
+      In India, countless individuals have
               invested in stocks, mutual funds, ULIPs, insurance schemes, bonds,
               FDs, RDs, gold, and more. As our nation progresses, transitioning
               from paper- based transactions to digital platforms has become the
               norm. Yet, not everyone has made this shift, and numerous
               investors still hold their investments in paper format.
       </p>
-      <p className="mt-2 text-[16px] text-black text-justify max-md:mt-0">
+      <p className="mt-2 text-[16px] text-gray-600 text-justify max-md:mt-0">
       The Government of India has made substantial efforts to streamline
               this transition. However, considering India vast population of
               1.25 billion people, it will naturally take time to complete the
@@ -140,7 +143,7 @@ export default function About() {
     </a>
   </div>
 
-  <p className="mb-4 mt-4 text-md text-justify text-black">
+  <p className="mb-4 mt-4 text-md text-justify text-gray-600">
     Shrikant is the Chief Executive Officer (CEO) of Clearlcaim. With a strong 
     vision and strategic acumen, Shrikant has been instrumental in steering the 
     company towards its goals. His leadership style fosters innovation and 
@@ -175,7 +178,7 @@ export default function About() {
     </a>
   </div>
 
-  <p className="mb-4 mt-4 text-md text-justify text-black">
+  <p className="mb-4 mt-4 text-md text-justify text-gray-600">
     Hardik, as the Chief Operating Officer (COO) of Clearclaim, plays a pivotal 
     role in the company’s success. With his extensive experience in research and 
     operations, Hardik oversees the company’s day-to-day administrative and 

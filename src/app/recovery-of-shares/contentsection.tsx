@@ -26,35 +26,45 @@ export default function ContentSection() {
               <div className="text-left max-md:order-1 max-md:px-4">
                 <div className="bg-[#00BE5D] text-white p-2">
                   <h2 className="text-2xl font-bold">
-                    Why shares are lost or remain <br /> unclaimed ?
+                    Why shares are lost or remain unclaimed ?
                   </h2>
                 </div>
-                <ul className="space-y-6 mt-8 mb-6 text-gray-500 sm:text-md md:mb-8 max-md:px-4">
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    Some individuals procrastinated and failed to take action when the government and financial institutions urged them to make the transition.
-  </li>
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    Others have forgotten about investments made years ago, misplacing or losing the related documents.
-  </li>
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    In unfortunate cases where the original holders have passed away, legal heirs often face challenges in claiming these investments.
-  </li>
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    Legal heirs themselves may not be aware of investments made by their forefathers, resulting in hidden assets.
-  </li>
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    Shareholders change their addresses and forget to change the address in company records hence they miss the communication from company regarding dividends and other corporate actions.
-  </li>
-  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-    Shares are transferred to IEPF as dividends of shares remain unclaimed for 7 consecutive years.
-  </li>
-</ul>
+                <ul className="space-y-6 mt-4 mb-6 text-gray-500 sm:text-md md:mb-8 max-md:px-4 p-4">
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    Some individuals procrastinated and failed to take action
+                    when the government and financial institutions urged them to
+                    make the transition.
+                  </li>
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    Others have forgotten about investments made years ago,
+                    misplacing or losing the related documents.
+                  </li>
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    In unfortunate cases where the original holders have passed
+                    away, legal heirs often face challenges in claiming these
+                    investments.
+                  </li>
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    Legal heirs themselves may not be aware of investments made
+                    by their forefathers, resulting in hidden assets.
+                  </li>
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    Shareholders change their addresses and forget to change the
+                    address in company records hence they miss the communication
+                    from company regarding dividends and other corporate
+                    actions.
+                  </li>
+                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
+                    Shares are transferred to IEPF as dividends of shares remain
+                    unclaimed for 7 consecutive years.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
