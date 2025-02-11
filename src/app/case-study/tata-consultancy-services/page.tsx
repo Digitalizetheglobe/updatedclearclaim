@@ -797,181 +797,183 @@ export default function TataConsultancyervices() {
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">25 Jul 2017</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
-                      <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
-                      <td className="text-gray-600 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      INTERIM
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">22.00</td>
+                      <td className="text-gray-600 p-3">27.50</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">26 May 2022 </td>
+                      <td className="text-gray-600 p-3">- </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      6.50
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">24 Jan 2017</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">6.50</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
+                      <td className="text-gray-600 p-3">25 Oct 2016 </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      6.50
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">26 Jul 2016</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22.00</td>
+                      <td className="text-gray-600 p-3">27.00</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">26 May 2022 </td>
+                      <td className="text-gray-600 p-3">- </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      5.50
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">22 Jan 2016</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">5.50</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
+                      <td className="text-gray-600 p-3">26 Oct 2015 </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      5.50
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">21 Jul 2015</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22.00</td>
+                      <td className="text-gray-600 p-3">24.00</td>
                       <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">26 May 2022 </td>
+                      <td className="text-gray-600 p-3">- </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      5.00
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">28 Jan 2015</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">5.00</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
+                      <td className="text-gray-600 p-3">30 Oct 2014 </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      40.00
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      INTERIM
+                      SPECIAL
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">30 Jul 2014</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
                     <tr>
-                      <td className="text-gray-600 p-3">22.00</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">26 May 2022 </td>
-                      <td className="text-gray-600 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      INTERIM
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">5.00</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
+                      <td className="text-gray-600 p-3">30 Jul 2014 </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      20.00
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      INTERIM
+                      FINAL
                       </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
                     </tr>
+
+                    {/*  */}
                     <tr>
-                      <td className="text-gray-600 p-3">22.00</td>
-                      <td className="text-gray-600 p-3">FINAL</td>
-                      <td className="text-gray-600 p-3">26 May 2022 </td>
-                      <td className="text-gray-600 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">
-                      INTERIM
-                      </td>
-                      <td className="text-gray-600 bg-gray-100 p-3">20 Jan 2022</td>
-                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
-                    </tr>
-                    <tr>
-                      <td className="text-gray-600 p-3">7.00</td>
+                      <td className="text-gray-600 p-3">4.00</td>
                       <td className="text-gray-600 p-3">INTERIM</td>
-                      <td className="text-gray-600 p-3">19 Oct 2021 </td>
+                      <td className="text-gray-600 p-3">28 Jan 2014 </td>
                       <td className="text-gray-600 p-3">Equity Share</td>
                     </tr>
                     <tr>
                       <td className="text-gray-600 bg-gray-100 p-3">
-                      7.00
+                      4.00
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">
                       INTERIM
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">28 Oct 2013</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">4.00</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">30 Jul 2013 </td>
+                      <td className="text-gray-600 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      13.00
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      FINAL
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">-</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">3.00</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">24 Jan 2013 </td>
+                      <td className="text-gray-600 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      3.00
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      INTERIM
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">01 Nov 2012</td>
+                      <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 p-3">3.00</td>
+                      <td className="text-gray-600 p-3">INTERIM</td>
+                      <td className="text-gray-600 p-3">24 Jul 2012 </td>
+                      <td className="text-gray-600 p-3">Equity Share</td>
+                    </tr>
+                    <tr>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      16.00
+                      </td>
+                      <td className="text-gray-600 bg-gray-100 p-3">
+                      FINAL
                       </td>
                       <td className="text-gray-600 bg-gray-100 p-3">16 Jul 2021</td>
                       <td className="text-gray-600 bg-gray-100 p-3">Equity Share</td>

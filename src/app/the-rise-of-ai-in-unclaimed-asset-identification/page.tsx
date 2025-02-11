@@ -58,7 +58,7 @@ export default function TheRiseofAIinUnclaimedAssetIdentification() {
               <li><strong>Improved Efficiency:</strong> AI can search through millions of records in seconds, drastically reducing the time required to locate unclaimed assets.</li>
               <li><strong>Improved Accuracy:</strong>By eliminating human error, AI offers a higher degree of accuracy in identifying and matching unclaimed assets to rightful owners.</li>
               <li><strong>Cost-Effective Solutions:</strong> Automating the recovery and detection process saves on operational expenses, potentially leading to higher recovery rates for investors.</li>
-              <li><strong>International Asset Tracing:</strong> AI's ability to search across global databases simplifies tracing assets across international borders.</li>
+              <li><strong>International Asset Tracing:</strong> AIs ability to search across global databases simplifies tracing assets across international borders.</li>
             </ul>
 
             <h2 className="text-xl font-semibold">Improving Investor Protection</h2>
@@ -107,7 +107,7 @@ export default function TheRiseofAIinUnclaimedAssetIdentification() {
             The advent of AI to unclaimed asset detection is the break of dawn of a new financial era for asset recovery and investor protection. With technology evolving every day, it is crucial that investors stay in the know and leverage these innovations to secure their financial futures.
             </p>
             <p>
-            Don't let your hard-earned investments turn into just another number in the unclaimed assets statistic. With AI-enabled solutions like ClearClaim, you can be in control of your financial legacy and ensure no investment is left behind.
+            Dont let your hard-earned investments turn into just another number in the unclaimed assets statistic. With AI-enabled solutions like ClearClaim, you can be in control of your financial legacy and ensure no investment is left behind.
             </p>
             <p>
             Remember that knowledge is power when it comes to finance. Be in the know, be on your toes, and let AI become your friend in the protection of your investments.

@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
 
       <p className="text-gray-700 leading-relaxed">
-        Clearclaim Ventures Private Limited ("Clearclaim") is committed to safeguarding your
+        Clearclaim Ventures Private Limited (Clearclaim) is committed to safeguarding your
         privacy. This Privacy Policy outlines how we collect, use, and protect your personal
         information when you use our website and services. By accessing or using our services, you
         agree to the terms outlined in this policy.
@@ -65,7 +65,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-2xl font-semibold text-gray-800 mt-8">Password Security</h2>
       <ul className="list-disc list-inside text-gray-700 space-y-2">
-        <li>Regularly update your password using the 'Change Password' feature.</li>
+        <li>Regularly update your password using the Change Password feature.</li>
         <li>Do not disclose your password or store it in an insecure location.</li>
         <li>Two-factor authentication is used for added security via OTP.</li>
       </ul>
