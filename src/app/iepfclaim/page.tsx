@@ -103,7 +103,7 @@ export default function IEPFClaim() {
             </div>
           </div>
 
-          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-4 min-h-[400px] w-full md:min-w-[350px] mb-8">
+          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-6 max-md:mt-4 min-h-[400px] w-full md:min-w-[350px] mb-8">
             <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
               <div className="mb-6">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066] text-center">
@@ -159,7 +159,7 @@ export default function IEPFClaim() {
                   type="checkbox"
                   id="agree"
                   name="agree"
-                  className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
+                  className="w-4 h-4 mr-2 mt-1 accent-[#FEB066] cursor-pointer"
                   required
                 />
                 <label htmlFor="agree" className="text-sm text-white">

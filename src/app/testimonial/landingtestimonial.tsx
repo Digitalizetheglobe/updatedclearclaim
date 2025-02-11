@@ -5,8 +5,9 @@ import eclipse from "../../../public/images/Ellipse.png";
 import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
-import google from "../../../public/images/google.webp";
+import google from '../../../public/images/google.webp'
 import emailjs from "emailjs-com";
+
 
 export default function LandingTestimonial() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -28,9 +29,7 @@ export default function LandingTestimonial() {
       .then(
         (result) => {
           console.log("Email sent successfully:", result.text);
-          setToastMessage(
-            "Thank you for your response. Our representative will contact you shortly."
-          );
+          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
           setShowModal(true); // Show modal on success
 
           if (formRef.current) {
@@ -45,6 +44,8 @@ export default function LandingTestimonial() {
         }
       );
   };
+
+
 
   const reviews = [
     {
@@ -93,9 +94,11 @@ export default function LandingTestimonial() {
       name: "RAJESH TATED",
       date: "29 December 2024",
       stars: 5,
-      content: "Company is doing a good job with constant follow up.",
+      content:
+        "Company is doing a good job with constant follow up.",
     },
   ];
+
 
   const renderStars = (count: number) => {
     return (
@@ -107,34 +110,34 @@ export default function LandingTestimonial() {
     );
   };
 
+
   return (
     <>
+
       {/* Modal Popup */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          {/* Outer container to capture clicks */}
-          <div
-            className="bg-white p-6 rounded-lg shadow-lg text-center"
-            onClick={(e) => e.stopPropagation()} // Prevent clicks inside the modal from closing it
-          >
-            <h2 className="text-xl font-bold text-gray-800 mb-2">
-              {toastMessage}
-            </h2>
-            <button
-              onClick={() => setShowModal(false)} // Closes the modal only when clicked
-              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    {/* Outer container to capture clicks */}
+    <div
+      className="bg-white p-6 rounded-lg shadow-lg text-center"
+      onClick={(e) => e.stopPropagation()} // Prevent clicks inside the modal from closing it
+    >
+      <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+      <button
+        onClick={() => setShowModal(false)} // Closes the modal only when clicked
+        className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+)}
+
 
       <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
         <div className="text-center mb-8">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">
-            <span className="text-[#283655]"> Google Reviews That </span> Speak
-            for Themselves
+            <span className="text-[#283655]"> Google Reviews That </span> Speak for Themselves
           </h2>
         </div>
         <div className="relative max-w-6xl mx-auto">
@@ -155,9 +158,7 @@ export default function LandingTestimonial() {
                   </div>
                   <p className="text-sm text-gray-500 mb-2">{review.date}</p>
                   {renderStars(review.stars)}
-                  <p className="text-gray-700 text-sm flex-1">
-                    {review.content}
-                  </p>
+                  <p className="text-gray-700 text-sm flex-1">{review.content}</p>
                 </div>
               ))}
             </div>
@@ -187,23 +188,23 @@ export default function LandingTestimonial() {
               </button>
 
               <ul className="space-y-4 mt-8">
-                <li className="flex items-start gap-3 text-md text-gray-600">
-                  <Image
-                    src={eclipse}
-                    alt="clearclaim"
-                    className="w-[17] self-start mt-1"
-                  />
-                  Some may charge 15% to 30% commission for claims services.
-                </li>
-                <li className="flex items-start gap-3 text-md text-gray-600">
-                  <Image
-                    src={eclipse}
-                    alt="clearclaim"
-                    className="w-[17] self-start mt-1"
-                  />
-                  Trust only verified professionals and genuine claim services.
-                </li>
-              </ul>
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Some may charge 15% to 30% commission for claims services.
+  </li>
+  <li className="flex items-start gap-3 text-md text-gray-600">
+    <Image 
+      src={eclipse} 
+      alt="clearclaim" 
+      className="w-[17] self-start mt-1" 
+    />
+    Trust only verified professionals and genuine claim services.
+  </li>
+</ul>
             </div>
             <div className="w-full overflow-hidden rounded-md row-2 ">
               <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
@@ -267,125 +268,86 @@ export default function LandingTestimonial() {
         </div>
       </div>
 
+
       {/* REquest acll back form  */}
       <div className="bg-white py-6 sm:py-8 lg:py-12 max-md:px-4">
         <div className="mx-auto max-w-screen-xl">
           <div className="lg:max-w-7xl max-w-xl mx-auto">
             <div className="grid lg:grid-cols-[1.3fr_1fr] items-center gap-12 lg:gap-16">
+
               {/* Left Side: Form Section */}
-              <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto pb-4 pt-4">
-                <form
-                  ref={formRef}
-                  onSubmit={sendEmail}
-                  className="max-w-lg p-4 mx-auto max-md:px-4"
-                >
-                  <div className="mb-12">
-                    <h3 className="text-3xl font-bold text-[#FEB066]">
-                      Talk to experts – FREE
-                    </h3>
-                  </div>
+              <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto py-0 sm:py-6">
+              <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
+  <div className="mb-12">
+    <h3 className="text-3xl font-bold text-[#FEB066]">Talk to experts – FREE</h3>
+  </div>
 
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
+  <input type="text" name="first_name" placeholder="First Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
+  <input type="text" name="last_name" placeholder="Last Name" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-                  <div className="relative w-full mb-6">
-                    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-                      +91
-                    </span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                      maxLength={10} // Restrict to 10 digits
-                      pattern="^\d{10}$" // Ensure exactly 10 digits
-                      onInput={(e) => {
-                        const target = e.target as HTMLInputElement;
-                        target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
-                      }}
-                      required
-                      title="Phone number must be exactly 10 digits"
-                    />
-                  </div>
+  <div className="relative w-full mb-6">
+    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">+91</span>
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+      className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+      maxLength={10}  // Restrict to 10 digits
+      pattern="^\d{10}$"  // Ensure exactly 10 digits
+      onInput={(e) => {
+        const target = e.target as HTMLInputElement;
+        target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      }}
+      required
+      title="Phone number must be exactly 10 digits"
+    />
+  </div>
 
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="City"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
+  <input type="text" name="city" placeholder="City" className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500" required />
 
-                  <div className="flex items-top mb-6">
-                    <input
-                      type="checkbox"
-                      id="agree"
-                      name="agree"
-                      className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
-                      required
-                    />
-                    <label htmlFor="agree" className="text-sm text-white">
-                      I agree to receive updates on email or phone.
-                    </label>
-                  </div>
+  <div className="flex items-top mb-6">
+    <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer" required />
+    <label htmlFor="agree" className="text-sm text-white">I agree to receive updates on email or phone.</label>
+  </div>
 
-                  <button
-                    type="submit"
-                    className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
+  <button
+  type="submit"
+  className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
              hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
-                  >
-                    Submit
-                  </button>
-                </form>
+>
+  Submit
+</button>
+</form>
+
               </div>
 
+
               {/* Right Side: Text Content */}
-              <div className="text-left flex flex-col justify-center pl-6 ">
+              <div className="text-left flex flex-col justify-center pl-6 md:pl-10 lg:pl-14 max-md:px-4">
                 <div className="bg-[#00BE5D] text-white py-4 px-6">
-                  <h2 className="text-2xl font-bold">
-                    India’s No.1 Shares Recovery Experts
-                  </h2>
+                  <h2 className="text-2xl font-bold">India’s No.1 Shares Recovery Experts</h2>
                 </div>
-                <ul className="space-y-6 mt-8 text-gray-600 text-[16px] p-4">
+                <ul className="space-y-6 mt-8 text-gray-600 text-[16px]">
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    Old shares and dividends recovery
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Old shares and dividends recovery
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    Physical shares to DEMAT conversion
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Physical shares to DEMAT conversion
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    Transmission of shares for death claims
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Transmission of shares for death claims
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    Recovery of lost shares
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Recovery of lost shares
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    Issue of duplicate shares
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> Issue of duplicate shares
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    IEPF claims of shares
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> IEPF claims of shares
                   </li>
                   <li className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />{" "}
-                    IEPF claim of dividends
+                    <Image src={tick} alt="clearclaim" className="w-5 h-6" /> IEPF claim of dividends
                   </li>
                 </ul>
               </div>
@@ -393,6 +355,8 @@ export default function LandingTestimonial() {
           </div>
         </div>
       </div>
+
+
     </>
   );
 }

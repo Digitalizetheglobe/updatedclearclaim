@@ -40,7 +40,7 @@ export default function Footer() {
                   <li><Link className="text-gray-700 text-[16px] hover:text-gray-700/75" href="/iepfclaim">IEPF Claim</Link></li>
                   <li><Link className="text-gray-700 text-[16px] hover:text-gray-700/75" href="/recovery-of-shares">Recovery of Shares</Link></li>
                   <li><Link className="text-gray-700 text-[16px] hover:text-gray-700/75" href="/blog">Blogs</Link></li>
-                  <li><Link className="text-gray-700 text-[16px] hover:text-gray-700/75" href="#">Privacy Policy</Link></li>
+                  <li><Link className="text-gray-700 text-[16px] hover:text-gray-700/75" href="/privacy-policy">Privacy Policy</Link></li>
                 </ul>
               </div>
 

@@ -273,7 +273,7 @@ export default function LandingTestimonial2() {
           <div className="lg:max-w-7xl max-w-xl mx-auto">
             <div className="grid md:grid-cols-2 gap-20">
               {/* Form Section */}
-              <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto pb-10 pt-10">
+              <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto py-0 sm:py-6">
                 <form
                   ref={formRef}
                   onSubmit={sendEmail}

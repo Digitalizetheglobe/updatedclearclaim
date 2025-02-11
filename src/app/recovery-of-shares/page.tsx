@@ -68,7 +68,7 @@ export default function IEPFClaim() {
   style={{ backgroundImage: `url(${map3.src})` }} // Corrected template literal
 >
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+<div className="grid md:grid-cols-2 gap-16 items-center max-md:flex max-md:flex-col max-md:gap-6 max-md:px-4">
   {/* Content Section */}
   <div >
     <div className="max-w-xl bg-[#00BE5D] mt-12">
@@ -111,78 +111,70 @@ export default function IEPFClaim() {
   </div>
 
           {/* Form Section */}
-          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-4 max-md:mt-8 min-h-[400px] w-full md:min-w-[350px] mb-8">
-            <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
-              <div className="mb-6">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066] text-center">
-                  Talk to experts – FREE
-                </h3>
-              </div>
+          <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:w-full max-md:px-6 max-md:py-6 max-md:mt-4 min-h-[400px] md:min-w-[350px] mb-8">
+      <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4 max-md:w-full">
+        <div className="mb-6 max-md:text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066]">
+            Talk to experts – FREE
+          </h3>
+        </div>
 
-              <input
-                type="text"
-                name="first_name"
-                placeholder="First Name"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
-              <input
-                type="text"
-                name="last_name"
-                placeholder="Last Name"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
+        <input
+          type="text"
+          name="first_name"
+          placeholder="First Name"
+          className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
+          required
+        />
+        <input
+          type="text"
+          name="last_name"
+          placeholder="Last Name"
+          className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
+          required
+        />
 
-              <div className="relative w-full mb-4">
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-                  +91
-                </span>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  className="w-full pl-14 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                  maxLength={10}
-                  pattern="^\d{10}$"
-                  onInput={(e) => {
-                    const target = e.target as HTMLInputElement;
-                    target.value = target.value.replace(/\D/g, "");
-                  }}
-                  required
-                  title="Phone number must be exactly 10 digits"
-                />
-              </div>
+        <div className="relative w-full mb-4">
+          <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">+91</span>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            className="w-full pl-14 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
+            maxLength={10}
+            pattern="^\d{10}$"
+            onInput={(e) => {
+              const target = e.target as HTMLInputElement;
+              target.value = target.value.replace(/\D/g, "");
+            }}
+            required
+            title="Phone number must be exactly 10 digits"
+          />
+        </div>
 
-              <input
-                type="text"
-                name="city"
-                placeholder="City"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
+        <input
+          type="text"
+          name="city"
+          placeholder="City"
+          className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
+          required
+        />
 
-              <div className="flex items-top mb-4">
-                <input
-                  type="checkbox"
-                  id="agree"
-                  name="agree"
-                  className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
-                  required
-                />
-                <label htmlFor="agree" className="text-sm text-white">
-                  I agree to receive updates on email or phone.
-                </label>
-              </div>
+        <div className="flex items-top mb-4 max-md:justify-center">
+          <input type="checkbox" id="agree" name="agree" className="w-4 h-4 mr-2 mt-1 accent-[#FEB066] cursor-pointer" required />
+          <label htmlFor="agree" className="text-sm text-white">
+            I agree to receive updates on email or phone.
+          </label>
+        </div>
 
-              <button
-  type="submit"
-  className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
+        <button
+          type="submit"
+          className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
              hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
->
-  Submit
-</button>
-            </form>
+        >
+          Submit
+        </button>
+      </form>
           </div>
         </div>
       </div>

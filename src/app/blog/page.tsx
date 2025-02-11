@@ -25,6 +25,8 @@ import blog19 from "../../../public/blogs/unclaim shares.png";
 import blog20 from "../../../public/blogs/document.png";
 import blog21 from "../../../public/blogs/Digital.png";
 import blog22 from "../../../public/blogs/kyc.png";
+import blog23 from "../../../public/blogs/mitr.png";
+import blog24 from "../../../public/blogs/asset.png";
 
 export default function Blog() {
   return (
@@ -38,6 +40,58 @@ export default function Blog() {
             </h2>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+
+          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog24}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                The Rise of AI in Unclaimed Asset Identification: Implications for Overlooked Investments
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Feb 11th 2025
+                  </p>
+                  <Link
+                    href="the-rise-of-ai-in-unclaimed-asset-identification"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog23}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                MITR Platform: The Innovative SEBI Initiative for Mutual Fund Unclaimed Recovery
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Feb 10th 2025
+                  </p>
+                  <Link
+                    href="mitr-platform"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+
             <div className="bg-white rounded overflow-hidden flex flex-col h-full">
               <Image
                 src={blog22}
