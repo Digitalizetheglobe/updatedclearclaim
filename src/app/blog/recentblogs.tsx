@@ -14,6 +14,9 @@ import blog20 from "../../../public/blogs/document.png";
 import blog21 from "../../../public/blogs/Digital.png";
 import blog22 from "../../../public/blogs/kyc.png";
 import blog19 from "../../../public/blogs/unclaim shares.png";
+import blog23 from "../../../public/blogs/Beyond.png";
+import blog24 from "../../../public/blogs/Broker.png";
+import blog25 from "../../../public/blogs/Tech.png";
 import "./recentblogs.css";
 
 export default function RecentBlogs() {
@@ -49,6 +52,82 @@ export default function RecentBlogs() {
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16 max-lg:max-w-3xl max-md:max-w-md mx-auto">
+
+
+            <SwiperSlide>
+                <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+                  <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
+                    <Image
+                      src={blog25}
+                      alt="Blog Post 1"
+                      className="h-60 items-center"
+                    />
+                    <div
+                      className="h-[2px] bg-[#00BE5D] font-bold"
+                      style={{ fontWeight: "bold" }}
+                    ></div>
+                    <div className="p-6">
+                      <span className="text-sm block text-gray-400 mb-2">
+                      Feb 22nd 2025
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-800">
+                      The Technology Component in Unclaimed Assets Recovery: Indias Digital Initiative
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+
+
+            <SwiperSlide>
+                <Link href="/from-broker-to-ipf">
+                  <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
+                    <Image
+                      src={blog24}
+                      alt="Blog Post 1"
+                      className="h-60 items-center"
+                    />
+                    <div
+                      className="h-[2px] bg-[#00BE5D] font-bold"
+                      style={{ fontWeight: "bold" }}
+                    ></div>
+                    <div className="p-6">
+                      <span className="text-sm block text-gray-400 mb-2">
+                      Feb 21st 2025
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-800">
+                      From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+
+            <SwiperSlide>
+                <Link href="/beyond-shares">
+                  <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
+                    <Image
+                      src={blog23}
+                      alt="Blog Post 1"
+                      className="h-60 items-center"
+                    />
+                    <div
+                      className="h-[2px] bg-[#00BE5D] font-bold"
+                      style={{ fontWeight: "bold" }}
+                    ></div>
+                    <div className="p-6">
+                      <span className="text-sm block text-gray-400 mb-2">
+                      Feb 20th 2025
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-800">
+                      Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+
+
               <SwiperSlide>
                 <Link href="/navigatingrules">
                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">

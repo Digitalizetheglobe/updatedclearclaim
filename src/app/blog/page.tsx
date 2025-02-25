@@ -27,6 +27,9 @@ import blog21 from "../../../public/blogs/Digital.png";
 import blog22 from "../../../public/blogs/kyc.png";
 import blog23 from "../../../public/blogs/mitr.png";
 import blog24 from "../../../public/blogs/asset.png";
+import blog25 from "../../../public/blogs/Beyond.png";
+import blog26 from "../../../public/blogs/Broker.png";
+import blog27 from "../../../public/blogs/Tech.png";
 
 export default function Blog() {
   return (
@@ -40,6 +43,79 @@ export default function Blog() {
             </h2>
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+
+
+          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog27}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                The Technology Component in Unclaimed Assets Recovery: Indias Digital Initiative
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Feb 22nd 2025
+                  </p>
+                  <Link
+                    href="the-technology-component-in-unclaimed-assets-recovery"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog26}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Feb 21st 2025
+                  </p>
+                  <Link
+                    href="from-broker-to-ipf"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog25}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Feb 20th 2025
+                  </p>
+                  <Link
+                    href="beyond-shares"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
 
           <div className="bg-white rounded overflow-hidden flex flex-col h-full">
               <Image
