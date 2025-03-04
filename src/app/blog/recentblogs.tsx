@@ -71,7 +71,8 @@ export default function RecentBlogs() {
                       Feb 22nd 2025
                       </span>
                       <h3 className="text-xl font-bold text-gray-800">
-                      The Technology Component in Unclaimed Assets Recovery: Indias Digital Initiative
+                      The Technology Component in Unclaimed Assets Recovery: India
+                      s Digital Initiative
                       </h3>
                     </div>
                   </div>

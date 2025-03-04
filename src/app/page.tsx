@@ -6,7 +6,7 @@ import gif from "../../public/images/Old-shares-and-dividends-recovery-840-x-137
 import WhyClearClaim from "../app/whyclearclaim/whyclearclaim";
 import design from "../../public/images/Clear claim banner (400 x 320 px) (2).gif";
 import ScrollButton from "@/components/scrollbutton";
-
+import Head from "next/head";
 export default function Home() {
   // Function to handle phone call
   const handleCall = () => {
@@ -15,6 +15,16 @@ export default function Home() {
 
   return (
     <>
+ <Head>
+        <title>Clearclaim | Recover Unclaimed Shares, IEPF Claims, and Dividends Hassle-Free</title>
+        <meta name="description" content="Clearclaim specializes in recovering unclaimed shares, dividends, and IEPF claims. Our expert team ensures a seamless process from claim filing to conversion into DEMAT accounts, providing transparency, trust, and 100% refund guarantees. Experience a hassle-free recovery of your financial assets across India." />
+        <meta name="keywords" content="IEPF claims, unclaimed shares recovery, dividend recovery, shares transfer, DEMAT conversion, old shares recovery, investor education protection fund, Clearclaim services, financial asset recovery, shares in DEMAT" />
+      </Head>
+      <main>
+        {/* <h1>Welcome to Clearclaim</h1> */}
+      </main>
+  
+
     <ScrollButton/>
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* Center content in mobile view */}

@@ -60,7 +60,7 @@ export default function Blog() {
                     Feb 22nd 2025
                   </p>
                   <Link
-                    href="the-technology-component-in-unclaimed-assets-recovery"
+                    href="/the-technology-component-in-unclaimed-assets-recovery"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -84,7 +84,7 @@ export default function Blog() {
                     Feb 21st 2025
                   </p>
                   <Link
-                    href="from-broker-to-ipf"
+                    href="/from-broker-to-ipf"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -108,7 +108,7 @@ export default function Blog() {
                     Feb 20th 2025
                   </p>
                   <Link
-                    href="beyond-shares"
+                    href="/beyond-shares"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -132,7 +132,7 @@ export default function Blog() {
                     Feb 11th 2025
                   </p>
                   <Link
-                    href="the-rise-of-ai-in-unclaimed-asset-identification"
+                    href="/the-rise-of-ai-in-unclaimed-asset-identification"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -158,7 +158,7 @@ export default function Blog() {
                     Feb 10th 2025
                   </p>
                   <Link
-                    href="mitr-platform"
+                    href="/mitr-platform"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -184,7 +184,7 @@ export default function Blog() {
                     Jan 30th 2025
                   </p>
                   <Link
-                    href="the-role-of-kyc-updates"
+                    href="/the-role-of-kyc-updates"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -208,7 +208,7 @@ export default function Blog() {
                     Jan 29th 2025
                   </p>
                   <Link
-                    href="the-rise-of-digital-platforms"
+                    href="/the-rise-of-digital-platforms"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -256,7 +256,7 @@ export default function Blog() {
                     Jan 1st 2025
                   </p>
                   <Link
-                    href="unclaimed-dividends-vs-unclaimed-shares"
+                    href="/unclaimed-dividends-vs-unclaimed-shares"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More

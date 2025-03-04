@@ -1,3 +1,4 @@
+"use client";
 import aboutgif from "../../../public/gif/Clear-claim-about.gif";
 import Image from "next/image";
 import service from "../../../public/images/services-bg-1.jpg";
@@ -5,6 +6,7 @@ import shrikant from "../../../public/images/shrikant.png";
 import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
 import linkedin from "../../../public/images/linkedin.png";
+
 
 export default function About() {
   return (

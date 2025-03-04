@@ -864,7 +864,7 @@ The merger of five companies with a cumulative annual turnover of ~Rs 19,700 cr 
               <div className="flex gap-4 items-center ">
                 <Image src={tick} alt="tick" className="w-6 h-6" />
                 <h2 className="text-2xl text-gray-700">
-                FAQs about unclaimed shares of TATA Steel Ltd.
+              FAQs about unclaimed shares of TATA Steel Ltd.
                 </h2>
               </div>
             </section>
