@@ -6,11 +6,16 @@ import shrikant from "../../../public/images/shrikant.png";
 import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
 import linkedin from "../../../public/images/linkedin.png";
-
+import CustomHead from '../../components/CustomHead';
 
 export default function About() {
   return (
     <>
+    <CustomHead
+        pageSlug='/about'
+        title='Full Stack JavaScript Developer - Alamin Shaikh'
+        content='I am a full stack JavaScript developer specializing in web application development. I write technical articles about JavaScript and freelancing.'
+      />
       <div className="p-10 md:p-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-6">

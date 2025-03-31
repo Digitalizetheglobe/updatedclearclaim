@@ -17,6 +17,8 @@ import blog19 from "../../../public/blogs/unclaim shares.png";
 import blog23 from "../../../public/blogs/Beyond.png";
 import blog24 from "../../../public/blogs/Broker.png";
 import blog25 from "../../../public/blogs/Tech.png";
+import blog26 from "../../../public/blogs/Clearclaim Blog .png";
+import blog27 from "../../../public/blogs/blog 24.png";
 import "./recentblogs.css";
 
 export default function RecentBlogs() {
@@ -52,6 +54,55 @@ export default function RecentBlogs() {
             }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-16 max-lg:max-w-3xl max-md:max-w-md mx-auto">
+
+
+            <SwiperSlide>
+                <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+                  <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
+                    <Image
+                      src={blog27}
+                      alt="Blog Post 1"
+                      className="h-60 items-center"
+                    />
+                    <div
+                      className="h-[2px] bg-[#00BE5D] font-bold"
+                      style={{ fontWeight: "bold" }}
+                    ></div>
+                    <div className="p-6">
+                      <span className="text-sm block text-gray-400 mb-2">
+                      Mar 25th 2025
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-800">
+                      The Impact of India's digital thrust on recovery of unclaimed assets: Facts investors need to know
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+
+            <SwiperSlide>
+                <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+                  <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
+                    <Image
+                      src={blog26}
+                      alt="Blog Post 1"
+                      className="h-60 items-center"
+                    />
+                    <div
+                      className="h-[2px] bg-[#00BE5D] font-bold"
+                      style={{ fontWeight: "bold" }}
+                    ></div>
+                    <div className="p-6">
+                      <span className="text-sm block text-gray-400 mb-2">
+                      Mar 24th 2025
+                      </span>
+                      <h3 className="text-xl font-bold text-gray-800">
+                      Cross-Border Asset Recovery: Challenges and Solutions for NRI Unclaimed Investments
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
 
 
             <SwiperSlide>
