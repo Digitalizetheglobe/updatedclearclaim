@@ -57,7 +57,7 @@ export default function RecentBlogs() {
 
 
             <SwiperSlide>
-                <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+                <Link href="/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets">
                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
                     <Image
                       src={blog27}
@@ -73,7 +73,7 @@ export default function RecentBlogs() {
                       Mar 25th 2025
                       </span>
                       <h3 className="text-xl font-bold text-gray-800">
-                      The Impact of India's digital thrust on recovery of unclaimed assets: Facts investors need to know
+                      The Impact of Indias digital thrust on recovery of unclaimed assets: Facts investors need to know
                       </h3>
                     </div>
                   </div>
@@ -81,7 +81,7 @@ export default function RecentBlogs() {
               </SwiperSlide>
 
             <SwiperSlide>
-                <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+                <Link href="/cross-border-asset-recovery">
                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
                     <Image
                       src={blog26}

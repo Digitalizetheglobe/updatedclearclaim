@@ -11,7 +11,7 @@ export default function IndiasDigitalInitiative() {
           <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
             <p className="text-gray-500">Published Mar 24, 2024</p>
             <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            Cross-Border Asset Recovery: Challenges and Solutions for NRI Unclaimed Investments
+            Cross Border Asset Recovery Challenges and Solutions for NRI Unclaimed Investments
             </h1>
             <p className="mt-6 text-md text-gray-500">
             With the growing reality of a globalized world, Non-Resident Indians (NRIs) are frequently confronted with the complexities of cross-border asset recovery. Recovering unclaimed assets has been one of the most intimidating facets of this reality, and it has been a serious issue for regulators and investors alike. In this blog post, we are going to examine the complexity of cross-border asset recovery for NRIs, with special emphasis on the challenges they encounter and the solutions that are arising in the new reality of global finance.
@@ -68,8 +68,8 @@ export default function IndiasDigitalInitiative() {
             A number of financial institutions and regulatory bodies now provide convenient online facilities meant to assist NRIs in tracking and claiming their inactive assets.
             </p>
 
-            <h2 className="text-2xl font-semibold">3. India's membership in the Asset Recovery Interagency Network-Asia Pacific (ARIN-AP)</h2>
-            <p>steering committee, and intentions to take up the presidency in 2026, reflect the country's interest in furthering cooperation in the fight against economic crimes and global asset recovery.</p>
+            <h2 className="text-2xl font-semibold">3. Indias membership in the Asset Recovery Interagency Network-Asia Pacific (ARIN-AP)</h2>
+            <p>steering committee, and intentions to take up the presidency in 2026, reflect the countrys interest in furthering cooperation in the fight against economic crimes and global asset recovery.</p>
 
             <h2 className="text-2xl font-semibold">4. Advance Rulings for Non-Resident Indians</h2>
             <p>The availability of advance rulings facilitates Non-Resident Indians to ascertain their tax liability prior to entering into transactions with residents of India, minimizing potential future dispute and allowing greater certainty for financial planning.</p>

@@ -55,14 +55,14 @@ export default function Blog() {
               />
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-lg font-bold text-gray-800 mb-3">
-                The Impact of India's digital thrust on recovery of unclaimed assets: Facts investors need to know
+                The Impact of Indias digital thrust on recovery of unclaimed assets: Facts investors need to know
                 </h3>
                 <div className="mt-auto">
                   <p className="text-orange-500 text-[13px] font-semibold mb-4">
                     Mar 25th 2025
                   </p>
                   <Link
-                    href="/from-broker-to-ipf"
+                    href="/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More
@@ -86,7 +86,7 @@ export default function Blog() {
                     Mar 24th 2025
                   </p>
                   <Link
-                    href="/from-broker-to-ipf"
+                    href="/cross-border-asset-recovery"
                     className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
                   >
                     Read More

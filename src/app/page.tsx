@@ -6,7 +6,6 @@ import gif from "../../public/images/Old-shares-and-dividends-recovery-840-x-137
 import WhyClearClaim from "../app/whyclearclaim/whyclearclaim";
 import design from "../../public/images/Clear claim banner (400 x 320 px) (2).gif";
 import ScrollButton from "@/components/scrollbutton";
-import Head from "next/head";
 
 
 export default function Home() {
