@@ -32,6 +32,7 @@ import blog26 from "../../../public/blogs/Broker.png";
 import blog27 from "../../../public/blogs/Tech.png";
 import blog28 from "../../../public/blogs/Clearclaim Blog .png";
 import blog29 from "../../../public/blogs/blog 24.png";
+import blog30 from '../../../public/blogs/iepf2025.png'
 
 export default function Blog() {
   return (
@@ -46,6 +47,29 @@ export default function Blog() {
           </div>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
 
+          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
+              <Image
+                src={blog30}
+                alt="Blog Post 3"
+                className="w-full h-52 object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                IEPF 2025: Which Companies Have the Highest Unclaimed Shares and Dividends?
+                </h3>
+                <div className="mt-auto">
+                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
+                    Mar 31th 2025
+                  </p>
+                  <Link
+                    href="/iepf2025"
+                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
 
           <div className="bg-white rounded overflow-hidden flex flex-col h-full">
               <Image
