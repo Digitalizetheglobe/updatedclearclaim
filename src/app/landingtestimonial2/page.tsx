@@ -20,10 +20,10 @@ export default function LandingTestimonial2() {
 
     emailjs
       .sendForm(
-        "service_4fca0ux", // Replace with your EmailJS service ID
-        "template_0esr8bw", // Replace with your EmailJS template ID
+        "service_0m8kbz9", // Replace with your EmailJS service ID
+        "template_foaef8d", // Replace with your EmailJS template ID
         formRef.current,
-        "Ycds2m4eCIak1IOcz" // Replace with your EmailJS Public Key
+        "Fkjr_xe9jDFgk_BFj" // Replace with your EmailJS Public Key
       )
       .then(
         (result) => {
