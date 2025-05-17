@@ -25,10 +25,10 @@ export default function IEPFClaim() {
   
     emailjs
       .sendForm(
-        "service_4fca0ux",
-        "template_0esr8bw",
+        "service_0m8kbz9",
+        "template_foaef8d",
         formRef.current,
-        "Ycds2m4eCIak1IOcz"
+        "Fkjr_xe9jDFgk_BFj"
       )
       .then(
         (result) => {
