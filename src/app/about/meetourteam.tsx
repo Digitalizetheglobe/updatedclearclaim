@@ -7,41 +7,44 @@ import vishupriya from "../../../public/team/vishupriya.png";
 import shanjivani from "../../../public/team/shanjivani.png";
 import piyush from "../../../public/team/iyush.png";
 import isha from "../../../public/team/sha.png";
-import rashi from "../../../public/team/rashi.png";
 import prathmesh from "../../../public/team/rathmesh.png";
 import ashwini from "../../../public/team/shwini.png";
 import kishor from "../../../public/team/kishor.png";
 import swapil from "../../../public/team/wapnil.png";
-import darshan from "../../../public/team/arshan.png";
+// import darshan from "../../../public/team/arshan.png";
 import suyash from "../../../public/team/suyash.png";
 import driraj from "../../../public/team/dhriraj.png";
 import harshada from "../../../public/team/harshada.png";
 import ganesh from "../../../public/team/ganesh.png";
 import chandra from "../../../public/team/chandkant.png";
-import gallery from '../../../public/images/20240902_151326-scaled.jpg'
-import gallery1 from '../../../public/images/20240902_151419-scaled.jpg'
-import gallery2 from '../../../public/images/20240902_151712-scaled.jpg'
-import gallery3 from '../../../public/images/20240902_151851-scaled.jpg'
-import gallery4 from '../../../public/images/20240902_151910-scaled.jpg'
-import gallery5 from '../../../public/images/20240902_151919-scaled.jpg'
-import gallery7 from '../../../public/images/20240902_152014-scaled.jpg'
-import gallery8 from '../../../public/images/20240902_152059-scaled.jpg'
-import amol from '../../../public/team/Amol Rahatkar.jpg'
-import bhumika from '../../../public/team/Bhumika Khule.png'
-import dipali from '../../../public/team/Dipali Tayade.png'
-import poojapawar from '../../../public/team/Pooja Pawar.png'
+import gallery from "../../../public/images/20240902_151326-scaled.jpg";
+import gallery1 from "../../../public/images/20240902_151419-scaled.jpg";
+import gallery2 from "../../../public/images/20240902_151712-scaled.jpg";
+import gallery3 from "../../../public/images/20240902_151851-scaled.jpg";
+import gallery4 from "../../../public/images/20240902_151910-scaled.jpg";
+import gallery5 from "../../../public/images/20240902_151919-scaled.jpg";
+import gallery7 from "../../../public/images/20240902_152014-scaled.jpg";
+import gallery8 from "../../../public/images/20240902_152059-scaled.jpg";
+import amol from "../../../public/team/Amol Rahatkar.jpg";
+import hrishikesh from "../../../public/team/Hrishikesh Albhar.png";
+import rajshree from "../../../public/team/Rajashree Laygude.png";
+import vaibhav from "../../../public/team/vaibhav-kadam.png";
+import sarika from "../../../public/team/Sarika Kole.png";
+import teammember from "../../../public/team/3.png";
+import dipali from "../../../public/team/Dipali Tayade.png";
+import poojapawar from "../../../public/team/Pooja Pawar.png";
 
 export default function Meetourteam() {
-    const images = [
-        gallery,
-        gallery1,
-        gallery2,
-        gallery3,
-        gallery4,
-        gallery5,
-        gallery7,
-        gallery8,
-      ];
+  const images = [
+    gallery,
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery7,
+    gallery8,
+  ];
 
   return (
     <>
@@ -94,8 +97,8 @@ export default function Meetourteam() {
               <h4 className="text-black text-md">Shivanjali Kalbhor</h4>
             </div>
           </div>
-        
-          <div>
+
+          {/* <div>
             <Image
               src={rashi}
               alt="dhyanesh"
@@ -104,10 +107,11 @@ export default function Meetourteam() {
             <div className="py-4">
               <h4 className="text-black text-md">Rashi Jain</h4>
             </div>
-          </div>
+          </div> */}
+
           <div>
             <Image
-              src={darshan}
+              src={teammember}
               alt="dhyanesh"
               className="w-40 h-40 rounded-full inline-block"
             />
@@ -115,7 +119,7 @@ export default function Meetourteam() {
               <h4 className="text-black text-md">Darshan Kondhare</h4>
             </div>
           </div>
-        
+
           <div>
             <Image
               src={driraj}
@@ -157,16 +161,7 @@ export default function Meetourteam() {
               <h4 className="text-black text-md">Pooja Pawar</h4>
             </div>
           </div>
-          <div>
-            <Image
-              src={bhumika}
-              alt="dhyanesh"
-              className="w-40 h-40 rounded-full inline-block"
-            />
-            <div className="py-4">
-              <h4 className="text-black text-md">Bhumika Khule</h4>
-            </div>
-          </div>
+
           <div>
             <Image
               src={dipali}
@@ -187,6 +182,53 @@ export default function Meetourteam() {
               <h4 className="text-black text-md">Amol Rahatkar</h4>
             </div>
           </div>
+
+          <div>
+            <Image
+              src={sarika}
+              alt="dhyanesh"
+              className="w-40 h-40 rounded-full inline-block"
+            />
+            <div className="py-4">
+              <h4 className="text-black text-md">Sarika Kole</h4>
+            </div>
+          </div>
+
+          <div>
+            <Image
+              src={rajshree}
+              alt="dhyanesh"
+              className="w-40 h-40 rounded-full inline-block"
+            />
+            <div className="py-4">
+              <h4 className="text-black text-md">Rajashree Laygude</h4>
+            </div>
+          </div>
+
+          <div>
+            <Image
+              src={hrishikesh}
+              alt="dhyanesh"
+              className="w-40 h-40 rounded-full inline-block"
+            />
+            <div className="py-4">
+              <h4 className="text-black text-md">Hrishikesh Albhar</h4>
+            </div>
+          </div>
+
+          <div>
+            <Image
+              src={vaibhav}
+              alt="dhyanesh"
+              className="w-40 h-40 rounded-full inline-block"
+            />
+            <div className="py-4">
+              <h4 className="text-black text-md">Viabhav Kadam</h4>
+            </div>
+          </div>
+
+         
+
         </div>
 
         <div className="max-w-2xl mx-auto text-center">
@@ -323,20 +365,20 @@ export default function Meetourteam() {
 
         {/* gallery */}
         <div className="mt-8 mb-24 max-w-6xl mx-auto max-md:px-4">
-      <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {images.map((image, index) => (
-          <div key={index} className="overflow-hidden rounded shadow-lg">
-            <Image
-              src={image}
-              alt={`Gallery ${index + 1}`}
-              className="w-full h-[200px] object-cover transition-transform duration-300 hover:scale-110"
-            />
+          <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {images.map((image, index) => (
+              <div key={index} className="overflow-hidden rounded shadow-lg">
+                <Image
+                  src={image}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-[200px] object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
-    {/* gallery */}
+        </div>
+        {/* gallery */}
       </div>
     </>
   );
