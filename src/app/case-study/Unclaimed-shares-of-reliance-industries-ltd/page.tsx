@@ -453,7 +453,7 @@ export default function UnclaimedSharesofRelianceIndustriesLtd() {
             `}</style>
             <h1 className="text-3xl font-semibold mb-4">
               Unclaimed Shares of{" "}
-              <span className="text-green-600">Linde India Ltd.</span>
+              <span className="text-green-600">Reliance Industries Ltd.</span>
             </h1>
             <p className="mb-6 text-[#00000099] text-justify">
             Reliance Industries Limited is an Indian multinational conglomerate headquartered in Mumbai, Maharashtra, India. Its businesses include energy, petrochemicals, natural gas, retail, entertainment, telecommunications, mass media, and textiles. Reliance is the largest public company in India by market capitalisation and revenue, and the 100th largest company worldwide. It is Indias largest private tax payer and largest exporter, accounting for 7% of Indias total merchandise exports.
