@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const WhatsAppPopup = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [phoneNumber] = useState("+91 9156701900"); // ✅ Default WhatsApp number
+  const [phoneNumber] = useState("+91 8600421300"); // ✅ Default WhatsApp number
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
