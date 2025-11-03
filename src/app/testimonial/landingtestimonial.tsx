@@ -53,49 +53,56 @@ export default function LandingTestimonial() {
       date: "22 January 2025",
       stars: 5,
       content:
-        "Very reliable, gives personal attention & above all, very reasonable charges.I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
+        "Very reliable, gives personal attention & above all, very reasonable charges. I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
     },
     {
-      name: "Vicky Jain",
-      date: "17 January 2025",
+      name: "Jayant V Patil",
+      date: "a month ago",
       stars: 5,
       content:
-        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
+        "Clear claim transferred my physical shares within given time, very professional, very prompt, overall a hassle-free experience, i highly recommend Clear claim for you share transfer and other related works.. thank u",
     },
     {
       name: "Rajagopalan V",
       date: "6 January 2025",
       stars: 5,
       content:
-        "Mr.Srikant is a good person and guide us in a proper way with his Expertise in his business areas. You may negotiate and go with them for your requirements.",
+        "Mr. Srikant is a good person and guides us in a proper way with his expertise in his business areas. You may negotiate and go with them for your requirements.",
     },
     {
       name: "Piyush Dhimate",
       date: "4 January 2025",
       stars: 5,
       content:
-        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!.",
+        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!",
     },
     {
       name: "INDRANEEL TAMBE",
       date: "3 January 2025",
       stars: 4,
       content:
-        "Thanks team of clear claim.... Nice service as well as nice guidline and thx for sorting and clearing my case ... And thanks help us...",
+        "Thanks team of clear claim.... Nice service as well as nice guidance and thanks for sorting and clearing my case ... And thanks for helping us...",
     },
     {
-      name: "Saikat Dastidar",
-      date: "2 January 2025",
+      name: "Vinayak Gaitonde",
+      date: "10 months ago",
       stars: 5,
       content:
-        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
+        "Very reliable, gives personal attention & above all, very reasonable charges. I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
     },
     {
-      name: "RAJESH TATED",
-      date: "29 December 2024",
+      name: "Chetan",
+      date: "10 months ago",
       stars: 5,
       content:
-        "Company is doing a good job with constant follow up.",
+        "I recently got to know about Clearclaim and till the time I wasn’t aware of that we can claim our old unclaimed shares. I tried to reach them and explained my situation and asked for help. The process was smooth and transparent, with clear instructions provided at each step. The customer support team was very responsive, answering all my questions promptly. They also made sure to explain any paperwork and helped me complete it correctly. Although the process took a few weeks, they kept me updated throughout, and I received my shares without any issues. Their fees were reasonable, and I appreciated the upfront disclosure of all charges. I would definitely recommend their services to anyone looking to claim unclaimed shares.",
+    },
+    {
+      name: "shahaji dudhabhate",
+      date: "10 months ago",
+      stars: 5,
+      content:
+        "Due to change in name and signature, my father-in-law's Reliance Company shares were stuck in the papers for many years, despite many attempts, they were repeatedly rejected. When I contacted the company Clear Claim on Facebook, they made my work very easy and at a low cost, their working method is very transparent. They are trustworthy people, if you have any work related to old shares, close your eyes and get it done from them. Thank you team🙏🙏🙏",
     },
   ];
 
@@ -198,64 +205,36 @@ export default function LandingTestimonial() {
       </section>
 
       {/* Scammers Exposed */}
-      <div className="max-w-6xl mx-auto mt-20">
+      <div className="max-w-6xl mx-auto mt-10">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
-            <span className="text-[#283655]">Warning : </span> Scammers Exposed
+            <span className="text-[#283655]">Physical shareholders - </span> Don't miss this video
           </h2>
         </div>
-        <div className="mt-6 lg:p-10 p-6 rounded-md">
-          <div className="grid md:grid-cols-2 items-center gap-16">
-            <div>
-              <h2 className="md:text-3xl text-xl font-semibold md:!leading-[40px] text-[#000]">
-                 Physical Shareholders
-              </h2>
-
-              <button
-                type="button"
-                className="text-[#00BE5D] border-2 bg-transparent border-[#00BE5D] tracking-wide rounded-md font-semibold text-md px-4 py-3 w-64 !mt-6"
-              >
-                Don’t fall for scammers!
-              </button>
-
-              <ul className="space-y-4 mt-8">
-  <li className="flex items-start gap-3 text-md text-gray-600">
-    <Image 
-      src={eclipse} 
-      alt="clearclaim" 
-      className="w-[17] self-start mt-1" 
-    />
-    Some may charge 15% to 30% commission for claims services.
-  </li>
-  <li className="flex items-start gap-3 text-md text-gray-600">
-    <Image 
-      src={eclipse} 
-      alt="clearclaim" 
-      className="w-[17] self-start mt-1" 
-    />
-    Trust only verified professionals and genuine claim services.
-  </li>
-</ul>
-            </div>
-            <div className="w-full overflow-hidden rounded-md row-2 ">
-              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/wNqDCTfOwBI?si=z6DP9b3TH9rHnvZ8"
-                  title="YouTube video"
-                  className="absolute top-0 left-0 w-full h-80"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-
-              <h2 className="md:text-xl text-xl font-semibold md:!leading-[40px] text-[#000] mt-12">
-                Stay Safe: Learn how to identify and avoid scams.
-              </h2>
-            </div>
+        <div className="flex justify-center">
+          <div
+            className="relative overflow-hidden rounded-md"
+            style={{
+              width: '650px',
+              height: '370px',
+            }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/wNqDCTfOwBI?si=z6DP9b3TH9rHnvZ8"
+              title="YouTube video"
+              className="absolute top-0 left-0 w-full h-96"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
+
+          {/* <h2 className="md:text-xl text-xl font-semibold md:!leading-[40px] text-[#000] mt-12">
+                Stay Safe: Learn how to identify and avoid scams.
+              </h2> */}
         </div>
       </div>
+
 
       {/* How it works */}
       <div className="max-w-6xl mx-auto mt-16">
