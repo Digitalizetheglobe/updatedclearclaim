@@ -15,7 +15,8 @@ export default function scammerexposed() {
           <div className="grid md:grid-cols-2 items-center gap-16">
             <div>
               <h2 className="md:text-3xl text-xl font-semibold md:!leading-[40px] text-[#000]">
-                Beware of Deceptive Claim Services
+                {/* Beware of Deceptive Claim Services */}
+                Physical Shareholders
               </h2>
 
               <button
@@ -48,7 +49,7 @@ export default function scammerexposed() {
             <div className="w-full overflow-hidden rounded-md row-2 ">
   <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
     <iframe
-      src="https://www.youtube.com/embed/X3Sme--jbkk"
+      src="https://www.youtube.com/embed/wNqDCTfOwBI?si=z6DP9b3TH9rHnvZ8"
       title="YouTube video"
       className="absolute top-0 left-0 w-full h-80"
       frameBorder="0"

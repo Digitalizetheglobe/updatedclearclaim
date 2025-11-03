@@ -109,6 +109,36 @@ export default function LandingTestimonial2() {
 
   return (
     <>
+
+<div className="max-w-6xl mx-auto px-4 md:px-0">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
+            <span className="text-[#283655]">What </span> Client Say
+          </h2>
+        </div>
+
+        {/* Video Section */}
+        <div className="flex justify-center">
+          <div
+            className="relative overflow-hidden rounded-md"
+            style={{
+              width: '650px',
+              height: '370px',
+            }}
+          >
+            <iframe
+              src="https://www.youtube.com/embed/yagxF8loMrM?si=VKRfV1CSjfXR7fCZ"
+              title="YouTube video"
+              className="absolute top-0 left-0 w-full h-full"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    
       {/* Modal Popup */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -176,7 +206,7 @@ export default function LandingTestimonial2() {
           <div className="grid md:grid-cols-2 items-center gap-16">
             <div>
               <h2 className="md:text-3xl text-xl font-semibold md:!leading-[40px] text-[#000]">
-                Beware of Deceptive Claim Services
+                Physical Shareholders
               </h2>
 
               <button
@@ -208,7 +238,7 @@ export default function LandingTestimonial2() {
             <div className="w-full overflow-hidden rounded-md row-2 ">
               <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
                 <iframe
-                  src="https://www.youtube.com/embed/X3Sme--jbkk"
+                  src="https://www.youtube.com/embed/wNqDCTfOwBI?si=z6DP9b3TH9rHnvZ8"
                   title="YouTube video"
                   className="absolute top-0 left-0 w-full h-80"
                   frameBorder="0"
