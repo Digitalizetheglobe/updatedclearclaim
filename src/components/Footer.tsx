@@ -21,7 +21,7 @@ export default function Footer() {
                   <Image
                     src={logo}
                     alt="footer logo"
-                    className="w-[200px] sm:w-[290px]"
+                    className="w-[200px] sm:w-[250px]"
                   />
                 </Link>
               </div>

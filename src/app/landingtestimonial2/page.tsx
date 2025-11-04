@@ -1,17 +1,20 @@
 "use client";
 
 import { useState, useRef } from "react";
-import eclipse from "../../../public/images/Ellipse.png";
+// import eclipse from "../../../public/images/Ellipse.png";
 import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import google from "../../../public/images/google.webp";
 import emailjs from "emailjs-com";
+// import LandingTestimonial from "../testimonial/landingtestimonial";
 
 export default function LandingTestimonial2() {
   const formRef = useRef<HTMLFormElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -83,11 +86,11 @@ export default function LandingTestimonial2() {
         "Thanks team of clear claim.... Nice service as well as nice guidance and thanks for sorting and clearing my case ... And thanks for helping us...",
     },
     {
-      name: "Vinayak Gaitonde",
+      name: "RAKESH G PATIL",
       date: "10 months ago",
       stars: 5,
       content:
-        "Very reliable, gives personal attention & above all, very reasonable charges. I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
+        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
     },
     {
       name: "Chetan",
@@ -103,6 +106,13 @@ export default function LandingTestimonial2() {
       content:
         "Due to change in name and signature, my father-in-law's Reliance Company shares were stuck in the papers for many years, despite many attempts, they were repeatedly rejected. When I contacted the company Clear Claim on Facebook, they made my work very easy and at a low cost, their working method is very transparent. They are trustworthy people, if you have any work related to old shares, close your eyes and get it done from them. Thank you team🙏🙏🙏",
     },
+    {
+      name: "Mukund Shah",
+      date: "10 months ago",
+      stars: 5,
+      content:
+        "I had a great experience working with Clearclaim. They helped me recover my parents SBI Limited unclaimed shares and dividends from IEPF and convert them to DEMAT. Their team was very responsive and kept me updated throughout the process. I would definitely recommend their services to anyone looking to recover their shares.",
+    },
   ];
 
   const renderStars = (count: number) => {
@@ -115,9 +125,20 @@ export default function LandingTestimonial2() {
     );
   };
 
+  const toggleReadMore = (index: number) => {
+    setExpandedReviews((prev) => ({
+      ...prev,
+      [index]: !prev[index], // Toggle the boolean value
+    }));
+  };
+
+  const loadMore = () => {
+    setVisibleCount(reviews.length);
+  };
+
   return (
     <>
-
+     
       <div className="max-w-6xl mx-auto px-4 md:px-0">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
@@ -176,8 +197,48 @@ export default function LandingTestimonial2() {
           </h2>
         </div>
         <div className="relative max-w-6xl mx-auto">
-          <div className="h-[500px] overflow-y-scroll rounded-lg bg-gray-200 shadow-md p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Mobile: Show limited testimonials with Load More */}
+          <div className="sm:hidden flex flex-col gap-6 px-6">
+            {reviews.slice(0, visibleCount).map((review, index) => (
+              <div
+                key={index}
+                className="bg-white border rounded-lg p-4 shadow-sm flex flex-col hover:shadow-xl transition-shadow transform hover:scale-105 duration-300"
+                role="article"
+                aria-label={`Review by ${review.name}`}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {review.name}
+                  </h3>
+                  <Image src={google} alt="Google" width={48} height={24} />
+                </div>
+                <p className="text-sm text-gray-500 mb-2">{review.date}</p>
+                {renderStars(review.stars)}
+                <p className="text-gray-700 text-sm flex-1">
+                  {expandedReviews[index]
+                    ? review.content
+                    : `${review.content.substring(0, 100)}...`}
+                </p>
+                <button
+                  className="mt-2 text-green-500 text-sm font-semibold hover:underline self-start"
+                  onClick={() => toggleReadMore(index)}
+                >
+                  {expandedReviews[index] ? "Read Less" : "Read More"}
+                </button>
+              </div>
+            ))}
+            {visibleCount < reviews.length && (
+              <button
+                onClick={loadMore}
+                className="mt-4 px-6 py-3 bg-[#00BE5D] text-white rounded-md font-semibold hover:bg-[#00a050] transition-colors duration-300 self-center"
+              >
+                Load More
+              </button>
+            )}
+          </div>
+          {/* Desktop: Show all reviews in scrollable container */}
+          <div className="hidden sm:block h-[500px] overflow-y-scroll rounded-lg bg-gray-200 shadow-md p-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
               {reviews.map((review, index) => (
                 <div
                   key={index}
@@ -194,8 +255,16 @@ export default function LandingTestimonial2() {
                   <p className="text-sm text-gray-500 mb-2">{review.date}</p>
                   {renderStars(review.stars)}
                   <p className="text-gray-700 text-sm flex-1">
-                    {review.content}
+                    {expandedReviews[index]
+                      ? review.content
+                      : `${review.content.substring(0, 100)}...`}
                   </p>
+                  <button
+                    className="mt-2 text-green-500 text-sm font-semibold hover:underline self-start"
+                    onClick={() => toggleReadMore(index)}
+                  >
+                    {expandedReviews[index] ? "Read Less" : "Read More"}
+                  </button>
                 </div>
               ))}
             </div>
@@ -207,7 +276,7 @@ export default function LandingTestimonial2() {
       <div className="max-w-6xl mx-auto mt-10">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
-            <span className="text-[#283655]">Physical shareholders - </span> Don't miss this video
+            <span className="text-[#283655]">Physical shareholders - </span> Dont miss this video
           </h2>
         </div>
         <div className="flex justify-center">

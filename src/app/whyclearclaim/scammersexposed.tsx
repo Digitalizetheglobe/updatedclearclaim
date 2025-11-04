@@ -1,6 +1,6 @@
 import NumberTalk from "../../app/whyclearclaim/numbertalk";
-import eclipse from "../../../public/images/Ellipse.png";
-import Image from "next/image";
+// import eclipse from "../../../public/images/Ellipse.png";
+// import Image from "next/image";
 
 export default function scammerexposed() {
   return (
@@ -8,7 +8,7 @@ export default function scammerexposed() {
      <div className="max-w-6xl mx-auto mt-10">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D]">
-            <span className="text-[#283655]">Physical shareholders - </span> Don't miss this video
+            <span className="text-[#283655]">Physical shareholders - </span> Dont miss this video
           </h2>
         </div>
         <div className="flex justify-center">
