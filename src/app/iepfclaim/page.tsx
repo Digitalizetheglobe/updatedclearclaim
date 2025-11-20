@@ -1,15 +1,11 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
-import emailjs from "emailjs-com";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import Content from "./content";
 import ScrollButton from "@/components/scrollbutton";
 
 export default function IEPFClaim() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [isClient, setIsClient] = useState(false); // Check if we're on the client
   const [bgImage, setBgImage] = useState(""); // State to manage background image
 
@@ -18,59 +14,288 @@ export default function IEPFClaim() {
     setBgImage("url(/images/geomatric.png)"); // Set the background image after the component mounts
   }, []);
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
-    if (!formRef.current) return;
-  
-    emailjs
-      .sendForm(
-        "service_0m8kbz9",
-        "template_foaef8d",
-        formRef.current,
-        "Fkjr_xe9jDFgk_BFj"
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setToastMessage(
-            "Thank you for your response. Our representative will contact you shortly."
-          );
-          setShowModal(true);
-          
-          // ✅ Ensure formRef.current exists before calling reset
-          if (formRef.current) {
-            formRef.current.reset();
+  useEffect(() => {
+    // Capture and store UTM parameters for lead tracking
+    const captureUTMParameters = () => {
+      if (typeof window === "undefined") return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams: Record<string, string> = {};
+
+      // UTM parameters to capture
+      const utmFields = [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+      ];
+
+      utmFields.forEach((field) => {
+        const value = urlParams.get(field);
+        if (value) {
+          utmParams[field] = value;
+          // Store in sessionStorage to persist across page navigation
+          sessionStorage.setItem(field, value);
+        } else {
+          // If not in URL, check sessionStorage for previously stored values
+          const storedValue = sessionStorage.getItem(field);
+          if (storedValue) {
+            utmParams[field] = storedValue;
           }
-        },
-        (error) => {
-          console.error("Error sending email:", error.text);
-          setToastMessage("Failed to send the form. Try again.");
-          setShowModal(true);
-          setTimeout(() => setShowModal(false), 3000);
         }
+      });
+
+      // Store all UTM params as a JSON object for easy access
+      if (Object.keys(utmParams).length > 0) {
+        sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
+
+        // Also set them as data attributes on the form container for Kylas to pick up
+        const formContainer = document.getElementById("kl__form-container");
+        if (formContainer) {
+          Object.keys(utmParams).forEach((key) => {
+            formContainer.setAttribute(`data-${key}`, utmParams[key]);
+          });
+        }
+      }
+
+      // If UTM params exist in URL, preserve them in the URL for Kylas to read
+      if (Object.keys(utmParams).length > 0 && window.location.search) {
+        // Kylas will automatically read UTM parameters from the URL
+        console.log("UTM Parameters captured:", utmParams);
+      }
+    };
+
+    // Add CSS to hide email field (more targeted approach)
+    const addEmailHideStyles = () => {
+      const styleId = "hide-kylas-email-field";
+      if (document.getElementById(styleId)) return;
+
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.textContent = `
+        /* Hide only email input fields specifically */
+        #kl__form-container input[type="email"] {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          opacity: 0 !important;
+          position: absolute !important;
+          left: -9999px !important;
+        }
+        
+        /* Hide labels that are directly associated with email inputs */
+        #kl__form-container label[for*="email" i],
+        #kl__form-container label:has(input[type="email"]) {
+          display: none !important;
+        }
+        
+        /* Hide divs that contain ONLY email inputs (but be careful not to hide the whole form) */
+        #kl__form-container > * > div:has(> input[type="email"]:only-child),
+        #kl__form-container > * > div:has(> label:has(input[type="email"]):only-child) {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(style);
+    };
+
+    // Add CSS styles
+    addEmailHideStyles();
+
+    // Capture UTM parameters
+    captureUTMParameters();
+
+    // Load Kylas CRM form script dynamically
+    const script = document.createElement("script");
+    script.src = "https://assets.kylas.io/lead-capture-forms/lcf.min.js";
+    script.setAttribute("form-id", "2a09aa6f-0148-4eb3-99eb-74496865764d");
+    script.async = true;
+
+    // Check if script is already loaded
+    const existingScript = document.querySelector(
+      'script[form-id="2a09aa6f-0148-4eb3-99eb-74496865764d"]'
+    );
+    if (!existingScript) {
+      document.body.appendChild(script);
+    }
+
+    // Function to hide email field from Kylas form (more targeted)
+    const hideEmailField = () => {
+      const formContainer = document.getElementById("kl__form-container");
+      if (!formContainer) return;
+
+      // Find email inputs and hide only them, not entire containers
+      const emailInputs = formContainer.querySelectorAll('input[type="email"]');
+      emailInputs.forEach((input) => {
+        const inputElement = input as HTMLElement;
+        // Hide the input itself
+        inputElement.style.display = 'none';
+        inputElement.style.visibility = 'hidden';
+        inputElement.style.height = '0';
+        inputElement.style.margin = '0';
+        inputElement.style.padding = '0';
+        inputElement.style.position = 'absolute';
+        inputElement.style.left = '-9999px';
+        
+        // Hide associated label if it exists
+        const inputName = (inputElement as HTMLInputElement).name;
+        const label = formContainer.querySelector(`label[for="${inputElement.id}"], label[for="${inputName}"]`);
+        if (label) {
+          (label as HTMLElement).style.display = 'none';
+        }
+        
+        // Only hide parent if it contains ONLY the email field
+        const parent = inputElement.parentElement;
+        if (parent && parent !== formContainer) {
+          const siblings = Array.from(parent.children).filter(child => child !== inputElement && child !== label);
+          // If parent only has the email input (and maybe its label), hide the parent
+          if (siblings.length === 0) {
+            (parent as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+
+      // Find by name attribute containing "email" (only if it's an email input)
+      const emailFieldsByName = formContainer.querySelectorAll('[name*="email" i], [name*="Email"]');
+      emailFieldsByName.forEach((field) => {
+        const fieldElement = field as HTMLElement;
+        if (fieldElement.tagName === 'INPUT' && (fieldElement as HTMLInputElement).type === 'email') {
+          fieldElement.style.display = 'none';
+          fieldElement.style.visibility = 'hidden';
+        }
+      });
+    };
+
+    // After script loads, ensure UTM params are available and hide email field
+    const handleScriptLoad = () => {
+      captureUTMParameters();
+      
+      // Try to hide email field immediately
+      setTimeout(() => {
+        hideEmailField();
+      }, 100);
+
+      // Also use MutationObserver to watch for form changes
+      const formContainer = document.getElementById("kl__form-container");
+      if (formContainer) {
+        const observer = new MutationObserver(() => {
+          hideEmailField();
+        });
+
+        observer.observe(formContainer, {
+          childList: true,
+          subtree: true,
+          attributes: false,
+        });
+
+        // Also check periodically in case form loads later
+        const checkInterval = setInterval(() => {
+          hideEmailField();
+          // Stop checking after 5 seconds
+          setTimeout(() => clearInterval(checkInterval), 5000);
+        }, 500);
+      }
+    };
+
+    const scriptElement = existingScript as HTMLScriptElement || script;
+    if (scriptElement.onload === null || (scriptElement as any).readyState === 'complete') {
+      // Script already loaded
+      handleScriptLoad();
+    } else {
+      scriptElement.onload = handleScriptLoad;
+    }
+
+    // Cleanup function
+    return () => {
+      // Optionally remove script on unmount
+      const scriptToRemove = document.querySelector(
+        'script[form-id="2a09aa6f-0148-4eb3-99eb-74496865764d"]'
       );
-  };
+      if (scriptToRemove && scriptToRemove !== existingScript) {
+        document.body.removeChild(scriptToRemove);
+      }
+    };
+  }, []);
+
+  // Separate effect to continuously monitor and hide email field (more targeted)
+  useEffect(() => {
+    const hideEmailField = () => {
+      const formContainer = document.getElementById("kl__form-container");
+      if (!formContainer) return;
+
+      // Find and hide only email inputs, not entire containers
+      const emailInputs = formContainer.querySelectorAll('input[type="email"]');
+      emailInputs.forEach((input) => {
+        const inputElement = input as HTMLElement;
+        // Hide the input itself
+        inputElement.style.display = 'none';
+        inputElement.style.visibility = 'hidden';
+        inputElement.style.height = '0';
+        inputElement.style.margin = '0';
+        inputElement.style.padding = '0';
+        inputElement.style.position = 'absolute';
+        inputElement.style.left = '-9999px';
+        
+        // Hide associated label
+        const inputName = (inputElement as HTMLInputElement).name;
+        const label = formContainer.querySelector(`label[for="${inputElement.id}"], label[for="${inputName}"]`);
+        if (label) {
+          (label as HTMLElement).style.display = 'none';
+        }
+        
+        // Only hide parent if it contains ONLY the email field
+        const parent = inputElement.parentElement;
+        if (parent && parent !== formContainer) {
+          const siblings = Array.from(parent.children).filter(child => child !== inputElement && child !== label);
+          if (siblings.length === 0) {
+            (parent as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+    };
+
+    // Wait a bit before initial hide attempt to let form load
+    const initialTimeout = setTimeout(() => {
+      hideEmailField();
+    }, 500);
+
+    // Set up MutationObserver to watch for form changes
+    const formContainer = document.getElementById("kl__form-container");
+    if (formContainer) {
+      const observer = new MutationObserver(() => {
+        // Debounce to avoid too many calls
+        setTimeout(() => {
+          hideEmailField();
+        }, 100);
+      });
+
+      observer.observe(formContainer, {
+        childList: true,
+        subtree: true,
+      });
+
+      // Check periodically but less frequently
+      const interval = setInterval(() => {
+        hideEmailField();
+      }, 2000);
+
+      return () => {
+        clearTimeout(initialTimeout);
+        observer.disconnect();
+        clearInterval(interval);
+      };
+    } else {
+      return () => {
+        clearTimeout(initialTimeout);
+      };
+    }
+  }, []);
 
   return (
     <>
     <ScrollButton/>
-      {isClient && showModal && ( // Ensure modal only renders on the client side
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div
-            className="bg-white p-6 rounded-lg shadow-lg text-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
-            <button
-              onClick={() => setShowModal(false)}
-              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )}
 
       <div
         className="object-cover overflow-hidden min-h-screen flex items-center justify-center px-4 md:px-8"
@@ -103,78 +328,17 @@ export default function IEPFClaim() {
             </div>
           </div>
 
+          {/* Form Section - Kylas CRM Form */}
           <div className="flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:px-6 max-md:mt-4 min-h-[400px] w-full md:min-w-[350px] mb-8">
-            <form ref={formRef} onSubmit={sendEmail} className="max-w-lg p-4 mx-auto max-md:px-4">
+            <div className="max-w-lg p-4 mx-auto max-md:px-4 w-full">
               <div className="mb-6">
                 <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066] text-center">
                   Talk to experts – FREE
                 </h3>
               </div>
-
-              <input
-                type="text"
-                name="first_name"
-                placeholder="First Name"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
-              <input
-                type="text"
-                name="last_name"
-                placeholder="Last Name"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
-
-              <div className="relative w-full mb-4">
-                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-                  +91
-                </span>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  className="w-full pl-14 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                  maxLength={10}
-                  pattern="^\d{10}$"
-                  onInput={(e) => {
-                    const target = e.target as HTMLInputElement;
-                    target.value = target.value.replace(/\D/g, "");
-                  }}
-                  required
-                  title="Phone number must be exactly 10 digits"
-                />
+              {/* Kylas Form Container */}
+              <div id="kl__form-container"></div>
               </div>
-
-              <input
-                type="text"
-                name="city"
-                placeholder="City"
-                className="w-full mb-4 text-gray-800 rounded-md py-2 px-4 border text-sm outline-blue-500"
-                required
-              />
-
-              <div className="flex items-top mb-4">
-                <input
-                  type="checkbox"
-                  id="agree"
-                  name="agree"
-                  className="w-4 h-4 mr-2 mt-1 accent-[#FEB066] cursor-pointer"
-                  required
-                />
-                <label htmlFor="agree" className="text-sm text-white">
-                  I agree to receive updates on email or phone.
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
-                hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
-              >
-                Submit
-              </button>
-            </form>
           </div>
         </div>
       </div>

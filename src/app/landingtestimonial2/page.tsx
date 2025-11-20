@@ -1,53 +1,440 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 // import eclipse from "../../../public/images/Ellipse.png";
 import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import google from "../../../public/images/google.webp";
-import emailjs from "emailjs-com";
 // import LandingTestimonial from "../testimonial/landingtestimonial";
 
 export default function LandingTestimonial2() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [showModal, setShowModal] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
   const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
   const [visibleCount, setVisibleCount] = useState(3);
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  useEffect(() => {
+    // Capture and store UTM parameters for lead tracking
+    const captureUTMParameters = () => {
+      if (typeof window === "undefined") return;
 
-    if (!formRef.current) return;
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams: Record<string, string> = {};
 
-    emailjs
-      .sendForm(
-        "service_0m8kbz9", // Replace with your EmailJS service ID
-        "template_foaef8d", // Replace with your EmailJS template ID
-        formRef.current,
-        "Fkjr_xe9jDFgk_BFj" // Replace with your EmailJS Public Key
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setToastMessage(
-            "Thank you for your response. Our representative will contact you shortly."
-          );
-          setShowModal(true); // Show modal on success
+      // UTM parameters to capture
+      const utmFields = [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+      ];
 
-          if (formRef.current) {
-            formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
+      utmFields.forEach((field) => {
+        const value = urlParams.get(field);
+        if (value) {
+          utmParams[field] = value;
+          // Store in sessionStorage to persist across page navigation
+          sessionStorage.setItem(field, value);
+        } else {
+          // If not in URL, check sessionStorage for previously stored values
+          const storedValue = sessionStorage.getItem(field);
+          if (storedValue) {
+            utmParams[field] = storedValue;
           }
-        },
-        (error) => {
-          console.error("Error sending email:", error.text);
-          setToastMessage("Failed to send the form. Try again.");
-          setShowModal(true);
-          setTimeout(() => setShowModal(false), 3000);
         }
+      });
+
+      // Store all UTM params as a JSON object for easy access
+      if (Object.keys(utmParams).length > 0) {
+        sessionStorage.setItem("utm_params", JSON.stringify(utmParams));
+
+        // Also set them as data attributes on the form container for Kylas to pick up
+        const formContainer = document.getElementById("kl__form-container-testimonial2");
+        if (formContainer) {
+          Object.keys(utmParams).forEach((key) => {
+            formContainer.setAttribute(`data-${key}`, utmParams[key]);
+          });
+        }
+      }
+
+      // If UTM params exist in URL, preserve them in the URL for Kylas to read
+      if (Object.keys(utmParams).length > 0 && window.location.search) {
+        // Kylas will automatically read UTM parameters from the URL
+        console.log("UTM Parameters captured:", utmParams);
+      }
+    };
+
+    // Add CSS to hide email field (more targeted approach)
+    const addEmailHideStyles = () => {
+      const styleId = "hide-kylas-email-field-testimonial2";
+      if (document.getElementById(styleId)) return;
+
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.textContent = `
+        /* Hide only email input fields specifically for testimonial2 */
+        #kl__form-container-testimonial2 input[type="email"] {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          opacity: 0 !important;
+          position: absolute !important;
+          left: -9999px !important;
+        }
+        
+        /* Hide labels that are directly associated with email inputs */
+        #kl__form-container-testimonial2 label[for*="email" i],
+        #kl__form-container-testimonial2 label:has(input[type="email"]) {
+          display: none !important;
+        }
+        
+        /* Hide divs that contain ONLY email inputs (but be careful not to hide the whole form) */
+        #kl__form-container-testimonial2 > * > div:has(> input[type="email"]:only-child),
+        #kl__form-container-testimonial2 > * > div:has(> label:has(input[type="email"]):only-child) {
+          display: none !important;
+        }
+        
+        /* Make form background white */
+        #kl__form-container-testimonial2,
+        #kl__form-container-testimonial2 form,
+        #kl__form-container-testimonial2 > div,
+        #kl__form-container-testimonial2 .form-wrapper {
+          background-color: #ffffff !important;
+          padding: 16px !important;
+          border-radius: 8px !important;
+        }
+        
+        /* Ensure text is dark/black on white background */
+        #kl__form-container-testimonial2 label,
+        #kl__form-container-testimonial2 .label,
+        #kl__form-container-testimonial2 .form-label,
+        #kl__form-container-testimonial2 .field-label {
+          color: #1f2937 !important;
+        }
+        
+        /* Style input placeholders - black color */
+        #kl__form-container-testimonial2 input::placeholder,
+        #kl__form-container-testimonial2 textarea::placeholder {
+          color: #000000 !important;
+          opacity: 0.7 !important;
+        }
+        
+        /* Make required field indicators black */
+        #kl__form-container-testimonial2 .required,
+        #kl__form-container-testimonial2 [required]::before,
+        #kl__form-container-testimonial2 label .required,
+        #kl__form-container-testimonial2 .asterisk,
+        #kl__form-container-testimonial2 label span[style*="color"] {
+          color: #000000 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    };
+
+    // Add CSS styles
+    addEmailHideStyles();
+
+    // Capture UTM parameters
+    captureUTMParameters();
+
+    // Load Kylas CRM form script dynamically
+    // Check if script is already loaded (might be loaded by another component)
+    const existingScript = document.querySelector(
+      'script[form-id="2a09aa6f-0148-4eb3-99eb-74496865764d"]'
+    );
+    
+    let script: HTMLScriptElement;
+    if (!existingScript) {
+      script = document.createElement("script");
+      script.src = "https://assets.kylas.io/lead-capture-forms/lcf.min.js";
+      script.setAttribute("form-id", "2a09aa6f-0148-4eb3-99eb-74496865764d");
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      script = existingScript as HTMLScriptElement;
+    }
+
+    // Function to initialize form in the testimonial2 container by cloning from the first form
+    const initializeForm = () => {
+      const formContainer = document.getElementById("kl__form-container-testimonial2");
+      if (!formContainer) return;
+
+      // Check if form is already rendered
+      if (formContainer.querySelector('form')) {
+        return; // Form already rendered
+      }
+
+      // Wait for the default form to render, then clone it
+      const cloneForm = () => {
+        const defaultContainer = document.getElementById('kl__form-container');
+        if (defaultContainer && defaultContainer.querySelector('form')) {
+          const originalForm = defaultContainer.querySelector('form');
+          if (originalForm) {
+            // Clone the entire form structure
+            const clonedForm = originalForm.cloneNode(true) as HTMLElement;
+            
+            // Update form IDs to make them unique (but keep names original for Kylas)
+            const allInputs = clonedForm.querySelectorAll('input, select, textarea');
+            allInputs.forEach((input, index) => {
+              const inputElement = input as HTMLElement;
+              if (inputElement.id) {
+                inputElement.id = `${inputElement.id}_testimonial2_${index}`;
+              }
+              // Keep original names so Kylas can process the form correctly
+            });
+
+            // Update label 'for' attributes
+            const allLabels = clonedForm.querySelectorAll('label');
+            allLabels.forEach((label, index) => {
+              const forAttr = label.getAttribute('for');
+              if (forAttr) {
+                label.setAttribute('for', `${forAttr}_testimonial2_${index}`);
+              }
+            });
+
+            // Clear container and add cloned form
+            formContainer.innerHTML = '';
+            formContainer.appendChild(clonedForm);
+            
+            // Make form background white
+            const makeBackgroundWhite = () => {
+              // Set background to white
+              formContainer.style.backgroundColor = '#ffffff';
+              formContainer.style.padding = '16px';
+              formContainer.style.borderRadius = '8px';
+              
+              // Ensure form and wrapper also have white background
+              const form = formContainer.querySelector('form');
+              if (form) {
+                (form as HTMLElement).style.backgroundColor = '#ffffff';
+              }
+              
+              // Make labels dark/black
+              const labels = formContainer.querySelectorAll('label');
+              labels.forEach((label) => {
+                (label as HTMLElement).style.color = '#1f2937';
+              });
+            };
+            
+            // Apply styles immediately and after a short delay
+            makeBackgroundWhite();
+            setTimeout(makeBackgroundWhite, 100);
+            
+            // Kylas's global handlers should work with the cloned form
+            // The form will submit through Kylas's own submission handler
+            
+            hideEmailField();
+            return true;
+          }
+        }
+        return false;
+      };
+
+      // Try to clone immediately, if form is already rendered
+      if (!cloneForm()) {
+        // If form not ready, check periodically
+        let attempts = 0;
+        const maxAttempts = 20; // Try for 10 seconds (20 * 500ms)
+        const checkInterval = setInterval(() => {
+          attempts++;
+          if (cloneForm() || attempts >= maxAttempts) {
+            clearInterval(checkInterval);
+          }
+        }, 500);
+      }
+    };
+
+    // Function to hide email field from Kylas form (more targeted)
+    const hideEmailField = () => {
+      const formContainer = document.getElementById("kl__form-container-testimonial2");
+      if (!formContainer) return;
+
+      // Find email inputs and hide only them, not entire containers
+      const emailInputs = formContainer.querySelectorAll('input[type="email"]');
+      emailInputs.forEach((input) => {
+        const inputElement = input as HTMLElement;
+        // Hide the input itself
+        inputElement.style.display = 'none';
+        inputElement.style.visibility = 'hidden';
+        inputElement.style.height = '0';
+        inputElement.style.margin = '0';
+        inputElement.style.padding = '0';
+        inputElement.style.position = 'absolute';
+        inputElement.style.left = '-9999px';
+        
+        // Hide associated label if it exists
+        const inputName = (inputElement as HTMLInputElement).name;
+        const label = formContainer.querySelector(`label[for="${inputElement.id}"], label[for="${inputName}"]`);
+        if (label) {
+          (label as HTMLElement).style.display = 'none';
+        }
+        
+        // Only hide parent if it contains ONLY the email field
+        const parent = inputElement.parentElement;
+        if (parent && parent !== formContainer) {
+          const siblings = Array.from(parent.children).filter(child => child !== inputElement && child !== label);
+          // If parent only has the email input (and maybe its label), hide the parent
+          if (siblings.length === 0) {
+            (parent as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+
+      // Find by name attribute containing "email" (only if it's an email input)
+      const emailFieldsByName = formContainer.querySelectorAll('[name*="email" i], [name*="Email"]');
+      emailFieldsByName.forEach((field) => {
+        const fieldElement = field as HTMLElement;
+        if (fieldElement.tagName === 'INPUT' && (fieldElement as HTMLInputElement).type === 'email') {
+          fieldElement.style.display = 'none';
+          fieldElement.style.visibility = 'hidden';
+        }
+      });
+    };
+
+    // After script loads, ensure UTM params are available and hide email field
+    const handleScriptLoad = () => {
+      captureUTMParameters();
+      
+      // Wait a bit for the first form to render, then clone it
+      setTimeout(() => {
+        initializeForm();
+        hideEmailField();
+      }, 2000);
+
+      // Also use MutationObserver to watch for form changes
+      const formContainer = document.getElementById("kl__form-container-testimonial2");
+      if (formContainer) {
+        const observer = new MutationObserver(() => {
+          hideEmailField();
+        });
+
+        observer.observe(formContainer, {
+          childList: true,
+          subtree: true,
+          attributes: false,
+        });
+
+        // Also check periodically in case form loads later
+        const checkInterval = setInterval(() => {
+          hideEmailField();
+          // Stop checking after 15 seconds
+          setTimeout(() => clearInterval(checkInterval), 15000);
+        }, 1000);
+      }
+    };
+
+    // Also watch the default container to know when form is ready
+    const defaultContainer = document.getElementById('kl__form-container');
+    if (defaultContainer) {
+      const defaultObserver = new MutationObserver(() => {
+        // When default form appears, initialize the testimonial2 form
+        if (defaultContainer.querySelector('form')) {
+          setTimeout(() => {
+            initializeForm();
+          }, 500);
+        }
+      });
+
+      defaultObserver.observe(defaultContainer, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    if (script.onload === null || (script as any).readyState === 'complete') {
+      // Script already loaded
+      handleScriptLoad();
+    } else {
+      script.onload = handleScriptLoad;
+    }
+
+    // Cleanup function
+    return () => {
+      // Optionally remove script on unmount
+      const scriptToRemove = document.querySelector(
+        'script[form-id="2a09aa6f-0148-4eb3-99eb-74496865764d"]'
       );
-  };
+      if (scriptToRemove) {
+        document.body.removeChild(scriptToRemove);
+      }
+    };
+  }, []);
+
+  // Separate effect to continuously monitor and hide email field (more targeted)
+  useEffect(() => {
+    const hideEmailField = () => {
+      const formContainer = document.getElementById("kl__form-container-testimonial2");
+      if (!formContainer) return;
+
+      // Find and hide only email inputs, not entire containers
+      const emailInputs = formContainer.querySelectorAll('input[type="email"]');
+      emailInputs.forEach((input) => {
+        const inputElement = input as HTMLElement;
+        // Hide the input itself
+        inputElement.style.display = 'none';
+        inputElement.style.visibility = 'hidden';
+        inputElement.style.height = '0';
+        inputElement.style.margin = '0';
+        inputElement.style.padding = '0';
+        inputElement.style.position = 'absolute';
+        inputElement.style.left = '-9999px';
+        
+        // Hide associated label
+        const inputName = (inputElement as HTMLInputElement).name;
+        const label = formContainer.querySelector(`label[for="${inputElement.id}"], label[for="${inputName}"]`);
+        if (label) {
+          (label as HTMLElement).style.display = 'none';
+        }
+        
+        // Only hide parent if it contains ONLY the email field
+        const parent = inputElement.parentElement;
+        if (parent && parent !== formContainer) {
+          const siblings = Array.from(parent.children).filter(child => child !== inputElement && child !== label);
+          if (siblings.length === 0) {
+            (parent as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+    };
+
+    // Wait a bit before initial hide attempt to let form load
+    const initialTimeout = setTimeout(() => {
+      hideEmailField();
+    }, 500);
+
+    // Set up MutationObserver to watch for form changes
+    const formContainer = document.getElementById("kl__form-container-testimonial2");
+    if (formContainer) {
+      const observer = new MutationObserver(() => {
+        // Debounce to avoid too many calls
+        setTimeout(() => {
+          hideEmailField();
+        }, 100);
+      });
+
+      observer.observe(formContainer, {
+        childList: true,
+        subtree: true,
+      });
+
+      // Check periodically but less frequently
+      const interval = setInterval(() => {
+        hideEmailField();
+      }, 2000);
+
+      return () => {
+        clearTimeout(initialTimeout);
+        observer.disconnect();
+        clearInterval(interval);
+      };
+    } else {
+      return () => {
+        clearTimeout(initialTimeout);
+      };
+    }
+  }, []);
 
   const reviews = [
     {
@@ -168,26 +555,6 @@ export default function LandingTestimonial2() {
         </div>
       </div>
 
-      {/* Modal Popup */}
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          {/* Outer container to capture clicks */}
-          <div
-            className="bg-white p-6 rounded-lg shadow-lg text-center"
-            onClick={(e) => e.stopPropagation()} // Prevent clicks inside the modal from closing it
-          >
-            <h2 className="text-xl font-bold text-gray-800 mb-2">
-              {toastMessage}
-            </h2>
-            <button
-              onClick={() => setShowModal(false)} // Closes the modal only when clicked
-              className="mt-3 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
-            >
-              OK
-            </button>
-          </div>
-        </div>
-      )}
 
       <section className="bg-gray-100 py-12 px-6 mt-10 mb-5">
         <div className="text-center mb-8">
@@ -351,83 +718,17 @@ export default function LandingTestimonial2() {
         <div className="mx-auto max-w-screen-xl">
           <div className="lg:max-w-7xl max-w-xl mx-auto">
             <div className="grid md:grid-cols-2 gap-20">
-              {/* Form Section */}
+              {/* Form Section - Kylas CRM Form */}
               <div className="flex bg-black border border-white items-center lg:ml-auto h-[500px] w-full md:w-[450px] mx-auto py-0 sm:py-6">
-                <form
-                  ref={formRef}
-                  onSubmit={sendEmail}
-                  className="max-w-lg p-4 mx-auto max-md:px-4"
-                >
+                <div className="max-w-lg p-4 mx-auto max-md:px-4 w-full">
                   <div className="mb-10">
                     <h3 className="text-3xl font-bold text-[#FEB066]">
                       Talk to experts – FREE
                     </h3>
                   </div>
-
-                  <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
-
-                  <div className="relative w-full mb-6">
-                    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600 font-semibold">
-                      +91
-                    </span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      className="w-full pl-14 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                      maxLength={10} // Restrict to 10 digits
-                      pattern="^\d{10}$" // Ensure exactly 10 digits
-                      onInput={(e) => {
-                        const target = e.target as HTMLInputElement;
-                        target.value = target.value.replace(/\D/g, ""); // Remove non-numeric characters
-                      }}
-                      required
-                      title="Phone number must be exactly 10 digits"
-                    />
+                  {/* Kylas Form Container */}
+                  <div id="kl__form-container-testimonial2"></div>
                   </div>
-
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="City"
-                    className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                    required
-                  />
-
-                  <div className="flex items-top mb-6">
-                    <input
-                      type="checkbox"
-                      id="agree"
-                      name="agree"
-                      className="w-4 h-4 mr-2 accent-[#FEB066] cursor-pointer"
-                      required
-                    />
-                    <label htmlFor="agree" className="text-sm text-white">
-                      I agree to receive updates on email or phone.
-                    </label>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
-             hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
-                  >
-                    Submit
-                  </button>
-                </form>
               </div>
 
               {/* Document List Section */}
