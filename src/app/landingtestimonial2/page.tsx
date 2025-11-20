@@ -343,7 +343,8 @@ export default function LandingTestimonial2() {
       });
     }
 
-    if (script.onload === null || (script as any).readyState === 'complete') {
+    // Check if script is already loaded
+    if (script.onload === null) {
       // Script already loaded
       handleScriptLoad();
     } else {

@@ -6,11 +6,9 @@ import Content from "./content";
 import ScrollButton from "@/components/scrollbutton";
 
 export default function IEPFClaim() {
-  const [isClient, setIsClient] = useState(false); // Check if we're on the client
   const [bgImage, setBgImage] = useState(""); // State to manage background image
 
   useEffect(() => {
-    setIsClient(true); // Ensure we are on the client
     setBgImage("url(/images/geomatric.png)"); // Set the background image after the component mounts
   }, []);
 
@@ -199,8 +197,9 @@ export default function IEPFClaim() {
       }
     };
 
-    const scriptElement = existingScript as HTMLScriptElement || script;
-    if (scriptElement.onload === null || (scriptElement as any).readyState === 'complete') {
+    const scriptElement = (existingScript as HTMLScriptElement) || script;
+    // Check if script is already loaded
+    if (scriptElement.onload === null) {
       // Script already loaded
       handleScriptLoad();
     } else {
