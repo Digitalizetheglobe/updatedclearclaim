@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // No "output: export" = full Next.js on Vercel (SSR, API routes, image optimization)
   images: {
-    unoptimized: true,
+    unoptimized: true, // set to false if you want Vercel to optimize images
   },
-  trailingSlash: true, // <-- Ensures static files are served correctly
+  trailingSlash: true,
 };
 
 export default nextConfig;
