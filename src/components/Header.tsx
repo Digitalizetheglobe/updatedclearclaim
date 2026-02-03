@@ -84,6 +84,8 @@ export default function Header() {
                   className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
                   onClick={handleCloseMenu}
                 >
+
+                  
                   Home
                 </Link>
               </li>
@@ -121,7 +123,7 @@ export default function Header() {
                   className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
                   onClick={handleCloseMenu}
                 >
-                  
+
                   NRI Services
                 </Link>
               </li>
