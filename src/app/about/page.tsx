@@ -7,7 +7,7 @@ import hardik from "../../../public/images/hardik.png";
 import Meetourteam from "./meetourteam";
 import linkedin from "../../../public/images/linkedin.png";
 import CustomHead from '../../components/CustomHead';
-
+//newchanges 
 export default function About() {
   return (
     <>
