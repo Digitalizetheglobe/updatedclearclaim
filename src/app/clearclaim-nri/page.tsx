@@ -2,8 +2,32 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import emailjs from "emailjs-com";
 import google from "../../../public/images/google.webp";
+
+// Same-origin API routes (no trailing slash - Next matches /api/inquiries)
+const API_BASE = "";
+
+const INVESTMENT_TYPES = [
+  "Shares Recovery",
+  "Mutual Funds Redemption",
+  "Insurance Claim Recovery",
+  "Provident Funds Recovery",
+  "Debtor Recovery",
+  "Unclaimed Bank Deposits",
+  "Property Dispute",
+  "Litigation Funding Consulting",
+] as const;
+
+const CALLBACK_TIMES = [
+  "10:00 AM-11:00 AM",
+  "11:00 AM-12:00 PM",
+  "12:00 PM-1:00 PM",
+  "2:00 PM-3:00 PM",
+  "3:00 PM-4:00 PM",
+  "4:00 PM-5:00 PM",
+  "5:00 PM-6:00 PM",
+  "6:00 PM-7:00 PM",
+] as const;
 import phoneIcon from "../../../public/images/phone-call.png";
 import emailIcon from "../../../public/images/email.png";
 import bankrupty from "../../../public/images/bankruptcy.png";
@@ -56,6 +80,15 @@ export default function NRISamadhan() {
   const heroFormRef = useRef<HTMLFormElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [options, setOptions] = useState<{ type_of_unclaimed_investments?: string[]; preferred_callback_time?: string[] } | null>(null);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/inquiries/options`)
+      .then((res) => res.ok ? res.json() : null)
+      .then((data) => data && setOptions(data))
+      .catch(() => {});
+  }, []);
 
   const reviews = [
     {
@@ -169,34 +202,48 @@ export default function NRISamadhan() {
     setVisibleCount(reviews.length);
   };
 
-  const sendEmailWithRef = (formRef: React.RefObject<HTMLFormElement | null>) => (e: React.FormEvent<HTMLFormElement>) => {
+  const submitInquiry = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formRef.current) return;
-    emailjs
-      .sendForm(
-        "service_4fca0ux",
-        "template_0esr8bw",
-        formRef.current,
-        "Ycds2m4eCIak1IOcz"
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setToastMessage("Thank you for your response. Our representative will contact you shortly.");
-          setShowModal(true);
-          if (formRef.current) formRef.current.reset();
-        },
-        (error) => {
-          const msg = typeof error?.text === "string" ? error.text : "";
-          if (msg.includes("Invalid grant") || msg.includes("Gmail_API")) {
-            setToastMessage("We're temporarily unable to send your request. Please call us at +91 9156701900 / +91 9970651900 or email sales@clearclaim.in—we'll respond quickly.");
-          } else {
-            setToastMessage("Failed to send the form. Please try again or contact us by phone/email.");
-          }
-          setShowModal(true);
-          setTimeout(() => setShowModal(false), 5000);
-        }
-      );
+    const form = heroFormRef.current;
+    if (!form || formSubmitting) return;
+
+    const first = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const last = (form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const phone = (form.querySelector('[name="phone"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
+    const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const country = (form.querySelector('[name="country"]') as HTMLSelectElement)?.value ?? "";
+    const typeOfInvestment = (form.querySelector('[name="type_of_unclaimed_investments"]') as HTMLSelectElement)?.value ?? "";
+    const callbackTime = (form.querySelector('[name="preferred_callback_time"]') as HTMLSelectElement)?.value ?? "";
+
+    const payload = {
+      name: `${first} ${last}`.trim(),
+      country_of_residence: country,
+      whatsapp_number: phone.length === 10 ? `+91${phone}` : phone.startsWith("+") ? phone : `+91${phone}`,
+      email,
+      type_of_unclaimed_investments: typeOfInvestment,
+      preferred_callback_time: callbackTime,
+    };
+
+    setFormSubmitting(true);
+    fetch(`${API_BASE}/api/inquiries`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText || "Request failed");
+        return res.json();
+      })
+      .then(() => {
+        setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+        setShowModal(true);
+        form.reset();
+      })
+      .catch(() => {
+        setToastMessage("Failed to send the form. Please try again or contact us at +91 9156701900 / +91 9970651900 or sales@clearclaim.in.");
+        setShowModal(true);
+      })
+      .finally(() => setFormSubmitting(false));
   };
 
   return (
@@ -216,7 +263,7 @@ export default function NRISamadhan() {
         </div>
       )}
 
-      <div className="bg-white text-gray-800">
+    <div className="bg-white text-gray-800">
       {/* ================= HERO SECTION ================= */}
       <section className="relative bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D] text-white py-16 md:py-24 overflow-hidden">
         {/* Background Pattern */}
@@ -271,7 +318,7 @@ export default function NRISamadhan() {
                 </div>
                 <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
                   <span className="text-white/90">✓ 2500+ Associates</span>
-                </div>
+                  </div>
               </div>
 
               {/* Contact Info */}
@@ -298,13 +345,13 @@ export default function NRISamadhan() {
               <div className="mb-6">
                 <h3 className="text-2xl font-bold text-gray-800">
                   Start Your Recovery Journey
-                </h3>
+              </h3>
                 <p className="text-gray-600 mt-2">Free consultation & case evaluation</p>
               </div>
 
               <form
                 ref={heroFormRef}
-                onSubmit={sendEmailWithRef(heroFormRef)}
+                onSubmit={submitInquiry}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4"
               >
                 <div>
@@ -357,13 +404,26 @@ export default function NRISamadhan() {
                   <label htmlFor="hero_city" className="text-gray-800 text-sm block mb-2">
                     Current City
                   </label>
-                  <input
+                <input
                     id="hero_city"
                     name="city"
                     type="text"
                     placeholder="Enter City"
                     className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                    required
+                  required
+                />
+                </div>
+                <div className="col-span-full sm:col-span-1">
+                  <label htmlFor="hero_email" className="text-gray-800 text-sm block mb-2">
+                    Email
+                  </label>
+                <input
+                    id="hero_email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter Email"
+                    className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
+                  required
                   />
                 </div>
                 <div className="col-span-full">
@@ -377,6 +437,7 @@ export default function NRISamadhan() {
                     required
                   >
                     <option value="">Select Country</option>
+                    <option value="India">India</option>
                     <option value="USA">United States</option>
                     <option value="UAE">United Arab Emirates</option>
                     <option value="UK">United Kingdom</option>
@@ -387,12 +448,44 @@ export default function NRISamadhan() {
                   </select>
                 </div>
                 <div className="col-span-full">
+                  <label htmlFor="hero_investment_type" className="text-gray-800 text-sm block mb-2">
+                    Type of Unclaimed Investment
+                  </label>
+                  <select
+                    id="hero_investment_type"
+                    name="type_of_unclaimed_investments"
+                    className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
+                    required
+                  >
+                    <option value="">Select type</option>
+                    {(options?.type_of_unclaimed_investments ?? INVESTMENT_TYPES).map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-span-full">
+                  <label htmlFor="hero_callback_time" className="text-gray-800 text-sm block mb-2">
+                    Preferred Callback Time
+                  </label>
+                  <select
+                    id="hero_callback_time"
+                    name="preferred_callback_time"
+                    className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
+                    required
+                  >
+                    <option value="">Select time slot</option>
+                    {(options?.preferred_callback_time ?? CALLBACK_TIMES).map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-span-full">
                   <input
                     type="checkbox"
                     id="hero_agree"
                     name="agree"
                     className="w-4 h-4 mr-2 accent-[#00BE5D] cursor-pointer"
-                    required
+                  required
                   />
                   <label htmlFor="hero_agree" className="text-sm text-gray-800">
                     I agree to receive updates on email or phone.
@@ -401,10 +494,11 @@ export default function NRISamadhan() {
                 <div className="col-span-full">
                   <button
                     type="submit"
-                    className="text-white w-full bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 hover:bg-[#008C44] hover:border-[#008C44] transition-all duration-300"
+                    disabled={formSubmitting}
+                    className="text-white w-full bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 hover:bg-[#008C44] hover:border-[#008C44] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Get Free Consultation
-                  </button>
+                    {formSubmitting ? "Sending…" : "Get Free Consultation"}
+                </button>
                 </div>
               </form>
               
@@ -462,7 +556,7 @@ export default function NRISamadhan() {
             <div className="animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
                 NRI Services – Recover Your Financial Assets from India
-              </h2>
+          </h2>
               <p className="text-xl text-[#00BE5D] font-semibold mb-6">
                 Reclaim What&apos;s Rightfully Yours, Even While Living Abroad
               </p>
@@ -472,7 +566,7 @@ export default function NRISamadhan() {
               <p className="text-lg text-gray-600">
                 We already support NRI clients living in the USA, UAE, UK, Canada, Australia, and Singapore, handling the entire recovery process from start to finish remotely, from paperwork to final credit. You stay updated, and we handle the hassles.
               </p>
-            </div>
+              </div>
             <div className="relative h-96 lg:h-full rounded-2xl overflow-hidden animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
               <Image
                 src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
@@ -488,7 +582,7 @@ export default function NRISamadhan() {
               </div>
             </div>
           </div>
-        </div>
+              </div>
       </section>
 
       {/* ================= WHY NRIs NEED ASSET RECOVERY ================= */}
@@ -541,7 +635,7 @@ export default function NRISamadhan() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
             Our NRI Asset Recovery Services
           </h2>
-
+          
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-[#f0f9ff] to-[#e6f7ed] rounded-xl p-6 border-l-4 border-[#00BE5D] hover:shadow-xl transition-all duration-300 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:280ms]">
               <div className="mb-4">
@@ -557,8 +651,8 @@ export default function NRISamadhan() {
                 <li className="flex items-start gap-2"><span className="text-[#00BE5D] mt-1">✓</span><span>Prepare and submit all required forms and supporting documents</span></li>
                 <li className="flex items-start gap-2"><span className="text-[#00BE5D] mt-1">✓</span><span>Coordinate with companies and regulatory authorities until recovery is completed</span></li>
               </ul>
-            </div>
-
+          </div>
+          
             <div className="bg-gradient-to-br from-[#f0f9ff] to-[#e6f7ed] rounded-xl p-6 border-l-4 border-[#00BE5D] hover:shadow-xl transition-all duration-300 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:380ms]">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-[#00BE5D] rounded-full flex items-center justify-center text-white text-2xl mb-4">
@@ -572,8 +666,8 @@ export default function NRISamadhan() {
                 <li className="flex items-start gap-2"><span className="text-[#00BE5D] mt-1">✓</span><span>Filing recovery requests with the respective banks</span></li>
                 <li className="flex items-start gap-2"><span className="text-[#00BE5D] mt-1">✓</span><span>Supporting you through KYC updates and documentation</span></li>
               </ul>
-            </div>
-
+          </div>
+          
             <div className="bg-gradient-to-br from-[#f0f9ff] to-[#e6f7ed] rounded-xl p-6 border-l-4 border-[#00BE5D] hover:shadow-xl transition-all duration-300 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:480ms]">
               <div className="mb-4">
                 <div className="w-16 h-16 bg-[#00BE5D] rounded-full flex items-center justify-center text-white text-2xl mb-4">
@@ -598,7 +692,7 @@ export default function NRISamadhan() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             How Our NRI Recovery Process Works
           </h2>
-
+          
           <div className="grid lg:grid-cols-5 gap-6">
             {[
               {
@@ -636,14 +730,14 @@ export default function NRISamadhan() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 h-full">
                   <div className="w-16 h-16 bg-[#00BE5D] rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
                     {item.icon}
-                  </div>
+              </div>
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-white/80 text-sm">{item.desc}</p>
-                </div>
+              </div>
                 {item.step !== "5" && (
                   <div className="hidden lg:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
                     <div className="w-8 h-0.5 bg-[#00BE5D]"></div>
-                  </div>
+            </div>
                 )}
               </div>
             ))}
@@ -663,7 +757,7 @@ export default function NRISamadhan() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
             Why NRIs Trust ClearClaim
           </h2>
-
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-gradient-to-br from-[#f0f9ff] to-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:440ms]">
               <div className="w-12 h-12 bg-[#00BE5D]/10 rounded-full flex items-center justify-center text-[#00BE5D] text-xl mb-4">
@@ -735,7 +829,7 @@ export default function NRISamadhan() {
                   ) : (
                     <ChevronDown />
                   )}
-                </button>
+              </button>
                 
                 {expandedFaqs[index] && (
                   <div className="p-6 pt-0 border-t border-gray-100">
@@ -757,9 +851,9 @@ export default function NRISamadhan() {
                             sizes="(max-width: 1024px) 100vw, 33vw"
                           />
                         </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
+          </div>
+        </div>
                 )}
               </div>
             ))}
@@ -784,7 +878,7 @@ export default function NRISamadhan() {
           <div className="text-center mb-12 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:0ms]">
             <h2 className="md:text-3xl text-xl font-semibold text-[#1a3a1f]">
               Google Reviews That <span className="text-[#00BE5D]">Speak for Themselves</span>
-            </h2>
+          </h2>
             <p className="text-gray-600 mt-2">See what our NRI clients say about us</p>
           </div>
           
@@ -826,9 +920,9 @@ export default function NRISamadhan() {
                 >
                   Load More Reviews
                 </button>
-              )}
-            </div>
-            
+            )}
+          </div>
+
             {/* Desktop: Show all reviews in scrollable container */}
             <div className="hidden md:block h-[500px] overflow-y-scroll rounded-xl bg-gradient-to-br from-gray-50 to-white p-6 shadow-inner">
               <div className="grid grid-cols-3 gap-6">
@@ -857,7 +951,7 @@ export default function NRISamadhan() {
                       onClick={() => toggleReadMore(index)}
                     >
                       {expandedReviews[index] ? "Read Less" : "Read More"}
-                    </button>
+          </button>
                   </div>
                 ))}
               </div>
