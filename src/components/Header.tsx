@@ -117,7 +117,7 @@ export default function Header() {
       </li>
               <li className="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
                 <Link
-                  href="/clearclaim-nri"
+                  href="/nri-services"
                   className="hover:text-[#00BE5D] text-[#000] block font-semibold text-[15px]"
                   onClick={handleCloseMenu}
                 >
