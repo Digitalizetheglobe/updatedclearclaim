@@ -149,7 +149,7 @@ export default function Content() {
         </div>
       </div>
 
-      <LandingTestimonial />
+      <LandingTestimonial formApi="/api/iepf" />
     </>
   );
 }

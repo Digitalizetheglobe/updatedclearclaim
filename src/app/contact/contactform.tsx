@@ -1,50 +1,51 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import emailjs from "emailjs-com";
 import phone from "../../../public/images/phone-call.png";
 import email from "../../../public/images/email.png";
 import address from "../../../public/images/location.png";
 import Image from "next/image";
 
-
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [formSubmitting, setFormSubmitting] = useState(false);
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formRef.current || formSubmitting) return;
 
-    if (!formRef.current) return;
+    const form = formRef.current;
+    const first_name = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const last_name = (form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const phoneRaw = (form.querySelector('[name="phone"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
+    const city = (form.querySelector('[name="city"]') as HTMLInputElement)?.value?.trim() ?? "";
 
-    emailjs
-      .sendForm(
-        "service_4fca0ux", // Replace with your EmailJS service ID
-        "template_0esr8bw", // Replace with your EmailJS template ID
-        formRef.current,
-        "Ycds2m4eCIak1IOcz" // Replace with your EmailJS Public Key
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully:", result.text);
-          setToastMessage(
-            "Thank you for your response. Our representative will contact you shortly."
-          );
-          setShowModal(true); // Show modal on success
+    const phone_number = phoneRaw ? `+91 ${phoneRaw}` : "";
 
-          if (formRef.current) {
-            formRef.current.reset(); // Ensure formRef.current is not null before calling reset()
-          }
+    const payload = { first_name, last_name, phone_number, city };
 
-        },
-        (error) => {
-          console.error("Error sending email:", error.text);
-          setToastMessage("Failed to send the form. Try again.");
-          setShowModal(true);
-          setTimeout(() => setShowModal(false), 3000);
-        }
-      );
+    setFormSubmitting(true);
+    fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText || "Request failed");
+        return res.json();
+      })
+      .then(() => {
+        setToastMessage("Thank you for your response. Our representative will contact you shortly.");
+        setShowModal(true);
+        form.reset();
+      })
+      .catch(() => {
+        setToastMessage("Failed to send the form. Try again.");
+        setShowModal(true);
+      })
+      .finally(() => setFormSubmitting(false));
   };
 
   return (
@@ -79,7 +80,7 @@ export default function ContactForm() {
 
             <form
               ref={formRef}
-              onSubmit={sendEmail}
+              onSubmit={handleSubmit}
               className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6"
             >
               <div>
@@ -169,12 +170,12 @@ export default function ContactForm() {
 
             
               <button
-  type="submit"
-  className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 
-             hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300"
->
-  Get Free Consulting
-</button>
+                type="submit"
+                disabled={formSubmitting}
+                className="text-white w-max bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 hover:bg-white hover:text-[#00BE5D] hover:border-[#00BE5D] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {formSubmitting ? "Sending…" : "Get Free Consulting"}
+              </button>
 
             </form>
           </div>

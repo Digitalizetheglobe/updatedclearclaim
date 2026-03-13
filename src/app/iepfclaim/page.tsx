@@ -25,7 +25,7 @@ export default function IEPFClaim() {
     };
 
     setFormSubmitting(true);
-    fetch("/api/share-recovery", {
+    fetch("/api/iepf", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

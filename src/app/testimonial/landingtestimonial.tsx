@@ -6,7 +6,7 @@ import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import google from '../../../public/images/google.webp'
 
-export default function LandingTestimonial() {
+export default function LandingTestimonial({ formApi = "/api/iepf" }: { formApi?: string }) {
   const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -28,7 +28,7 @@ export default function LandingTestimonial() {
     };
 
     setFormSubmitting(true);
-    fetch("/api/share-recovery", {
+    fetch(formApi, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -340,7 +340,7 @@ export default function LandingTestimonial() {
           <div className="lg:max-w-7xl max-w-xl mx-auto">
             <div className="grid lg:grid-cols-[1.3fr_1fr] items-center gap-12 lg:gap-16">
 
-              {/* Left Side: Form Section - EmailJS */}
+              {/* Left Side: Form Section (IEPF API) */}
               <div className="flex bg-black border border-white items-center lg:ml-auto min-h-[500px] w-full md:w-[450px] mx-auto py-0 sm:py-6 relative">
                 {showToastTestimonial && (
                   <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md w-[90%] max-w-[400px] text-center text-sm z-10">
