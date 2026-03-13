@@ -99,13 +99,18 @@ export default function IEPFClaim() {
           </div>
 
           {/* Form Section */}
-          <div className="mt-2 flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:w-full max-md:px-6 max-md:py-6 max-md:mt-4 min-h-[400px] md:min-w-[350px] mb-8">
-            <div className="max-w-lg p-4 mx-auto max-md:px-4 max-md:w-full">
+          <div className="mt-2 flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:w-full max-md:px-6 max-md:py-6 max-md:mt-4 min-h-[400px] md:min-w-[450px] mb-8">
+            <div className="max-w-xl p-4 mx-auto max-md:px-4 max-md:w-full">
               {showToast && (
                 <div className="absolute top-[-40px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in max-w-[90%] text-center z-10">
                   {toastMessage}
                 </div>
               )}
+                <div className="mb-12">
+                  <h3 className="text-3xl font-bold text-[#FEB066]">
+                    REQUEST A CALL BACK
+                  </h3>
+                </div>
               <form
                 ref={formRef}
                 className="max-w-lg mx-auto max-md:px-4 max-md:w-full"

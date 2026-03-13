@@ -17,17 +17,17 @@ export default function ContactForm() {
     if (!formRef.current || formSubmitting) return;
 
     const form = formRef.current;
-    const first_name = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
-    const last_name = (form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const firstName = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const lastName = (form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? "";
     const phoneRaw = (form.querySelector('[name="phone"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const city = (form.querySelector('[name="city"]') as HTMLInputElement)?.value?.trim() ?? "";
 
-    const phone_number = phoneRaw ? `+91 ${phoneRaw}` : "";
+    const phoneNumber = phoneRaw ? `+91 ${phoneRaw}` : "";
 
-    const payload = { first_name, last_name, phone_number, city };
+    const payload = { firstName, lastName, phoneNumber, city };
 
     setFormSubmitting(true);
-    fetch("http://localhost:5000/api/contact", {
+    fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

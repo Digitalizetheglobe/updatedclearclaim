@@ -5,7 +5,7 @@ const CLEARCLAIM_API = process.env.CLEARCLAIM_API_URL ?? "https://api.clearclaim
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const res = await fetch(`${CLEARCLAIM_API}/api/contact`, {
+    const res = await fetch(`${CLEARCLAIM_API}/api/contacts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
