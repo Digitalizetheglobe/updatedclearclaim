@@ -20,11 +20,12 @@ export default function LandingTestimonial2() {
     if (!formRefTestimonial2.current || formSubmitting) return;
 
     const form = formRefTestimonial2.current;
+    const phoneRaw = (form.querySelector('[name="mobile"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const payload = {
       name: (form.querySelector('[name="name"]') as HTMLInputElement)?.value?.trim() ?? "",
+      mobileNumber: phoneRaw ? `+91 ${phoneRaw}` : "",
       email: (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "",
-      subject: (form.querySelector('[name="subject"]') as HTMLInputElement)?.value?.trim() ?? "",
-      message: (form.querySelector('[name="message"]') as HTMLTextAreaElement)?.value?.trim() ?? "",
+      city: (form.querySelector('[name="city"]') as HTMLInputElement)?.value?.trim() ?? "",
     };
 
     setFormSubmitting(true);
@@ -358,26 +359,31 @@ export default function LandingTestimonial2() {
                     className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
                   />
                   <input
+                    type="tel"
+                    name="mobile"
+                    placeholder="Mobile number"
+                    maxLength={10}
+                    pattern="^\d{10}$"
+                    required
+                    onInput={(e) => {
+                      const target = e.target as HTMLInputElement;
+                      target.value = target.value.replace(/\D/g, "");
+                    }}
+                    className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
+                  />
+                  <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Email id"
                     required
                     className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
                   />
                   <input
                     type="text"
-                    name="subject"
-                    placeholder="Subject"
+                    name="city"
+                    placeholder="City"
                     required
                     className="w-full mb-4 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
-                  />
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    rows={4}
-                    required
-                    className="w-full mb-4 text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-blue-500 bg-white"
-                    defaultValue={""}
                   />
                   <button
                     type="submit"

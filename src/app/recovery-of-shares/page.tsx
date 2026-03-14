@@ -18,11 +18,12 @@ export default function IEPFClaim() {
     if (!formRef.current || formSubmitting) return;
 
     const form = formRef.current;
+    const phoneRaw = (form.querySelector('[name="mobile"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const payload = {
       name: (form.querySelector('[name="name"]') as HTMLInputElement)?.value?.trim() ?? "",
+      mobileNumber: phoneRaw ? `+91 ${phoneRaw}` : "",
       email: (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "",
-      subject: (form.querySelector('[name="subject"]') as HTMLInputElement)?.value?.trim() ?? "",
-      message: (form.querySelector('[name="message"]') as HTMLTextAreaElement)?.value?.trim() ?? "",
+      city: (form.querySelector('[name="city"]') as HTMLInputElement)?.value?.trim() ?? "",
     };
 
     setFormSubmitting(true);
@@ -53,12 +54,13 @@ export default function IEPFClaim() {
     <>
       <ScrollButton />
       <div
-        className="object-cover overflow-hidden min-h-screen flex items-center justify-center"
+        className="object-cover overflow-hidden"
         style={{ backgroundImage: `url(${map3.src})` }}
       >
-        <div className="grid md:grid-cols-2 gap-16 items-center max-md:flex max-md:flex-col max-md:gap-6 max-md:px-4">
-          {/* Content Section */}
-          <div>
+        <div className="md:min-h-screen flex items-center max-md:py-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center w-full max-md:gap-8 max-md:px-4">
+            {/* Content Section - no left padding so content touches screen edge */}
+            <div className="max-md:order-1">
             <div className="max-w-xl bg-[#00BE5D] mt-12">
               <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
                 India's No.1 Shares Recovery Experts
@@ -99,64 +101,68 @@ export default function IEPFClaim() {
           </div>
 
           {/* Form Section */}
-          <div className="mt-2 flex bg-black border border-white items-center justify-center md:w-8/12 lg:ml-auto relative max-md:w-full max-md:px-6 max-md:py-6 max-md:mt-4 min-h-[400px] md:min-w-[450px] mb-8">
-            <div className="max-w-xl p-4 mx-auto max-md:px-4 max-md:w-full">
-              {showToast && (
-                <div className="absolute top-[-40px] left-1/2 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in max-w-[90%] text-center z-10">
-                  {toastMessage}
-                </div>
-              )}
-                <div className="mb-12">
-                  <h3 className="text-3xl font-bold text-[#FEB066]">
-                    REQUEST A CALL BACK
-                  </h3>
-                </div>
-              <form
-                ref={formRef}
-                className="max-w-lg mx-auto max-md:px-4 max-md:w-full"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  required
-                  className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                  className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  required
-                  className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows={6}
-                  required
-                  className="w-full mb-6 text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-blue-500 bg-white"
-                  defaultValue={""}
-                />
-                <div>
-                  <button
-                    type="submit"
-                    disabled={formSubmitting}
-                    className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {formSubmitting ? "Sending…" : "Get Free Consulting"}
-                  </button>
-                </div>
-              </form>
-            </div>
+          <div className="w-full max-w-[480px] mx-auto flex flex-col bg-black border border-white justify-center relative py-8 px-6 md:py-10 md:px-8 lg:ml-auto mb-8">
+            {showToast && (
+              <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-600 text-white py-3 px-6 rounded-md shadow-lg text-center text-sm min-w-[280px] max-w-[calc(100%-2rem)] z-20">
+                {toastMessage}
+              </div>
+            )}
+            <form
+              ref={formRef}
+              className="w-full max-w-lg mx-auto"
+              onSubmit={handleSubmit}
+            >
+              <div className="mb-8 md:mb-10">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066]">
+                  REQUEST A CALL BACK
+                </h3>
+              </div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
+              />
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile number"
+                maxLength={10}
+                pattern="^\d{10}$"
+                required
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  target.value = target.value.replace(/\D/g, "");
+                }}
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email id"
+                required
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
+              />
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                required
+                className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500 bg-white"
+              />
+              <div>
+                <button
+                  type="submit"
+                  disabled={formSubmitting}
+                  className="w-max shadow-xl py-3 px-6 text-sm text-gray-800 font-semibold rounded-md bg-[#FEB066] hover:bg-[#FEB066] focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {formSubmitting ? "Sending…" : "Get Free Consulting"}
+                </button>
+              </div>
+            </form>
           </div>
+        </div>
         </div>
       </div>
 

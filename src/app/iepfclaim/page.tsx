@@ -17,11 +17,12 @@ export default function IEPFClaim() {
     if (!formRef.current || formSubmitting) return;
 
     const form = formRef.current;
+    const phoneRaw = (form.querySelector('[name="mobile"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const payload = {
       name: (form.querySelector('[name="name"]') as HTMLInputElement)?.value?.trim() ?? "",
+      mobileNumber: phoneRaw ? `+91 ${phoneRaw}` : "",
       email: (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "",
-      subject: (form.querySelector('[name="subject"]') as HTMLInputElement)?.value?.trim() ?? "",
-      message: (form.querySelector('[name="message"]') as HTMLTextAreaElement)?.value?.trim() ?? "",
+      city: (form.querySelector('[name="city"]') as HTMLInputElement)?.value?.trim() ?? "",
     };
 
     setFormSubmitting(true);
@@ -56,8 +57,8 @@ export default function IEPFClaim() {
         className="object-cover overflow-hidden"
         style={{ backgroundImage: `url(${map3.src})` }}
       >
-        <div className="md:h-screen">
-          <div className="grid md:grid-cols-2 items-center h-full">
+        <div className="md:min-h-screen flex items-center max-md:py-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center w-full max-md:gap-8 max-md:px-4">
             <div className="max-md:order-1">
               <div className="max-w-xl bg-[#00BE5D] mt-12">
                 <h2 className="md:text-2xl text-xl font-semibold md:!leading-[55px] text-white pt-2 pb-2 p-4">
@@ -95,19 +96,19 @@ export default function IEPFClaim() {
               </div>
             </div>
 
-            <div className="flex bg-black border border-white items-center md:w-8/12 lg:ml-auto relative max-md:px-4">
+            <div className="w-full max-w-[480px] mx-auto flex flex-col bg-black border border-white justify-center relative py-8 px-6 md:py-10 md:px-8 lg:ml-auto">
               {showToast && (
-                <div className="absolute top-[-40px] left-1/4 transform -translate-x-1/2 bg-green-600 text-white py-2 px-6 rounded-md shadow-md animate-fade-in w-[400px] text-center whitespace-nowrap">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-green-600 text-white py-3 px-6 rounded-md shadow-lg text-center text-sm min-w-[280px] max-w-[calc(100%-2rem)] z-20">
                   {message}
                 </div>
               )}
               <form
                 ref={formRef}
-                className="max-w-lg p-4 mx-auto max-md:px-4"
+                className="w-full max-w-lg mx-auto"
                 onSubmit={handleSubmit}
               >
-                <div className="mb-12">
-                  <h3 className="text-3xl font-bold text-[#FEB066]">
+                <div className="mb-8 md:mb-10">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#FEB066]">
                     REQUEST A CALL BACK
                   </h3>
                 </div>
@@ -119,23 +120,28 @@ export default function IEPFClaim() {
                   className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
                 />
                 <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Mobile number"
+                  maxLength={10}
+                  pattern="^\d{10}$"
+                  onInput={(e) => {
+                    const target = e.target as HTMLInputElement;
+                    target.value = target.value.replace(/\D/g, "");
+                  }}
+                  className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
+                />
+                <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Email id"
                   className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
                 />
                 <input
                   type="text"
-                  name="subject"
-                  placeholder="Subject"
+                  name="city"
+                  placeholder="City"
                   className="w-full mb-6 text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-blue-500"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows={6}
-                  className="w-full mb-6 text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-blue-500"
-                  defaultValue={""}
                 />
 
                 <div>
