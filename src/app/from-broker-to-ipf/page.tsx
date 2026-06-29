@@ -11,20 +11,20 @@ export default function IndiasDigitalInitiative() {
           <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
             <p className="text-gray-500">Published Feb 21, 2024</p>
             <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
+              From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
             </h1>
             <p className="mt-6 text-md text-gray-500">
-            In the past few years, the Securities and Exchange Board of India (SEBI) has taken significant steps to address the growing problem of unclaimed securities and funds in the Indian financial system. As of January 31, 2025, the value of unclaimed funds stands at a whopping ₹323 crore, and unclaimed securities at ₹182 crore. In this blog post, the mechanism through which the unclaimed assets filter through the system, from the brokers to the Investor Protection Fund (IPF), is explained, and the timelines and recovery options available at each stage are referred to.
+              In the past few years, the Securities and Exchange Board of India (SEBI) has taken significant steps to address the growing problem of unclaimed securities and funds in the Indian financial system. As of January 31, 2025, the value of unclaimed funds stands at a whopping ₹323 crore, and unclaimed securities at ₹182 crore. In this blog post, the mechanism through which the unclaimed assets filter through the system, from the brokers to the Investor Protection Fund (IPF), is explained, and the timelines and recovery options available at each stage are referred to.
             </p>
             <Image className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover" src={blogbg} alt="" />
           </header>
           <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
             <h2 className="text-2xl font-semibold">Initial Phase: Brokers Obligation</h2>
             <blockquote className="border-[#00BE5D] border-l-4 px-4">
-            Where the stockbroker cannot credit funds or securities into a demat or bank account of the client, or where the client is no longer traceable, the account is simultaneously flagged as being in enquiry status.
+              Where the stockbroker cannot credit funds or securities into a demat or bank account of the client, or where the client is no longer traceable, the account is simultaneously flagged as being in enquiry status.
             </blockquote>
 
-           <p>At this point:</p>
+            <p>At this point:</p>
             <ul className="list-disc pl-5">
               <li>Brokers have to take a minimum of six attempts of calling the client using all methods of communication.</li>
             </ul>
@@ -68,10 +68,10 @@ export default function IndiasDigitalInitiative() {
 
             <h2 className="text-xl font-semibold">3. Regarding the Investor Protection Fund:</h2>
             <p>Despite the transition to IPF, the customers are entitled to invoke a claims process.</p>
-<p>The total claim is restricted to the original funds along with interest accumulated up to the fourth year.</p>
-        
+            <p>The total claim is restricted to the original funds along with interest accumulated up to the fourth year.</p>
 
-<h2 className="text-xl font-semibold">SEBIs Initiatives towards Investor Protection</h2>
+
+            <h2 className="text-xl font-semibold">SEBIs Initiatives towards Investor Protection</h2>
             <p>To enhance transparency and facilitate easier asset recovery,</p>
             <p>SEBI has mandated: </p>
             <ul className="list-disc pl-5">

@@ -1,36 +1,46 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import { ArrowUp, ArrowDown } from "lucide-react";
 
 export default function ScrollButton() {
   const [isAtTop, setIsAtTop] = useState(true);
 
   // Handle scroll position
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       if (window.scrollY > window.innerHeight / 2) {
-        setIsAtTop(false); // Show "Up" arrow when scrolled down
+        setIsAtTop(false);
       } else {
-        setIsAtTop(true); // Show "Down" arrow when at top
+        setIsAtTop(true);
       }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Scroll up or down
   const handleScroll = () => {
     if (isAtTop) {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <button
       onClick={handleScroll}
-      className="fixed bottom-10 right-8 bg-[#00BE5D] hover:bg-[#008C44] font-bo text-white w-8 h-8 flex items-center justify-center rounded shadow-lg z-50"
+      className="fixed bottom-8 right-8 bg-[#00BE5D] text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-[#008C44] hover:scale-110 transition-all duration-300 z-50"
     >
-      {isAtTop ? "↓" : "↑"}
+      {isAtTop ? <ArrowDown size={20} /> : <ArrowUp size={20} />}
     </button>
   );
 }

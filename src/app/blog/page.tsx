@@ -1,7 +1,12 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, Clock } from "lucide-react";
+
+// Import all blog images
 import blog from "../../../public/blogs/blog55 (1).png";
 import blog1 from "../../../public/blogs/2.png";
 import blog2 from "../../../public/blogs/3.png";
@@ -32,766 +37,292 @@ import blog26 from "../../../public/blogs/Broker.png";
 import blog27 from "../../../public/blogs/Tech.png";
 import blog28 from "../../../public/blogs/Clearclaim Blog .png";
 import blog29 from "../../../public/blogs/blog 24.png";
-import blog30 from '../../../public/blogs/iepf2025.png'
+import blog30 from '../../../public/blogs/iepf2025.png';
+
+const categories = ["All", "IEPF Recovery", "Digital India", "Asset Tracing", "Legal Guide", "Insights"];
+
+const blogPosts = [
+  {
+    id: 1,
+    title: "IEPF 2025: Which Companies Have the Highest Unclaimed Shares and Dividends?",
+    date: "Mar 31, 2025",
+    image: blog30,
+    link: "/iepf2025",
+    category: "IEPF Recovery",
+    description: "Discover the latest statistics on unclaimed shares and dividends across top Indian companies for the year 2025."
+  },
+  {
+    id: 2,
+    title: "The Impact of India's digital thrust on recovery of unclaimed assets",
+    date: "Mar 25, 2025",
+    image: blog29,
+    link: "/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets",
+    category: "Digital India",
+    description: "How digital transformation is revolutionizing the way investors recover their long-lost financial assets."
+  },
+  {
+    id: 3,
+    title: "Cross-Border Asset Recovery: Challenges and Solutions for NRIs",
+    date: "Mar 24, 2025",
+    image: blog28,
+    link: "/cross-border-asset-recovery",
+    category: "Insights",
+    description: "A comprehensive guide for Non-Resident Indians to navigate the complexities of asset recovery from abroad."
+  },
+  {
+    id: 4,
+    title: "The Technology Component in Unclaimed Assets Recovery",
+    date: "Feb 22, 2025",
+    image: blog27,
+    link: "/the-technology-component-in-unclaimed-assets-recovery",
+    category: "Digital India",
+    description: "Exploring the role of advanced algorithms and data verification in modern asset tracing."
+  },
+  {
+    id: 5,
+    title: "From Broker to IPF: A Journey Through Unclaimed Funds",
+    date: "Feb 21, 2025",
+    image: blog26,
+    link: "/from-broker-to-ipf",
+    category: "Legal Guide",
+    description: "Tracing the path of unclaimed dividends from brokerage accounts to government protection funds."
+  },
+  {
+    id: 6,
+    title: "Beyond Shares: Guide to Recovering All Unclaimed Financial Instruments",
+    date: "Feb 20, 2025",
+    image: blog25,
+    link: "/beyond-shares",
+    category: "Asset Tracing",
+    description: "How to recover bonds, mutual funds, insurance proceeds, and other dormant financial assets."
+  },
+  {
+    id: 7,
+    title: "The Rise of AI in Unclaimed Asset Identification",
+    date: "Feb 11, 2025",
+    image: blog24,
+    link: "/the-rise-of-ai-in-unclaimed-asset-identification",
+    category: "Digital India",
+    description: "How artificial intelligence is helping identify forgotten investments with unprecedented accuracy."
+  },
+  {
+    id: 8,
+    title: "MITR Platform: The Innovative SEBI Initiative",
+    date: "Feb 10, 2025",
+    image: blog23,
+    link: "/mitr-platform",
+    category: "Legal Guide",
+    description: "Everything you need to know about the newly launched MITR platform for simplified mutual fund recovery."
+  },
+  {
+    id: 9,
+    title: "The Role of KYC Updates in Preventing Unclaimed Assets",
+    date: "Jan 30, 2025",
+    image: blog22,
+    link: "/the-role-of-kyc-updates",
+    category: "Insights",
+    description: "Why keeping your KYC records updated is the first step in ensuring your investments never go missing."
+  },
+  // Adding a few more to populate the grid well
+  {
+    id: 10,
+    title: "Unclaimed Dividends vs. Unclaimed Shares: Navigation",
+    date: "Jan 1, 2025",
+    image: blog19,
+    link: "/unclaimed-dividends-vs-unclaimed-shares",
+    category: "IEPF Recovery",
+    description: "Understanding the key differences in how dividends and shares are treated by the IEPF authority."
+  },
+  {
+    id: 11,
+    title: "Legal Heirs and IEPF Claims: A Complete Guide",
+    date: "Dec 23, 2024",
+    image: blog18,
+    link: "/legal-heirs-&-iepf-claims",
+    category: "Asset Tracing",
+    description: "How legal heirs and nominees can claim ancestral wealth with the right documentation."
+  },
+  {
+    id: 12,
+    title: "Role of Demat accounts in recovering shares from IEPF",
+    date: "Dec 18, 2024",
+    image: blog17,
+    link: "/role-of-demat-accounts",
+    category: "Legal Guide",
+    description: "Why a demat account is essential for the final transfer of recovered physical shares."
+  }
+];
 
 export default function Blog() {
+  const featuredPost = blogPosts[0];
+  const sidePosts = blogPosts.slice(1, 4);
+  const gridPosts = blogPosts.slice(4);
+
   return (
-    <>
-    
-      <div className="bg-gray-100 md:px-10 px-4 py-12 font-[sans-serif]">
-        <div className="max-w-5xl max-lg:max-w-3xl max-sm:max-w-sm mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="md:text-3xl text-xl font-semibold md:!leading-[55px] text-[#00BE5D] pt-14">
-              <span className="text-[#283655]">Our </span> Blog
-            </h2>
-          </div>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-sm:gap-8">
+    <main className="min-h-screen bg-white/20 pt-12 pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Section 1: Our Insightful Blog */}
+        <section className="mb-24">
+          <div className="text-center mb-16 space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-5xl font-bold text-slate-900"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight leading-tight">
+                Our{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">
+                  Blog
+                </span>
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-[#00BE5D] to-[#1a3a1f] mx-auto mt-6 rounded-full opacity-60 mb-20"></div>
+            {/* </span> */}
+          </motion.h1>
+        
+      </div>
 
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog30}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                IEPF 2025: Which Companies Have the Highest Unclaimed Shares and Dividends?
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Mar 31th 2025
-                  </p>
-                  <Link
-                    href="/iepf2025"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* Main Featured Post */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="lg:col-span-7"
+        >
+          <Link href={featuredPost.link} className="group block relative h-[450px] md:h-[550px] overflow-hidden rounded-[2rem] shadow-2xl">
+            <Image
+              src={featuredPost.image}
+              alt={featuredPost.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              priority
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8 md:p-10 text-white w-full">
+              <div className="flex items-center gap-2 text-sm mb-4 text-white/80">
+                <Clock className="w-4 h-4" />
+                <span>{featuredPost.date}</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-[#00BE5D] transition-colors">
+                {featuredPost.title}
+              </h2>
+              <p className="text-white/70 line-clamp-2 text-sm md:text-base mb-6 max-w-xl">
+                {featuredPost.description}
+              </p>
+              <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[#00BE5D]">
+                Read More <ArrowRight className="w-4 h-4" />
               </div>
             </div>
+          </Link>
+        </motion.div>
 
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog29}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                The Impact of Indias digital thrust on recovery of unclaimed assets: Facts investors need to know
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Mar 25th 2025
-                  </p>
-                  <Link
-                    href="/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
+        {/* Side Small Cards */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          {sidePosts.map((post, idx) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+            >
+              <Link href={post.link} className="group flex gap-5 p-4 rounded-3xl transition-all duration-300 hover:bg-slate-50 border border-transparent hover:border-slate-100">
+                <div className="w-32 h-28 md:w-40 md:h-32 relative flex-shrink-0 overflow-hidden rounded-2xl shadow-md">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    unoptimized
+                  />
                 </div>
-              </div>
-            </div>
-
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog28}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                Cross-Border Asset Recovery: Challenges and Solutions for NRI Unclaimed Investments
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Mar 24th 2025
-                  </p>
-                  <Link
-                    href="/cross-border-asset-recovery"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
+                <div className="flex flex-col justify-between py-1 flex-1">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-[#00BE5D] transition-colors line-clamp-2 leading-snug mb-2">
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-xs text-slate-400 mb-3">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{post.date}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#00BE5D] uppercase tracking-wider group-hover:gap-2.5 transition-all">
+                    Read More <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
-              </div>
-            </div>
-
-         
-
-
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog27}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                The Technology Component in Unclaimed Assets Recovery: Indias Digital Initiative
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Feb 22nd 2025
-                  </p>
-                  <Link
-                    href="/the-technology-component-in-unclaimed-assets-recovery"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog26}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Feb 21st 2025
-                  </p>
-                  <Link
-                    href="/from-broker-to-ipf"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog25}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Feb 20th 2025
-                  </p>
-                  <Link
-                    href="/beyond-shares"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-          <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog24}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                The Rise of AI in Unclaimed Asset Identification: Implications for Overlooked Investments
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Feb 11th 2025
-                  </p>
-                  <Link
-                    href="/the-rise-of-ai-in-unclaimed-asset-identification"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-
-
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog23}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                MITR Platform: The Innovative SEBI Initiative for Mutual Fund Unclaimed Recovery
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Feb 10th 2025
-                  </p>
-                  <Link
-                    href="/mitr-platform"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog22}
-                alt="Blog Post 1"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  The Role of KYC Updates in Preventing Unclaimed Financial
-                  Assets
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Jan 30th 2025
-                  </p>
-                  <Link
-                    href="/the-role-of-kyc-updates"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog21}
-                alt="Blog Post 2"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  The Rise of Digital Platforms for Tracing Inactive Financial
-                  Assets: What You Need to Know
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Jan 29th 2025
-                  </p>
-                  <Link
-                    href="/the-rise-of-digital-platforms"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog20}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  The Importance of Document Verification in IEPF Claims: A
-                  Guide to an Effective Recovery Process
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Jan 2nd 2025
-                  </p>
-                  <Link
-                    href="the-importance-of-document-verification"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog19}
-                alt="Blog Post 4"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Unclaimed Dividends vs. Unclaimed Shares: How to Navigate the
-                  Recovery Process
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mb-4">
-                    Jan 1st 2025
-                  </p>
-                  <Link
-                    href="/unclaimed-dividends-vs-unclaimed-shares"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            {/* -------------------------------------------------------- */}
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog18}
-                alt="Blog Post 1"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Legal Heirs and IEPF Claims: A Complete Guide to Recovering
-                  Ancestral Shares
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 23rd 2024
-                  </p>
-                  <Link
-                    href="/legal-heirs-&-iepf-claims"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog17}
-                alt="Blog Post 1"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Role of Demat accounts in recovering shares from IEPF:
-                  important information for claimants
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 18th 2024
-                  </p>
-                  <Link
-                    href="/role-of-demat-accounts"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog}
-                alt="Blog Post 1"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Navigating the new nomination rules: how recent changes affect
-                  your dormant bank account
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 12th 2024
-                  </p>
-                  <Link
-                    href="/navigatingrules"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog1}
-                alt="Blog Post 2"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  The Rise of Unclaimed Assets in India: A Deep Dive into
-                  Current Statistics and Recovery Processes
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 11th 2024
-                  </p>
-                  <Link
-                    href="/rise-of-unclaimed-assets"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog2}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  IEPF Claims: Understanding the Banking Laws (Amendment) Bill
-                  2024
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 6th 2024
-                  </p>
-                  <Link
-                    href="/understanding-banking-laws"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog16}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  HEG Limiteds Major Announcement: Key Insights You Need to Know
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Dec 6th 2024
-                  </p>
-                  <Link
-                    href="/heg-limited"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog3}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Understanding the Investor Education and Protection Fund
-                  (IEPF) Authority in India
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Nov 29th 2024
-                  </p>
-                  <Link
-                    href="/investor-education"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog14}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Advantages of dematerialization of old physical shares
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Nov 26th 2024
-                  </p>
-                  <Link
-                    href="/advantages-of-dematerialization"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog4}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Understanding IPO and Its Advantages to Retail Investors
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Nov 25th 2024
-                  </p>
-
-                  <Link
-                    href="/understanding-ipo"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>{" "}
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog5}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  The Role of SEBI SCORES in IEPF Claims: A Step Towards
-                  Investor Empowerment
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Oct 30th 2024
-                  </p>
-                  <Link
-                    href="/role-of-sebi-scores"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>{" "}
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog12}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Expert Tips for a Successful IEPF Share and Dividend Recovery
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Oct 29th 2024
-                  </p>
-                  <Link
-                    href="/expert-tips-for-successful"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>{" "}
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog15}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Unlock Your Unclaimed Dividends: A Guide to IEPF Recovery
-                  Services
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Oct 28th 2024
-                  </p>
-                  <Link
-                    href="/unlock-your-unclaimed-dividends"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog6}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Why Using an IEPF Claims Management Service Saves You Time and
-                  Money
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Oct 27th 2024
-                  </p>
-                  <Link
-                    href="/why-using-an-iepf-claims"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog7}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  तुमचे शेअर्स परत मिळवण्यासाठी Clearclaim तुम्हाला कसे मदत करते
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Sep 26th 2024
-                  </p>
-                  <Link
-                    href="/marathi-how-clearclaim-help-you"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog13}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  आपके शेअर्स वापस लाने के लिए Clearclaim कैसे मदत करता है
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Sep 24th 2024
-                  </p>
-                  <Link
-                    href="/hindi-how-clearclaim-help-you"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog8}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Recover Your Shares and Dividends
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Sep 20th 2024
-                  </p>
-                  <Link
-                    href="/recover-your-shares-dividends"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog9}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  How Clearclaim Helps You to Recover Your Shares
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Aug 16th 2024
-                  </p>
-                  <Link
-                    href="/how-clearclaim-helps-you-to-recover-shares"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog10}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Unlocking Hidden Wealth
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Aug 14th 2024
-                  </p>
-                  <Link
-                    href="/unlocking-hidden-wealth"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded overflow-hidden flex flex-col h-full">
-              <Image
-                src={blog11}
-                alt="Blog Post 3"
-                className="w-full h-52 object-cover"
-              />
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">
-                  Clearclaim Ventures Private Limited: How It Started
-                </h3>
-                <div className="mt-auto">
-                  <p className="text-orange-500 text-[13px] font-semibold mt-4">
-                    Aug 12th 2024
-                  </p>
-                  <Link
-                    href="/clearclaim-ventures-private-limited"
-                    className="mt-4 inline-block px-4 py-2 rounded tracking-wider bg-[#00BE5D] hover:bg-[#fff] border hover:border-[#00BE5D] hover:text-[#00BE5D] text-white text-[13px]"
-                  >
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </>
+    </section>
+
+        {/* Section 2: Explore Our Latest Articles */ }
+  <section>
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-16 p-4">
+      <motion.h2
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-slate-900 whitespace-nowrap"
+      >
+        Explore Our Latest <span className="relative inline-block">
+          Articles
+          <span className="absolute bottom-2 left-0 w-full h-3 bg-[#00BE5D]/20 rounded-full -z-10" />
+        </span>
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="text-slate-500 max-w-xl text-sm md:text-base leading-relaxed"
+      >
+        Dive deeper into our archive of expert articles, case studies, and industry news to stay ahead in the financial landscape.
+      </motion.p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+      {gridPosts.map((post, idx) => (
+        <motion.article
+          key={post.id}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: (idx % 3) * 0.1 }}
+          className="group flex flex-col h-full bg-white transition-all"
+        >
+          <Link href={post.link} className="flex flex-col h-full">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] mb-6 shadow-lg shadow-slate-200/50 group-hover:shadow-xl transition-all duration-300">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                unoptimized
+              />
+            </div>
+            <div className="flex flex-col flex-1 px-2">
+              <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#00BE5D] transition-colors line-clamp-2 leading-tight mb-3">
+                {post.title}
+              </h3>
+              <div className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+                <Clock className="w-4 h-4 text-slate-400" />
+                <span>{post.date}</span>
+              </div>
+              <div className="mt-auto flex items-center gap-2 text-sm font-bold text-slate-900 group-hover:text-[#00BE5D] transition-all">
+                Read More <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </div>
+          </Link>
+        </motion.article>
+      ))}
+    </div>
+  </section>
+      </div >
+    </main >
   );
 }
+
+

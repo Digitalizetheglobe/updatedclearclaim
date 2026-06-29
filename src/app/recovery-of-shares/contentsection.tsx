@@ -1,75 +1,93 @@
 "use client";
 
 import Image from "next/image";
-import closeup from "../../../public/images/close-up-businessman-with-digital-tablet 3.svg";
+import closeup from "../../../public/images/close_up.png";
 import tick from "../../../public/images/tick.svg";
 import LandingTestimonial2 from "../landingtestimonial2/page";
 
 export default function ContentSection() {
   return (
     <>
-      <div className="bg-white py-6 sm:py-8 lg:py-12 overflow-hidden">
-        <div className="mx-auto max-w-screen-xl">
-          <div className="lg:max-w-7xl max-w-xl mx-auto">
-            {/* Grid for Desktop and Mobile */}
-            <div className="grid md:grid-cols-2 gap-24 max-md:gap-8">
-              {/* Image Section - Order 2 on Mobile */}
-              <div className="max-md:order-2 max-md:px-4">
-                <Image
-                  src={closeup}
-                  alt="Placeholder Image"
-                  className="w-full h-[600px] object-cover max-md:h-[400px]"
-                />
+      <section className="relative py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* ✅ Left Image Section - Clean */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative flex items-center justify-center">
+
+                {/* Circular Image */}
+                <div className="w-[400px] h-[400px] md:w-[560px] md:h-[560px] overflow-hidden">
+                  <Image
+                    src={closeup}
+                    alt="Businessman analyzing unclaimed shares"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+
+              </div>
+            </div>
+
+            {/* Right Content Section */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E6F9EF] text-[#00BE5D] text-sm font-bold tracking-wide uppercase">
+                  <span className="text-lg leading-none">+</span>
+                  About Company
+                </div>
+
+                <h2 className="text-4xl md:text-5xl font-extrabold text-[#111827] leading-[1.2] tracking-tight">
+                  Why shares are <span className="text-[#00BE5D]">lost</span> or remain <span className="text-[#00BE5D]">unclaimed</span>?
+                </h2>
+
+                <p className="text-gray-500 text-lg leading-relaxed max-w-xl">
+                  Understanding the complexities behind unclaimed assets is the first step toward recovery and financial security for your future.
+                </p>
               </div>
 
-              {/* Content Section - Order 1 on Mobile */}
-              <div className="text-left max-md:order-1 max-md:px-4">
-                <div className="bg-[#00BE5D] text-white p-2">
-                  <h2 className="text-2xl font-bold">
-                    Why shares are lost or remain unclaimed ?
-                  </h2>
-                </div>
-                <ul className="space-y-6 mt-4 mb-6 text-gray-500 sm:text-md md:mb-8 max-md:px-4 p-4">
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    Some individuals procrastinated and failed to take action
-                    when the government and financial institutions urged them to
-                    make the transition.
-                  </li>
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    Others have forgotten about investments made years ago,
-                    misplacing or losing the related documents.
-                  </li>
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    In unfortunate cases where the original holders have passed
-                    away, legal heirs often face challenges in claiming these
-                    investments.
-                  </li>
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    Legal heirs themselves may not be aware of investments made
-                    by their forefathers, resulting in hidden assets.
-                  </li>
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    Shareholders change their addresses and forget to change the
-                    address in company records hence they miss the communication
-                    from company regarding dividends and other corporate
-                    actions.
-                  </li>
-                  <li className="flex gap-3 text-md text-[16px] text-[rgba(0, 0, 0, 0.6)]">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6" />
-                    Shares are transferred to IEPF as dividends of shares remain
-                    unclaimed for 7 consecutive years.
-                  </li>
-                </ul>
+              {/* Grid of Items */}
+              <div className="grid sm:grid-cols-2 gap-6 pt-2">
+                {[
+                  {
+                    title: "Historical Procrastination",
+                    desc: "Individuals failed to transition when institutions urged digital shifts years ago."
+                  },
+                  {
+                    title: "Lost Documentation",
+                    desc: "Investments made decades ago are often forgotten, along with physical share certificates."
+                  },
+                  {
+                    title: "Succession Challenges",
+                    desc: "When original holders pass away, legal heirs struggle to navigate claim complexities."
+                  },
+                  {
+                    title: "Hidden Generational Assets",
+                    desc: "Heirs are frequently unaware of wealth built by forefathers in the paper era."
+                  },
+                  {
+                    title: "Address & Records Mismatch",
+                    desc: "Unupdated contact records lead to missed dividend communication and corporate actions."
+                  },
+                  {
+                    title: "Automatic IEPF Transfers",
+                    desc: "Shares move to IEPF when dividends remain unclaimed for 7 consecutive years."
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4 group">
+                    <div className="flex-shrink-0 w-8 h-8  flex items-center justify-center group-hover:scale-110 transition-transform ">
+                      <Image src={tick} alt="tick" className="w-5 h-5 flex-shrink-0" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#111827] text-base mb-1">{item.title}</h4>
+                      {/* <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p> */}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <LandingTestimonial2 />
     </>

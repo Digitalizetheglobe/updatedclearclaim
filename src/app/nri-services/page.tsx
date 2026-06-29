@@ -8,7 +8,7 @@ import phoneicon from '../../../public/images/contact.png'
 import globalnews from '../../../public/images/folder.png'
 import thunder from '../../../public/images/thunder.png';
 import rupees from '../../../public/images/rupee-coins.png';
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
 
 import recovery from '../../../public/images/global-news.png';
 import midnight from '../../../public/images/midnight.png';
@@ -269,7 +269,44 @@ const ChevronUp = () => (
 export default function NRISamadhan() {
   const [visibleCount, setVisibleCount] = useState(3);
   const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
-  const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({ 0: true });
+  const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({});
+  const [faqs, setFaqs] = useState<{ question: string; answer: string; image?: string }[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [reviews, setReviews] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/testimonials");
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+          const dynamicReviews = data.map((item: any) => ({
+            name: item.name,
+            date: item.date || "Recently",
+            stars: item.rating || 5,
+            content: item.testimonial || item.testimonialText || "",
+            platform: item.platform || "Google"
+          }));
+          setReviews(dynamicReviews);
+        } else {
+          setReviews([]);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+        setReviews([]);
+      }
+    };
+    fetchReviews();
+  }, []);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
 
   const heroFormRef = useRef<HTMLFormElement>(null);
   const countryDropdownRef = useRef<HTMLDivElement>(null);
@@ -301,95 +338,37 @@ export default function NRISamadhan() {
       .catch(() => { });
   }, []);
 
-  const reviews = [
-    {
-      name: "Vinayak Gaitonde",
-      date: "22 January 2025",
-      stars: 5,
-      content:
-        "Very reliable, gives personal attention & above all, very reasonable charges. I have given them shares which are in IEPF for transferring into my demat account. At present after completing all documentation by them the matter is with IEPF for their clearance. My Best Wishes to Shrikant and his team.",
-    },
-    {
-      name: "Jayant V Patil",
-      date: "a month ago",
-      stars: 5,
-      content:
-        "Clear claim transferred my physical shares within given time, very professional, very prompt, overall a hassle-free experience, i highly recommend Clear claim for you share transfer and other related works.. thank u",
-    },
-    {
-      name: "Rajagopalan V",
-      date: "6 January 2025",
-      stars: 5,
-      content:
-        "Mr. Srikant is a good person and guides us in a proper way with his expertise in his business areas. You may negotiate and go with them for your requirements.",
-    },
-    {
-      name: "Piyush Dhimate",
-      date: "4 January 2025",
-      stars: 5,
-      content:
-        "I'm based in Australia and had troubles dealing with insurance and EPF withdrawal remotely. Fortunately, I found clear claim that was the only service that offered to help me out. Their expertise in the processes involved helped me prepare the documentation upfront. I highly recommend them!",
-    },
-    {
-      name: "INDRANEEL TAMBE",
-      date: "3 January 2025",
-      stars: 5,
-      content:
-        "Thanks team of clear claim.... Nice service as well as nice guidance and thanks for sorting and clearing my case ... And thanks for helping us...",
-    },
-    {
-      name: "RAKESH G PATIL",
-      date: "10 months ago",
-      stars: 5,
-      content:
-        "Great service, quick response they helped me to recover my father physical shares. Highly recommended.",
-    },
-    {
-      name: "Chetan",
-      date: "10 months ago",
-      stars: 5,
-      content:
-        "I recently got to know about Clearclaim and till the time I wasn't aware of that we can claim our old unclaimed shares. I tried to reach them and explained my situation and asked for help. The process was smooth and transparent, with clear instructions provided at each step. The customer support team was very responsive, answering all my questions promptly. They also made sure to explain any paperwork and helped me complete it correctly. Although the process took a few weeks, they kept me updated throughout, and I received my shares without any issues. Their fees were reasonable, and I appreciated the upfront disclosure of all charges. I would definitely recommend their services to anyone looking to claim unclaimed shares.",
-    },
-    {
-      name: "shahaji dudhabhate",
-      date: "10 months ago",
-      stars: 5,
-      content:
-        "Due to change in name and signature, my father-in-law's Reliance Company shares were stuck in the papers for many years, despite many attempts, they were repeatedly rejected. When I contacted the company Clear Claim on Facebook, they made my work very easy and at a low cost, their working method is very transparent. They are trustworthy people, if you have any work related to old shares, close your eyes and get it done from them. Thank you team🙏🙏🙏",
-    },
-    {
-      name: "Mukund Shah",
-      date: "10 months ago",
-      stars: 5,
-      content:
-        "I had a great experience working with Clearclaim. They helped me recover my parents SBI Limited unclaimed shares and dividends from IEPF and convert them to DEMAT. Our team was very responsive and kept me updated throughout the process. I would definitely recommend their services to anyone looking to recover their shares.",
-    },
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/faqs`)
+      .then((res) => res.ok ? res.json() : [])
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setFaqs(data);
+          // Auto-expand the first FAQ
+          setExpandedFaqs({ 0: true });
+        }
+      })
+      .catch(() => { });
+  }, []);
+
+  const FALLBACK_IMAGES = [
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
   ];
 
-  const faqs = [
-    {
-      question: "Can NRIs recover unclaimed shares without original documents?",
-      answer: "Yes. In many cases, recovery can begin with basic details like name, PAN, and previous address. We guide you step by step through documentation.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      question: "How long does the recovery process take?",
-      answer: "Timelines vary depending on asset type and authority response, but we keep you informed throughout.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      question: "What if my contact details are outdated?",
-      answer: "Updating and validating your records is part of our service to avoid unnecessary delays.",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-  ];
 
-  const renderStars = (count: number) => {
+
+
+  const renderStars = (count: number, isActive: boolean) => {
     return (
-      <div className="flex items-center mb-3">
+      <div className="flex items-center mb-4 gap-1">
         {[...Array(5)].map((_, i) => (
-          <span key={i}>{i < count ? "⭐" : "☆"}</span>
+          <span key={i} className={i < count ? (isActive ? "text-white" : "text-yellow-400") : "opacity-30"}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+            </svg>
+          </span>
         ))}
       </div>
     );
@@ -594,7 +573,7 @@ export default function NRISamadhan() {
                   onSubmit={submitInquiry}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                 >
-                 
+
                   <div>
                     <label htmlFor="hero_first_name" className="text-gray-800 text-sm block mb-2">
                       First Name
@@ -667,9 +646,8 @@ export default function NRISamadhan() {
                           target.value = target.value.replace(/\D/g, "");
                           if (phoneError) setPhoneError("");
                         }}
-                        className={`w-full rounded-md py-2.5 px-4 border text-sm outline-[#00BE5D] text-gray-800 ${
-                          phoneError ? "border-red-500 focus:border-red-500" : "border-gray-300"
-                        }`}
+                        className={`w-full rounded-md py-2.5 px-4 border text-sm outline-[#00BE5D] text-gray-800 ${phoneError ? "border-red-500 focus:border-red-500" : "border-gray-300"
+                          }`}
                         required
                         title={`Enter 6–15 digits without country code`}
                         aria-invalid={!!phoneError}
@@ -749,7 +727,7 @@ export default function NRISamadhan() {
                       )}
                     </div>
                   </div>
-                
+
                   <div className="col-span-full">
                     <label htmlFor="hero_investment_type" className="text-gray-800 text-sm block mb-2">
                       Type of Unclaimed Investment
@@ -1151,7 +1129,7 @@ export default function NRISamadhan() {
                         <div className="lg:w-1/3">
                           <div className="relative h-48 rounded-lg overflow-hidden">
                             <Image
-                              src={faq.image}
+                              src={faq.image || FALLBACK_IMAGES[index % FALLBACK_IMAGES.length]}
                               alt={faq.question}
                               fill
                               className="object-cover"
@@ -1186,78 +1164,39 @@ export default function NRISamadhan() {
         </section>
 
         {/* ================= TESTIMONIALS ================= */}
-        <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:560ms]">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:0ms]">
-              <h2 className="md:text-3xl text-xl font-semibold text-[#1a3a1f]">
-                Google Reviews That <span className="text-[#00BE5D]">Speak for Themselves</span>
-              </h2>
-              <p className="text-gray-600 mt-2">See what our NRI clients say about us</p>
-            </div>
-
-            <div className="relative">
-              {/* Mobile: Show limited testimonials with Load More */}
-              <div className="md:hidden flex flex-col gap-6 px-4">
-                {reviews.slice(0, visibleCount).map((review, index) => (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm flex flex-col hover:shadow-lg transition-shadow animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
-                    style={{ animationDelay: `${index * 60}ms` }}
-                    role="article"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-gray-800">
-                        {review.name}
-                      </h3>
-                      <Image src={google} alt="Google" width={48} height={24} />
-                    </div>
-                    <p className="text-sm text-gray-500 mb-2">{review.date}</p>
-                    {renderStars(review.stars)}
-                    <p className="text-gray-700 text-sm flex-1">
-                      {expandedReviews[index]
-                        ? review.content
-                        : `${review.content.substring(0, 120)}...`}
-                    </p>
-                    <button
-                      className="mt-2 text-[#00BE5D] text-sm font-semibold hover:underline self-start"
-                      onClick={() => toggleReadMore(index)}
-                    >
-                      {expandedReviews[index] ? "Read Less" : "Read More"}
-                    </button>
-                  </div>
-                ))}
-                {visibleCount < reviews.length && (
-                  <button
-                    onClick={loadMore}
-                    className="mt-4 px-6 py-3 bg-[#00BE5D] text-white rounded-lg font-semibold hover:bg-[#008C44] transition-colors self-center shadow-md hover:shadow-lg"
-                  >
-                    Load More Reviews
-                  </button>
-                )}
+        {reviews.length > 0 && (
+          <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:560ms]">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
+                  Google Reviews That <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Speak for Themselves</span>
+                </h2>
+                <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40"></div>
               </div>
 
-              {/* Desktop: Show all reviews in scrollable container */}
-              <div className="hidden md:block h-[500px] overflow-y-scroll rounded-xl bg-gradient-to-br from-gray-50 to-white p-6 shadow-inner">
-                <div className="grid grid-cols-3 gap-6">
-                  {reviews.map((review, index) => (
+
+              <div className="relative">
+                {/* Mobile: Show limited testimonials with Load More */}
+                <div className="md:hidden flex flex-col gap-6 px-4">
+                  {reviews.slice(0, visibleCount).map((review, index) => (
                     <div
                       key={index}
-                      className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm flex flex-col hover:shadow-lg transition-shadow animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
-                      style={{ animationDelay: `${index * 50}ms` }}
+                      className="bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm flex flex-col hover:shadow-lg transition-shadow animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
+                      style={{ animationDelay: `${index * 60}ms` }}
                       role="article"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="text-lg font-semibold text-gray-800">
-                          {review.name}
+                          {review.name || "Anonymous"}
                         </h3>
                         <Image src={google} alt="Google" width={48} height={24} />
                       </div>
                       <p className="text-sm text-gray-500 mb-2">{review.date}</p>
-                      {renderStars(review.stars)}
+                      {renderStars(review.stars, false)}
                       <p className="text-gray-700 text-sm flex-1">
                         {expandedReviews[index]
                           ? review.content
-                          : `${review.content.substring(0, 100)}...`}
+                          : `${review.content.substring(0, 120)}...`}
                       </p>
                       <button
                         className="mt-2 text-[#00BE5D] text-sm font-semibold hover:underline self-start"
@@ -1267,11 +1206,113 @@ export default function NRISamadhan() {
                       </button>
                     </div>
                   ))}
+                  {visibleCount < reviews.length && (
+                    <button
+                      onClick={loadMore}
+                      className="mt-4 px-6 py-3 bg-[#00BE5D] text-white rounded-lg font-semibold hover:bg-[#008C44] transition-colors self-center shadow-md hover:shadow-lg"
+                    >
+                      Load More Reviews
+                    </button>
+                  )}
+                </div>
+
+                {/* Desktop Carousel */}
+                <div className="hidden md:flex items-center justify-center relative">
+                  {/* Left Navigation */}
+                  <button
+                    onClick={handlePrev}
+                    className="absolute left-[-20px] lg:left-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+
+                  <div className="w-full overflow-hidden flex justify-center py-10 px-4">
+                    <div className="flex transition-all duration-700 ease-in-out gap-8 items-center justify-center">
+                      {[-1, 0, 1].map((offset) => {
+                        let index = (currentIndex + offset + reviews.length) % reviews.length;
+                        const review = reviews[index];
+                        const isActive = offset === 0;
+
+                        return (
+                          <div
+                            key={`${index}-${offset}`}
+                            className={`
+                              transition-all duration-700 ease-in-out flex-shrink-0 
+                              rounded-[2rem] p-7 shadow-xl relative
+                              ${isActive
+                                ? "bg-gradient-to-br from-[#00C853] via-[#00A243] to-[#017A34] text-white w-[300px] md:w-[380px] scale-100 md:scale-105 z-10"
+                                : "bg-white text-gray-700 w-[260px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden lg:flex"
+                              }
+                              flex flex-col min-h-[360px] border border-gray-50/50
+                            `}
+                          >
+                            <div className={`text-right text-xs font-medium mb-8 ${isActive ? "text-white/90" : "text-gray-400"}`}>
+                              {review.date}
+                            </div>
+
+                            <div className="flex-1">
+                              <p className={`leading-relaxed text-sm font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
+                                {expandedReviews[index]
+                                  ? review.content
+                                  : review.content.length > 180
+                                    ? `“${review.content.substring(0, 180)}...”`
+                                    : `“${review.content}”`
+                                }
+                                {review.content.length > 180 && (
+                                  <button
+                                    className={`ml-2 font-semibold border-b border-current py-0 text-xs ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
+                                    onClick={() => toggleReadMore(index)}
+                                  >
+                                    {expandedReviews[index] ? "Read Less" : "Read More"}
+                                  </button>
+                                )}
+                              </p>
+                            </div>
+
+                            <div className={`h-px w-full my-6 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
+
+                            <div className="flex items-center gap-4">
+                              <div className={`w-10 h-10 rounded-full overflow-hidden border-2 flex-shrink-0 ${isActive ? "border-white/30" : "border-gray-200"}`}>
+                                <div className={`w-full h-full flex items-center justify-center font-bold text-xs ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>
+                                  {(review.name || "A").charAt(0)}
+                                </div>
+                              </div>
+                              <div className="flex flex-col min-w-0">
+                                <h4 className={`font-bold text-sm truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
+                                  {review.name || "Anonymous"}
+                                </h4>
+                                {renderStars(review.stars, isActive)}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Right Navigation */}
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-[-20px] lg:right-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+
+                {/* Dots Indicator */}
+                <div className="hidden md:flex justify-center gap-2 mt-8">
+                  {reviews.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentIndex(i)}
+                      className={`h-1.5 transition-all duration-300 rounded-full ${currentIndex === i ? "w-6 bg-[#00BE5D]" : "w-1.5 bg-gray-300"}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ================= READY TO RECLAIM CTA ================= */}
         <section className="relative py-16 px-4 overflow-hidden">
@@ -1312,9 +1353,9 @@ export default function NRISamadhan() {
                   href="tel:+919156701900"
                   className="flex items-center gap-3 text-white hover:text-white/80 font-semibold"
                 >
-                 <div className="w-10 h-10 rounded-full bg-[#00BE5D] flex items-center justify-center">
-  <Phone size={20} className="text-white" />
-</div>
+                  <div className="w-10 h-10 rounded-full bg-[#00BE5D] flex items-center justify-center">
+                    <Phone size={20} className="text-white" />
+                  </div>
 
 
                   <div className="text-left">
@@ -1327,9 +1368,9 @@ export default function NRISamadhan() {
                   href="mailto:sales@clearclaim.in"
                   className="flex items-center gap-3 text-white hover:text-white/80 font-semibold"
                 >
-                <div className="w-10 h-10 rounded-full bg-[#00BE5D] flex items-center justify-center">
-  <Mail size={20} className="text-white" />
-</div>
+                  <div className="w-10 h-10 rounded-full bg-[#00BE5D] flex items-center justify-center">
+                    <Mail size={20} className="text-white" />
+                  </div>
                   <div className="text-left">
                     <div className="text-sm text-white/70">Email us at</div>
                     <div>sales@clearclaim.in</div>

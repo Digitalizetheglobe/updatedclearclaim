@@ -4,13 +4,12 @@ import Image from "next/image";
 
 const WhatsAppPopup = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [phoneNumber] = useState("+91 8600421300"); // ✅ Default WhatsApp number
+  const [phoneNumber] = useState("+91 8600421300");
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
     if (!message.trim() || !phoneNumber.trim()) return;
 
-    // Remove spaces and ensure proper number format
     const formattedPhoneNumber = phoneNumber.replace(/\s+/g, "");
     const url = `https://wa.me/${formattedPhoneNumber}?text=${encodeURIComponent(message)}`;
     
@@ -25,22 +24,22 @@ const WhatsAppPopup = () => {
         onClick={() => setShowPopup(!showPopup)}
         style={{
           position: "fixed",
-          bottom: "40px",
-          left: "40px", // ✅ Changed to left side on desktop
+          bottom: "30px",
+          left: "30px",
           backgroundColor: "rgb(33, 202, 95)",
           border: "none",
           borderRadius: "50%",
-          width: "60px",
-          height: "60px",
+          width: "50px",
+          height: "50px",
           cursor: "pointer",
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
-          padding: 0,
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          zIndex: 2000,
         }}
       >
-        <Image src="/images/whatsapp.png" alt="WhatsApp" width={35} height={35} />
+        <Image src="/images/whatsapp.png" alt="WhatsApp" width={25} height={25} />
       </button>
 
       {/* WhatsApp Chat Popup */}
@@ -48,14 +47,15 @@ const WhatsAppPopup = () => {
         <div
           style={{
             position: "fixed",
-            bottom: "90px",
-            left: "20px", // ✅ Adjusted popup position to left side
+            bottom: "100px",
+            left: "30px",
             width: "320px",
             backgroundColor: "#fff",
-            borderRadius: "10px",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
-            zIndex: 1000,
+            borderRadius: "15px",
+            boxShadow: "0px 10px 25px rgba(0, 0, 0, 0.2)",
+            zIndex: 2000,
             fontFamily: "Arial, sans-serif",
+            overflow: "hidden",
           }}
         >
           {/* Header */}
@@ -63,9 +63,7 @@ const WhatsAppPopup = () => {
             style={{
               backgroundColor: "#075E54",
               color: "#fff",
-              padding: "12px",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
+              padding: "15px",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -73,31 +71,28 @@ const WhatsAppPopup = () => {
             }}
           >
             <span>Clear Claim</span>
-            <span onClick={() => setShowPopup(false)} style={{ cursor: "pointer", fontSize: "18px" }}>✖</span>
+            <span onClick={() => setShowPopup(false)} style={{ cursor: "pointer", fontSize: "20px" }}>×</span>
           </div>
 
           {/* Chat Body */}
           <div
             style={{
-              padding: "12px",
+              padding: "15px",
               backgroundColor: "#ECE5DD",
-              minHeight: "150px",
-              maxHeight: "250px",
-              overflowY: "auto",
+              minHeight: "100px",
             }}
           >
             <div
               style={{
                 backgroundColor: "#DCF8C6",
-                padding: "8px",
+                padding: "10px",
                 borderRadius: "8px",
-                maxWidth: "80%",
-                marginBottom: "10px",
+                maxWidth: "90%",
                 fontSize: "14px",
                 boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.1)",
               }}
             >
-              Hey! 👋 Enter a message and send it to WhatsApp.
+              Hey! 👋 Enter a message below to chat with us on WhatsApp.
             </div>
           </div>
 
@@ -105,32 +100,28 @@ const WhatsAppPopup = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: "row", // ✅ Changed to row layout
               alignItems: "center",
-              gap: "8px",
+              gap: "10px",
               padding: "12px",
               backgroundColor: "#fff",
-              borderBottomLeftRadius: "10px",
-              borderBottomRightRadius: "10px",
             }}
           >
-            {/* Message Input */}
             <input
               type="text"
-              placeholder="Enter your message"
+              placeholder="Type a message..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
               style={{
                 flex: 1,
-                padding: "8px",
-                borderRadius: "20px",
+                padding: "10px 15px",
+                borderRadius: "25px",
                 border: "1px solid #ddd",
                 outline: "none",
                 fontSize: "14px",
               }}
             />
 
-            {/* Send Button */}
             <button
               onClick={handleSendMessage}
               style={{
@@ -143,7 +134,6 @@ const WhatsAppPopup = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
               }}
             >
               <Image src="/images/send.png" alt="Send" width={20} height={20} />
