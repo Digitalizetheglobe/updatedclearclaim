@@ -69,10 +69,10 @@ export default function Severalfactors() {
               {/* <span className="text-[#00BE5D] font-black tracking-[0.3em] uppercase text-xs mb-3 block">
                 The Challenges
               </span> */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight leading-tight">
-                Factors Contributing to <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Unclaimed Money</span>
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Factors Contributing to <span className="text-[#00BE5D]">Unclaimed Money</span>
               </h2>
-              <div className="h-1.5 w-24 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+              <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
             </motion.div>
           </div>
 
@@ -91,9 +91,8 @@ export default function Severalfactors() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`flex flex-col lg:flex-row items-center w-full min-h-[180px] ${
-                      isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                    }`}
+                    className={`flex flex-col lg:flex-row items-center w-full min-h-[180px] ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                      }`}
                   >
                     {/* Content Half */}
                     <div className={`w-full lg:w-1/2 flex ${isEven ? "justify-end lg:pr-16" : "justify-start lg:pl-16"}`}>
@@ -105,7 +104,7 @@ export default function Severalfactors() {
 
                         <div className="flex items-start gap-4">
                           {/* Small GIF Icon */}
-                          <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-emerald-50 p-2 border border-emerald-100 group-hover:scale-110 transition-transform duration-500">
+                          <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-emerald-50 p-2 border border-emerald-100 group-hover:scale-110 transition-transform duration-700">
                             <Image
                               src={factor.image}
                               alt={factor.title}
@@ -117,16 +116,15 @@ export default function Severalfactors() {
                             <h3 className="text-lg font-bold text-[#283655] mb-2 group-hover:text-[#00BE5D] transition-colors uppercase tracking-tight">
                               {factor.title}
                             </h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-gray-600 text-base leading-relaxed">
                               {factor.text}
                             </p>
                           </div>
                         </div>
 
                         {/* Decoration */}
-                        <div className={`absolute top-1/2 -translate-y-1/2 hidden lg:block w-4 h-4 rounded-full bg-white border-4 border-[#00BE5D] z-20 ${
-                          isEven ? "right-[-74px]" : "left-[-74px]"
-                        }`}></div>
+                        <div className={`absolute top-1/2 -translate-y-1/2 hidden lg:block w-4 h-4 rounded-full bg-white border-4 border-[#00BE5D] z-20 ${isEven ? "right-[-74px]" : "left-[-74px]"
+                          }`}></div>
                       </div>
                     </div>
 

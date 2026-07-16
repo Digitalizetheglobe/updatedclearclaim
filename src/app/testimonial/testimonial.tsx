@@ -12,37 +12,34 @@ export default function ReviewSection() {
   const [reviews, setReviews] = useState<any[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    async function fetchTestimonials() {
+      try {
+        const res = await fetch("https://apicms.clearclaim.in/api/testimonials");
+        if (res.ok) {
+          const data = await res.json();
+          const mappedReviews = data.map((item: any) => ({
+            name: item.name || item.fullName || "Anonymous",
+            date: item.date ? new Date(item.date).toLocaleDateString() : "Recent",
+            stars: item.rating || 5,
+            content: item.testimonial || item.testimonialText || "",
+            platform: "Google",
+            image: item.image
+          }));
+          setReviews(mappedReviews);
+        }
+      } catch (err) {
+        console.error("Failed to fetch testimonials", err);
+      }
+    }
+    fetchTestimonials();
+  }, []);
+
   const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
   };
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/testimonials");
-        const data = await response.json();
-
-        if (Array.isArray(data)) {
-          const dynamicReviews = data.map((item: any) => ({
-            name: item.name,
-            date: item.date || "Recently",
-            stars: item.rating || 5,
-            content: item.testimonial || item.testimonialText || "",
-            platform: item.platform || "Google"
-          }));
-          setReviews(dynamicReviews);
-        } else {
-          setReviews([]);
-        }
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-        setReviews([]);
-      }
-    };
-    fetchReviews();
-  }, []);
 
   useEffect(() => {
     resetTimeout();
@@ -71,7 +68,7 @@ export default function ReviewSection() {
   };
 
   const renderStars = (count: number, isActive: boolean) => (
-    <div className="flex items-center mb-4 gap-1">
+    <div className="flex items-center gap-1">
       {[...Array(5)].map((_, i) => (
         <span key={i} className={i < count ? (isActive ? "text-white" : "text-yellow-400") : "opacity-30"}>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
@@ -89,30 +86,30 @@ export default function ReviewSection() {
       <section className="py-24 px-4 bg-[#F9FAFB] overflow-hidden relative">
         {/* Background Arches decorative SVG like in image */}
         <div className="absolute top-10 right-10 opacity-20 pointer-events-none hidden lg:block">
-           <svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="199" height="299" rx="99.5" stroke="#00BE5D" strokeOpacity="0.5"/>
-              <rect x="30.5" y="30.5" width="139" height="239" rx="69.5" stroke="#00BE5D" strokeOpacity="0.3"/>
-              <rect x="60.5" y="60.5" width="79" height="179" rx="39.5" stroke="#00BE5D" strokeOpacity="0.2"/>
-           </svg>
+          <svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="199" height="299" rx="99.5" stroke="#00BE5D" strokeOpacity="0.5" />
+            <rect x="30.5" y="30.5" width="139" height="239" rx="69.5" stroke="#00BE5D" strokeOpacity="0.3" />
+            <rect x="60.5" y="60.5" width="79" height="179" rx="39.5" stroke="#00BE5D" strokeOpacity="0.2" />
+          </svg>
         </div>
 
         <div className="max-w-7xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] text-center tracking-tight">
-            Google Reviews <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">That Speak for Themselves</span>
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] text-center tracking-tight">
+            Google Reviews That <span className="text-[#00BE5D]"> Speak for Themselves</span>
           </h2>
-          <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+          <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
           <div className="relative flex items-center justify-center">
             {/* Left Navigation */}
-            <button 
+            <button
               onClick={handlePrev}
-              className="absolute left-[-10px] md:left-4 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+              className="absolute left-1 sm:left-2 md:left-4 z-20 p-2 sm:p-3 md:p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Carousel Container */}
-            <div className="w-full overflow-hidden flex justify-center py-10 relative px-4 md:px-20">
-              <div className="flex transition-all duration-700 ease-in-out gap-8 md:gap-12 items-center justify-center">
+            <div className="w-full overflow-hidden flex justify-center py-8 sm:py-10 relative px-6 sm:px-12 md:px-20">
+              <div className="flex transition-all duration-700 ease-in-out gap-4 sm:gap-8 md:gap-12 items-center justify-center">
                 {/* 
                    Visible window logic for desktop:
                    Show 3 items centered around currentIndex
@@ -127,31 +124,34 @@ export default function ReviewSection() {
                       key={`${index}-${offset}`}
                       className={`
                         transition-all duration-700 ease-in-out flex-shrink-0 
-                        rounded-[2rem] p-7 shadow-xl relative
-                        ${isActive 
-                          ? "bg-gradient-to-br from-[#00C853] via-[#00A243] to-[#017A34] text-white w-[300px] md:w-[380px] scale-100 md:scale-105 z-10" 
-                          : "bg-white text-gray-700 w-[260px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden md:flex"
+                        rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-7 shadow-xl relative
+                        ${isActive
+                          ? "bg-[#00BE5D] text-white w-[280px] sm:w-[320px] md:w-[380px] scale-100 md:scale-105 z-10"
+                          : "bg-white border-2 border-green-500 text-gray-700 w-[240px] sm:w-[280px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden md:flex"
                         }
-                        flex flex-col min-h-[360px] border border-gray-50/50
+                        flex flex-col min-h-[320px] md:min-h-[360px] border border-gray-50/50
                       `}
                     >
-                      {/* Top Header: Date */}
-                      <div className={`text-right text-sm font-medium mb-10 ${isActive ? "text-white/90" : "text-gray-400"}`}>
-                        {review.date}
+                      {/* Top Header: Stars & Date */}
+                      <div className="flex justify-between items-start mb-8 md:mb-10">
+                        {renderStars(review.stars || 5, isActive)}
+                        <div className={`text-right text-xs md:text-sm font-medium ${isActive ? "text-white/90" : "text-gray-400"}`}>
+                          {review.date}
+                        </div>
                       </div>
 
                       {/* Content */}
                       <div className="flex-1">
-                        <p className={`leading-relaxed text-base font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
+                        <p className={`leading-relaxed text-sm md:text-base font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
                           {expandedReviews[index]
                             ? review.content
-                            : review.content.length > 200 
-                              ? `“${review.content.substring(0, 200)}...”` 
+                            : review.content.length > 200
+                              ? `“${review.content.substring(0, 200)}...”`
                               : `“${review.content}”`
                           }
                           {review.content.length > 200 && (
-                             <button
-                              className={`ml-2 font-semibold border-b border-current py-0 text-sm ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
+                            <button
+                              className={`ml-2 font-semibold border-b border-current py-0 text-xs md:text-sm ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
                               onClick={() => toggleReadMore(index)}
                             >
                               {expandedReviews[index] ? "Read Less" : "Read More"}
@@ -161,21 +161,16 @@ export default function ReviewSection() {
                       </div>
 
                       {/* Divider */}
-                      <div className={`h-px w-full my-8 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
+                      <div className={`h-px w-full my-6 md:my-8 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
 
                       {/* Footer: Avatar and Name */}
-                      <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-full overflow-hidden border-2 flex-shrink-0 ${isActive ? "border-white/30" : "border-gray-200"}`}>
-                           <div className={`w-full h-full flex items-center justify-center font-bold text-sm ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>
-                             {review.name.charAt(0)}
-                           </div>
-                        </div>
+                      <div className="flex items-center gap-3 md:gap-4">
                         <div className="flex flex-col min-w-0">
-                          <h4 className={`font-bold text-base truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
+                          <h4 className={`font-bold text-sm md:text-base truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
                             {review.name}
                           </h4>
-                          <div className={`text-xs font-medium ${isActive ? "text-white/80" : "text-gray-400"}`}>
-                             Happy Client
+                          <div className={`text-[10px] md:text-xs font-medium ${isActive ? "text-white/80" : "text-gray-400"}`}>
+                            Happy Client
                           </div>
                         </div>
                       </div>
@@ -186,11 +181,11 @@ export default function ReviewSection() {
             </div>
 
             {/* Right Navigation */}
-            <button 
+            <button
               onClick={handleNext}
-              className="absolute right-[-10px] md:right-4 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+              className="absolute right-1 sm:right-2 md:right-4 z-20 p-2 sm:p-3 md:p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
@@ -213,4 +208,6 @@ export default function ReviewSection() {
     </>
   );
 }
+
+
 

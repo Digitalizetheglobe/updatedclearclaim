@@ -5,12 +5,38 @@ import aiimg from "../../../public/images/AI-img.png";
 import Image from "next/image";
 import tick from "../../../public/images/tick.svg";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import { ChevronLeft, ChevronRight, Settings, Search, FileSearch, MessageSquare, FileCheck, TrendingUp, Activity } from "lucide-react";
 
 import google from "../../../public/images/google.webp";
 import ScrollButton from "@/components/scrollbutton";
-
+import Link from "next/link";
+import SearchablePhoneCode from "@/components/SearchablePhoneCode";
+import CountrySelect from "@/components/CountrySelect";
 const API_BASE = "";
+
+const INVESTMENT_TYPES = [
+  "Shares Recovery",
+  "Mutual Funds Redemption",
+  "Insurance Claim Recovery",
+  "Provident Funds Recovery",
+  "Debtor Recovery",
+  "Unclaimed Bank Deposits",
+  "Property Dispute",
+  "Litigation Funding Consulting",
+] as const;
+
+const CALLBACK_TIMES = [
+  "10:00 AM-11:00 AM",
+  "11:00 AM-12:00 PM",
+  "12:00 PM-1:00 PM",
+  "2:00 PM-3:00 PM",
+  "3:00 PM-4:00 PM",
+  "4:00 PM-5:00 PM",
+  "5:00 PM-6:00 PM",
+  "6:00 PM-7:00 PM",
+] as const;
+
+const FLAG_IMG_BASE = "https://flagcdn.com/w40";
 
 const COUNTRY_OPTIONS = [
   { value: "India", label: "India", flag: "🇮🇳", dial: "+91", iso2: "in" },
@@ -219,34 +245,30 @@ const Counter: React.FC<{ target: number; suffix?: string }> = ({ target, suffix
 
 export default function LandingTestimonial2() {
   const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
-  const [visibleCount, setVisibleCount] = useState(3);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchReviews = async () => {
+    async function fetchTestimonials() {
       try {
-        const response = await fetch("http://localhost:5000/api/testimonials");
-        const data = await response.json();
-
-        if (Array.isArray(data)) {
-          const dynamicReviews = data.map((item: any) => ({
-            name: item.name,
-            date: item.date || "Recently",
+        const res = await fetch("https://apicms.clearclaim.in/api/testimonials");
+        if (res.ok) {
+          const data = await res.json();
+          const mappedReviews = data.map((item: any) => ({
+            name: item.name || item.fullName || "Anonymous",
+            date: item.date ? new Date(item.date).toLocaleDateString() : "Recent",
             stars: item.rating || 5,
             content: item.testimonial || item.testimonialText || "",
-            platform: item.platform || "Google"
+            platform: "Google",
+            image: item.image
           }));
-          setReviews(dynamicReviews);
-        } else {
-          setReviews([]);
+          setReviews(mappedReviews);
         }
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-        setReviews([]);
+      } catch (err) {
+        console.error("Failed to fetch testimonials", err);
       }
-    };
-    fetchReviews();
+    }
+    fetchTestimonials();
   }, []);
 
   const handlePrev = () => {
@@ -258,13 +280,36 @@ export default function LandingTestimonial2() {
   };
 
   const formRefTestimonial2 = useRef<HTMLFormElement>(null);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [isVideo1Playing, setIsVideo1Playing] = useState(false);
+  const [isVideo2Playing, setIsVideo2Playing] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
   const [phoneError, setPhoneError] = useState("");
+  const [options, setOptions] = useState<{ type_of_unclaimed_investments?: string[]; preferred_callback_time?: string[] } | null>(null);
 
-  const PHONE_MIN_LENGTH = 6;
-  const PHONE_MAX_LENGTH = 15;
+  const PHONE_MIN_LENGTH = 7;
+  const PHONE_MAX_LENGTH = 13;
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(e.target as Node)) {
+        setCountryDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/inquiries/options`)
+      .then((res) => res.ok ? res.json() : null)
+      .then((data) => data && setOptions(data))
+      .catch(() => { });
+  }, []);
 
   const handleSubmitTestimonial2 = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -277,6 +322,9 @@ export default function LandingTestimonial2() {
     const phoneRaw = (form.querySelector('[name="phone"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const phoneCountryCode = (form.querySelector('[name="phone_country_code"]') as HTMLSelectElement)?.value ?? "+91";
     const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const country = (form.querySelector('[name="country"]') as HTMLInputElement | HTMLSelectElement)?.value ?? "";
+    const typeOfInvestment = (form.querySelector('[name="type_of_unclaimed_investments"]') as HTMLSelectElement)?.value ?? "";
+    const callbackTime = (form.querySelector('[name="preferred_callback_time"]') as HTMLSelectElement)?.value ?? "";
 
     setPhoneError("");
     if (!phoneRaw || phoneRaw.length < PHONE_MIN_LENGTH) {
@@ -296,12 +344,15 @@ export default function LandingTestimonial2() {
 
     const payload = {
       name: `${first} ${last}`.trim(),
+      country_of_residence: country,
       whatsapp_number: fullPhone,
       email,
+      type_of_unclaimed_investments: typeOfInvestment,
+      preferred_callback_time: callbackTime,
     };
 
     setFormSubmitting(true);
-    fetch("/api/share-recovery", {
+    fetch("/api/inquiries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -311,31 +362,33 @@ export default function LandingTestimonial2() {
         return res.json();
       })
       .then(() => {
-        setToastMessage("Thank you! Your message has been sent successfully.");
+        setToastMessage("Thank you for your response. Our representative will contact you shortly.");
         setShowModal(true);
         if (formRefTestimonial2.current) formRefTestimonial2.current.reset();
+        setSelectedCountry("");
         setPhoneError("");
       })
       .catch(() => {
-        setToastMessage("There was an error sending your message. Please try again.");
+        setToastMessage("Failed to send the form. Please try again or contact us at +91 9156701900 / +91 9970651900 or sales@clearclaim.in.");
         setShowModal(true);
       })
       .finally(() => setFormSubmitting(false));
   };
   const steps = [
-    "Find your real worth of shares",
-    "Know your exact claim type of shares",
-    "Get exclusive consultation from experts",
-    "Accurate documentation of your claim",
-    "Get your shares in your DEMAT",
-    "Superior Follow-up of your claim",
+    { title: "Worth Valuation", text: "Find your real worth of shares", icon: Search },
+    { title: "Claim Analysis", text: "Know your exact claim type of shares", icon: FileSearch },
+    { title: "Expert Consultation", text: "Get exclusive consultation from experts", icon: MessageSquare },
+    { title: "Documentation", text: "Accurate documentation of your claim", icon: FileCheck },
+    { title: "Claim Follow-up", text: "Superior Follow-up RTA & Companies IPF & Demat Transfer", icon: Activity },
+    { title: "DEMAT Transfer", text: "Get your shares in your DEMAT", icon: TrendingUp },
+
   ];
 
 
 
   const renderStars = (count: number, isActive: boolean) => {
     return (
-      <div className="flex items-center mb-4 gap-1">
+      <div className="flex items-center gap-1">
         {[...Array(5)].map((_, i) => (
           <span key={i} className={i < count ? (isActive ? "text-white" : "text-yellow-400") : "opacity-30"}>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
@@ -354,30 +407,33 @@ export default function LandingTestimonial2() {
     }));
   };
 
-  const loadMore = () => {
-    setVisibleCount(reviews.length);
-  };
-
   return (
     <>
       <ScrollButton />
 
       {/* Modal Popup for Contact Form */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md mx-4">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 animate-in fade-in duration-300">
+          <div className="bg-white/95 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center max-w-md mx-4 border border-white/20 transform scale-100 transition-all duration-300 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]"></div>
+            <div className="w-16 h-16 mx-auto bg-[#e6f7ed] rounded-full flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-[#00BE5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-extrabold text-[#1a3a1f] mb-3 tracking-tight">Success!</h2>
+            <p className="text-gray-600 text-base mb-8 leading-relaxed font-medium">{toastMessage}</p>
             <button
               onClick={() => setShowModal(false)}
-              className="mt-3 px-4 py-2 bg-[#00BE5D] text-white rounded-md hover:bg-[#008C44] transition"
+              className="w-full px-6 py-3.5 bg-gradient-to-r from-[#00BE5D] to-[#008C44] text-white rounded-xl font-bold tracking-wide hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
-              OK
+              Okay, Thanks!
             </button>
           </div>
         </div>
       )}
 
-      <div className="relative bg-gradient-to-br from-[#f8fdf9] to-[#e6f7ed] py-16 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-[#f8fdf9] to-[#e6f7ed] py-10 md:py-16 overflow-hidden">
         {/* Grid Background Overlay */}
         <div className="absolute inset-0 opacity-10"
           style={{
@@ -388,13 +444,12 @@ export default function LandingTestimonial2() {
         <div className="max-w-6xl mx-auto px-4 md:px-0">
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center font-extrabold text-[#283655] tracking-tight leading-tight">
-            What{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl text-center font-extrabold text-[#283655] tracking-tight">            What{" "}
+            <span className="text-[#00BE5D]">
               Client Say
             </span>
           </h2>
-          <div className="h-1.5 w-24 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-8 md:mb-16"></div>
 
           {/* Video Banner */}
           <div className="flex justify-center">
@@ -402,32 +457,49 @@ export default function LandingTestimonial2() {
 
               {/* YouTube */}
               <iframe
-                src="https://www.youtube.com/embed/yagxF8loMrM"
+                src={`https://www.youtube.com/embed/yagxF8loMrM${isVideo1Playing ? '?autoplay=1' : ''}`}
                 title="Client Testimonial"
                 className="absolute top-0 left-0 w-full h-full"
                 frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
 
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent pointer-events-none"></div>
+              {!isVideo1Playing && (
+                <div 
+                  className="absolute inset-0 z-10 cursor-pointer"
+                  onClick={() => setIsVideo1Playing(true)}
+                >
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent pointer-events-none"></div>
 
-              {/* Text Content */}
-              <div className="absolute bottom-6 left-6 right-6 text-white z-10">
-                <h3 className="text-lg md:text-3xl font-bold max-w-xl leading-snug">
-                  Clearclaim Helped Me Recover My Parents&apos;s Lost Shares
-                </h3>
+                  {/* Play Button Icon (Visual only) */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-20 h-20 bg-[#00BE5D] rounded-full flex items-center justify-center shadow-2xl">
+                      <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
 
-                <p className="mt-2 text-green-300 font-medium">
-                  – Mr. Mukund Shah
-                </p>
-                <p className="text-xs text-gray-300">(Maharashtra)</p>
-              </div>
+                  {/* Text Content */}
+                  <div className="absolute bottom-6 left-6 right-6 text-white z-10 pointer-events-none">
+                    <h3 className="text-lg md:text-3xl font-bold max-w-xl leading-snug">
+                      Clearclaim Helped Me Recover My Parents&apos;s Lost Shares
+                    </h3>
+
+                    <p className="mt-2 text-green-300 font-medium">
+                      – Mr. Mukund Shah
+                    </p>
+                    <p className="text-xs text-gray-300">(Maharashtra)</p>
+                  </div>
+                </div>
+              )}
 
               {/* Badge */}
-              <div className="absolute top-4 left-4 bg-[#00BE5D] text-white text-xs px-4 py-2 rounded-full shadow-md z-10">
+              {/* <div className="absolute top-4 left-4 bg-[#00BE5D] text-white text-xs px-4 py-2 rounded-full shadow-md z-10">
                 1000+ shares recovered
-              </div>
+              </div> */}
 
             </div>
           </div>
@@ -435,130 +507,85 @@ export default function LandingTestimonial2() {
         </div>
       </div>
       {reviews.length > 0 && (
-        <section className="py-20 px-4 overflow-hidden">
+        <section className="py-12 md:py-24 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-                Google Reviews That <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Speak for Themselves</span>
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Google Reviews That <span className="text-[#00BE5D]">Speak for Themselves</span>
               </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40"></div>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
             </div>
 
             <div className="relative">
-              {/* Mobile: Show limited testimonials with Load More */}
-              <div className="md:hidden flex flex-col gap-6">
-                {reviews.slice(0, visibleCount).map((review, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 flex flex-col animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex flex-col">
-                        <h3 className="text-lg font-bold text-[#283655]">
-                          {review.name || "Anonymous"}
-                        </h3>
-                        <p className="text-sm text-gray-500">{review.date}</p>
-                      </div>
-                      <div className="bg-gray-50 p-2 rounded-lg">
-                        <Image src={google} alt="Google" width={40} height={20} className="object-contain" />
-                      </div>
-                    </div>
-                    {renderStars(review.stars, false)}
-                    <p className="text-gray-600 leading-relaxed text-sm flex-1">
-                      {expandedReviews[index]
-                        ? review.content
-                        : `${review.content.substring(0, 120)}...`}
-                    </p>
-                    <button
-                      className="mt-4 text-[#00BE5D] text-sm font-bold hover:underline self-start"
-                      onClick={() => toggleReadMore(index)}
-                    >
-                      {expandedReviews[index] ? "Read Less" : "Read More"}
-                    </button>
-                  </div>
-                ))}
-                {visibleCount < reviews.length && (
-                  <button
-                    onClick={loadMore}
-                    className="mt-4 px-8 py-3 bg-[#00BE5D] text-white rounded-xl font-bold hover:bg-[#008C44] transition-all shadow-lg self-center"
-                  >
-                    Load More Reviews
-                  </button>
-                )}
-              </div>
-
-              {/* Desktop Carousel */}
-              <div className="hidden md:flex items-center justify-center relative">
+              <div className="flex items-center justify-center relative">
                 {/* Left Navigation */}
                 <button
                   onClick={handlePrev}
-                  className="absolute left-[-20px] lg:left-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                  className="absolute left-1 sm:left-2 md:left-4 z-20 p-2 sm:p-3 md:p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
 
-                <div className="w-full overflow-hidden flex justify-center py-10 px-4">
-                  <div className="flex transition-all duration-700 ease-in-out gap-8 items-center justify-center">
-                    {[
-                      (currentIndex - 1 + reviews.length) % reviews.length,
-                      currentIndex,
-                      (currentIndex + 1) % reviews.length
-                    ].map((reviewIndex, displayIdx) => {
-                      const review = reviews[reviewIndex];
-                      if (!review || !reviews.length) return null;
-                      
-                      const isActive = reviewIndex === currentIndex;
-                      
+                <div className="w-full overflow-hidden flex justify-center py-4 sm:py-10 relative px-6 sm:px-12 md:px-20">
+                  <div className="flex transition-all duration-700 ease-in-out gap-4 sm:gap-8 md:gap-12 items-center justify-center">
+                    {[-1, 0, 1].map((offset) => {
+                      let index = (currentIndex + offset + reviews.length) % reviews.length;
+                      const review = reviews[index];
+                      const isActive = offset === 0;
+
                       return (
                         <div
-                          key={reviewIndex}
+                          key={`${index}-${offset}`}
                           className={`
                             transition-all duration-700 ease-in-out flex-shrink-0 
-                            rounded-[2rem] p-7 shadow-xl relative
+                            rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-7 shadow-xl relative
                             ${isActive
-                              ? "bg-gradient-to-br from-[#00C853] via-[#00A243] to-[#017A34] text-white w-[300px] md:w-[380px] scale-100 md:scale-105 z-10"
-                              : "bg-white text-gray-700 w-[260px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden lg:flex"
+                              ? "bg-[#00BE5D] text-white w-[280px] sm:w-[320px] md:w-[380px] scale-100 md:scale-105 z-10"
+                              : "bg-white border-2 border-green-500 text-gray-700 w-[240px] sm:w-[280px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden md:flex"
                             }
-                            flex flex-col min-h-[360px] border border-gray-50/50
+                            flex flex-col min-h-[320px] md:min-h-[360px] border border-gray-50/50
                           `}
                         >
-                          <div className={`text-right text-xs font-medium mb-8 ${isActive ? "text-white/90" : "text-gray-400"}`}>
-                            {review.date}
+                          {/* Top Header: Stars & Date */}
+                          <div className="flex justify-between items-start mb-8 md:mb-10">
+                            {renderStars(review.stars || 5, isActive)}
+                            <div className={`text-right text-xs md:text-sm font-medium ${isActive ? "text-white/90" : "text-gray-400"}`}>
+                              {review.date}
+                            </div>
                           </div>
 
+                          {/* Content */}
                           <div className="flex-1">
-                            <p className={`leading-relaxed text-sm font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
-                              {expandedReviews[reviewIndex]
+                            <p className={`leading-relaxed text-sm md:text-base font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
+                              {expandedReviews[index]
                                 ? review.content
-                                : review.content.length > 180
-                                  ? `“${review.content.substring(0, 180)}...”`
+                                : review.content.length > 200
+                                  ? `“${review.content.substring(0, 200)}...”`
                                   : `“${review.content}”`
                               }
-                              {review.content.length > 180 && (
+                              {review.content.length > 200 && (
                                 <button
-                                  className={`ml-2 font-semibold border-b border-current py-0 text-xs ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
-                                  onClick={() => toggleReadMore(reviewIndex)}
+                                  className={`ml-2 font-semibold border-b border-current py-0 text-xs md:text-sm ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
+                                  onClick={() => toggleReadMore(index)}
                                 >
-                                  {expandedReviews[reviewIndex] ? "Read Less" : "Read More"}
+                                  {expandedReviews[index] ? "Read Less" : "Read More"}
                                 </button>
                               )}
                             </p>
                           </div>
 
-                          <div className={`h-px w-full my-6 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
+                          {/* Divider */}
+                          <div className={`h-px w-full my-6 md:my-8 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
 
-                          <div className="flex items-center gap-4">
-                            <div className={`w-10 h-10 rounded-full overflow-hidden border-2 flex-shrink-0 ${isActive ? "border-white/30" : "border-gray-200"}`}>
-                              <div className={`w-full h-full flex items-center justify-center font-bold text-xs ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>
-                                {(review.name || "A").charAt(0)}
-                              </div>
-                            </div>
+                          {/* Footer: Avatar and Name */}
+                          <div className="flex items-center gap-3 md:gap-4">
                             <div className="flex flex-col min-w-0">
-                              <h4 className={`font-bold text-sm truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
-                                {review.name || "Anonymous"}
+                              <h4 className={`font-bold text-sm md:text-base truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
+                                {review.name}
                               </h4>
-                              {renderStars(review.stars, isActive)}
+                              <div className={`text-[10px] md:text-xs font-medium ${isActive ? "text-white/80" : "text-gray-400"}`}>
+                                Happy Client
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -570,19 +597,19 @@ export default function LandingTestimonial2() {
                 {/* Right Navigation */}
                 <button
                   onClick={handleNext}
-                  className="absolute right-[-20px] lg:right-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                  className="absolute right-1 sm:right-2 md:right-4 z-20 p-2 sm:p-3 md:p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
                 >
-                  <ChevronRight size={20} />
+                  <ChevronRight size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
 
               {/* Dots Indicator */}
-              <div className="hidden md:flex justify-center gap-2 mt-8">
+              <div className="flex justify-center gap-2 mt-8">
                 {reviews.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentIndex(i)}
-                    className={`h-1.5 transition-all duration-300 rounded-full ${currentIndex === i ? "w-6 bg-[#00BE5D]" : "w-1.5 bg-gray-300"}`}
+                    className={`h-2 transition-all duration-300 rounded-full ${currentIndex === i ? "w-8 bg-[#00BE5D]" : "w-2 bg-gray-300"}`}
                   />
                 ))}
               </div>
@@ -592,7 +619,7 @@ export default function LandingTestimonial2() {
       )}
 
       {/* Scammers Exposed */}
-      <div className="relative bg-gradient-to-b from-[#7ed3a6]/20 via-[#a8e6c1]/40 to-[#ffffff] py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-b from-[#7ed3a6]/20 via-[#a8e6c1]/40 to-[#ffffff] py-10 md:py-20 overflow-hidden">
         {/* Grid Background Overlay */}
         <div className="absolute inset-0 opacity-10"
           style={{
@@ -603,12 +630,12 @@ export default function LandingTestimonial2() {
 
         <div className="max-w-6xl mx-auto px-4 md:px-0 relative z-10">
           {/* Heading */}
-            <div className="text-center">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-                Physical shareholders <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Don't miss this video</span>
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-12"></div>
-            </div>
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+              Physical shareholders <span className="text-[#00BE5D]">Don't miss this video</span>
+            </h2>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-6 md:mb-12"></div>
+          </div>
 
 
           {/* Video Banner */}
@@ -617,288 +644,367 @@ export default function LandingTestimonial2() {
 
               {/* YouTube */}
               <iframe
-                src="https://www.youtube.com/embed/wNqDCTfOwBI"
+                src={`https://www.youtube.com/embed/wNqDCTfOwBI${isVideo2Playing ? '?autoplay=1' : ''}`}
                 title="Important Video"
                 className="absolute top-0 left-0 w-full h-full"
                 frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
 
-              {/* Overlay Gradient for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+              {!isVideo2Playing && (
+                <div 
+                  className="absolute inset-0 z-10 cursor-pointer"
+                  onClick={() => setIsVideo2Playing(true)}
+                >
+                  {/* Overlay Gradient for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
-              {/* Play Button Icon (Visual only) */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-20 h-20 bg-[#00BE5D] rounded-full flex items-center justify-center shadow-2xl">
-                  <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Text Content */}
-              <div className="absolute bottom-10 left-10 right-10 text-white z-10 pointer-events-none">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl md:text-3xl font-bold max-w-2xl leading-[1.2] drop-shadow-lg">
-                      Important Guidance for Physical Shareholders
-                    </h3>
-
-                    <div className="flex items-center gap-3 mt-4">
-                      <div className="h-px w-8 bg-[#00BE5D]"></div>
-                      <p className="text-[#00BE5D] text-lg font-bold tracking-wide uppercase">
-                        Safety & Recovery
-                      </p>
+                  {/* Play Button Icon (Visual only) */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-20 h-20 bg-[#00BE5D] rounded-full flex items-center justify-center shadow-2xl">
+                      <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
                   </div>
 
-                  <p className="text-green-300 font-medium text-sm md:text-base">
-                    Learn how to stay safe & recover your investments
-                  </p>
+                  {/* Text Content */}
+                  <div className="absolute bottom-10 left-10 right-10 text-white z-10 pointer-events-none">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl md:text-3xl font-bold max-w-2xl leading-[1.2] drop-shadow-lg">
+                          Important Guidance for Physical Shareholders
+                        </h3>
+
+                        <div className="flex items-center gap-3 mt-4">
+                          <div className="h-px w-8 bg-[#00BE5D]"></div>
+                          <p className="text-[#00BE5D] text-lg font-bold tracking-wide uppercase">
+                            Safety & Recovery
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-green-300 font-medium text-sm md:text-base">
+                        Learn how to stay safe & recover your investments
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Badge */}
-              <div className="absolute top-8 left-8 bg-[#00BE5D] text-white text-[10px] md:text-xs font-bold tracking-widest uppercase px-6 py-2.5 rounded-full shadow-2xl z-10 border border-white/20 backdrop-blur-sm pointer-events-none">
+              {/* <div className="absolute top-8 left-8 bg-[#00BE5D] text-white text-[10px] md:text-xs font-bold tracking-widest uppercase px-6 py-2.5 rounded-full shadow-2xl z-10 border border-white/20 backdrop-blur-sm pointer-events-none">
                 Must Watch
-              </div>
+              </div> */}
 
             </div>
           </div>
         </div>
       </div>
       {/* How it works */}
-      <section className=" py-16 md:py-16 overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-              How <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">It Works</span>
+          <div className="text-center mb-16 sm:mb-24 flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+              How It <span className="text-[#00BE5D]">Works</span>
             </h2>
-            <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40"></div>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 "></div>
+
+            {/* <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mt-4 rounded-full"></div> */}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-2 items-center">
-            {/* Left Content Side */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-10"
-            >
+          <div className="relative w-full max-w-4xl mx-auto flex flex-col gap-6 md:gap-0">
+            {steps.map((step, idx) => {
+              const Icon = step.icon;
+              const isEven = idx % 2 === 0;
 
-              <div className="space-y-6">
-                {steps.map((step, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1, duration: 0.5 }}
-                    className="flex items-center gap-4 group cursor-default"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
-                      <Image src={tick} alt="tick" className="w-full h-full" />
-                      {/* <Image src={tick} alt="clearclaim" className="w-5 h-6 " /> */}
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
+                  className={`w-full md:w-[46%] relative z-10 ${isEven ? "md:self-start" : "md:self-end md:-mt-16"
+                    }`}
+                >
+                  {/* Left-to-Right Connector */}
+                  {isEven && idx < steps.length - 1 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.15 + 0.4, duration: 0.4 }}
+                      className="hidden md:block absolute top-[45%] -right-[25%] w-[25%] h-[65%] border-t-2 border-r-2 border-dashed border-[#00BE5D]/60 rounded-tr-3xl z-[-1]"
+                    >
+                      <svg className="absolute -bottom-[10px] -right-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </motion.div>
+                  )}
+
+                  {/* Right-to-Left Connector */}
+                  {!isEven && idx < steps.length - 1 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.15 + 0.4, duration: 0.4 }}
+                      className="hidden md:block absolute top-[45%] -left-[25%] w-[25%] h-[65%] border-t-2 border-l-2 border-dashed border-[#00BE5D]/60 rounded-tl-3xl z-[-1]"
+                    >
+                      <svg className="absolute -bottom-[10px] -left-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </motion.div>
+                  )}
+
+                  {/* Card Content */}
+                  <div className={`p-4 sm:p-5 rounded-[2rem] flex gap-4 shadow-sm border ${isEven ? 'bg-[#f4fbf0] border-[#e6f4df]' : 'bg-[#f8fafc] border-slate-100'
+                    }`}>
+
+                    {/* Vertical Pill */}
+                    <div className={`flex-shrink-0 w-10 sm:w-12 h-32 sm:h-36 rounded-full flex items-center justify-center ${isEven ? 'bg-[#0f4c3a]' : 'bg-[#1e293b]'
+                      }`}>
+                      <span className="transform -rotate-90 text-white text-xs sm:text-sm font-medium whitespace-nowrap tracking-wider">
+                        Step {idx + 1}
+                      </span>
                     </div>
-                    <span className="text-[#283655] text-lg lg:text-xl font-medium tracking-tight transition-transform duration-300 group-hover:translate-x-2">
-                      {step}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Right Visual Side - Premium Orbital Arch */}
-            <div className="relative flex items-center justify-center mt-12 lg:mt-0 px-0 mt-12">
-              {/* The Arch Container */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] flex items-center justify-center translate-x-8 sm:translate-x-12"
-              >
-                {/* Orbital Background Image */}
-                <div className="absolute inset-0 rounded-full overflow-hidden z-20">
-                  <Image
-                    src="/images/orbital-background.png"
-                    alt="Orbital Background"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                    {/* Text Details */}
+                    <div className="flex-1 py-2 sm:py-3 pr-2">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-sm ${isEven ? 'bg-[#e5f5da]' : 'bg-white'
+                          }`}>
+                          <Icon className={`w-4 h-4 ${isEven ? 'text-[#0f4c3a]' : 'text-[#1e293b]'}`} />
+                        </div>
+                        <h3 className={`font-semibold text-base sm:text-lg ${isEven ? 'text-[#0f4c3a]' : 'text-slate-800'}`}>
+                          {idx + 1} {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-slate-600 text-xs sm:text-base leading-relaxed font-medium">
+                        {step.text}
+                      </p>
+                    </div>
 
-                {/* Inner White Circle */}
-                <div className="absolute w-[40%] h-[40%] rounded-full flex flex-col items-center justify-center z-30 text-center p-4 border border-emerald-50 bg-white">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="mb-2"
-                  >
-                    <Settings className="w-8 h-8 sm:w-10 sm:h-10 text-[#283655]" />
-                  </motion.div>
-                  <p className="text-[#283655] font-bold text-base sm:text-xl leading-tight">
-                    Artificial<br />Intelligence
-                  </p>
-                </div>
-
-                {/* Floating Cards */}
-                {[
-                  { title: "Valuation engine", position: "-top-10 left-[10%] sm:-top-12 sm:left-[5%]", zIndex: "z-10" },
-                  { title: "Claim process map", position: "top-[12%] -right-4 sm:top-[18%] sm:-right-12", zIndex: "z-30" },
-                  // { title: "Ultra follow-up method", position: "top-[25%] -left-10 sm:-right- -translate-y-1/2", zIndex: "z-10" },
-                  {
-                    title: "Ultra follow-up method",
-                    position: "top-[25%] -left-16 sm:-left-28 -translate-y-1/2",
-                    zIndex: "z-10"
-                  },
-                  { title: "Documents engine", position: "bottom-[5%] -right-4 sm:bottom-[18%] sm:-right-12", zIndex: "z-30" },
-                ].map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + idx * 0.2, duration: 0.6 }}
-                    className={`absolute ${card.position} ${card.zIndex} bg-white shadow-[0_6px_20px_rgba(0,0,0,0.05)] 
-                      rounded-xl p-2 sm:p-6 w-24 sm:w-36 text-center border border--50 
-                      flex items-center justify-center min-h-[60px] sm:min-h-[80px]`}
-                  >
-                    <span className="text-[#283655] font-medium text-xs sm:text-sm leading-tight font-semibold">
-                      {card.title}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* Decorative radial blur for depth */}
-              <div className="absolute -z-10 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-            </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Request call back form - EXACT MATCH with IEPF Reference */}
-      <div
-        className="relative py-6 sm:py-8 lg:py-12 max-md:px-4 bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "url('/images/paper_img.png')" }}
-      >
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#00BE5D]/80 via-[#1f7a4a]/90 to-[#2F2F2F] backdrop-blur-[1px]"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
-          <div className="grid lg:grid-cols-[1.3fr_1fr] items-center gap-12 lg:gap-16">
+      {/* Request call back form */}
+      <div className="relative py-6 sm:py-8 lg:py-12 max-md:px-4 bg-[#041a0f] bg-gradient-to-br from-[#020d08] via-[#052616] to-[#010a05] overflow-hidden">
+
+        {/* Background Image Overlay */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-[url('/images/recovery_shares_bg.png')] bg-cover bg-center mix-blend-overlay"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12">
 
             {/* Left Side: Form Section */}
-            <div className="flex bg-white/95 backdrop-blur-xl rounded-2xl border border-gray-100 items-center lg:mr-auto min-h-[500px] w-full md:w-[450px] mx-auto py-0 sm:py-6 relative shadow-2xl">
+            <div className="bg-white/[0.08] backdrop-blur-xl border border-white/[0.15] rounded-2xl p-6 sm:p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+              <h3 className="text-xl sm:text-2xl font-bold text-white text-center tracking-wide uppercase mb-6">
+                Talk to experts – <span className="text-[#00BE5D]">FREE</span>
+              </h3>
+              <p className="text-[11px] text-center text-gray-300 uppercase tracking-[0.1em] font-medium mt-[-10px] mb-6">
+                Share your details and we’ll get back to you shortly.
+              </p>
+
               <form
                 ref={formRefTestimonial2}
-                className="max-w-lg p-6 sm:p-8 mx-auto w-full"
                 onSubmit={handleSubmitTestimonial2}
+                className="space-y-4"
               >
-                <div className="mb-8">
-                  <h3 className="text-3xl font-bold text-gray-800 leading-tight">
-                    Talk to experts – <span className="text-[#00BE5D]">FREE</span>
-                  </h3>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Share your details and we’ll get back to you shortly.
-                  </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="testimonial_first_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      First Name
+                    </label>
+                    <input
+                      id="testimonial_first_name"
+                      name="first_name"
+                      type="text"
+                      placeholder="Enter First Name"
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="testimonial_last_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Last Name
+                    </label>
+                    <input
+                      id="testimonial_last_name"
+                      name="last_name"
+                      type="text"
+                      placeholder="Enter Last Name"
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                      required
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <input
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        required
-                        className="w-full text-gray-800 rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] bg-white transition-all shadow-sm"
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        required
-                        className="w-full text-gray-800 rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] bg-white transition-all shadow-sm"
-                      />
-                    </div>
-                  </div>
+                <div>
+                  <label htmlFor="testimonial_email" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                    Email
+                  </label>
+                  <input
+                    id="testimonial_email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter Email"
+                    className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                    required
+                  />
+                </div>
 
-                  <div>
+                <div>
+                  <label htmlFor="testimonial_phone" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                    Phone Number
+                  </label>
+                  <div className="flex gap-2">
+                    <div className="flex-shrink-0">
+                      <SearchablePhoneCode
+                        id="testimonial_phone_code"
+                        name="phone_country_code"
+                        options={COUNTRY_OPTIONS}
+                        className="h-full bg-white/[0.85] rounded-lg px-2 py-2.5 text-gray-800 text-[11px] font-semibold outline-none border border-transparent shadow-inner cursor-pointer"
+                      />
+                    </div>
                     <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
+                      id="testimonial_phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="9876543210"
+                      minLength={PHONE_MIN_LENGTH}
+                      maxLength={PHONE_MAX_LENGTH}
+                      onInput={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        target.value = target.value.replace(/\D/g, "");
+                        if (phoneError) setPhoneError("");
+                      }}
+                      className={`w-full bg-white/[0.92] border text-gray-900 placeholder:text-gray-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner ${phoneError ? "border-red-400 focus:border-red-400" : "border-transparent focus:border-emerald-400"}`}
                       required
-                      className="w-full text-gray-800 rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] bg-white transition-all shadow-sm"
                     />
                   </div>
+                  {phoneError && <p className="text-red-400 text-[11px] mt-1">{phoneError}</p>}
+                </div>
 
-                  <div className="flex gap-2">
-                    <div className="w-24 flex-shrink-0">
+                <div>
+                  <label htmlFor="testimonial_country" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                    Current Country
+                  </label>
+                  <input type="hidden" name="country" value={selectedCountry} required />
+                  <CountrySelect
+                    id="testimonial_country"
+                    options={COUNTRY_OPTIONS}
+                    value={selectedCountry}
+                    onChange={setSelectedCountry}
+                    className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="testimonial_investment_type" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                    Type of Unclaimed Investment
+                  </label>
+                  <div className="relative">
                       <select
-                        name="phone_country_code"
-                        className="w-full bg-white border border-gray-300 rounded-md py-2.5 px-2 text-[11px] text-gray-700 outline-[#00BE5D] font-bold appearance-none shadow-sm"
+                        id="testimonial_investment_type"
+                        name="type_of_unclaimed_investments"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none pr-10 cursor-pointer"
                         required
                       >
-                        {COUNTRY_OPTIONS.map((c) => (
-                          <option key={c.value} value={c.dial}>{c.flag} {c.dial || "Other"}</option>
-                        ))}
+                        <option value="">Select type</option>
+                    {(options?.type_of_unclaimed_investments ?? INVESTMENT_TYPES).map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
                       </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone Number"
+                </div>
+
+                <div>
+                  <label htmlFor="testimonial_callback_time" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                    Preferred Callback Time (IST)
+                  </label>
+                  <div className="relative">
+                      <select
+                        id="testimonial_callback_time"
+                        name="preferred_callback_time"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none pr-10 cursor-pointer"
                         required
-                        onInput={(e) => {
-                          const target = e.target as HTMLInputElement;
-                          target.value = target.value.replace(/\D/g, "");
-                        }}
-                        className="w-full text-gray-800 rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] bg-white transition-all shadow-sm"
-                      />
+                      >
+                        <option value="">Select time slot</option>
+                    {(options?.preferred_callback_time ?? CALLBACK_TIMES).map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
                     </div>
-                  </div>
-                  {phoneError && <p className="text-red-500 text-[10px] mt--2 ml-1">{phoneError}</p>}
+                </div>
 
-                  <div className="flex items-start gap-2 pt-2">
-                    <input
-                      type="checkbox"
-                      id="agree"
-                      name="agree"
-                      className="mt-1 w-4 h-4 accent-[#00BE5D] cursor-pointer"
-                      required
-                    />
-                    <label htmlFor="agree" className="text-[10px] text-gray-500 leading-tight  mt-1">
-                      I agree to receive updates via email or phone. I understand my data is secure.
-                    </label>
-                  </div>
-
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      disabled={formSubmitting}
-                      className="w-full sm:w-max shadow-lg py-3 px-8 text-sm text-white font-bold rounded-md bg-[#00BE5D] hover:bg-[#008C44] transition-all focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed uppercase tracking-wider"
+                <div className="flex items-start gap-2.5 pt-2">
+                  <input
+                    type="checkbox"
+                    id="testimonial_agree"
+                    name="agree"
+                    className="mt-0.5 w-4 h-4 rounded border-gray-300 text-emerald-500 focus:ring-emerald-500 bg-white/20 accent-emerald-500 cursor-pointer"
+                    required
+                  />
+                  <label
+                    htmlFor="testimonial_agree"
+                    className="text-sm text-white leading-tight cursor-pointer"
+                  >
+                    Yes, I agree with the{" "}
+                    <Link
+                      href="/privacy-policy"
+                      className="text-[#00BE5D] hover:underline"
                     >
-                      {formSubmitting ? "Sending..." : "Get Free Consulting"}
-                    </button>
-                  </div>
+                      privacy policy
+                    </Link>
+                  </label>
+                </div>
+
+                <div className="pt-2 flex justify-center">
+                  <button
+                    type="submit"
+                    disabled={formSubmitting}
+                    className="group relative overflow-hidden bg-[#00BE5D] hover:bg-[#00c875] active:bg-[#00b569] text-white font-extrabold py-3.5 px-4 rounded-full transition-all duration-200 shadow-lg shadow-emerald-950/50 uppercase tracking-wider text-xs cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    <div
+                      className="absolute inset-0 -translate-x-[150%] w-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shine"
+                      style={{ animationDuration: "3s" }}
+                    />
+                    <span className="relative z-10">
+                      {formSubmitting ? "Processing..." : "Get Free Consulting"}
+                    </span>
+                  </button>
                 </div>
               </form>
             </div>
 
             {/* Right Side: Text Content */}
-            <div className="text-left flex flex-col justify-center max-md:px-4">
+            <div className="text-left flex flex-col    max-md:px-4">
               <div className="text-white mb-6">
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight">India’s No.1 Shares Recovery Experts</h2>
+                <h2 className="text-3xl md:text-5xl font-bold leading-tight">India’s No.1 <span className="text-[#00BE5D] bg-clip-text">Share</span> Recovery Experts</h2>
               </div>
-              <ul className="space-y-6 mt-8 text-white text-lg lg:text-xl font-medium">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
                 {[
                   "Old shares and dividends recovery",
                   "Physical shares to DEMAT conversion",
@@ -908,17 +1014,37 @@ export default function LandingTestimonial2() {
                   "IEPF claims of shares",
                   "IEPF claim of dividends"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <Image src={tick} alt="clearclaim" className="w-5 h-6 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/[0.07] hover:border-emerald-500/30 hover:bg-white/[0.05] transition-all duration-300 group"
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                      <svg className="w-3.5 h-3.5 text-[#00c875]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <p className="text-gray-200 text-sm md:text-base font-medium leading-snug tracking-wide">
+                      {item}
+                    </p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes shine {
+          0% { transform: translateX(-150%) skewX(-20deg); }
+          20% { transform: translateX(200%) skewX(-20deg); }
+          100% { transform: translateX(200%) skewX(-20deg); }
+        }
+        .animate-shine {
+          animation: shine 3s infinite;
+        }
+      `}</style>
     </>
   );
 }

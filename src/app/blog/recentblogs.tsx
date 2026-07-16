@@ -58,7 +58,7 @@
 
 
 //               <SwiperSlide>
-//                 <Link href="/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets">
+//                 <Link href="/blog/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog27}
@@ -82,7 +82,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/cross-border-asset-recovery">
+//                 <Link href="/blog/cross-border-asset-recovery">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog26}
@@ -107,7 +107,7 @@
 
 
 //               <SwiperSlide>
-//                 <Link href="/the-technology-component-in-unclaimed-assets-recovery">
+//                 <Link href="/blog/the-technology-component-in-unclaimed-assets-recovery">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog25}
@@ -133,7 +133,7 @@
 
 
 //               <SwiperSlide>
-//                 <Link href="/from-broker-to-ipf">
+//                 <Link href="/blog/from-broker-to-ipf">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog24}
@@ -157,7 +157,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/beyond-shares">
+//                 <Link href="/blog/beyond-shares">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog23}
@@ -182,7 +182,7 @@
 
 
 //               <SwiperSlide>
-//                 <Link href="/navigatingrules">
+//                 <Link href="/blog/navigatingrules">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog20}
@@ -207,7 +207,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/navigatingrules">
+//                 <Link href="/blog/navigatingrules">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog19}
@@ -232,7 +232,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/navigatingrules">
+//                 <Link href="/blog/navigatingrules">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog22}
@@ -257,7 +257,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/navigatingrules">
+//                 <Link href="/blog/navigatingrules">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog21}
@@ -282,7 +282,7 @@
 //               </SwiperSlide>
 
 //               <SwiperSlide>
-//                 <Link href="/navigatingrules">
+//                 <Link href="/blog/navigatingrules">
 //                   <div className="bg-white mb-12 items-center cursor-pointer h-[450px] rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog}
@@ -306,7 +306,7 @@
 //                 </Link>
 //               </SwiperSlide>
 //               <SwiperSlide>
-//                 <Link href="/rise-of-unclaimed-assets">
+//                 <Link href="/blog/rise-of-unclaimed-assets">
 //                   <div className="bg-white mb-12 cursor-pointer rounded h-[450px] overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog1}
@@ -330,7 +330,7 @@
 //                 </Link>
 //               </SwiperSlide>
 //               {/* <SwiperSlide>
-//                 <Link href="/understanding-banking-laws">
+//                 <Link href="/blog/understanding-banking-laws">
 //                   <div className="bg-white mb-12 cursor-pointer rounded h-[450px] overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog2}
@@ -355,7 +355,7 @@
 //               </SwiperSlide> */}
 
 //               {/* <SwiperSlide>
-//                 <Link href="/heg-limited">
+//                 <Link href="/blog/heg-limited">
 //                   <div className="bg-white mb-12 cursor-pointer rounded h-[450px] overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog3}
@@ -379,7 +379,7 @@
 //                 </Link>
 //               </SwiperSlide> */}
 //               <SwiperSlide>
-//                 <Link href="/investor-education">
+//                 <Link href="/blog/investor-education">
 //                   <div className="bg-white mb-12 cursor-pointer rounded h-[450px] overflow-hidden shadow-[0_2px_10px_-3px_rgba(0,190,93,0.8)] relative top-0 hover:-top-2 transition-all duration-300">
 //                     <Image
 //                       src={blog4}
@@ -442,84 +442,84 @@ export default function RecentBlogs() {
       date: "Mar 25th 2025",
       title:
         "The Impact of Indias digital thrust on recovery of unclaimed assets: Facts investors need to know",
-      link: "/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets",
+      link: "/blog/the-impact-of-indias-digital-thrust-on-recovery-of-unclaimed-assets",
     },
     {
       img: blog26,
       date: "Mar 24th 2025",
       title:
         "Cross-Border Asset Recovery: Challenges and Solutions for NRI Unclaimed Investments",
-      link: "/cross-border-asset-recovery",
+      link: "/blog/cross-border-asset-recovery",
     },
     {
       img: blog25,
       date: "Feb 22nd 2025",
       title:
         "The Technology Component in Unclaimed Assets Recovery: India's Digital Initiative",
-      link: "/the-technology-component-in-unclaimed-assets-recovery",
+      link: "/blog/the-technology-component-in-unclaimed-assets-recovery",
     },
     {
       img: blog24,
       date: "Feb 21st 2025",
       title:
         "From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India",
-      link: "/from-broker-to-ipf",
+      link: "/blog/from-broker-to-ipf",
     },
     {
       img: blog23,
       date: "Feb 20th 2025",
       title:
         "Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India",
-      link: "/beyond-shares",
+      link: "/blog/beyond-shares",
     },
     {
       img: blog20,
       date: "Jan 2nd 2025",
       title:
         "The Importance of Document Verification in IEPF Claims: A Guide to an Effective Recovery Process",
-      link: "/navigatingrules",
+      link: "/blog/navigatingrules",
     },
     {
       img: blog19,
       date: "Jan 1st 2025",
       title:
         "Unclaimed Dividends vs. Unclaimed Shares: How to Navigate the Recovery Process",
-      link: "/navigatingrules",
+      link: "/blog/navigatingrules",
     },
     {
       img: blog22,
       date: "Jan 30th 2025",
       title:
         "The Role of KYC Updates in Preventing Unclaimed Financial Assets",
-      link: "/navigatingrules",
+      link: "/blog/navigatingrules",
     },
     {
       img: blog21,
       date: "Jan 29th 2025",
       title:
         "The Rise of Digital Platforms for Tracing Inactive Financial Assets",
-      link: "/navigatingrules",
+      link: "/blog/navigatingrules",
     },
     {
       img: blog,
       date: "Dec 12th 2024",
       title:
         "Navigating the new nomination rules: how recent changes affect your dormant bank account",
-      link: "/navigatingrules",
+      link: "/blog/navigatingrules",
     },
     {
       img: blog1,
       date: "Dec 12th 2024",
       title:
         "The Rise of Unclaimed Assets in India: A Deep Dive into Current Statistics",
-      link: "/rise-of-unclaimed-assets",
+      link: "/blog/rise-of-unclaimed-assets",
     },
     {
       img: blog4,
       date: "Nov 29th 2024",
       title:
         "Understanding the Investor Education and Protection Fund (IEPF) Authority in India",
-      link: "/investor-education",
+      link: "/blog/investor-education",
     },
   ];
 

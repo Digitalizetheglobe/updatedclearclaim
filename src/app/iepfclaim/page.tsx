@@ -1,13 +1,16 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useInView, animate } from "framer-motion";
 import Image from "next/image";
 import Content from "./content";
 import ScrollButton from "@/components/scrollbutton";
+import Link from "next/link";
 import phoneIcon from "../../../public/images/phone-call.png";
 import emailIcon from "../../../public/images/email.png";
 import tick from "../../../public/images/tick.svg";
-
+import SearchablePhoneCode from "@/components/SearchablePhoneCode";
+import CountrySelect from "@/components/CountrySelect";
 // Same-origin API routes
 const API_BASE = "";
 
@@ -216,29 +219,27 @@ const COUNTRY_OPTIONS = [
 ];
 
 // Counter Component
-const Counter: React.FC<{ target: number; suffix?: string }> = ({ target, suffix = "" }) => {
-  const [count, setCount] = useState(0);
+function AnimatedNumber({ value, suffix = "" }: { value: number, suffix?: string }) {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(nodeRef, { once: true, margin: "-10px" });
 
   useEffect(() => {
-    let start = 0;
-    const duration = 2000;
-    const increment = Math.ceil(target / (duration / 50));
+    if (isInView && nodeRef.current) {
+      const controls = animate(0, value, {
+        duration: 2.5,
+        ease: "easeOut",
+        onUpdate(v) {
+          if (nodeRef.current) {
+            nodeRef.current.textContent = Math.round(v).toLocaleString("en-IN") + suffix;
+          }
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value, suffix]);
 
-    const counterInterval = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(counterInterval);
-      } else {
-        setCount(start);
-      }
-    }, 50);
-
-    return () => clearInterval(counterInterval);
-  }, [target]);
-
-  return <>{count.toLocaleString()}{suffix}</>;
-};
+  return <span ref={nodeRef}>0{suffix}</span>;
+}
 
 export default function IEPFClaim() {
   const heroFormRef = useRef<HTMLFormElement>(null);
@@ -251,8 +252,8 @@ export default function IEPFClaim() {
   const [phoneError, setPhoneError] = useState("");
   const [options, setOptions] = useState<{ type_of_unclaimed_investments?: string[]; preferred_callback_time?: string[] } | null>(null);
 
-  const PHONE_MIN_LENGTH = 6;
-  const PHONE_MAX_LENGTH = 15;
+  const PHONE_MIN_LENGTH = 7;
+  const PHONE_MAX_LENGTH = 13;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -273,7 +274,7 @@ export default function IEPFClaim() {
 
   const submitInquiry = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = heroFormRef.current;
+    const form = e.currentTarget;
     if (!form || formSubmitting) return;
 
     const first = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
@@ -340,14 +341,21 @@ export default function IEPFClaim() {
 
       {/* Modal Popup for Contact Form */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md mx-4">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 animate-in fade-in duration-300">
+          <div className="bg-white/95 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center max-w-md mx-4 border border-white/20 transform scale-100 transition-all duration-300 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]"></div>
+            <div className="w-16 h-16 mx-auto bg-[#e6f7ed] rounded-full flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-[#00BE5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-extrabold text-[#1a3a1f] mb-3 tracking-tight">Success!</h2>
+            <p className="text-gray-600 text-base mb-8 leading-relaxed font-medium">{toastMessage}</p>
             <button
               onClick={() => setShowModal(false)}
-              className="mt-3 px-4 py-2 bg-[#00BE5D] text-white rounded-md hover:bg-[#008C44] transition"
+              className="w-full px-6 py-3.5 bg-gradient-to-r from-[#00BE5D] to-[#008C44] text-white rounded-xl font-bold tracking-wide hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
-              OK
+              Okay, Thanks!
             </button>
           </div>
         </div>
@@ -355,32 +363,41 @@ export default function IEPFClaim() {
 
       <div className="bg-white text-gray-800">
         {/* ================= HERO SECTION ================= */}
-        <section className="relative bg-[#1a3a1f] text-white py-16 md:py-24 overflow-hidden min-h-screen flex items-center">
-          {/* Main Gradient Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_#1e5d2b_0%,_#1a3a1f_80%)]"></div>
+        <section className="relative bg-[#041a0f] bg-gradient-to-br from-[#020d08] via-[#052616] to-[#010a05] flex items-start justify-center px-4 py-10 sm:py-16 sm:px-6 lg:px-8 overflow-hidden">
 
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0 bg-[url('/images/iepf_claim.png')] bg-cover bg-center mix-blend-overlay"></div>
+          {/* Background Image Overlay */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute inset-0 bg-[url('/images/new_iepf.png')] bg-cover bg-center mix-blend-overlay"></div>
           </div>
 
-          {/* Decorative Glows */}
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#00BE5D] opacity-20 blur-[120px] rounded-full"></div>
-          <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-[#00BE5D] opacity-10 blur-[100px] rounded-full"></div>
+          {/* Premium Tech Grid Overlay */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+            backgroundImage: `linear-gradient(to right, #22c55e 1px, transparent 1px), linear-gradient(to bottom, #22c55e 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
+
+          {/* Ambient Glows */}
+          {/* <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" /> */}
+          {/* <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[450px] h-[450px] bg-emerald-600/15 blur-[150px] rounded-full pointer-events-none" /> */}
 
           {/* Floating Light Specks */}
-          <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-white rounded-full opacity-40 blur-sm animate-pulse"></div>
-          <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-[#00BE5D] rounded-full opacity-50 blur-md animate-pulse [animation-delay:1s]"></div>
+          <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-white rounded-full opacity-40 blur-sm animate-pulse pointer-events-none"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-emerald-400 rounded-full opacity-30 blur-md animate-pulse [animation-delay:1s] pointer-events-none"></div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* LEFT CONTENT */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-0">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+              {/* LEFT COLUMN: Value Proposition & Services */}
               <div className="animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:0ms]">
-                <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
-                  India's No.1 IEPF consultant
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white tracking-tight leading-tight">
+                  India's No.1 <span className="text-[#00BE5D] bg-clip-text">IEPF</span> Consultant
                 </h1>
+                <p className="text-sm sm:text-base text-white/90 mb-6 font-medium max-w-xl">
+                  Fast track your asset reclaiming process with India's trusted financial recovery specialists.
+                </p>
 
-                <ul className="space-y-4 mt-12 text-gray-600 lg:text-xl font-medium text-lg md:text-lg max-w-lg leading-relaxed">
+                {/* Modern Service Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                   {[
                     "Recovery of shares from IEPF",
                     "Unclaimed dividends recovery",
@@ -388,67 +405,110 @@ export default function IEPFClaim() {
                     "Issue of duplicate share certificates",
                     "Demat account stuck shares recovery",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-white text-lg md:text-xl font-medium">
-                      <Image src={tick} alt="tick" className="w-5 h-5 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/[0.07] hover:border-emerald-500/30 hover:bg-white/[0.05] transition-all duration-300 group"
+                    >
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                        <svg className="w-3.5 h-3.5 text-[#00c875]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-gray-200 text-base font-medium leading-snug tracking-wide">
+                        {item}
+                      </p>
+                    </div>
                   ))}
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-6 text-white/90">
-                  <div className="flex items-center gap-2">
-                    <span className="text-3xl font-bold text-[#00BE5D]"><Counter target={100} suffix="+" /></span>
-                    <span className="text-sm font-semibold uppercase tracking-wider opacity-80 leading-tight">CRORE+ <br /> RECOVERED</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4">
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white"><AnimatedNumber value={150} suffix="+ Cr" /></div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Shares Recovered</div>
                   </div>
-                  <div className="flex items-center gap-2 border-l border-white/20 pl-6">
-                    <span className="text-3xl font-bold text-[#00BE5D]"><Counter target={5000} suffix="+" /></span>
-                    <span className="text-sm font-semibold uppercase tracking-wider opacity-80 leading-tight">CLIENTS <br /> SERVED</span>
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white"><AnimatedNumber value={1250} suffix="+" /></div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Clients Assisted</div>
                   </div>
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white"><AnimatedNumber value={2500} suffix="+" /></div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Claims Settled</div>
+                  </div>
+                </div>
+
+                {/* Badges */}
+                <div className="flex flex-wrap gap-3 mt-5 text-sm">
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
+                    <span className="text-white/90">✓ Dedicated Claim Coordinator</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
+                    <span className="text-white/90">✓ 25+ Expert Team</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
+                    <span className="text-white/90">✓ 400+ Companies Worked</span>
+                  </div>
+                </div>
+
+                {/* Contact Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mt-5">
+                  <a
+                    href="tel:+919156701900"
+                    className="bg-white text-[#00BE5D] px-6 py-3 rounded-lg font-semibold text-center hover:bg-gray-100 transition flex items-center justify-center gap-2"
+                  >
+                    <Image src={phoneIcon} alt="Phone" width={20} height={20} />
+                    +91 9156-70-1900
+                  </a>
+                  <a
+                    href="mailto:sales@clearclaim.in"
+                    className="bg-[#00BE5D] border-2 border-white text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-[#008C44] hover:border-[#008C44] transition flex items-center justify-center gap-2"
+                  >
+                    <Image src={emailIcon} alt="Email" width={20} height={20} className="invert brightness-0" />
+                    sales@clearclaim.in
+                  </a>
                 </div>
               </div>
 
-              {/* RIGHT FORM - Get Started */}
-              <div id="form" className="bg-white rounded-3xl p-5 md:p-6 shadow-2xl border border-gray-100 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms] max-w-md ml-auto">
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-900 tracking-tight">
-                    {/* Start Your Recovery */}
-                    REQUEST A CALL BACK
-                  </h3>
-                  {/* <p className="text-gray-500 mt-1 text-xs font-semibold italic">Free consultation & case evaluation</p> */}
-                </div>
+              {/* RIGHT COLUMN: Premium Lead Form */}
+              <div id="form" className="bg-white/[0.08] backdrop-blur-xl border border-white/[0.15] rounded-2xl p-5 sm:p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
+                <h3 className="text-lg sm:text-2xl font-bold text-white text-center tracking-wide uppercase mb-5 sm:mb-6">
+                  Request A Call Back
+                </h3>
 
                 <form
                   ref={heroFormRef}
                   onSubmit={submitInquiry}
-                  className=""
+                  className="space-y-4"
                 >
-                  <div>
-                    <label htmlFor="hero_first_name" className="text-gray-700 text-[11px] font-bold uppercase ml-1 block mb-2">
-                      First Name
-                    </label>
-                    <input
-                      id="hero_first_name"
-                      name="first_name"
-                      type="text"
-                      placeholder="Enter First Name"
-                      className="w-full bg-slate-50 border border-gray-200 rounded-xl py-2 px-4 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#00BE5D]/20 focus:border-[#00BE5D] transition-all"
-                      required
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="hero_first_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                        First Name
+                      </label>
+                      <input
+                        id="hero_first_name"
+                        name="first_name"
+                        type="text"
+                        placeholder="Enter First Name"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="hero_last_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                        Last Name
+                      </label>
+                      <input
+                        id="hero_last_name"
+                        name="last_name"
+                        type="text"
+                        placeholder="Enter Last Name"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                        required
+                      />
+                    </div>
                   </div>
+
                   <div>
-                    <label htmlFor="hero_last_name" className="text-gray-700 text-[11px] font-bold uppercase ml-1 block mb-1.5 mt-2">
-                      Last Name
-                    </label>
-                    <input
-                      id="hero_last_name"
-                      name="last_name"
-                      type="text"
-                      placeholder="Enter Last Name"
-                      className="w-full bg-slate-50 border border-gray-200 rounded-xl py-2 px-4 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#00BE5D]/20 focus:border-[#00BE5D] transition-all"
-                      required
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <label htmlFor="hero_email" className="text-gray-700 text-[11px] font-bold uppercase ml-1 block mb-1.5 mt-2">
+                    <label htmlFor="hero_email" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
                       Email
                     </label>
                     <input
@@ -456,83 +516,154 @@ export default function IEPFClaim() {
                       name="email"
                       type="email"
                       placeholder="Enter Email"
-                      className="w-full bg-slate-50 border border-gray-200 rounded-xl py-2 px-4 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#00BE5D]/20 focus:border-[#00BE5D] transition-all"
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
                       required
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1 flex gap-2 flex-col">
-                    <label htmlFor="hero_phone" className="text-gray-700 text-[11px] font-bold uppercase ml-1 block mb-1.5 mt-2">
+
+                  <div>
+                    <label htmlFor="hero_phone" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
                       Phone Number
                     </label>
                     <div className="flex gap-2">
-                      <div className="w-24 flex-shrink-0">
-                        <select
+                      <div className="flex-shrink-0">
+                        <SearchablePhoneCode
                           id="hero_phone_code"
                           name="phone_country_code"
-                          className="w-full bg-slate-50 border border-gray-200 rounded-xl py-2 px-2 text-[11px] text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00BE5D]/20 font-bold appearance-none"
-                          required
-                        >
-                          {COUNTRY_OPTIONS.map((c) => (
-                            <option key={c.value} value={c.dial}>{c.flag} {c.dial || "Other"}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <input
-                          id="hero_phone"
-                          name="phone"
-                          type="tel"
-                          placeholder="9876543210"
-                          minLength={PHONE_MIN_LENGTH}
-                          maxLength={PHONE_MAX_LENGTH}
-                          onInput={(e) => {
-                            const target = e.target as HTMLInputElement;
-                            target.value = target.value.replace(/\D/g, "");
-                            if (phoneError) setPhoneError("");
-                          }}
-                          className={`w-full bg-slate-50 border text-gray-900 placeholder-gray-400 rounded-xl py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#00BE5D]/20 ${phoneError ? "border-red-500 focus:border-red-500" : "border-gray-200"
-                            }`}
-                          required
+                          options={COUNTRY_OPTIONS}
+                          className="h-full bg-white/[0.85] rounded-lg px-2 py-2.5 text-gray-800 text-[11px] font-semibold outline-none border border-transparent shadow-inner cursor-pointer"
                         />
                       </div>
-                    </div>
-
-                  </div>
-
-
-                  <div className="col-span-full mt-4">
-                    <div className="flex items-start gap-2">
                       <input
-                        type="checkbox"
-                        id="hero_agree"
-                        name="agree"
-                        className="mt-1 w-4 h-4 accent-[#00BE5D] cursor-pointer"
+                        id="hero_phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="9876543210"
+                        minLength={PHONE_MIN_LENGTH}
+                        maxLength={PHONE_MAX_LENGTH}
+                        onInput={(e) => {
+                          const target = e.target as HTMLInputElement;
+                          target.value = target.value.replace(/\D/g, "");
+                          if (phoneError) setPhoneError("");
+                        }}
+                        className={`w-full bg-white/[0.92] border text-gray-900 placeholder:text-gray-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner ${phoneError ? "border-red-400 focus:border-red-400" : "border-transparent focus:border-emerald-400"}`}
                         required
                       />
-                      <label htmlFor="hero_agree" className="text-[11px] text-gray-500 leading-tight mt-1">
-                        I agree to receive updates via email or phone. I understand my data is secure.
-                      </label>
+                    </div>
+                    {phoneError && <p className="text-red-400 text-[11px] mt-1">{phoneError}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="iepf_country" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Current Country
+                    </label>
+                    <input type="hidden" name="country" value={selectedCountry} required />
+                    <CountrySelect
+                      id="iepf_country"
+                      options={COUNTRY_OPTIONS}
+                      value={selectedCountry}
+                      onChange={setSelectedCountry}
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="iepf_investment_type" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Type of Unclaimed Investment
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="iepf_investment_type"
+                        name="type_of_unclaimed_investments"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 pr-10 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none cursor-pointer"
+                        required
+                      >
+                        <option value="">Select type</option>
+                        {(options?.type_of_unclaimed_investments ?? INVESTMENT_TYPES).map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-span-full pt-6">
+
+                  <div>
+                    <label htmlFor="iepf_callback_time" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Preferred Callback Time (IST)
+                    </label>
+                    <div className="relative">
+                      <select
+                        id="iepf_callback_time"
+                        name="preferred_callback_time"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 pr-10 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none cursor-pointer"
+                        required
+                      >
+                        <option value="">Select time slot</option>
+                        {(options?.preferred_callback_time ?? CALLBACK_TIMES).map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 pt-1">
+                    <input
+                      type="checkbox"
+                      id="hero_agree"
+                      name="agree"
+                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-emerald-500 focus:ring-emerald-500 bg-white/20 accent-emerald-500 cursor-pointer"
+                      required
+                    />
+                    <label
+                      htmlFor="agree"
+                      className="text-sm text-white leading-tight cursor-pointer"
+                    >
+                      Yes, I agree with the{" "}
+                      <Link
+                        href="/privacy-policy"
+                        className="text-[#00BE5D] hover:underline"
+                      >
+                        privacy policy
+                      </Link>
+                    </label>
+                  </div>
+
+                  <div className="pt-2 items-center justify-center flex">
                     <button
                       type="submit"
                       disabled={formSubmitting}
-                      className="w-full bg-[#00BE5D] text-white font-bold py-3 rounded-2xl shadow-xl hover:bg-[#008C44] transition-all transform hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
+                      className="group relative overflow-hidden bg-[#00BE5D] hover:bg-[#00b569] active:bg-[#00a35e] text-white font-extrabold py-3.5 px-4 rounded-full transition-all duration-200 shadow-lg shadow-emerald-950/50  tracking-wider text-xs cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      {formSubmitting ? "Processing..." : "Get Free Consulting"}
+                      <div
+                        className="absolute inset-0 -translate-x-[150%] w-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shine"
+                        style={{ animationDuration: "3s" }}
+                      />
+                      <span className="relative z-10">
+                        {formSubmitting ? "Processing..." : "Get Free Consulting"}
+                      </span>
                     </button>
-                    <p className="text-center text-[10px] text-gray-400 mt-3 font-bold uppercase tracking-widest">
-                      Powering Wealth Recovery & Financial Freedom
-                    </p>
                   </div>
                 </form>
+
+                <p className="text-[9px] text-center text-gray-400 uppercase tracking-[0.15em] font-medium mt-6">
+                  Powering Wealth Recovery &amp; Financial Freedom
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         <Content />
+
       </div>
     </>
   );

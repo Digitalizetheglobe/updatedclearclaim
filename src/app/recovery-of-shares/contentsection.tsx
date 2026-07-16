@@ -8,45 +8,43 @@ import LandingTestimonial2 from "../landingtestimonial2/page";
 export default function ContentSection() {
   return (
     <>
-      <section className="relative py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative py-6 md:py-10 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             {/* ✅ Left Image Section - Clean */}
             <div className="flex justify-center lg:justify-start">
               <div className="relative flex items-center justify-center">
 
                 {/* Circular Image */}
-                <div className="w-[400px] h-[400px] md:w-[560px] md:h-[560px] overflow-hidden">
+                <div className="w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[560px] lg:h-[560px] overflow-hidden">
                   <Image
                     src={closeup}
                     alt="Businessman analyzing unclaimed shares"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-
               </div>
             </div>
 
             {/* Right Content Section */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E6F9EF] text-[#00BE5D] text-sm font-bold tracking-wide uppercase">
+                {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E6F9EF] text-[#00BE5D] text-sm font-bold tracking-wide uppercase">
                   <span className="text-lg leading-none">+</span>
                   About Company
-                </div>
-
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#111827] leading-[1.2] tracking-tight">
+                </div> */}
+                <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
                   Why shares are <span className="text-[#00BE5D]">lost</span> or remain <span className="text-[#00BE5D]">unclaimed</span>?
                 </h2>
 
-                <p className="text-gray-500 text-lg leading-relaxed max-w-xl">
+                <p className="text-gray-500 text-sm sm:text-base md:text-base lg:text-base font-medium tracking-tight leading-snug">
                   Understanding the complexities behind unclaimed assets is the first step toward recovery and financial security for your future.
                 </p>
               </div>
 
               {/* Grid of Items */}
-              <div className="grid sm:grid-cols-2 gap-6 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2">
                 {[
                   {
                     title: "Historical Procrastination",
@@ -78,7 +76,7 @@ export default function ContentSection() {
                       <Image src={tick} alt="tick" className="w-5 h-5 flex-shrink-0" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#111827] text-base mb-1">{item.title}</h4>
+                      <h4 className=" text-[#111827] text-base  mb-1">{item.title}</h4>
                       {/* <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p> */}
                     </div>
                   </div>

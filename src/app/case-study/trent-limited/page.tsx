@@ -431,7 +431,7 @@ export default function TRENTLIMITED() {
 
       {
         name: "Unclaimed Shares of Venky’s India Ltd",
-        path: "/case-study/unclaimed-shares-of-venky’s-india-ltd",
+        path: "/case-study/unclaimed-shares-of-venkys-india-ltd",
       },
 
       {
@@ -521,8 +521,8 @@ export default function TRENTLIMITED() {
               {filteredCompanies
                 .slice(0, visibleCount)
                 .map((company, index) => (
-                  <li key={index} className="hover:bg-gray-200 p-2 rounded-md">
-                    <Link href={company.path} className="text-black">
+                  <li key={index} className="hover:bg-gray-200 p-2 rounded-md cursor-pointer">
+                    <Link href={company.path} className="text-black block w-full h-full">
                       {company.name}
                     </Link>
                   </li>

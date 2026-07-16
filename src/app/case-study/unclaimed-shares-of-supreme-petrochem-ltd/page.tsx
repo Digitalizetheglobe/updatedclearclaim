@@ -432,8 +432,8 @@ export default function UnclaimedSharesofSupremePetrochemLtd() {
               {filteredCompanies
                 .slice(0, visibleCount)
                 .map((company, index) => (
-                  <li key={index} className="hover:bg-gray-200 p-2 rounded-md">
-                    <Link href={company.path} className="text-black">
+                  <li key={index} className="hover:bg-gray-200 p-2 rounded-md cursor-pointer">
+                    <Link href={company.path} className="text-black block w-full h-full">
                       {company.name}
                     </Link>
                   </li>

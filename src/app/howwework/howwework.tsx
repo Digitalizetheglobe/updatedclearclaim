@@ -1,137 +1,286 @@
+// "use client";
+
+// import { motion } from "framer-motion";
+// import { Search, FileSearch, MessageSquare, FileCheck, TrendingUp, Activity } from "lucide-react";
+// import Severalfactors from "./severalfactors";
+// import OurServices from "../ourservices/ourservices";
+
+// export default function Howwework() {
+//   const steps = [
+//     { title: "Worth Valuation", text: "Find your real worth of shares", icon: Search },
+//     { title: "Claim Analysis", text: "Know your exact claim type of shares", icon: FileSearch },
+//     { title: "Expert Consultation", text: "Get exclusive consultation from experts", icon: MessageSquare },
+//     { title: "Documentation", text: "Accurate documentation of your claim", icon: FileCheck },
+//     { title: "Claim Follow-up", text: "Superior Follow-up RTA & Companies IPF & Demant Transfer", icon: Activity },
+
+
+//     { title: "DEMAT Transfer", text: "Get your shares in your DEMAT", icon: TrendingUp },
+//   ];
+
+//   // Original CSS borders ko animate karne ke liye variants
+//   const lineVariants = {
+//     hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }, // Line chhupi rahegi
+//     visible: (idx) => ({
+//       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", // Line smoothly draw hogi
+//       transition: {
+//         delay: idx * 0.15 + 0.4, // Card ke baad line animate hogi
+//         duration: 0.6,
+//         ease: "easeInOut",
+//       },
+//     }),
+//   };
+
+//   return (
+//     <>
+//       <section className="py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+//           {/* Heading */}
+//           <div className="text-center mb-16 sm:mb-24 flex flex-col items-center">
+//             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
+//               How It <span className="text-[#00BE5D]">Works</span>
+//             </h2>
+//             <div className="h-1.5 w-32 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 "></div>
+
+//             {/* <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mt-4 rounded-full"></div> */}
+//           </div>
+
+//           <div className="relative w-full max-w-4xl mx-auto flex flex-col gap-6 md:gap-0">
+//             {steps.map((step, idx) => {
+//               const Icon = step.icon;
+//               const isEven = idx % 2 === 0;
+
+//               return (
+//                 <motion.div
+//                   key={idx}
+//                   initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+//                   whileInView={{ opacity: 1, x: 0, y: 0 }}
+//                   viewport={{ once: true, margin: "-50px" }}
+//                   transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
+//                   className={`w-full md:w-[46%] relative z-10 ${
+//                     isEven ? "md:self-start" : "md:self-end md:-mt-16"
+//                   }`}
+//                 >
+//                   {/* Left-to-Right Connector (Aapki Original Design) */}
+//                   {isEven && idx < steps.length - 1 && (
+//                     <motion.div
+//                       variants={lineVariants}
+//                       custom={idx}
+//                       initial="hidden"
+//                       whileInView="visible"
+//                       viewport={{ once: true }}
+//                       className="hidden md:block absolute top-[45%] -right-[25%] w-[25%] h-[65%] border-t-2 border-r-2 border-dashed border-[#00BE5D]/60 rounded-tr-3xl z-[-1]"
+//                     >
+//                       <svg className="absolute -bottom-[10px] -right-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+//                         <path d="M6 9l6 6 6-6" />
+//                       </svg>
+//                     </motion.div>
+//                   )}
+
+//                   {/* Right-to-Left Connector (Aapki Original Design) */}
+//                   {!isEven && idx < steps.length - 1 && (
+//                     <motion.div
+//                       variants={lineVariants}
+//                       custom={idx}
+//                       initial="hidden"
+//                       whileInView="visible"
+//                       viewport={{ once: true }}
+//                       className="hidden md:block absolute top-[45%] -left-[25%] w-[25%] h-[65%] border-t-2 border-l-2 border-dashed border-[#00BE5D]/60 rounded-tl-3xl z-[-1]"
+//                     >
+//                       <svg className="absolute -bottom-[10px] -left-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+//                         <path d="M6 9l6 6 6-6" />
+//                       </svg>
+//                     </motion.div>
+//                   )}
+
+//                   {/* Card Content */}
+//                   <div className={`p-4 sm:p-5 rounded-[2rem] flex gap-4 shadow-sm border ${
+//                     isEven ? 'bg-[#f4fbf0] border-[#e6f4df]' : 'bg-[#f8fafc] border-slate-100'
+//                   }`}>
+
+//                     {/* Vertical Pill */}
+//                     <div className={`flex-shrink-0 w-10 sm:w-12 h-32 sm:h-36 rounded-full flex items-center justify-center ${
+//                       isEven ? 'bg-[#283655]' : 'bg-[#283655]'
+//                     }`}>
+//                       <span className="transform -rotate-90 text-white text-xs sm:text-sm font-medium whitespace-nowrap tracking-wider">
+//                         Step {idx + 1}
+//                       </span>
+//                     </div>
+
+//                     {/* Text Details */}
+//                     <div className="flex-1 py-2 sm:py-3 pr-2">
+//                       <div className="flex items-center gap-3 mb-3">
+//                         <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-sm ${
+//                           isEven ? 'bg-[#e5f5da]' : 'bg-white'
+//                         }`}>
+//                           <Icon className={`w-4 h-4 ${isEven ? 'text-[#0f4c3a]' : 'text-[#1e293b]'}`} />
+//                         </div>
+//                         <h3 className={`font-semibold text-base sm:text-lg ${isEven ? 'text-[#0f4c3a]' : 'text-slate-800'}`}>
+//                           {idx + 1} {step.title}
+//                         </h3>
+//                       </div>
+//                       <p className="text-slate-600 text-base sm:text-base leading-relaxed font-medium">
+//                         {step.text}
+//                       </p>
+//                     </div>
+
+//                   </div>
+//                 </motion.div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       </section>
+
+//       <OurServices />
+//       <Severalfactors />
+//     </>
+//   );
+// }
 "use client";
 
 import { motion } from "framer-motion";
-import { Settings } from "lucide-react";
-import Image from "next/image";
-import tick from "../../../public/images/tick.svg";
+import { Search, FileSearch, MessageSquare, FileCheck, TrendingUp, Activity } from "lucide-react";
 import Severalfactors from "./severalfactors";
 import OurServices from "../ourservices/ourservices";
 
 export default function Howwework() {
   const steps = [
-    "Find your real worth of shares",
-    "Know your exact claim type of shares",
-    "Get exclusive consultation from experts",
-    "Accurate documentation of your claim",
-    "Get your shares in your DEMAT",
-    "Superior Follow-up of your claim",
+    { title: "Worth Valuation", text: "Find your real worth of shares", icon: Search },
+    { title: "Claim Analysis", text: "Know your exact claim type of shares", icon: FileSearch },
+    { title: "Expert Consultation", text: "Get exclusive consultation from experts", icon: MessageSquare },
+    { title: "Documentation", text: "Accurate documentation of your claim", icon: FileCheck },
+    { title: "Claim Follow-up", text: "Superior Follow-up RTA & Companies IPF & Demant Transfer", icon: Activity },
+    { title: "DEMAT Transfer", text: "Get your shares in your DEMAT", icon: TrendingUp },
   ];
+
+  // Original CSS borders ko animate karne ke liye variants
+  const lineVariants: any = {
+    hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" },
+    visible: (idx: number) => ({
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      transition: {
+        delay: idx * 0.15 + 0.4,
+        duration: 0.6,
+        ease: "easeInOut",
+      },
+    }),
+  };
 
   return (
     <>
+      {/* 🟢 CUSTOM CSS FOR SHINE EFFECT (100% Working) */}
+      <style jsx>{`
+        @keyframes custom-shine {
+          0% { transform: translateX(-150%) skewX(-20deg); }
+          100% { transform: translateX(150%) skewX(-20deg); }
+        }
+        .animate-custom-shine {
+          animation: custom-shine 3s infinite ease-in-out;
+        }
+      `}</style>
 
-      {/* How it works */}
-      <section className=" py-16 md:py-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="py-16 sm:py-20 md:py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-              How <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">It Works</span>
+          <div className="text-center mb-16 sm:mb-24 flex flex-col items-center">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+              How It <span className="text-[#00BE5D]">Works</span>
             </h2>
-            <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40"></div>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 "></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-2 items-center">
-            {/* Left Content Side */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-10"
-            >
+          <div className="relative w-full max-w-4xl mx-auto flex flex-col gap-6 md:gap-0">
+            {steps.map((step, idx) => {
+              const Icon = step.icon;
+              const isEven = idx % 2 === 0;
 
-              <div className="space-y-6">
-                {steps.map((step, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1, duration: 0.5 }}
-                    className="flex items-center gap-4 group cursor-default"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
-                      <Image src={tick} alt="tick" className="w-full h-full" />
-                      {/* <Image src={tick} alt="clearclaim" className="w-5 h-6 " /> */}
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
+                  className={`w-full md:w-[46%] relative z-10 ${
+                    isEven ? "md:self-start" : "md:self-end md:-mt-16"
+                  }`}
+                >
+                  {/* Left-to-Right Connector */}
+                  {isEven && idx < steps.length - 1 && (
+                    <motion.div
+                      variants={lineVariants}
+                      custom={idx}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      className="hidden md:block absolute top-[45%] -right-[25%] w-[25%] h-[65%] border-t-2 border-r-2 border-dashed border-[#00BE5D]/60 rounded-tr-3xl z-[-1]"
+                    >
+                      <svg className="absolute -bottom-[10px] -right-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </motion.div>
+                  )}
+
+                  {/* Right-to-Left Connector */}
+                  {!isEven && idx < steps.length - 1 && (
+                    <motion.div
+                      variants={lineVariants}
+                      custom={idx}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      className="hidden md:block absolute top-[45%] -left-[25%] w-[25%] h-[65%] border-t-2 border-l-2 border-dashed border-[#00BE5D]/60 rounded-tl-3xl z-[-1]"
+                    >
+                      <svg className="absolute -bottom-[10px] -left-[7px] w-4 h-4 text-[#00BE5D]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </motion.div>
+                  )}
+
+                  {/* Card Content - SHINE EFFECT ADDED HERE */}
+                  <div className={`group relative overflow-hidden p-4 sm:p-5 rounded-[2rem] flex gap-4 shadow-sm border ${
+                    isEven ? 'bg-[#f4fbf0] border-[#e6f4df]' : 'bg-[#f8fafc] border-slate-100'
+                  }`}>
+
+                    {/* 🟢 Shine Effect Div - Zyada bright banaya hai */}
+                    <div 
+                      className="absolute top-0 left-0 h-full w-[150%] bg-gradient-to-r from-transparent via-white to-transparent skew-x-[-20deg] opacity-70 animate-custom-shine z-0 pointer-events-none" 
+                    />
+
+                    {/* Vertical Pill */}
+                    <div className={`relative z-10 flex-shrink-0 w-10 sm:w-12 h-32 sm:h-36 rounded-full flex items-center justify-center ${
+                      isEven ? 'bg-[#283655]' : 'bg-[#283655]'
+                    }`}>
+                      <span className="transform -rotate-90 text-white text-xs sm:text-sm font-medium whitespace-nowrap tracking-wider">
+                        Step {idx + 1}
+                      </span>
                     </div>
-                    <span className="text-[#283655] text-lg lg:text-xl font-medium tracking-tight transition-transform duration-300 group-hover:translate-x-2">
-                      {step}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Right Visual Side - Premium Orbital Arch */}
-            <div className="relative flex items-center justify-center mt-12 lg:mt-0 px-0 mt-12">
-              {/* The Arch Container */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] flex items-center justify-center translate-x-8 sm:translate-x-12"
-              >
-                {/* Orbital Background Image */}
-                <div className="absolute inset-0 rounded-full overflow-hidden z-20">
-                  <Image
-                    src="/images/orbital-background.png"
-                    alt="Orbital Background"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                    {/* Text Details */}
+                    <div className="relative z-10 flex-1 py-2 sm:py-3 pr-2">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-sm ${
+                          isEven ? 'bg-[#e5f5da]' : 'bg-white'
+                        }`}>
+                          <Icon className={`w-4 h-4 ${isEven ? 'text-[#0f4c3a]' : 'text-[#1e293b]'}`} />
+                        </div>
+                        <h3 className={`font-semibold text-base sm:text-lg ${isEven ? 'text-[#0f4c3a]' : 'text-slate-800'}`}>
+                          {idx + 1} {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-slate-600 text-base sm:text-base leading-relaxed font-medium">
+                        {step.text}
+                      </p>
+                    </div>
 
-                {/* Inner White Circle */}
-                <div className="absolute w-[40%] h-[40%] rounded-full flex flex-col items-center justify-center z-30 text-center p-4 border border-emerald-50 bg-white">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    className="mb-2"
-                  >
-                    <Settings className="w-8 h-8 sm:w-10 sm:h-10 text-[#283655]" />
-                  </motion.div>
-                  <p className="text-[#283655] font-bold text-base sm:text-xl leading-tight">
-                    Artificial<br />Intelligence
-                  </p>
-                </div>
-
-                {/* Floating Cards */}
-                {[
-                  { title: "Valuation engine", position: "-top-10 left-[10%] sm:-top-12 sm:left-[5%]", zIndex: "z-10" },
-                  { title: "Claim process map", position: "top-[12%] -right-4 sm:top-[18%] sm:-right-12", zIndex: "z-30" },
-                  // { title: "Ultra follow-up method", position: "top-[25%] -left-10 sm:-right- -translate-y-1/2", zIndex: "z-10" },
-                  {
-                    title: "Ultra follow-up method",
-                    position: "top-[25%] -left-16 sm:-left-28 -translate-y-1/2",
-                    zIndex: "z-10"
-                  },
-                  { title: "Documents engine", position: "bottom-[5%] -right-4 sm:bottom-[18%] sm:-right-12", zIndex: "z-30" },
-                ].map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + idx * 0.2, duration: 0.6 }}
-                    className={`absolute ${card.position} ${card.zIndex} bg-white shadow-[0_6px_20px_rgba(0,0,0,0.05)] 
-                          rounded-xl p-2 sm:p-6 w-24 sm:w-36 text-center border border--50 
-                          flex items-center justify-center min-h-[60px] sm:min-h-[80px]`}
-                  >
-                    <span className="text-[#283655] font-medium text-xs sm:text-sm leading-tight font-semibold">
-                      {card.title}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* Decorative radial blur for depth */}
-              <div className="absolute -z-10 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
-            </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
+
       <OurServices />
       <Severalfactors />
     </>

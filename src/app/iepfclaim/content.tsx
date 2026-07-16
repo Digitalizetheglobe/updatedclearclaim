@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Search, FileSearch, MessageSquare, FileCheck, TrendingUp, Activity } from "lucide-react";
 import tick from "../../../public/images/tick.svg";
 import iepf from "../../../public/images/new_one.jpeg";
 import iepf1 from "../../../public/images/new_two.png";
@@ -89,14 +89,14 @@ export default function Content() {
 
   return (
     <>
-      <div className="bg-[#f8fafc]/50 py-24 px-4 relative">
+      <div className="bg-[#f8fafc]/50 py-12 md:py-24 px-4 relative">
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center space-y-4 max-w-3xl mx-auto mb-20 md:mb-22">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] text-center tracking-tight">
-              Essential Information on <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">IEPF Claims</span>
+          <div className="text-center space-y-4 max-w-3xl mx-auto mb-10 md:mb-22">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] text-center tracking-tight">
+              Essential Information on <span className="text-[#00BE5D]">IEPF Claims</span>
             </h2>
-            <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
           </div>
 
           <div className="flex flex-col relative w-full">
@@ -149,7 +149,7 @@ export default function Content() {
                             {item.title}
                           </h3>
 
-                          <p className="text-gray-600 text-lg lg:text-xl font-medium leading-relaxed">
+                          <p className="text-gray-600 text-base lg:text-base font-medium leading-relaxed">
                             {item.summary}
                           </p>
 
@@ -159,7 +159,7 @@ export default function Content() {
                                 e.stopPropagation();
                                 setSelectedClaim(item);
                               }}
-                              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-[#00BE5D] font-bold rounded-xl border-2 border-[#00BE5D] hover:bg-[#00BE5D] hover:text-white transition-all duration-300 group/btn shadow-sm hover:shadow-lg text-sm md:text-base"
+                              className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-[#00BE5D] font-bold rounded-full border-2 border-[#00BE5D] hover:bg-[#00BE5D] hover:text-white transition-all duration-300 group/btn shadow-sm hover:shadow-lg text-sm md:text-base"
                             >
                               Learn Detailed Insights
                               <span className="group-hover/btn:translate-x-1.5 transition-transform duration-300 text-lg">→</span>
@@ -195,8 +195,9 @@ export default function Content() {
       {/* ✅ Modal */}
       <AnimatePresence>
         {selectedClaim && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
 
+            {/* Backdrop */}
             <div
               className="absolute inset-0 bg-black/40"
               onClick={() => setSelectedClaim(null)}
@@ -206,33 +207,34 @@ export default function Content() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white max-w-4xl w-full p-0 rounded-[40px] relative overflow-hidden shadow-2xl mx-auto"
+              className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] relative overflow-hidden shadow-2xl mx-auto flex flex-col max-h-[90vh]"
             >
               {/* Modal Header */}
-              <div className="p-8 sm:p-10 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-md z-10">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#283655] pr-10">
+              <div className="px-6 py-5 sm:px-8 sm:py-6 border-b border-gray-100 flex justify-between items-center flex-shrink-0 bg-white z-10">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#283655] pr-6">
                   {selectedClaim.title}
                 </h2>
                 <button
                   onClick={() => setSelectedClaim(null)}
-                  className="p-2 bg-gray-50 hover:bg-red-50 hover:text-red-500 rounded-full transition-all duration-300 group"
+                  className="p-2 bg-gray-50 hover:bg-red-50 hover:text-red-500 rounded-full transition-all duration-300 group flex-shrink-0"
                 >
-                  <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
+                  <X className="w-5 h-5 transition-transform group-hover:rotate-90" />
                 </button>
               </div>
 
               {/* Modal Content */}
-              <div className="p-8 sm:p-12 max-h-[75vh] overflow-y-auto">
+              <div className="p-6 sm:px-8 sm:py-6 overflow-y-auto flex-1">
                 {selectedClaim.fullContent}
+              </div>
 
-                <div className="mt-12 pt-8 border-t border-gray-100">
-                  <button
-                    onClick={() => setSelectedClaim(null)}
-                    className="w-full sm:w-auto px-10 py-4 bg-[#00BE5D] text-white font-bold rounded-2xl hover:bg-[#009e4d] transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    Got it, thanks!
-                  </button>
-                </div>
+              {/* Modal Footer */}
+              <div className="p-6 sm:px-8 sm:py-6 border-t border-gray-100 flex-shrink-0 bg-gray-50/50">
+                <button
+                  onClick={() => setSelectedClaim(null)}
+                  className="w-full sm:w-auto px-8 py-3 bg-[#00BE5D] text-white font-bold rounded-full hover:bg-[#009e4d] transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  Got it, thanks!
+                </button>
               </div>
             </motion.div>
           </div>

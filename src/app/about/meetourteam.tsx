@@ -1,81 +1,42 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
 import { motion, Variants } from "framer-motion";
-import aniket from "../../../public/team/aniket.png";
-import dhnyanesh from "../../../public/team/dhnyesh.png";
-import dhanshree from "../../../public/team/dhanshree.png";
-import vipul from "../../../public/team/vipul.png";
-import vishupriya from "../../../public/team/vishupriya.png";
-import shanjivani from "../../../public/team/shanjivani.png";
-import piyush from "../../../public/team/iyush.png";
-import isha from "../../../public/team/sha.png";
-import prathmesh from "../../../public/team/rathmesh.png";
-import ashwini from "../../../public/team/shwini.png";
-import kishor from "../../../public/team/kishor.png";
-import swapil from "../../../public/team/wapnil.png";
-import suyash from "../../../public/team/suyash.png";
-import driraj from "../../../public/team/dhriraj.png";
-import harshada from "../../../public/team/harshada.png";
-import ganesh from "../../../public/team/ganesh.png";
-import chandra from "../../../public/team/chandkant.png";
-import amol from "../../../public/team/Amol Rahatkar.jpg";
-import hrishikesh from "../../../public/team/Hrishikesh Albhar.png";
-import rajshree from "../../../public/team/Rajashree Laygude.png";
-import vaibhav from "../../../public/team/vaibhav-kadam.png";
-import sarika from "../../../public/team/Sarika Kole.png";
-import teammember from "../../../public/team/3.png";
-import dipali from "../../../public/team/Dipali Tayade.png";
-import poojapawar from "../../../public/team/Pooja Pawar.png";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 interface TeamMember {
-  name: string;
-  src: StaticImageData | string;
-  role: string;
-}
-
-interface AdvisoryMember {
-  name: string;
-  role: string;
-  image: StaticImageData | string;
+  id: number;
+  fullName: string;
+  photo: string | null;
+  designation: string;
+  linkedinUrl?: string;
 }
 
 export default function Meetourteam() {
   const [coreTeam, setCoreTeam] = useState<TeamMember[]>([]);
-  const [advisoryTeam, setAdvisoryTeam] = useState<AdvisoryMember[]>([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch Core Team
-    fetch("http://localhost:5000/api/core-team/active")
-      .then((res) => res.ok ? res.json() : null)
-      .then((json) => {
-        if (json && json.success && Array.isArray(json.data)) {
-          const mappedTeam = json.data.map((member: any) => ({
-            name: member.fullName,
-            src: `http://localhost:5000/uploads/update/${member.photo}`,
-            role: member.designation
-          }));
-          setCoreTeam(mappedTeam);
+    const fetchTeam = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in";
+        const res = await fetch(`${apiUrl}/api/team/active`, { cache: 'no-store' });
+        if (!res.ok) throw new Error("Failed to fetch team");
+        const json = await res.json();
+        if (json.success && json.data) {
+          const allMembers: TeamMember[] = json.data;
+          
+          const core = allMembers.filter(m => !(m.designation || '').toLowerCase().includes('advisory'));
+          
+          setCoreTeam(core);
         }
-      })
-      .catch(() => { });
-
-    // Fetch Advisory Team
-    fetch("http://localhost:5000/api/advisory-team/active")
-      .then((res) => res.ok ? res.json() : null)
-      .then((json) => {
-        if (json && json.success && Array.isArray(json.data)) {
-          const mappedAdvisory = json.data.map((member: any) => ({
-            name: member.fullName,
-            image: `http://localhost:5000/uploads/update/${member.photo}`,
-            role: member.designation
-          }));
-          setAdvisoryTeam(mappedAdvisory);
-        }
-      })
-      .catch(() => { });
+      } catch (error) {
+        console.error("Error fetching team:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTeam();
   }, []);
 
   const containerVariants: Variants = {
@@ -100,6 +61,42 @@ export default function Meetourteam() {
     },
   };
 
+  if (loading) {
+    return (
+      <div className="bg-slate-50 min-h-screen selection:bg-emerald-100 selection:text-emerald-900">
+        <section className="py-20 px-6 sm:px-10">
+          <div className="max-w-7xl mx-auto text-center">
+            <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block">
+              Behind the scenes
+            </span>
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+              Meet Our{" "}
+              <span className="text-[#00BE5D]">
+                Core Team
+              </span>
+            </h2>
+            <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+          </div>
+
+          <div className="mt-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className="w-full max-w-[280px] mx-auto bg-white p-3 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] animate-pulse"
+              >
+                <div className="relative w-full aspect-[3/4] rounded-2xl bg-slate-100" />
+                <div className="mt-5 pb-2 px-2 text-center">
+                  <div className="h-6 w-3/4 bg-slate-200 mx-auto rounded-md" />
+                  <div className="h-4 w-1/2 bg-slate-200 mx-auto rounded-md mt-2.5" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-slate-50 min-h-screen selection:bg-emerald-100 selection:text-emerald-900">
       {/* Header Section */}
@@ -113,123 +110,59 @@ export default function Meetourteam() {
             <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block">
               Behind the scenes
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
               Meet Our{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">
+              <span className="text-[#00BE5D]">
                 Core Team
               </span>
             </h2>
-            <div className="h-1.5 w-24 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
+            <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
           </motion.div>
         </div>
 
         {/* Core Team Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mt-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
-        >
-          {coreTeam.length > 0 ? (
-            coreTeam.map((member) => (
-              <motion.div
-                key={member.name}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative flex items-center bg-white p-2 rounded-full shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 border-l-[12px] border-l-[#00BE5D]"
-              >
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0">
-                  <div
-                    className="absolute -inset-[4px]  rounded-full z-0 "
-
-                  ></div>
-                  <div className="relative w-full h-full rounded-full overflow-hidden border-[4px] border-white z-10 shadow-sm">
-                    <Image
-                      src={member.src}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-                <div className="px-6 flex-1 min-w-0">
-                  <h4 className="text-lg font-bold text-[#283655] group-hover:text-emerald-600 transition-colors duration-300 truncate">
-                    {member.name}
-                  </h4>
-                  <p className="text-sm font-semibold text-emerald-500/80 mt-0.5 truncate uppercase tracking-wider">
-                    {member.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))
-          ) : (
-            <div className="col-span-full text-center text-gray-400 py-10">No core team members found.</div>
-          )}
-        </motion.div>
-      </section>
-
-      {/* Advisory Team Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-slate-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight leading-tight">
-              Our{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">
-                Advisory Team
-              </span>
-            </h2>
-            <div className="h-1.5 w-24 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
-          </div>
-
+        {coreTeam.length > 0 ? (
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+            viewport={{ once: true, margin: "-100px" }}
+            className="mt-20 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4"
           >
-            {advisoryTeam.length > 0 ? (
-              advisoryTeam.map((member, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="group relative flex items-center bg-white p-2 rounded-full shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-10px_rgba(16,185,129,0.2)] transition-all duration-300 border border-slate-100 border-l-[12px] border-l-emerald-500"
-                >
-                  <div className="relative w-24 h-24 shrink-0">
+            {coreTeam.map((member) => (
+              <motion.div
+                key={member.fullName}
+                variants={itemVariants}
+                className="group relative w-full max-w-[280px] mx-auto bg-white p-3 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-10px_rgba(0,190,93,0.15)] transition-all duration-500 ease-out hover:-translate-y-2"
+              >
+                {/* Image Section */}
+                <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-slate-50">
+                  <img
+                    src={member.photo ? (member.photo.startsWith('http') ? member.photo : `${process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in"}/uploads/update/${member.photo}`) : "/placeholder-user.jpg"}
+                    alt={member.fullName}
+                    className="object-cover object-top w-full h-full transition-transform duration-700 ease-out group-hover:scale-110"
+                    onError={(e) => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.fullName)}&background=00BE5D&color=fff`; }}
+                  />
+                  {/* Premium Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#283655]/80 via-[#283655]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
 
-                    <div className="relative w-full h-full rounded-full overflow-hidden border-[4px] border-white z-10 shadow-sm">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
-                  <div className="px-6 flex-1 min-w-0">
-                    <h4 className="text-lg font-bold text-[#283655] group-hover:text-emerald-600 transition-colors duration-300 truncate">
-                      {member.name}
-                    </h4>
-                    <p className="text-xs font-semibold text-emerald-500/80 mt-0.5 truncate uppercase tracking-wider">
-                      {member.role}
-                    </p>
-                    <p className="text-[10px] text-gray-400 mt-1 italic line-clamp-1">
-                      Strategic domain consultant.
-                    </p>
-                  </div>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center text-gray-400 py-10">No advisory members found.</div>
-            )}
+                {/* Text Section */}
+                <div className="mt-5 pb-2 px-2 text-center transition-transform duration-500 ease-out group-hover:-translate-y-1 relative z-10">
+                  <h4 className="text-xl font-extrabold text-[#283655] transition-colors duration-300">
+                    {member.fullName}
+                  </h4>
+                  <p className="text-sm font-bold text-[#00BE5D] mt-1.5 uppercase tracking-[0.15em]">
+                    {member.designation}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
-        </div>
+        ) : (
+          <div className="text-center text-gray-400 py-10">No core team members found.</div>
+        )}
       </section>
-
     </div>
   );
 }
-
-

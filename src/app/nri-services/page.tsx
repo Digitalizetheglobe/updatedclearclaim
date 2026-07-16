@@ -9,9 +9,11 @@ import globalnews from '../../../public/images/folder.png'
 import thunder from '../../../public/images/thunder.png';
 import rupees from '../../../public/images/rupee-coins.png';
 import { Phone, Mail, ChevronLeft, ChevronRight } from "lucide-react";
-
+import Link from "next/link";
 import recovery from '../../../public/images/global-news.png';
 import midnight from '../../../public/images/midnight.png';
+import SearchablePhoneCode from "@/components/SearchablePhoneCode";
+import CountrySelect from "@/components/CountrySelect";
 // import rupees from '../../../public/images/rupee-coins.png'
 
 // Same-origin API routes (no trailing slash - Next matches /api/inquiries)
@@ -253,51 +255,34 @@ const Counter: React.FC<{ target: number; suffix?: string }> = ({ target, suffix
   return <>{count.toLocaleString()}{suffix}</>;
 };
 
-// Chevron Icons as SVG
-const ChevronDown = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-);
-
-const ChevronUp = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M6 15l6-6 6 6" />
-  </svg>
-);
 
 export default function NRISamadhan() {
-  const [visibleCount, setVisibleCount] = useState(3);
   const [expandedReviews, setExpandedReviews] = useState<Record<number, boolean>>({});
-  const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({});
-  const [faqs, setFaqs] = useState<{ question: string; answer: string; image?: string }[]>([]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchReviews = async () => {
+    async function fetchTestimonials() {
       try {
-        const response = await fetch("http://localhost:5000/api/testimonials");
-        const data = await response.json();
-
-        if (Array.isArray(data)) {
-          const dynamicReviews = data.map((item: any) => ({
-            name: item.name,
-            date: item.date || "Recently",
+        const res = await fetch("https://apicms.clearclaim.in/api/testimonials");
+        if (res.ok) {
+          const data = await res.json();
+          const mappedReviews = data.map((item: any) => ({
+            name: item.name || item.fullName || "Anonymous",
+            date: item.date ? new Date(item.date).toLocaleDateString() : "Recent",
             stars: item.rating || 5,
             content: item.testimonial || item.testimonialText || "",
-            platform: item.platform || "Google"
+            platform: "Google",
+            image: item.image
           }));
-          setReviews(dynamicReviews);
-        } else {
-          setReviews([]);
+          setReviews(mappedReviews);
         }
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-        setReviews([]);
+      } catch (err) {
+        console.error("Failed to fetch testimonials", err);
       }
-    };
-    fetchReviews();
+    }
+    fetchTestimonials();
   }, []);
 
   const handlePrev = () => {
@@ -317,10 +302,14 @@ export default function NRISamadhan() {
   const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
   const [phoneError, setPhoneError] = useState("");
   const [options, setOptions] = useState<{ type_of_unclaimed_investments?: string[]; preferred_callback_time?: string[] } | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const PHONE_MIN_LENGTH = 7;
+  const PHONE_MAX_LENGTH = 13;
 
-  const PHONE_MIN_LENGTH = 6;
-  const PHONE_MAX_LENGTH = 15;
-
+  // Toggle function
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (countryDropdownRef.current && !countryDropdownRef.current.contains(e.target as Node)) {
@@ -338,31 +327,37 @@ export default function NRISamadhan() {
       .catch(() => { });
   }, []);
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/faqs`)
-      .then((res) => res.ok ? res.json() : [])
-      .then((data) => {
-        if (Array.isArray(data) && data.length > 0) {
-          setFaqs(data);
-          // Auto-expand the first FAQ
-          setExpandedFaqs({ 0: true });
-        }
-      })
-      .catch(() => { });
-  }, []);
-
-  const FALLBACK_IMAGES = [
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+  const faqData = [
+    {
+      question: "What types of unclaimed investments can ClearClaim help NRIs recover?",
+      answer: "ClearClaim assists NRIs in recovering a wide range of unclaimed investments in India, including shares transferred to IEPF, unclaimed mutual funds, matured insurance policies, old provident fund balances, unclaimed bank deposits (including fixed deposits and savings accounts), and outstanding debtor payments. Our team handles the entire documentation and follow-up process remotely.",
+    },
+    {
+      question: "Do I need to visit India to recover my unclaimed investments?",
+      answer: "No, you do not need to travel to India at all. ClearClaim's entire recovery process is managed remotely and digitally. We handle all paperwork, liaison with authorities such as IEPF, registrars, banks, and insurance companies on your behalf. You simply need to provide the required documents online, and our team takes care of the rest from India.",
+    },
+    {
+      question: "How long does the NRI investment recovery process take?",
+      answer: "The timeline varies depending on the type of investment and the complexity of the case. Typically, share recovery from IEPF takes 3–6 months, mutual fund and insurance claim recoveries may take 4–8 weeks, and bank deposit recoveries depend on the institution. During your free consultation, we provide an estimated timeline specific to your case and keep you updated at every stage.",
+    },
+    {
+      question: "What documents do NRIs need to provide for recovery?",
+      answer: "The documents required vary by case but generally include a valid passport, PAN card, Aadhaar card (if available), proof of investment (old share certificates, policy documents, bank statements), and an NRI address proof. Our team guides you through the exact requirements for your specific case during the initial consultation so there is no confusion.",
+    },
+    {
+      question: "Is my personal and financial information secure with ClearClaim?",
+      answer: "Absolutely. Data security and client confidentiality are our top priorities. All documents and personal information shared with ClearClaim are handled with strict confidentiality and secured using industry-standard encryption. We follow rigorous compliance protocols and never share your information with any unauthorized third parties.",
+    },
+    {
+      question: "How does ClearClaim charge for NRI recovery services?",
+      answer: "ClearClaim offers a free initial consultation and case evaluation. Our fee structure is transparent and typically success-based, meaning you pay only when your investments are successfully recovered. The exact fees depend on the type and value of the investment. We discuss all charges upfront during the consultation so there are no surprises.",
+    },
   ];
-
-
 
 
   const renderStars = (count: number, isActive: boolean) => {
     return (
-      <div className="flex items-center mb-4 gap-1">
+      <div className="flex items-center gap-1">
         {[...Array(5)].map((_, i) => (
           <span key={i} className={i < count ? (isActive ? "text-white" : "text-yellow-400") : "opacity-30"}>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
@@ -379,17 +374,6 @@ export default function NRISamadhan() {
       ...prev,
       [index]: !prev[index],
     }));
-  };
-
-  const toggleFaq = (index: number) => {
-    setExpandedFaqs((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
-  const loadMore = () => {
-    setVisibleCount(reviews.length);
   };
 
   const submitInquiry = (e: React.FormEvent<HTMLFormElement>) => {
@@ -459,14 +443,21 @@ export default function NRISamadhan() {
     <>
       {/* Modal Popup for Contact Form */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md mx-4">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{toastMessage}</h2>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 animate-in fade-in duration-300">
+          <div className="bg-white/95 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center max-w-md mx-4 border border-white/20 transform scale-100 transition-all duration-300 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]"></div>
+            <div className="w-16 h-16 mx-auto bg-[#e6f7ed] rounded-full flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-[#00BE5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-extrabold text-[#1a3a1f] mb-3 tracking-tight">Success!</h2>
+            <p className="text-gray-600 text-base mb-8 leading-relaxed font-medium">{toastMessage}</p>
             <button
               onClick={() => setShowModal(false)}
-              className="mt-3 px-4 py-2 bg-[#00BE5D] text-white rounded-md hover:bg-[#008C44] transition"
+              className="w-full px-6 py-3.5 bg-gradient-to-r from-[#00BE5D] to-[#008C44] text-white rounded-xl font-bold tracking-wide hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
-              OK
+              Okay, Thanks!
             </button>
           </div>
         </div>
@@ -474,55 +465,67 @@ export default function NRISamadhan() {
 
       <div className="bg-white text-gray-800">
         {/* ================= HERO SECTION ================= */}
-        <section className="relative bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D] text-white py-16 md:py-24 overflow-hidden">
+        <section className="relative bg-[#041a0f] bg-gradient-to-br from-[#020d08] via-[#052616] to-[#010a05] flex items-start justify-center px-4 py-10 sm:py-16 sm:px-6 lg:px-8 overflow-hidden">
+
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20"></div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Premium Tech Grid Overlay */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+            backgroundImage: `linear-gradient(to right, #22c55e 1px, transparent 1px), linear-gradient(to bottom, #22c55e 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
+
+          {/* Floating Light Specks */}
+          <div className="absolute top-1/4 right-1/3 w-2 h-2 bg-white rounded-full opacity-40 blur-sm animate-pulse pointer-events-none"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-emerald-400 rounded-full opacity-30 blur-md animate-pulse [animation-delay:1s] pointer-events-none"></div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-0 w-full">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* LEFT CONTENT */}
               <div className="animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:0ms]">
-                <div className="mb-4">
-                  <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
-                    🇮🇳 Trusted by NRIs Worldwide
-                  </span>
-                </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                  <span className="block">NRI Wealth</span>
-                  <span className="block text-[#00BE5D]">Recovery Services</span>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-white tracking-tight leading-tight">
+                  <span className="block">NRI Share</span>
+                  <span className="block text-[#00BE5D] bg-clip-text">Recovery Services</span>
                 </h1>
 
-                <h2 className="text-xl md:text-2xl text-white/90 mb-6 font-medium">
+                <p className="text-sm sm:text-base text-white/90 mb-6 font-medium max-w-xl">
                   Reclaim Your Unclaimed Investments in India: <br />
                   <span className="text-white">Remotely, Securely, and Legally</span>
-                </h2>
+                </p>
 
-                <p className="text-white/80 mb-8 text-lg">
+                <p className="text-white/80 mb-8 text-base">
                   Indias trusted investment recovery company helping NRIs recover stuck financial investments without setting foot in India
                 </p>
 
                 {/* STATS */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                    <div className="text-2xl font-bold text-white">100+ Cr</div>
-                    <div className="text-white/80 text-sm">Amount Recovered</div>
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4">
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white">
+                      <Counter target={150} suffix="+ Cr" />
+                    </div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Shares Recovered</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                    <div className="text-2xl font-bold text-white">1,000+</div>
-                    <div className="text-white/80 text-sm">Clients Served</div>
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white">
+                      <Counter target={1250} suffix="+" />
+                    </div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Clients Assisted</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                    <div className="text-2xl font-bold text-white">2,000+</div>
-                    <div className="text-white/80 text-sm">Claim Settled</div>
+                  <div className="bg-white/10 backdrop-blur-sm p-2 sm:p-4 rounded-lg border border-white/20">
+                    <div className="text-xl sm:text-2xl font-bold text-white">
+                      <Counter target={2500} suffix="+" />
+                    </div>
+                    <div className="text-white/80 text-[10px] sm:text-sm leading-tight">Claims Settled</div>
                   </div>
                 </div>
 
-                {/* Additional Stats */}
-                <div className="flex flex-wrap gap-3 mb-8 text-sm">
+                {/* Badges */}
+                <div className="flex flex-wrap gap-3 mt-5 text-sm">
                   <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
                     <span className="text-white/90">✓ Dedicated Claim Coordinator</span>
                   </div>
@@ -530,12 +533,12 @@ export default function NRISamadhan() {
                     <span className="text-white/90">✓ 25+ Expert Team</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full">
-                    <span className="text-white/90">✓ 400+ Companies Worked </span>
+                    <span className="text-white/90">✓ 400+ Companies Worked</span>
                   </div>
                 </div>
 
                 {/* Contact Info */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 mt-5">
                   <a
                     href="tel:+919156701900"
                     className="bg-white text-[#00BE5D] px-6 py-3 rounded-lg font-semibold text-center hover:bg-gray-100 transition flex items-center justify-center gap-2"
@@ -560,48 +563,47 @@ export default function NRISamadhan() {
               </div>
 
               {/* RIGHT FORM - NRI Get Started */}
-              <div id="form" className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-2xl border border-white/30 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-gray-800">
-                    Start Your Recovery Journey
-                  </h3>
-                  <p className="text-gray-600 mt-2">Free consultation & case evaluation</p>
-                </div>
+              <div id="form" className="bg-white/[0.08] backdrop-blur-xl border border-white/[0.15] rounded-2xl p-5 sm:p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
+                <h3 className="text-lg sm:text-2xl font-bold text-white text-center tracking-wide uppercase mb-5 sm:mb-6">
+                  Start Your Recovery Journey
+                </h3>
 
                 <form
                   ref={heroFormRef}
                   onSubmit={submitInquiry}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                  className="space-y-4"
                 >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="hero_first_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                        First Name
+                      </label>
+                      <input
+                        id="hero_first_name"
+                        name="first_name"
+                        type="text"
+                        placeholder="Enter First Name"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="hero_last_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                        Last Name
+                      </label>
+                      <input
+                        id="hero_last_name"
+                        name="last_name"
+                        type="text"
+                        placeholder="Enter Last Name"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                        required
+                      />
+                    </div>
+                  </div>
 
                   <div>
-                    <label htmlFor="hero_first_name" className="text-gray-800 text-sm block mb-2">
-                      First Name
-                    </label>
-                    <input
-                      id="hero_first_name"
-                      name="first_name"
-                      type="text"
-                      placeholder="Enter First Name"
-                      className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="hero_last_name" className="text-gray-800 text-sm block mb-2">
-                      Last Name
-                    </label>
-                    <input
-                      id="hero_last_name"
-                      name="last_name"
-                      type="text"
-                      placeholder="Enter Last Name"
-                      className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                      required
-                    />
-                  </div>
-                  <div className="col-span-full sm:col-span-1">
-                    <label htmlFor="hero_email" className="text-gray-800 text-sm block mb-2">
+                    <label htmlFor="hero_email" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
                       Email
                     </label>
                     <input
@@ -609,30 +611,24 @@ export default function NRISamadhan() {
                       name="email"
                       type="email"
                       placeholder="Enter Email"
-                      className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
                       required
                     />
                   </div>
-                  <div className="col-span-full sm:col-span-1 flex gap-2">
-                    <div className="w-28 flex-shrink-0">
-                      <label htmlFor="hero_phone_code" className="text-gray-800 text-sm block mb-2">
-                        Code
-                      </label>
-                      <select
-                        id="hero_phone_code"
-                        name="phone_country_code"
-                        className="w-full rounded-md py-2.5 px-3 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                        required
-                      >
-                        {COUNTRY_OPTIONS.map((c) => (
-                          <option key={c.value} value={c.dial}>{c.flag} {c.dial || "Other"}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <label htmlFor="hero_phone" className="text-gray-800 text-sm block mb-2">
-                        Phone Number
-                      </label>
+
+                  <div>
+                    <label htmlFor="hero_phone" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Phone Number
+                    </label>
+                    <div className="flex gap-2">
+                      <div className="flex-shrink-0">
+                        <SearchablePhoneCode
+                          id="hero_phone_code"
+                          name="phone_country_code"
+                          options={COUNTRY_OPTIONS}
+                          className="h-full bg-white/[0.85] rounded-lg px-2 py-2.5 text-gray-800 text-[11px] font-semibold outline-none border border-transparent shadow-inner cursor-pointer"
+                        />
+                      </div>
                       <input
                         id="hero_phone"
                         name="phone"
@@ -646,144 +642,122 @@ export default function NRISamadhan() {
                           target.value = target.value.replace(/\D/g, "");
                           if (phoneError) setPhoneError("");
                         }}
-                        className={`w-full rounded-md py-2.5 px-4 border text-sm outline-[#00BE5D] text-gray-800 ${phoneError ? "border-red-500 focus:border-red-500" : "border-gray-300"
-                          }`}
+                        className={`w-full bg-white/[0.92] border text-gray-900 placeholder:text-gray-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner ${phoneError ? "border-red-400 focus:border-red-400" : "border-transparent focus:border-emerald-400"}`}
                         required
-                        title={`Enter 6–15 digits without country code`}
+                        title={`Enter ${PHONE_MIN_LENGTH}–${PHONE_MAX_LENGTH} digits without country code`}
                         aria-invalid={!!phoneError}
                         aria-describedby={phoneError ? "hero_phone_error" : undefined}
                       />
-                      {phoneError && (
-                        <p id="hero_phone_error" className="mt-1 text-sm text-red-600" role="alert">
-                          {phoneError}
-                        </p>
-                      )}
                     </div>
+                    {phoneError && (
+                      <p id="hero_phone_error" className="text-red-400 text-[11px] mt-1" role="alert">
+                        {phoneError}
+                      </p>
+                    )}
                   </div>
-                  <div className="col-span-full" ref={countryDropdownRef}>
-                    <label htmlFor="hero_country" className="text-gray-800 text-sm block mb-2">
+
+                  <div>
+                    <label htmlFor="hero_country" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
                       Current Country
                     </label>
                     <input type="hidden" name="country" value={selectedCountry} required />
+                    <CountrySelect
+                      id="hero_country"
+                      options={COUNTRY_OPTIONS}
+                      value={selectedCountry}
+                      onChange={setSelectedCountry}
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 text-sm outline-none transition-all shadow-inner"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="hero_investment_type" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Type of Unclaimed Investment
+                    </label>
                     <div className="relative">
-                      <button
-                        type="button"
-                        id="hero_country"
-                        onClick={() => setCountryDropdownOpen((o) => !o)}
-                        className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800 bg-white flex items-center gap-3 text-left"
-                        aria-haspopup="listbox"
-                        aria-expanded={countryDropdownOpen}
+                      <select
+                        id="hero_investment_type"
+                        name="type_of_unclaimed_investments"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 pr-10 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none cursor-pointer"
+                        required
                       >
-                        {selectedCountry ? (
-                          (() => {
-                            const c = COUNTRY_OPTIONS.find((x) => x.value === selectedCountry);
-                            return c ? (
-                              <>
-                                {c.iso2 ? (
-                                  <img src={`${FLAG_IMG_BASE}/${c.iso2}.png`} alt="" className="w-6 h-4 object-cover rounded shrink-0" />
-                                ) : (
-                                  <span className="text-lg">{c.flag}</span>
-                                )}
-                                <span>{c.label}</span>
-                              </>
-                            ) : (
-                              <span>{selectedCountry}</span>
-                            );
-                          })()
-                        ) : (
-                          <span className="text-gray-500">Select Country</span>
-                        )}
-                        <span className="ml-auto shrink-0">
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={countryDropdownOpen ? "rotate-180" : ""}>
-                            <path d="M6 9l6 6 6-6" />
-                          </svg>
-                        </span>
-                      </button>
-                      {countryDropdownOpen && (
-                        <ul
-                          className="absolute z-20 mt-1 w-full max-h-60 overflow-auto rounded-md border border-gray-300 bg-white shadow-lg py-1 text-sm"
-                          role="listbox"
-                        >
-                          {COUNTRY_OPTIONS.map((c) => (
-                            <li
-                              key={c.value}
-                              role="option"
-                              aria-selected={selectedCountry === c.value}
-                              onClick={() => {
-                                setSelectedCountry(c.value);
-                                setCountryDropdownOpen(false);
-                              }}
-                              className="flex items-center gap-3 px-4 py-2.5 cursor-pointer hover:bg-[#00BE5D]/10 text-gray-800"
-                            >
-                              {c.iso2 ? (
-                                <img src={`${FLAG_IMG_BASE}/${c.iso2}.png`} alt="" className="w-6 h-4 object-cover rounded shrink-0" />
-                              ) : (
-                                <span className="text-lg w-6 text-center">{c.flag}</span>
-                              )}
-                              <span>{c.label}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                        <option value="">Select type</option>
+                        {(options?.type_of_unclaimed_investments ?? INVESTMENT_TYPES).map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="col-span-full">
-                    <label htmlFor="hero_investment_type" className="text-gray-800 text-sm block mb-2">
-                      Type of Unclaimed Investment
-                    </label>
-                    <select
-                      id="hero_investment_type"
-                      name="type_of_unclaimed_investments"
-                      className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                      required
-                    >
-                      <option value="">Select type</option>
-                      {(options?.type_of_unclaimed_investments ?? INVESTMENT_TYPES).map((opt) => (
-                        <option key={opt} value={opt}>{opt}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="col-span-full">
-                    <label htmlFor="hero_callback_time" className="text-gray-800 text-sm block mb-2">
+                  <div>
+                    <label htmlFor="hero_callback_time" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
                       Preferred Callback Time (IST)
                     </label>
-                    <select
-                      id="hero_callback_time"
-                      name="preferred_callback_time"
-                      className="w-full rounded-md py-2.5 px-4 border border-gray-300 text-sm outline-[#00BE5D] text-gray-800"
-                      required
-                    >
-                      <option value="">Select time slot</option>
-                      {(options?.preferred_callback_time ?? CALLBACK_TIMES).map((opt) => (
-                        <option key={opt} value={opt}>{opt}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="hero_callback_time"
+                        name="preferred_callback_time"
+                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 rounded-lg px-4 py-2.5 pr-10 text-gray-900 text-sm outline-none transition-all shadow-inner appearance-none cursor-pointer"
+                        required
+                      >
+                        <option value="">Select time slot</option>
+                        {(options?.preferred_callback_time ?? CALLBACK_TIMES).map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-span-full">
+
+                  <div className="flex items-start gap-2.5 pt-1">
                     <input
                       type="checkbox"
                       id="hero_agree"
                       name="agree"
-                      className="w-4 h-4 mr-2 accent-[#00BE5D] cursor-pointer"
+                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-emerald-500 focus:ring-emerald-500 bg-white/20 accent-emerald-500 cursor-pointer"
                       required
                     />
-                    <label htmlFor="hero_agree" className="text-sm text-gray-800">
-                      I agree to receive updates on email or phone.
+                    <label
+                      htmlFor="hero_agree"
+                      className="text-sm text-white leading-tight cursor-pointer"
+                    >
+                      Yes, I agree with the{" "}
+                      <Link
+                        href="/privacy-policy"
+                        className="text-[#00BE5D] hover:underline"
+                      >
+                        privacy policy
+                      </Link>
                     </label>
                   </div>
-                  <div className="col-span-full">
+
+                  <div className="pt-2 items-center justify-center flex">
                     <button
                       type="submit"
                       disabled={formSubmitting}
-                      className="text-white w-full bg-[#00BE5D] border border-[#00BE5D] tracking-wide rounded-md text-sm px-6 py-3 mt-2 hover:bg-[#008C44] hover:border-[#008C44] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group relative overflow-hidden bg-[#00BE5D] hover:bg-[#00b569] active:bg-[#00a35e] text-white font-extrabold py-3.5 px-4 rounded-full transition-all duration-200 shadow-lg shadow-emerald-950/50 tracking-wider text-xs cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      {formSubmitting ? "Sending…" : "Get Free Consultation"}
+                      <div
+                        className="absolute inset-0 -translate-x-[150%] w-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shine"
+                        style={{ animationDuration: "3s" }}
+                      />
+                      <span className="relative z-10">
+                        {formSubmitting ? "Processing..." : "Get Free Consulting"}
+                      </span>
                     </button>
                   </div>
                 </form>
 
-                <div className="mt-6 text-center text-sm text-gray-500">
+                <div className="mt-6 text-center text-sm text-gray-400">
                   <p>Your information is secure & confidential</p>
                 </div>
               </div>
@@ -791,7 +765,58 @@ export default function NRISamadhan() {
           </div>
         </section>
 
-        {/* ================= COUNTER SECTION ================= */}
+        <style jsx>{`
+          @keyframes shine {
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            20% { transform: translateX(200%) skewX(-20deg); }
+            100% { transform: translateX(200%) skewX(-20deg); }
+          }
+          .animate-shine {
+            animation: shine 3s infinite;
+          }
+        `}</style>
+
+     
+
+        {/* ================= NRI SERVICES INTRO ================= */}
+        <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:80ms]">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
+                <div className="mb-4">
+                  <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                    NRI Services – Recover Your <span className="text-[#00BE5D]">Financial Assets</span> from India
+                  </h2>
+                  <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mt-6 rounded-full opacity-40 mb-4"></div>
+                </div>
+                <p className="text-base text-[#00BE5D] font-semibold mb-6">
+                  Reclaim What&apos;s Rightfully Yours, Even While Living Abroad
+                </p>
+                <p className="text-base text-gray-600 mb-6">
+                  Living overseas shouldn&apos;t mean losing access to your hard-earned investments in India. ClearClaim assists Non-Resident Indians (NRIs) in recovering unclaimed financial assets like shares, dividends, bank accounts, mutual funds, and much more without needing you to return to India.
+                </p>
+                <p className="text-base text-gray-600">
+                  We already support NRI clients living in the USA, UAE, UK, Canada, Australia, and Singapore, handling the entire recovery process from start to finish remotely, from paperwork to final credit. You stay updated, and we handle the hassles.
+                </p>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden lg:h-full animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
+                <Image
+                  src={nriabout}
+                  alt="NRI discussing financial matters"
+                  className="w-full h-auto lg:absolute lg:inset-0 lg:w-full lg:h-full lg:object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white">
+                  <p className="text-lg font-semibold">Global NRI Support</p>
+                  <p>Available 24/7</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+           {/* ================= COUNTER SECTION ================= */}
         <section className="py-16 px-4 bg-[#1a3a1f] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:0ms]">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
@@ -806,9 +831,9 @@ export default function NRISamadhan() {
               {/* ₹600+ Crores */}
               <div className="text-center bg-white px-4 py-6 border-b-4 border-[#00BE5D] rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:80ms]">
                 <h3 className="text-[#1a3a1f] text-4xl font-bold mt-4">
-                  ₹<Counter target={100} />+ Cr
+                  ₹<Counter target={150} />+ Cr
                 </h3>
-                <p className="text-[#1a3a1f] font-semibold mt-2">Amount Recovered</p>
+                <p className="text-[#1a3a1f] font-semibold mt-2">Shares Recovered</p>
               </div>
 
               {/* 40,000+ Clients */}
@@ -824,43 +849,7 @@ export default function NRISamadhan() {
                 <h3 className="text-[#1a3a1f] text-4xl font-bold mt-4">
                   <Counter target={10} />+
                 </h3>
-                <p className="text-[#1a3a1f] font-semibold mt-2">Countries Served</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================= NRI SERVICES INTRO ================= */}
-        <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:80ms]">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:120ms]">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">
-                  NRI Services – Recover Your Financial Assets from India
-                </h2>
-                <p className="text-xl text-[#00BE5D] font-semibold mb-6">
-                  Reclaim What&apos;s Rightfully Yours, Even While Living Abroad
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  Living overseas shouldn&apos;t mean losing access to your hard-earned investments in India. ClearClaim assists Non-Resident Indians (NRIs) in recovering unclaimed financial assets like shares, dividends, bank accounts, mutual funds, and much more without needing you to return to India.
-                </p>
-                <p className="text-lg text-gray-600">
-                  We already support NRI clients living in the USA, UAE, UK, Canada, Australia, and Singapore, handling the entire recovery process from start to finish remotely, from paperwork to final credit. You stay updated, and we handle the hassles.
-                </p>
-              </div>
-              <div className="relative h-96 lg:h-full rounded-2xl overflow-hidden animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
-                <Image
-                  src={nriabout}
-                  alt="NRI discussing financial matters"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <p className="text-lg font-semibold">Global NRI Support</p>
-                  <p>Available 24/7</p>
-                </div>
+                <p className="text-[#1a3a1f] font-semibold mt-2 text-base">Countries Served</p>
               </div>
             </div>
           </div>
@@ -869,10 +858,13 @@ export default function NRISamadhan() {
         {/* ================= WHY NRIs NEED ASSET RECOVERY ================= */}
         <section className="py-16 px-4 bg-gradient-to-r from-[#f0f9ff] to-[#e6f7ed] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:160ms]">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-gray-800">
-              Why NRIs Often Need Asset Recovery Services
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-6 max-w-3xl mx-auto">
+            <div className="text-center mb-4">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Why NRIs Often Need <span className="text-[#00BE5D]">Asset Recovery Services</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
+            <p className="text-base text-gray-600 text-center mb-6 max-w-3xl mx-auto">
               When individuals relocate to other countries, their financial investments in India are left unattended. Over time, these investments can become dormant or unclaimed due to outdated contact information, lack of follow-through, or changes in regulations.
             </p>
             <p className="text-lg font-semibold text-gray-800 mb-4 text-center">Typical unclaimed assets include:</p>
@@ -882,7 +874,7 @@ export default function NRISamadhan() {
                   <span className="text-2xl"><Image src={growth} alt="Shares" width={24} height={24} /></span>
                 </div>
                 <h3 className="font-bold text-lg text-gray-800 mb-3">Unclaimed Shares & Dividends</h3>
-                <p className="text-gray-600">Shares and dividends transferred to government bodies</p>
+                <p className="text-base text-gray-600">Shares and dividends transferred to government bodies</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-[#00BE5D] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:280ms]">
@@ -890,7 +882,7 @@ export default function NRISamadhan() {
                   <span className="text-2xl"><Image src={bank} alt="Bank" width={24} height={24} /></span>
                 </div>
                 <h3 className="font-bold text-lg text-gray-800 mb-3">Dormant Bank Accounts</h3>
-                <p className="text-gray-600">Dormant savings accounts or fixed deposits</p>
+                <p className="text-base text-gray-600">Dormant savings accounts or fixed deposits</p>
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-[#00BE5D] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:360ms]">
@@ -903,7 +895,7 @@ export default function NRISamadhan() {
             </div>
 
             <div className="mt-12 bg-white rounded-xl p-8 shadow-lg animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:440ms]">
-              <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+              <p className="text-base text-gray-600 text-center max-w-3xl mx-auto">
                 Without an in-country presence, such assets can remain stranded for years. At ClearClaim, we are experts at tracking down and recovering them on your behalf, ensuring that nothing that belongs to you is left behind.
               </p>
             </div>
@@ -913,9 +905,12 @@ export default function NRISamadhan() {
         {/* ================= OUR NRI ASSET RECOVERY SERVICES ================= */}
         <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:240ms]">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Our NRI Asset Recovery Services
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Our NRI Asset <span className="text-[#00BE5D]">Recovery Services</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gradient-to-br from-[#f0f9ff] to-[#e6f7ed] rounded-xl p-6 border-l-4 border-[#00BE5D] hover:shadow-xl transition-all duration-300 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:280ms]">
@@ -970,9 +965,12 @@ export default function NRISamadhan() {
         {/* ================= HOW OUR NRI RECOVERY PROCESS WORKS ================= */}
         <section className="py-16 px-4 bg-gradient-to-r from-[#1a3a1f] to-[#2d5a34] text-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:320ms]">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              How Our NRI Recovery Process Works
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                How Our NRI <span className="text-[#00BE5D]">Recovery Process</span> Works
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
 
             <div className="grid lg:grid-cols-5 gap-6">
               {[
@@ -1028,8 +1026,8 @@ export default function NRISamadhan() {
               ))}
             </div>
 
-            <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
-              <p className="text-xl">
+            <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
+              <p className="text-base">
                 ClearClaim manages everything end-to-end, saving you from confusing regulations, paperwork, and long waiting periods.
               </p>
             </div>
@@ -1039,9 +1037,12 @@ export default function NRISamadhan() {
         {/* ================= WHY NRIs TRUST CLEARCLAIM ================= */}
         <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Why NRIs Trust ClearClaim
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Why NRIs Trust <span className="text-[#00BE5D]">ClearClaim</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-gradient-to-br from-[#f0f9ff] to-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:440ms]">
@@ -1078,77 +1079,77 @@ export default function NRISamadhan() {
             </div>
 
             <div className="mt-12 text-center animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:760ms]">
-              <a href="#form" className="inline-block bg-[#00BE5D] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#008C44] transition text-lg shadow-lg hover:shadow-xl">
+              <a href="#form" className="inline-block text-white px-6 py-3 rounded-full bg-[#00BE5D] hover:bg-[#00BE5D] font-semibold transition text-base shadow-lg hover:shadow-xl"
+              >
                 Schedule a Call with Our NRI Expert
               </a>
             </div>
           </div>
         </section>
 
-        {/* ================= FAQs with Images ================= */}
+        {/* ================= FAQs ================= */}
         <section className="py-16 px-4 bg-gradient-to-br from-[#f8fdf9] to-[#e6f7ed] animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:480ms]">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-800">
-              Frequently Asked Questions
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                Frequently Asked <span className="text-[#00BE5D]">Questions</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
+            <div className="space-y-4 text-base">
+              {/* Mapping through the dynamic FAQ array */}
+              {faqData.map((faq, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
+                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
                   style={{ animationDelay: `${index * 80}ms` }}
                 >
-                  <button
-                    className="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50/50 transition"
-                    onClick={() => toggleFaq(index)}
+                  {/* Header section with cursor-pointer and onClick handler */}
+                  <div
+                    className="w-full text-left p-4 flex justify-between items-center cursor-pointer select-none"
+                    onClick={() => toggleFAQ(index)}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#00BE5D]/10 text-[#00BE5D] flex items-center justify-center font-bold">
+                    <div className="flex items-center gap-4 pr-4">
+                      <div className="w-10 h-10 rounded-full bg-[#00BE5D]/10 text-[#00BE5D] flex items-center justify-center font-bold flex-shrink-0">
                         {index + 1}
                       </div>
-                      <h3 className="font-bold text-lg text-gray-800 flex-1">{faq.question}</h3>
+                      <h3 className="font-bold text-base text-gray-800 flex-1">
+                        {faq.question}
+                      </h3>
                     </div>
-                    {expandedFaqs[index] ? (
-                      <ChevronUp />
-                    ) : (
-                      <ChevronDown />
-                    )}
-                  </button>
+                    {/* Open/Close Visual Indicator */}
+                    <div className="text-[#00BE5D] text-2xl font-light transition-transform duration-300">
+                      {openIndex === index ? "−" : "+"}
+                    </div>
+                  </div>
 
-                  {expandedFaqs[index] && (
+                  {/* Expandable Body Section */}
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${openIndex === index
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-0"
+                      } overflow-hidden`}
+                  >
                     <div className="p-6 pt-0 border-t border-gray-100">
-                      <div className="flex flex-col lg:flex-row gap-6">
-                        <div className="lg:w-2/3">
-                          <p className="text-gray-600 mb-4">{faq.answer}</p>
-                          <div className="flex items-center gap-2 text-sm text-gray-500">
-                            <span className="w-2 h-2 bg-[#00BE5D] rounded-full"></span>
-                            <span>NRI Recovery Specialist</span>
-                          </div>
-                        </div>
-                        <div className="lg:w-1/3">
-                          <div className="relative h-48 rounded-lg overflow-hidden">
-                            <Image
-                              src={faq.image || FALLBACK_IMAGES[index % FALLBACK_IMAGES.length]}
-                              alt={faq.question}
-                              fill
-                              className="object-cover"
-                              sizes="(max-width: 1024px) 100vw, 33vw"
-                            />
-                          </div>
-                        </div>
+                      <p className="text-gray-600 mb-4">{faq.answer}</p>
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <span className="w-2 h-2 bg-[#00BE5D] rounded-full"></span>
+                        <span>NRI Recovery Specialist</span>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
             </div>
 
+            {/* Footer Contact Section */}
             <div className="mt-12 text-center animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
               <p className="text-gray-600 mb-4">Have more questions about NRI recovery?</p>
               <a
                 href="tel:+919156701900"
-                className="inline-flex items-center gap-2 bg-[#00BE5D] text-white px-6 py-3 rounded-lg font-semibold transition shadow-lg"
+                className="inline-flex items-center bg-[#00BE5D] gap-2 text-white px-6 py-3 text-base rounded-full font-semibold transition shadow-lg hover:bg-[#00a852]"
+
               >
                 <Image
                   src={phoneIcon}
@@ -1168,66 +1169,23 @@ export default function NRISamadhan() {
           <section className="py-16 px-4 bg-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:560ms]">
             <div className="max-w-7xl mx-auto">
               <div className="text-center">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-                  Google Reviews That <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Speak for Themselves</span>
+                <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+                  Google Reviews That <span className="text-[#00BE5D]">Speak for Themselves</span>
                 </h2>
-                <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40"></div>
+                <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
               </div>
-
-
               <div className="relative">
-                {/* Mobile: Show limited testimonials with Load More */}
-                <div className="md:hidden flex flex-col gap-6 px-4">
-                  {reviews.slice(0, visibleCount).map((review, index) => (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-xl p-4 shadow-sm flex flex-col hover:shadow-lg transition-shadow animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards]"
-                      style={{ animationDelay: `${index * 60}ms` }}
-                      role="article"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg font-semibold text-gray-800">
-                          {review.name || "Anonymous"}
-                        </h3>
-                        <Image src={google} alt="Google" width={48} height={24} />
-                      </div>
-                      <p className="text-sm text-gray-500 mb-2">{review.date}</p>
-                      {renderStars(review.stars, false)}
-                      <p className="text-gray-700 text-sm flex-1">
-                        {expandedReviews[index]
-                          ? review.content
-                          : `${review.content.substring(0, 120)}...`}
-                      </p>
-                      <button
-                        className="mt-2 text-[#00BE5D] text-sm font-semibold hover:underline self-start"
-                        onClick={() => toggleReadMore(index)}
-                      >
-                        {expandedReviews[index] ? "Read Less" : "Read More"}
-                      </button>
-                    </div>
-                  ))}
-                  {visibleCount < reviews.length && (
-                    <button
-                      onClick={loadMore}
-                      className="mt-4 px-6 py-3 bg-[#00BE5D] text-white rounded-lg font-semibold hover:bg-[#008C44] transition-colors self-center shadow-md hover:shadow-lg"
-                    >
-                      Load More Reviews
-                    </button>
-                  )}
-                </div>
-
-                {/* Desktop Carousel */}
-                <div className="hidden md:flex items-center justify-center relative">
+                <div className="flex items-center justify-center relative">
                   {/* Left Navigation */}
                   <button
                     onClick={handlePrev}
-                    className="absolute left-[-20px] lg:left-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                    className="absolute left-[-10px] md:left-4 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
                   >
                     <ChevronLeft size={20} />
                   </button>
 
-                  <div className="w-full overflow-hidden flex justify-center py-10 px-4">
-                    <div className="flex transition-all duration-700 ease-in-out gap-8 items-center justify-center">
+                  <div className="w-full overflow-hidden flex justify-center py-10 relative px-4 md:px-20">
+                    <div className="flex transition-all duration-700 ease-in-out gap-8 md:gap-12 items-center justify-center">
                       {[-1, 0, 1].map((offset) => {
                         let index = (currentIndex + offset + reviews.length) % reviews.length;
                         const review = reviews[index];
@@ -1240,27 +1198,32 @@ export default function NRISamadhan() {
                               transition-all duration-700 ease-in-out flex-shrink-0 
                               rounded-[2rem] p-7 shadow-xl relative
                               ${isActive
-                                ? "bg-gradient-to-br from-[#00C853] via-[#00A243] to-[#017A34] text-white w-[300px] md:w-[380px] scale-100 md:scale-105 z-10"
-                                : "bg-white text-gray-700 w-[260px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden lg:flex"
+                                ? "bg-[#00BE5D] text-white w-[300px] md:w-[380px] scale-100 md:scale-105 z-10"
+                                : "bg-white border-2 border-green-500 text-gray-700 w-[260px] md:w-[320px] scale-90 md:scale-95 z-0 opacity-40 md:opacity-100 hidden md:flex"
                               }
                               flex flex-col min-h-[360px] border border-gray-50/50
                             `}
                           >
-                            <div className={`text-right text-xs font-medium mb-8 ${isActive ? "text-white/90" : "text-gray-400"}`}>
-                              {review.date}
+                            {/* Top Header: Stars & Date */}
+                            <div className="flex justify-between items-start mb-10">
+                              {renderStars(review.stars || 5, isActive)}
+                              <div className={`text-right text-sm font-medium ${isActive ? "text-white/90" : "text-gray-400"}`}>
+                                {review.date}
+                              </div>
                             </div>
 
+                            {/* Content */}
                             <div className="flex-1">
-                              <p className={`leading-relaxed text-sm font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
+                              <p className={`leading-relaxed text-base font-normal ${isActive ? "text-white" : "text-gray-600"}`}>
                                 {expandedReviews[index]
                                   ? review.content
-                                  : review.content.length > 180
-                                    ? `“${review.content.substring(0, 180)}...”`
+                                  : review.content.length > 200
+                                    ? `“${review.content.substring(0, 200)}...”`
                                     : `“${review.content}”`
                                 }
-                                {review.content.length > 180 && (
+                                {review.content.length > 200 && (
                                   <button
-                                    className={`ml-2 font-semibold border-b border-current py-0 text-xs ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
+                                    className={`ml-2 font-semibold border-b border-current py-0 text-sm ${isActive ? "text-white/100" : "text-[#00BE5D]"}`}
                                     onClick={() => toggleReadMore(index)}
                                   >
                                     {expandedReviews[index] ? "Read Less" : "Read More"}
@@ -1269,19 +1232,18 @@ export default function NRISamadhan() {
                               </p>
                             </div>
 
-                            <div className={`h-px w-full my-6 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
+                            {/* Divider */}
+                            <div className={`h-px w-full my-8 ${isActive ? "bg-white/20" : "bg-gray-100"}`} />
 
+                            {/* Footer: Name and Status */}
                             <div className="flex items-center gap-4">
-                              <div className={`w-10 h-10 rounded-full overflow-hidden border-2 flex-shrink-0 ${isActive ? "border-white/30" : "border-gray-200"}`}>
-                                <div className={`w-full h-full flex items-center justify-center font-bold text-xs ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>
-                                  {(review.name || "A").charAt(0)}
-                                </div>
-                              </div>
                               <div className="flex flex-col min-w-0">
-                                <h4 className={`font-bold text-sm truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
-                                  {review.name || "Anonymous"}
+                                <h4 className={`font-bold text-base truncate ${isActive ? "text-white" : "text-[#111827]"}`}>
+                                  {review.name}
                                 </h4>
-                                {renderStars(review.stars, isActive)}
+                                <div className={`text-xs font-medium ${isActive ? "text-white/80" : "text-gray-400"}`}>
+                                  Happy Client
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1293,19 +1255,19 @@ export default function NRISamadhan() {
                   {/* Right Navigation */}
                   <button
                     onClick={handleNext}
-                    className="absolute right-[-20px] lg:right-0 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
+                    className="absolute right-[-10px] md:right-4 z-20 p-4 bg-white hover:bg-gray-50 rounded-full shadow-xl border border-gray-100 text-gray-500 transition-all active:scale-90"
                   >
                     <ChevronRight size={20} />
                   </button>
                 </div>
 
                 {/* Dots Indicator */}
-                <div className="hidden md:flex justify-center gap-2 mt-8">
+                <div className="flex justify-center gap-2 mt-8">
                   {reviews.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentIndex(i)}
-                      className={`h-1.5 transition-all duration-300 rounded-full ${currentIndex === i ? "w-6 bg-[#00BE5D]" : "w-1.5 bg-gray-300"}`}
+                      className={`h-2 transition-all duration-300 rounded-full ${currentIndex === i ? "w-8 bg-[#00BE5D]" : "w-2 bg-gray-300"}`}
                     />
                   ))}
                 </div>
@@ -1329,18 +1291,21 @@ export default function NRISamadhan() {
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto text-center text-white animate-fade-in-up-light opacity-0 [animation-fill-mode:forwards] [animation-delay:640ms]">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Reclaim Your Assets?
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                Ready to Reclaim <span className="text-[#00BE5D]">Your Assets?</span>
+              </h2>
+              <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-4"></div>
+            </div>
+            <p className="text-base text-white/90 mb-8">
               Don&apos;t let your investments remain forgotten. Whether you&apos;re living in the USA, UAE, UK, Canada, Australia, Singapore, or elsewhere, ClearClaim has the expertise to help you recover your Indian financial assets securely and efficiently.
             </p>
-            <p className="text-lg text-white/90 mb-8">
+            <p className="text-base text-white/90 mb-8">
               Start with a free case evaluation today and find out what you may be entitled to.
             </p>
             <a
               href="#form"
-              className="inline-block bg-white text-[#00BE5D] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg shadow-xl hover:shadow-2xl mb-12"
+              className="inline-block bg-white text-[#00BE5D] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition text-base shadow-xl hover:shadow-2xl mb-12"
             >
               Start Your Recovery Now
             </a>
@@ -1380,7 +1345,7 @@ export default function NRISamadhan() {
 
             </div>
 
-            <div className="mt-8 text-sm text-white/80">
+            <div className="mt-8 text-base text-white/80">
               <p>
                 <strong>Compliance Note:</strong> All services are offered under applicable Indian
                 laws. ClearClaim ensures full transparency and legal compliance in every step of the

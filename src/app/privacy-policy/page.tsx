@@ -9,10 +9,15 @@ const PrivacyPolicy = () => {
       {/* Hero Section */}
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="md:text-5xl text-3xl font-bold text-[#283655] mb-4">
-            Privacy <span className="text-[#00BE5D]">Policy</span>
-          </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+            Our{" "}
+            <span className="text-[#00BE5D]">
+              Privacy Policy
+            </span>
+          </h2>
+
+          <div className="h-1 w-24 sm:w-32 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-8 rounded-full opacity-40"></div>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-8">
             Clearclaim Ventures Private Limited is committed to safeguarding your privacy.
             This policy outlines how we handle your personal information.
           </p>

@@ -43,14 +43,20 @@
 //   );
 // }
 
+"use client";
+
+import { useState } from "react";
 import NumberTalk from "../../app/whyclearclaim/numbertalk";
+import LogoSection from "../../app/logo-section/page";
 // import eclipse from "../../../public/images/Ellipse.png";
 // import Image from "next/image";
 
-export default function scammerexposed() {
+export default function ScammerExposed() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <>
-      <div className="relative bg-gradient-to-b from-[#7ed3a6]/20 via-[#a8e6c1]/40 to-[#ffffff] py-20 overflow-hidden">
+      <div className="relative bg-gradient-to-b from-[#7ed3a6]/20 via-[#a8e6c1]/40 to-[#ffffff] py-10 md:py-20 overflow-hidden">
         {/* Grid Background Overlay */}
         <div className="absolute inset-0 opacity-10"
           style={{
@@ -62,10 +68,10 @@ export default function scammerexposed() {
         <div className="max-w-6xl mx-auto px-4 md:px-0 relative z-10">
           {/* Heading */}
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
-              Physical shareholders <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D]">Don't miss this video</span>
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
+              Physical shareholders <span className="text-[#00BE5D]">Don't miss this video</span>
             </h2>
-            <div className="h-1.5 w-32 bg-gradient-to-r from-[#1a3a1f] to-[#00BE5D] mx-auto mt-6 rounded-full opacity-40 mb-12"></div>
+            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-6 md:mb-12"></div>
           </div>
 
           {/* Banner Video */}
@@ -74,57 +80,66 @@ export default function scammerexposed() {
 
               {/* YouTube */}
               <iframe
-                src="https://www.youtube.com/embed/wNqDCTfOwBI"
+                src={`https://www.youtube.com/embed/wNqDCTfOwBI${isPlaying ? '?autoplay=1' : ''}`}
                 title="Important Video"
                 className="absolute top-0 left-0 w-full h-full"
                 frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
 
-              {/* Overlay Gradient for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+              {!isPlaying && (
+                <div 
+                  className="absolute inset-0 z-10 cursor-pointer"
+                  onClick={() => setIsPlaying(true)}
+                >
+                  {/* Overlay Gradient for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
-              {/* Play Button Icon (Visual only) */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-20 h-20 bg-[#00BE5D] rounded-full flex items-center justify-center shadow-2xl">
-                  <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Text Content */}
-              <div className="absolute bottom-10 left-10 right-10 text-white z-10 pointer-events-none">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl md:text-3xl font-bold max-w-2xl leading-[1.2] drop-shadow-lg">
-                      Important Guidance for Physical Shareholders
-                    </h3>
-
-                    <div className="flex items-center gap-3 mt-4">
-                      <div className="h-px w-8 bg-[#00BE5D]"></div>
-                      <p className="text-[#00BE5D] text-lg font-bold tracking-wide uppercase">
-                        Safety & Recovery
-                      </p>
+                  {/* Play Button Icon (Visual only) */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-20 h-20 bg-[#00BE5D] rounded-full flex items-center justify-center shadow-2xl">
+                      <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
                   </div>
 
-                  <p className="text-green-300 font-medium text-sm md:text-base">
-                    Learn how to stay safe & recover your investments
-                  </p>
+                  {/* Text Content */}
+                  <div className="absolute bottom-10 left-10 right-10 text-white z-10 pointer-events-none">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                      <div>
+                        <h3 className="text-xl md:text-3xl font-bold max-w-2xl leading-[1.2] drop-shadow-lg">
+                          Important Guidance for Physical Shareholders
+                        </h3>
+
+                        <div className="flex items-center gap-3 mt-4">
+                          <div className="h-px w-8 bg-[#00BE5D]"></div>
+                          <p className="text-[#00BE5D] text-lg font-bold tracking-wide uppercase">
+                            Safety & Recovery
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-green-300 font-medium text-sm md:text-base">
+                        Learn how to stay safe & recover your investments
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Badge */}
-              <div className="absolute top-8 left-8 bg-[#00BE5D] text-white text-[10px] md:text-xs font-bold tracking-widest uppercase px-6 py-2.5 rounded-full shadow-2xl z-10 border border-white/20 backdrop-blur-sm pointer-events-none">
+              {/* <div className="absolute top-8 left-8 bg-[#00BE5D] text-white text-[10px] md:text-xs font-bold tracking-widest uppercase px-6 py-2.5 rounded-full shadow-2xl z-10 border border-white/20 backdrop-blur-sm pointer-events-none">
                 Must Watch
-              </div>
+              </div> */}
 
             </div>
           </div>
         </div>
       </div>
 
+      <LogoSection />
 
       <NumberTalk />
     </>

@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 const CLEARCLAIM_API = process.env.CLEARCLAIM_API_URL ?? "https://api.clearclaim.in";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   return NextResponse.json({ ok: true, message: "Inquiries API is running" });
 }

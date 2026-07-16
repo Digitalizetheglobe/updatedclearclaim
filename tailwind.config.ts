@@ -28,13 +28,18 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        shine: {
+          "100%": { transform: "translateX(200%) skewX(-20deg)" },
+        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "fade-in-up-light": "fade-in-up-light 0.7s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
+        shine: "shine 3s infinite",
       },
     },
   },
   plugins: [],
 } satisfies Config;
+
