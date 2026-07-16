@@ -413,7 +413,7 @@ export default function LandingTestimonial2() {
 
       {/* Modal Popup for Contact Form */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50 animate-in fade-in duration-300">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-[1100] animate-in fade-in duration-300">
           <div className="bg-white/95 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center max-w-md mx-4 border border-white/20 transform scale-100 transition-all duration-300 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]"></div>
             <div className="w-16 h-16 mx-auto bg-[#e6f7ed] rounded-full flex items-center justify-center mb-6">

@@ -18,17 +18,17 @@ const claimsData = [
     // date: "2023-11-10",
     summary: "IEPFA stands for ‘Investor Education and Protection Fund Authority’. The IEPFA Authority is entrusted with the responsibility of administration of the IEPF...",
     fullContent: (
-      <ul className="space-y-5">
-        <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-          <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+      <ul className="space-y-4">
+        <li className="flex gap-3 text-sm text-gray-600">
+          <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
           IEPFA stands for ‘Investor Education and Protection Fund Authority’. The IEPFA Authority is entrusted with the responsibility of administration of the Investor Education Protection Fund (IEPF), making refunds of shares, unclaimed dividends, matured deposits/debentures etc. to investors, promoting awareness among investors, and protecting the interests of the investors.
         </li>
-        <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-          <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+        <li className="flex gap-3 text-sm text-gray-600">
+          <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
           IEPFA makes sure that investors unclaimed shares and unclaimed dividends are not misused and protect them by taking the custody of such unclaimed shares and dividends from companies to avoid any fraud activities. In other way it safeguards investors shares and funds.
         </li>
-        <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-          <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+        <li className="flex gap-3 text-sm text-gray-600">
+          <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
           Apart from this IEPFA is responsible for promotion of investors’ education, awareness and protection activities.
         </li>
       </ul>
@@ -41,11 +41,11 @@ const claimsData = [
     // date: "2023-11-10",
     summary: "The Ministry of Corporate Affairs, Government of India have notified new rules under Section 124(6) in The Companies Act, 2013...",
     fullContent: (
-      <ul className="space-y-6">
-        <li className="text-sm sm:text-base text-gray-700">
+      <ul className="space-y-4">
+        <li className="text-sm text-gray-600">
           The Ministry of Corporate Affairs, Government of India have notified new rules under Section 124(6) in The Companies Act, 2013, The Investor Education and Protection Fund Authority [Accounting, Audit, Transfer and Refund] Rules, 2016 which vide Rule 6 has been implemented by the Ministry of Corporate Affairs, with effect from 13th October 2017.
         </li>
-        <li className="text-sm sm:text-base text-gray-700">
+        <li className="text-sm text-gray-600">
           All shares in respect of which dividend has not been paid or claimed for seven consecutive years or more shall be transferred by the company in the name of Investor Education and Protection Fund along with a statement containing such details as may be prescribed: Provided that any claimant of shares transferred above shall be entitled to claim the transfer of shares from Investor Education and Protection Fund in accordance with such procedure and on submission of such documents as may be prescribed.
         </li>
       </ul>
@@ -58,22 +58,22 @@ const claimsData = [
     // date: "2023-11-10",
     summary: "It is 100% possible to recover your shares and dividends transferred to IEPF through the IEPF-5 claim process...",
     fullContent: (
-      <div className="space-y-6">
-        <p className="text-sm sm:text-base text-gray-700">
+      <div className="space-y-4">
+        <p className="text-sm text-gray-600">
           It is 100% possible to recover your shares and dividends transferred to IEPF. Along with the MCA rule of transmission of shares to IEPF, they have also given the process of claiming shares back from IEPF. By submitting IEPF-5 claim form on MCA website you can claim your shares from IEPF.
         </p>
-        <p className="font-semibold text-gray-900">IEPF claim is processed in 3 stages:</p>
-        <ul className="space-y-4">
-          <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-            <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+        <p className="font-semibold text-gray-900 text-sm">IEPF claim is processed in 3 stages:</p>
+        <ul className="space-y-3">
+          <li className="flex gap-3 text-sm text-gray-600">
+            <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
             1. Filing IEPF-5 claim online on MCA portal and generate a SRN number. After that sending hard copy documents to the Nodal officer or RTA of the company.
           </li>
-          <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-            <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+          <li className="flex gap-3 text-sm text-gray-600">
+            <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
             2. Company verifies your claim by scrutinizing documents you submitted and sends verification report to IEPFA through their internal portal.
           </li>
-          <li className="flex gap-3 text-sm sm:text-base text-gray-700">
-            <Image src={tick} alt="tick" className="w-5 h-6 flex-shrink-0" />
+          <li className="flex gap-3 text-sm text-gray-600">
+            <Image src={tick} alt="tick" className="w-4 h-4 mt-0.5 flex-shrink-0" />
             3. IEPFA approves or rejects your claim after their verification.
           </li>
         </ul>
@@ -195,7 +195,7 @@ export default function Content() {
       {/* ✅ Modal */}
       <AnimatePresence>
         {selectedClaim && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+          <div className="fixed inset-0 z-[1100] flex items-center justify-center p-4 sm:p-6">
 
             {/* Backdrop */}
             <div
@@ -207,11 +207,11 @@ export default function Content() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white max-w-4xl w-full rounded-2xl sm:rounded-[32px] relative overflow-hidden shadow-2xl mx-auto flex flex-col max-h-[90vh]"
+              className="bg-white max-w-4xl w-full rounded-xl sm:rounded-2xl relative overflow-hidden shadow-2xl mx-auto flex flex-col max-h-[85vh] sm:max-h-[90vh]"
             >
               {/* Modal Header */}
-              <div className="px-6 py-5 sm:px-8 sm:py-6 border-b border-gray-100 flex justify-between items-center flex-shrink-0 bg-white z-10">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#283655] pr-6">
+              <div className="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 flex justify-between items-center flex-shrink-0 bg-white z-10">
+                <h2 className="text-lg sm:text-xl font-bold text-[#283655] pr-6">
                   {selectedClaim.title}
                 </h2>
                 <button
@@ -223,15 +223,15 @@ export default function Content() {
               </div>
 
               {/* Modal Content */}
-              <div className="p-6 sm:px-8 sm:py-6 overflow-y-auto flex-1">
+              <div className="p-5 sm:p-6 overflow-y-auto flex-1">
                 {selectedClaim.fullContent}
               </div>
 
               {/* Modal Footer */}
-              <div className="p-6 sm:px-8 sm:py-6 border-t border-gray-100 flex-shrink-0 bg-gray-50/50">
+              <div className="p-4 sm:px-6 sm:py-4 border-t border-gray-100 flex-shrink-0 bg-gray-50/50">
                 <button
                   onClick={() => setSelectedClaim(null)}
-                  className="w-full sm:w-auto px-8 py-3 bg-[#00BE5D] text-white font-bold rounded-full hover:bg-[#009e4d] transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-[#00BE5D] text-white font-bold rounded-full hover:bg-[#009e4d] transition-all duration-300 shadow-md hover:shadow-lg text-sm"
                 >
                   Got it, thanks!
                 </button>

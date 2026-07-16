@@ -90,7 +90,7 @@ export default function WhyClearClaim() {
             {contentBlocks.map((block, index) => (
               <div
                 key={block.id}
-                className="relative bg-gradient-to-br from-[#1a3a1f] via-[#2d5a34] to-[#00BE5D] rounded-[1.5rem] sm:rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_40px_-15px_rgba(0,190,93,0.4)] border border-white/10 hover:-translate-y-2 hover:scale-[1.02] will-change-transform transition-all duration-500 ease-out flex flex-col sm:flex-row items-start gap-4 sm:gap-6 group overflow-hidden"
+                className="relative bg-[#161D34] rounded-[1.5rem] sm:rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_40px_-15px_rgba(22,29,52,0.4)] border border-white/10 hover:-translate-y-2 hover:scale-[1.02] will-change-transform transition-all duration-500 ease-out flex flex-col sm:flex-row items-start gap-4 sm:gap-6 group overflow-hidden"
                 style={{
                   animation: `fadeInUpProfessional 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
                   animationDelay: `${index * 120}ms`,
