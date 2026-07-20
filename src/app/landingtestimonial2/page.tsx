@@ -483,16 +483,7 @@ export default function LandingTestimonial2() {
                   </div>
 
                   {/* Text Content */}
-                  <div className="absolute bottom-6 left-6 right-6 text-white z-10 pointer-events-none">
-                    <h3 className="text-lg md:text-3xl font-bold max-w-xl leading-snug">
-                      Clearclaim Helped Me Recover My Parents&apos;s Lost Shares
-                    </h3>
-
-                    <p className="mt-2 text-green-300 font-medium">
-                      – Mr. Mukund Shah
-                    </p>
-                    <p className="text-xs text-gray-300">(Maharashtra)</p>
-                  </div>
+                
                 </div>
               )}
 
@@ -669,27 +660,7 @@ export default function LandingTestimonial2() {
                     </div>
                   </div>
 
-                  {/* Text Content */}
-                  <div className="absolute bottom-10 left-10 right-10 text-white z-10 pointer-events-none">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                      <div>
-                        <h3 className="text-xl md:text-3xl font-bold max-w-2xl leading-[1.2] drop-shadow-lg">
-                          Important Guidance for Physical Shareholders
-                        </h3>
-
-                        <div className="flex items-center gap-3 mt-4">
-                          <div className="h-px w-8 bg-[#00BE5D]"></div>
-                          <p className="text-[#00BE5D] text-lg font-bold tracking-wide uppercase">
-                            Safety & Recovery
-                          </p>
-                        </div>
-                      </div>
-
-                      <p className="text-green-300 font-medium text-sm md:text-base">
-                        Learn how to stay safe & recover your investments
-                      </p>
-                    </div>
-                  </div>
+                
                 </div>
               )}
 

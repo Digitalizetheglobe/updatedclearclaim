@@ -246,12 +246,7 @@ export default function About() {
               <Instagram className="w-4 h-4 hover:text-black cursor-pointer transition-colors" />
             </div>
 
-            {/* Mobile Socials (Visible only on mobile) */}
-            <div className="flex md:hidden items-center justify-center space-x-4 text-gray-500 mb-2">
-              <Linkedin className="w-4 h-4" />
-              <Twitter className="w-4 h-4" />
-              <Instagram className="w-4 h-4" />
-            </div>
+         
 
             {/* Image Section */}
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden flex-shrink-0 bg-white relative shadow-sm">
@@ -262,7 +257,12 @@ export default function About() {
                 className="object-cover object-top"
               />
             </div>
-
+                 {/* Mobile Socials (Visible only on mobile) */}
+            <div className="flex md:hidden items-center justify-center space-x-4 text-gray-500 mb-2">
+              <Linkedin className="w-4 h-4" />
+              <Twitter className="w-4 h-4" />
+              <Instagram className="w-4 h-4" />
+            </div>
             {/* Content Section */}
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-xl font-bold uppercase text-[#4A4A4A] tracking-widest mb-1">

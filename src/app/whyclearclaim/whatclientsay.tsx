@@ -95,18 +95,7 @@ export default function WhatClientSay() {
                   </div>
 
                   {/* Text Content */}
-                  <div className="absolute bottom-8 left-8 right-8 text-white z-10 pointer-events-none">
-                    <h3 className="text-xl md:text-3xl font-bold max-w-xl leading-snug drop-shadow-lg">
-                      Clearclaim Helped Me Recover My Parents's Lost Shares
-                    </h3>
-
-                    <div className="flex items-center gap-2 mt-4">
-                      <p className="text-[#00BE5D] font-bold text-lg">
-                        – Mr. Mukund Shah
-                      </p>
-                      <span className="text-xs text-gray-400">(Maharashtra)</span>
-                    </div>
-                  </div>
+                
 
                   {/* Stars Overlay (Inspired by image) */}
                   <div className="absolute right-8 bottom-8 hidden md:flex gap-1 text-yellow-400 pointer-events-none">

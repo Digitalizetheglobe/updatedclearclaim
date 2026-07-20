@@ -594,41 +594,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sticky Vertical Call Now Button */}
-      {/* <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
-
-     
-        <button
-          onClick={handleCall}
-          className="bg-[#2F855A] text-white px-4 py-6 rounded-l-full flex flex-col items-center justify-center gap-2 shadow-lg hover:bg-[#38A169] transition-all"
-        >
-          <Phone size={20} />
-          <span className="text-xs font-semibold">Call</span>
-        </button>
-
-      </div> */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
-
-        {/* Call Button */}
-        <button
-          onClick={handleCall}
-          className="group relative overflow-hidden text-white bg-[#00BE5D] hover:bg-[#00BE5D] px-3 py-4 sm:px-4 sm:py-6 rounded-l-full flex flex-col items-center justify-center gap-2 shadow-lg transition-all"
-          // style={{
-          //   background: "linear-gradient(rgb(61, 111, 240) 0%, rgb(36, 80, 196) 100%)",
-          // }}
-        >
-          {/* Shine Effect */}
-          <div
-            className="absolute inset-0 -translate-x-[150%] w-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shine"
-            style={{ animationDuration: "3s" }}
-          />
-
-          {/* Content */}
-          <Phone size={20} className="relative z-10" />
-          <span className="relative z-10 text-xs font-semibold">Call</span>
-        </button>
-
-      </div>
+      {/* Call Button */}
+      <button
+        onClick={handleCall}
+        style={{
+          position: "fixed",
+          bottom: "30px",
+          right: "30px",
+          backgroundColor: "#00BE5D",
+          border: "none",
+          borderRadius: "50%",
+          width: "50px",
+          height: "50px",
+          cursor: "pointer",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 2000,
+        }}
+      >
+        <Phone size={25} color="#fff" />
+      </button>
 
       <WhyClearClaim />
 

@@ -292,20 +292,30 @@ export default function ContactForm() {
     {
       icon: <MapPin className="w-6 h-6 text-[#00BE5D] translate-y-[1px]" />,
       title: "Our Office",
-      content: "Office No C-201, 2nd Floor, Vantage Tower, Bavdhan, Pune-411021",
-      link: "https://www.google.com/maps/search/?q=Clearclaim+Ventures+Pune"
+      links: [
+        {
+          text: "Office No C-201, 2nd Floor, Vantage Tower, Bavdhan, Pune-411021",
+          url: "https://www.google.com/maps/search/?q=Clearclaim+Ventures+Pune"
+        }
+      ]
     },
     {
       icon: <Mail className="w-6 h-6 text-[#00BE5D]" />,
       title: "Email Us",
-      content: "sales@clearclaim.in",
-      link: "mailto:sales@clearclaim.in"
+      links: [
+        {
+          text: "sales@clearclaim.in",
+          url: "mailto:sales@clearclaim.in"
+        }
+      ]
     },
     {
       icon: <Phone className="w-6 h-6 text-[#00BE5D]" />,
       title: "Call Us",
-      content: "+91 9156701900 / +91 9970651900",
-      link: "tel:+919156701900"
+      links: [
+        { text: "+91 9156701900", url: "tel:+919156701900" },
+        { text: "+91 9970651900", url: "tel:+919970651900" }
+      ]
     }
   ];
 
@@ -350,13 +360,10 @@ export default function ContactForm() {
 
               <div className="space-y-8 flex-grow">
                 {infoItems.map((item, index) => (
-                  <motion.a
+                  <motion.div
                     key={index}
-                    href={item.link}
-                    target={item.title === "Our Office" ? "_blank" : undefined}
-                    rel={item.title === "Our Office" ? "noopener noreferrer" : undefined}
                     whileHover={{ x: 10 }}
-                    className="flex items-start group cursor-pointer"
+                    className="flex items-start group"
                   >
                     <div className="shrink-0 mt-0.5 mr-5 transition-all duration-300">
                       {item.icon}
@@ -365,11 +372,21 @@ export default function ContactForm() {
                       <h3 className="text-base font-semibold text-white/90 group-hover:text-white transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-base text-white/70 group-hover:text-white/90 transition-colors mt-1 leading-relaxed">
-                        {item.content}
-                      </p>
+                      <div className="flex flex-col mt-1 space-y-1">
+                        {item.links.map((link, linkIdx) => (
+                          <a
+                            key={linkIdx}
+                            href={link.url}
+                            target={item.title === "Our Office" ? "_blank" : undefined}
+                            rel={item.title === "Our Office" ? "noopener noreferrer" : undefined}
+                            className="text-base text-white/70 group-hover:text-white/90 hover:!text-white transition-colors leading-relaxed w-fit"
+                          >
+                            {link.text}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </motion.a>
+                  </motion.div>
                 ))}
               </div>
 

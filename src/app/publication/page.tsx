@@ -193,10 +193,10 @@ export default function PublicationPage() {
                                 Read Ful Paper
                                 <ArrowRight size={18} />
                             </Link>
-                            <button className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all">
+                            {/* <button className="flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-bold rounded-full hover:bg-white/10 transition-all">
                                 <Download size={18} />
                                 PDF Edition
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </motion.div>
@@ -305,7 +305,7 @@ export default function PublicationPage() {
             )}
 
             {/* CTA Section */}
-            <section className="bg-white py-24 border-t border-gray-100">
+            {/* <section className="bg-white py-24 border-t border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -332,7 +332,7 @@ export default function PublicationPage() {
                         </div>
                     </motion.div>
                 </div>
-            </section>
+            </section> */}
 
         </div>
     );

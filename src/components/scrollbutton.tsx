@@ -38,7 +38,7 @@ export default function ScrollButton() {
   return (
     <button
       onClick={handleScroll}
-      className="fixed bottom-8 right-8 bg-[#00BE5D] text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-[#008C44] hover:scale-110 transition-all duration-300 z-50"
+      className="fixed bottom-[86px] right-[31px] bg-[#00BE5D] text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg hover:bg-[#008C44] hover:scale-110 transition-all duration-300 z-50"
     >
       {isAtTop ? <ArrowDown size={20} /> : <ArrowUp size={20} />}
     </button>

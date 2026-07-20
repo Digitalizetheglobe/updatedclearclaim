@@ -56,7 +56,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`flex py-4 px-4 sm:px-10 min-h-[70px] tracking-wide sticky top-0 z-[1000] transition-all duration-300 ${isScrolled
+        className={`flex  px-4 sm:px-10  tracking-wide sticky top-0 z-[1000] transition-all duration-300 ${isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-lg py-3"
           : "bg-white py-4"
           }`}

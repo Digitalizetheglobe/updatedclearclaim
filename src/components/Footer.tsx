@@ -15,8 +15,8 @@ export default function Footer() {
         <div className="mx-auto max-w-screen-xl px-4 pt-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {/* Logo and Tagline */}
-            <div className="text-center sm:text-left">
-              <div className="flex justify-center sm:justify-start">
+            <div className="text-left">
+              <div className="flex justify-start">
                 <Link href="/">
                   <Image
                     src={logo}
@@ -25,13 +25,13 @@ export default function Footer() {
                   />
                 </Link>
               </div>
-              <p className="mt-4 max-w-xs mx-auto sm:mx-0 text-center sm:text-left text-black leading-relaxed">
+              <p className="mt-4 max-w-xs text-left text-black leading-relaxed">
                 We can help you bring back your old shares and dividends easily.
               </p>
             </div>
 
             {/* Menus Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:col-span-2 gap-8 text-center sm:text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:col-span-2 gap-8 text-left">
               {/* Quick Links */}
               <div>
                 <p className="text-xl font-bold text-gray-900 mt-5">Quick Links</p>
@@ -56,22 +56,22 @@ export default function Footer() {
               </div>
 
               {/* Contact Us */}
-              <div className="text-center sm:text-left">
+              <div className="text-left">
                 <p className="text-xl font-bold text-gray-900 mt-5">Contact Us</p>
                 <ul className="mt-4 space-y-3">
-                  <li className="flex items-center justify-start space-x-3 w-fit mx-auto sm:mx-0">
+                  <li className="flex items-center justify-start space-x-3 w-fit">
                     <Image src="/images/phone.png" alt="Phone" width={20} height={20} className="flex-shrink-0" />
                     <a href="tel:+919156701900" className="text-gray-700 text-[16px] break-all sm:break-normal">+91 9156701900</a>
                   </li>
-                  <li className="flex items-center justify-start space-x-3 w-fit mx-auto sm:mx-0">
+                  <li className="flex items-center justify-start space-x-3 w-fit">
                     <Image src="/images/phone.png" alt="Phone" width={20} height={20} className="flex-shrink-0" />
                     <a href="tel:+919970651900" className="text-gray-700 text-[16px] break-all sm:break-normal">+91 9970651900</a>
                   </li>
-                  <li className="flex items-center justify-start space-x-3 w-fit mx-auto sm:mx-0">
+                  <li className="flex items-center justify-start space-x-3 w-fit">
                     <Image src="/images/mail-02.png" alt="Email" width={20} height={20} className="flex-shrink-0" />
                     <a href="mailto:sales@clearclaim.in" className="text-gray-700 text-[16px] break-all sm:break-normal">sales@clearclaim.in</a>
                   </li>
-                  <li className="flex items-start justify-start space-x-3 w-fit mx-auto sm:mx-0 max-w-[280px] sm:max-w-none mt-1 text-left">
+                  <li className="flex items-start justify-start space-x-3 w-fit max-w-[280px] sm:max-w-none mt-1 text-left">
                     <Image src="/images/marker-pin-01.png" alt="Location" width={20} height={20} className="flex-shrink-0 mt-1" />
                     <a href="https://www.google.com/maps/search/?q=Office+No+C-201,+2nd+Floor,+Vantage+Tower,+Bramha+Corp,+Opposite+to+Bavdhan+Police+Chowky,+NDA+Pashan+Road,+Bavdhan,+Pune+-+411021"
                       target="_blank"
@@ -90,14 +90,14 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="mt-8 border-t bg-[#00BE5D] border-gray-100 py-4 px-4">
-          <div className="text-center">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-sm sm:text-[16px] text-white">
+          <div className="text-left sm:text-center">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center gap-2 text-sm sm:text-[16px] text-white">
               <span>Copyright © 2026 Clearclaim</span>
               <span className="hidden sm:inline">|</span>
               <span>
                 Carefully Crafted By
                 <Link
-                  className="inline-block text-white hover:text-gray-200 ml-1 font-medium"
+                  className="inline-block text-white hover:text-gray-200 ml-1 font-medium underline"
                   href="https://digitalizetheglobe.com/"
                 >
                   Digitalize The Globe
