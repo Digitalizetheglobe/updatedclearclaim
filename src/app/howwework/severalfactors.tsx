@@ -98,7 +98,7 @@ export default function Severalfactors() {
                     <div className={`w-full lg:w-1/2 flex ${isEven ? "justify-end lg:pr-16" : "justify-start lg:pl-16"}`}>
                       <div className="group relative bg-white rounded-3xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-emerald-50 hover:shadow-[0_20px_50px_rgba(0,190,93,0.1)] transition-all duration-500 max-w-md w-full">
                         {/* Floating Number */}
-                        <span className="absolute -top-6 -left-4 text-6xl font-black text-[#00BE5D]/5 group-hover:text-[#00BE5D]/10 transition-colors pointer-events-none">
+                        <span className="hidden sm:block absolute -top-6 -left-4 text-6xl font-black text-[#00BE5D]/5 group-hover:text-[#00BE5D]/10 transition-colors pointer-events-none">
                           {factor.id}
                         </span>
 
