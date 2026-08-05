@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
+import team from "../../../public/images/team.png";
 
 interface TeamMember {
   id: number;
@@ -19,15 +20,20 @@ export default function Meetourteam() {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in";
-        const res = await fetch(`${apiUrl}/api/team/active`, { cache: 'no-store' });
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in";
+        const res = await fetch(`${apiUrl}/api/team/active`, {
+          cache: "no-store",
+        });
         if (!res.ok) throw new Error("Failed to fetch team");
         const json = await res.json();
         if (json.success && json.data) {
           const allMembers: TeamMember[] = json.data;
-          
-          const core = allMembers.filter(m => !(m.designation || '').toLowerCase().includes('advisory'));
-          
+
+          const core = allMembers.filter(
+            (m) => !(m.designation || "").toLowerCase().includes("advisory"),
+          );
+
           setCoreTeam(core);
         }
       } catch (error) {
@@ -70,10 +76,7 @@ export default function Meetourteam() {
               Behind the scenes
             </span>
             <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
-              Meet Our{" "}
-              <span className="text-[#00BE5D]">
-                Core Team
-              </span>
+              Meet Our <span className="text-[#00BE5D]">Core Team</span>
             </h2>
             <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
           </div>
@@ -111,10 +114,7 @@ export default function Meetourteam() {
               Behind the scenes
             </span>
             <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
-              Meet Our{" "}
-              <span className="text-[#00BE5D]">
-                Core Team
-              </span>
+              Meet Our <span className="text-[#00BE5D]">Core Team</span>
             </h2>
             <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
           </motion.div>
@@ -138,10 +138,19 @@ export default function Meetourteam() {
                 {/* Image Section */}
                 <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-slate-50">
                   <img
-                    src={member.photo ? (member.photo.startsWith('http') ? member.photo : `${process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in"}/uploads/update/${member.photo}`) : "/placeholder-user.jpg"}
+                    src={
+                      member.photo
+                        ? member.photo.startsWith("http")
+                          ? member.photo
+                          : `${process.env.NEXT_PUBLIC_API_URL || "https://apicms.clearclaim.in"}/uploads/update/${member.photo}`
+                        : "/placeholder-user.jpg"
+                    }
                     alt={member.fullName}
                     className="object-cover object-top w-full h-full transition-transform duration-700 ease-out group-hover:scale-110"
-                    onError={(e) => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.fullName)}&background=00BE5D&color=fff`; }}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        `https://ui-avatars.com/api/?name=${encodeURIComponent(member.fullName)}&background=00BE5D&color=fff`;
+                    }}
                   />
                   {/* Premium Overlay on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#283655]/80 via-[#283655]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -160,8 +169,21 @@ export default function Meetourteam() {
             ))}
           </motion.div>
         ) : (
-          <div className="text-center text-gray-400 py-10">No core team members found.</div>
+          <div className="text-center text-gray-400 py-10">
+            No core team members found.
+          </div>
         )}
+
+        <div className="mt-20 max-w-7xl mx-auto px-4">
+          <div className="relative w-full overflow-hidden rounded-[32px] shadow-xl">
+            <Image
+              src={team}
+              alt="Our Team"
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        </div>
       </section>
     </div>
   );

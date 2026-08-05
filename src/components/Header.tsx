@@ -9,6 +9,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isRecoveryOpen, setIsRecoveryOpen] = useState(false); // New state for recovery dropdown
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Header() {
     } else {
       document.body.style.overflow = "auto";
       setIsResourcesOpen(false); // Reset dropdown when menu closes
+      setIsRecoveryOpen(false); // Reset recovery dropdown when menu closes
     }
   }, [isMenuOpen]);
 
@@ -52,6 +54,7 @@ export default function Header() {
     setIsMenuOpen(false);
   };
   const toggleResources = () => setIsResourcesOpen(!isResourcesOpen);
+  const toggleRecovery = () => setIsRecoveryOpen(!isRecoveryOpen); // New toggle function
 
   return (
     <>
@@ -84,10 +87,18 @@ export default function Header() {
                   IEPF Claim
                 </Link>
               </li>
-              <li>
-                <Link href="/recovery-of-shares" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
-                  Recovery of Shares
-                </Link>
+              {/* Recovery of Shares Dropdown */}
+              <li className="relative group">
+                <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[15px] cursor-pointer">
+                Shares Recovery Process
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 transition-transform duration-300 group-hover:rotate-180">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+                <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-4 px-5 min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
+                  <li><Link href="/recovery-of-shares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Recovery of shares</Link></li>
+                  <li><Link href="/oldshares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Oldshares</Link></li>
+                </ul>
               </li>
               <li>
                 <Link href="/nri-services" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
@@ -113,11 +124,6 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
-            {/* <Link href="/case-study/3m-india-limited">
-              <button className="py-2.5 px-6 text-sm bg-transparent text-[#00BE5D] border-[#00BE5D] border-2 hover:text-white font-bold rounded-full hover:bg-[#00BE5D] transition-all duration-300">
-                Case Study
-              </button>
-            </Link> */}
             <Link href="/case-study/3m-india-limited">
               <button className="group relative overflow-hidden py-2.5 px-8 text-sm bg-[#00BE5D] text-white border-[#00BE5D] border-2 hover:text-[#00BE5D] font-bold rounded-full hover:bg-transparent transition-all duration-300">
                 <div
@@ -161,7 +167,38 @@ export default function Header() {
               <li><Link href="/" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">Home</Link></li>
               <li><Link href="/about" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">About</Link></li>
               <li><Link href="/iepfclaim" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">IEPF Claim</Link></li>
-              <li><Link href="/recovery-of-shares" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">Recovery of Shares</Link></li>
+
+              {/* Mobile Recovery of Shares Dropdown */}
+              <li className="space-y-3">
+                <div
+                  onClick={toggleRecovery}
+                  className="flex items-center justify-between cursor-pointer group py-2"
+                >
+                  <p className="text-lg font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Shares Recovery Process</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`transition-transform duration-300 ${isRecoveryOpen ? "rotate-180 text-[#00BE5D]" : "text-gray-400"}`}
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+
+                <div className={`overflow-hidden transition-all duration-300 ${isRecoveryOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+                  <ul className="pl-4 space-y-3 border-l-2 border-green-100 ml-1">
+                    <li><Link href="/recovery-of-shares" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Recovery of shares</Link></li>
+                    <li><Link href="/oldshares" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Oldshares</Link></li>
+                  </ul>
+                </div>
+              </li>
+
               <li><Link href="/nri-services" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">NRI Services</Link></li>
 
               <li className="space-y-3">
