@@ -482,7 +482,7 @@ export default function OldSharesPage() {
       }
 
       setToast(
-        "Thank you. Our recovery team will share your valuation on WhatsApp within 24 hours."
+        "Thank you for your response. Our representative will contact you shortly."
       );
       resetForm();
       setShowForm(false);
@@ -1444,17 +1444,22 @@ export default function OldSharesPage() {
 
       {/* Success / error toast */}
       {toast && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-[1100]">
-          <div className="bg-white p-8 rounded-3xl shadow-2xl text-center max-w-md mx-4 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]" />
-            <h3 className="text-xl font-extrabold text-[#0F1F14] mb-3 mt-2">Got it</h3>
-            <p className="text-gray-600 mb-6">{toast}</p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-[1100] animate-in fade-in duration-300">
+          <div className="bg-white/95 p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center max-w-md mx-4 border border-white/20 transform scale-100 transition-all duration-300 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#00BE5D] to-[#008C44]"></div>
+            <div className="w-16 h-16 mx-auto bg-[#e6f7ed] rounded-full flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-[#00BE5D]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-extrabold text-[#1a3a1f] mb-3 tracking-tight">Success!</h2>
+            <p className="text-gray-600 text-base mb-8 leading-relaxed font-medium">{toast}</p>
             <button
               type="button"
               onClick={() => setToast(null)}
-              className="w-full px-6 py-3.5 bg-gradient-to-r from-[#00BE5D] to-[#008C44] text-white rounded-xl font-bold"
+              className="w-full px-6 py-3.5 bg-gradient-to-r from-[#00BE5D] to-[#008C44] text-white rounded-xl font-bold tracking-wide hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all duration-200"
             >
-              Okay
+              Okay, Thanks!
             </button>
           </div>
         </div>

@@ -110,18 +110,18 @@ export default function Meetourteam() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block">
+            {/* <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-4 block">
               Behind the scenes
-            </span>
+            </span> */}
             <h2 className="text-2xl sm:text-2xl md:text-3xl font-extrabold text-[#283655] tracking-tight">
-              Meet Our <span className="text-[#00BE5D]">Core Team</span>
+              Meet Our <span className="text-[#00BE5D]">Superstars</span>
             </h2>
             <div className="h-1.5 w-24 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-6 rounded-full opacity-40 mb-16"></div>
           </motion.div>
         </div>
 
         {/* Core Team Grid */}
-        {coreTeam.length > 0 ? (
+        {/* {coreTeam.length > 0 ? (
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -135,7 +135,6 @@ export default function Meetourteam() {
                 variants={itemVariants}
                 className="group relative w-full max-w-[280px] mx-auto bg-white p-3 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-10px_rgba(0,190,93,0.15)] transition-all duration-500 ease-out hover:-translate-y-2"
               >
-                {/* Image Section */}
                 <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-slate-50">
                   <img
                     src={
@@ -152,11 +151,9 @@ export default function Meetourteam() {
                         `https://ui-avatars.com/api/?name=${encodeURIComponent(member.fullName)}&background=00BE5D&color=fff`;
                     }}
                   />
-                  {/* Premium Overlay on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#283655]/80 via-[#283655]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
-                {/* Text Section */}
                 <div className="mt-5 pb-2 px-2 text-center transition-transform duration-500 ease-out group-hover:-translate-y-1 relative z-10">
                   <h4 className="text-xl font-extrabold text-[#283655] transition-colors duration-300">
                     {member.fullName}
@@ -172,7 +169,7 @@ export default function Meetourteam() {
           <div className="text-center text-gray-400 py-10">
             No core team members found.
           </div>
-        )}
+        )} */}
 
         <div className="mt-20 max-w-7xl mx-auto px-4">
           <div className="relative w-full overflow-hidden rounded-[32px] shadow-xl">

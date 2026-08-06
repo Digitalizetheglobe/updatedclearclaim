@@ -90,14 +90,14 @@ export default function Header() {
               {/* Recovery of Shares Dropdown */}
               <li className="relative group">
                 <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[15px] cursor-pointer">
-                Shares Recovery Process
+                Shares Recovery Services 
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 transition-transform duration-300 group-hover:rotate-180">
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </div>
                 <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-4 px-5 min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
                   <li><Link href="/recovery-of-shares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Recovery of shares</Link></li>
-                  <li><Link href="/oldshares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Oldshares</Link></li>
+                  <li><Link href="/oldshares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Free valuation</Link></li>
                 </ul>
               </li>
               <li>
