@@ -1,3 +1,97 @@
+"use client";
+
+import type { ReactNode } from "react";
+
+const BENEFITS = [
+  {
+    title: "Real Numbers Before You Spend Anything",
+    description:
+      'Most "DIY" families spend ₹40,000+ on stamps, notary, and consultants before knowing if recovery is even worth it. ClearClaim gives you the value first, free.',
+  },
+  {
+    title: "Originals Stay In Your Safe Until A Signed Agreement",
+    description:
+      "You never courier originals based on a phone call. Documents move only after a written, signed service agreement is in your hands. Period.",
+  },
+  {
+    title: "Fixed Fee, Not A Percentage Of Your Family's Wealth",
+    description:
+      "Most recovery agents take 15% to 30% of what they recover. On ₹41 lakh, that is ₹6 to 12 lakh. Our quote is a fixed number in writing. You decide if it is fair.",
+  },
+  {
+    title: "Plain-Language Checklists, Not Legal Jargon",
+    description:
+      "You get a one-page checklist in English (or Hindi if requested) of exactly what is needed at each stage. No CA glossary. No surprise stamp paper trips.",
+  },
+  {
+    title: "Most Recovery Cases Need Under 5 Hours Of Your Time",
+    description:
+      "Across the entire recovery, end to end. Mostly WhatsApp messages, document signatures, and one or two video calls if the case needs them.",
+  },
+  {
+    title: "One Specialised Team. Not A Generalist Lawyer Or CA.",
+    description:
+      "The IEPF and RTA process was designed for full-time professionals. We are full-time professionals. We file these every day. Generalists were never built for this.",
+  },
+];
+
+function Stars({ className = "text-[#16a34a]", size = 14 }: { className?: string; size?: number }) {
+  return (
+    <div className={`flex gap-0.5 ${className}`} aria-hidden>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+function CtaButton({
+  children,
+  onClick,
+  className = "",
+  variant = "green",
+}: {
+  children: ReactNode;
+  onClick?: () => void;
+  className?: string;
+  variant?: "green" | "blue" | "dark";
+}) {
+  const styles =
+    variant === "blue"
+      ? {
+          background: "linear-gradient(180deg, #3D6FF0 0%, #2450C4 100%)",
+          boxShadow:
+            "0 4px 0 #173A8F, 0 8px 24px rgba(61,111,240,0.42), inset 0 1px 0 rgba(255,255,255,0.28)",
+        }
+      : variant === "dark"
+        ? {
+            background: "linear-gradient(180deg, #0F1F14 0%, #00301A 100%)",
+            boxShadow:
+              "0 4px 0 #001a0e, 0 8px 24px rgba(0,48,26,0.35), inset 0 1px 0 rgba(255,255,255,0.12)",
+          }
+        : {
+            background: "linear-gradient(180deg, #00BE5D 0%, #008B45 100%)",
+            boxShadow:
+              "0 4px 0 #00582C, 0 8px 24px rgba(0,190,93,0.35), inset 0 1px 0 rgba(255,255,255,0.28)",
+          };
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center justify-center gap-2.5 text-white font-extrabold text-[16px] sm:text-[17px] px-8 py-[16px] rounded-full transition-all hover:-translate-y-0.5 ${className}`}
+      style={styles}
+    >
+      {children}
+    </button>
+  );
+}
+
+export default function OldSharesSec2({ openForm }: { openForm: () => void }) {
+  return (
+    <>
       {/* ═══════════ OLD WAY VS CLEARCLAIM ═══════════ */}
       <section className="bg-[#EAF7E9] py-24">
         <div className="max-w-[880px] mx-auto px-6">
@@ -161,4 +255,6 @@
           </div>
         </div>
       </section>
-
+    </>
+  );
+}
