@@ -10,6 +10,16 @@ import phoneIcon from "../../../public/images/phone-call.png";
 import emailIcon from "../../../public/images/email.png";
 import SearchablePhoneCode from "@/components/SearchablePhoneCode";
 import CountrySelect from "@/components/CountrySelect";
+import emailjs from "emailjs-com";
+
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "service_4fca0ux";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "template_0esr8bw";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "YOUR_EMAILJS_PUBLIC_KEY";
+
+const GOOGLE_SHEET_URL =
+  process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL ??
+  "https://script.google.com/macros/s/AKfycbxzKwmCsmMghIzzHQFq6t1Z1PylJ-nmOfeEksDnUxvH3dVmzlmanzibTbcvZBYAf2pX/exec";
+
 const API_BASE = "";
 
 const INVESTMENT_TYPES = [
@@ -271,13 +281,13 @@ export default function RecoveryOfShares() {
       .catch(() => { });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = heroFormRef.current;
     if (!form || formSubmitting) return;
 
-    const first = (form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? "";
-    const last = (form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? "";
+    const fullName = (form.querySelector('[name="full_name"]') as HTMLInputElement)?.value?.trim() ??
+      `${(form.querySelector('[name="first_name"]') as HTMLInputElement)?.value?.trim() ?? ""} ${(form.querySelector('[name="last_name"]') as HTMLInputElement)?.value?.trim() ?? ""}`.trim();
     const phoneRaw = (form.querySelector('[name="phone"]') as HTMLInputElement)?.value?.replace(/\D/g, "") ?? "";
     const phoneCountryCode = (form.querySelector('[name="phone_country_code"]') as HTMLSelectElement)?.value ?? "+91";
     const email = (form.querySelector('[name="email"]') as HTMLInputElement)?.value?.trim() ?? "";
@@ -302,7 +312,7 @@ export default function RecoveryOfShares() {
     const fullPhone = phoneCountryCode && phoneRaw ? `${phoneCountryCode}${phoneRaw}` : phoneRaw ? `+${phoneRaw}` : "";
 
     const payload = {
-      name: `${first} ${last}`.trim(),
+      name: fullName,
       country_of_residence: country,
       whatsapp_number: fullPhone,
       email,
@@ -311,6 +321,51 @@ export default function RecoveryOfShares() {
     };
 
     setFormSubmitting(true);
+
+    // Send Lead to Google Sheet via Apps Script Web App
+    try {
+      await fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          full_name: fullName,
+          email,
+          phone: fullPhone,
+          country,
+          investment_type: typeOfInvestment,
+          callback_time: callbackTime,
+          form_type: "service",
+        }),
+      });
+    } catch (err) {
+      console.error("Google Sheet submission error:", err);
+    }
+
+    // Send Email notification via EmailJS
+    if (EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== "YOUR_EMAILJS_PUBLIC_KEY") {
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            name: fullName,
+            full_name: fullName,
+            email: email,
+            phone: fullPhone,
+            country: country,
+            investment_type: typeOfInvestment,
+            callback_time: callbackTime,
+            time: new Date().toLocaleString(),
+            message: `Country: ${country} | Investment: ${typeOfInvestment} | Preferred Time: ${callbackTime}`,
+          },
+          EMAILJS_PUBLIC_KEY
+        );
+      } catch (err) {
+        console.error("EmailJS submission error:", err);
+      }
+    }
+
     fetch(`${API_BASE}/api/inquiries`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -475,33 +530,18 @@ export default function RecoveryOfShares() {
                 </h3>
 
                 <form ref={heroFormRef} onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="hero_first_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
-                        First Name
-                      </label>
-                      <input
-                        id="hero_first_name"
-                        name="first_name"
-                        type="text"
-                        placeholder="Enter First Name"
-                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="hero_last_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
-                        Last Name
-                      </label>
-                      <input
-                        id="hero_last_name"
-                        name="last_name"
-                        type="text"
-                        placeholder="Enter Last Name"
-                        className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
-                        required
-                      />
-                    </div>
+                  <div>
+                    <label htmlFor="hero_full_name" className="block text-[11px] font-bold text-[#00BE5D] uppercase tracking-wider mb-1.5">
+                      Full Name
+                    </label>
+                    <input
+                      id="hero_full_name"
+                      name="full_name"
+                      type="text"
+                      placeholder="Enter Full Name"
+                      className="w-full bg-white/[0.92] border border-transparent focus:border-emerald-400 focus:bg-white rounded-lg px-4 py-2.5 text-gray-900 text-sm outline-none transition-all shadow-inner placeholder:text-gray-400"
+                      required
+                    />
                   </div>
 
                   <div>
