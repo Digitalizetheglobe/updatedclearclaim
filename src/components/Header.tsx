@@ -10,6 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isRecoveryOpen, setIsRecoveryOpen] = useState(false); // New state for recovery dropdown
+  const [isMediaOpen, setIsMediaOpen] = useState(false); // New state for media dropdown
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Header() {
       document.body.style.overflow = "auto";
       setIsResourcesOpen(false); // Reset dropdown when menu closes
       setIsRecoveryOpen(false); // Reset recovery dropdown when menu closes
+      setIsMediaOpen(false); // Reset media dropdown when menu closes
     }
   }, [isMenuOpen]);
 
@@ -55,6 +57,7 @@ export default function Header() {
   };
   const toggleResources = () => setIsResourcesOpen(!isResourcesOpen);
   const toggleRecovery = () => setIsRecoveryOpen(!isRecoveryOpen); // New toggle function
+  const toggleMedia = () => setIsMediaOpen(!isMediaOpen); // New toggle function
 
   return (
     <>
@@ -70,62 +73,66 @@ export default function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-8">
-            <ul className="flex gap-x-8">
+          <div className="hidden lg:flex items-center gap-6">
+            <ul className="flex gap-x-6">
               <li>
-                <Link href="/" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
+                <Link href="/" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
+                <Link href="/about" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/iepfclaim" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
+                <Link href="/iepfclaim" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   IEPF Claim
                 </Link>
               </li>
               {/* Recovery of Shares Dropdown */}
               <li className="relative group">
-                <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[15px] cursor-pointer">
+                <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[14px] cursor-pointer">
                 Shares Recovery Services 
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 transition-transform duration-300 group-hover:rotate-180">
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </div>
-                <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-4 px-5 min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
-                  <li><Link href="/recovery-of-shares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Recovery of shares</Link></li>
-                  <li><Link href="/oldshares" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Free valuation</Link></li>
+                <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-3 px-4 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
+                  <li><Link href="/recovery-of-shares" className="hover:text-[#00BE5D] text-gray-700 block py-1.5 text-[14px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Recovery of shares</Link></li>
+                  <li><Link href="/oldshares" className="hover:text-[#00BE5D] text-gray-700 block py-1.5 text-[14px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Free valuation</Link></li>
                 </ul>
               </li>
               <li>
-                <Link href="/nri-services" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
+                <Link href="/nri-services" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   NRI Services
                 </Link>
               </li>
+              <li>
+                <Link href="/publication" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
+                  Media
+                </Link>
+              </li>
               <li className="relative group">
-                <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[15px] cursor-pointer">
+                <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[14px] cursor-pointer">
                   Resources
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 transition-transform duration-300 group-hover:rotate-180">
                     <path d="m6 9 6 6 6-6" />
                   </svg>
                 </div>
-                <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-4 px-5 min-w-[240px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
-                  <li><Link href="/blog" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Blog</Link></li>
-                  <li><Link href="/gallery" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Gallery</Link></li>
-                  <li><Link href="/publication" className="hover:text-[#00BE5D] text-gray-700 block py-2 text-[15px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Publication</Link></li>
+                <ul className="absolute top-full left-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-3 px-4 min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-4 group-hover:translate-y-0 transition-all duration-300 z-50">
+                  <li><Link href="/blog" className="hover:text-[#00BE5D] text-gray-700 block py-1.5 text-[14px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Blog</Link></li>
+                  <li><Link href="/gallery" className="hover:text-[#00BE5D] text-gray-700 block py-1.5 text-[14px] font-medium transition-colors hover:bg-green-50 px-3 rounded-lg">Gallery</Link></li>
                 </ul>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[15px] transition-colors">
+                <Link href="/contact" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   Contact
                 </Link>
               </li>
             </ul>
             <Link href="/case-study/3m-india-limited">
-              <button className="group relative overflow-hidden py-2.5 px-8 text-sm bg-[#00BE5D] text-white border-[#00BE5D] border-2 hover:text-[#00BE5D] font-bold rounded-full hover:bg-transparent transition-all duration-300">
+              <button className="group relative overflow-hidden py-2 px-6 text-xs sm:text-sm bg-[#00BE5D] text-white border-[#00BE5D] border-2 hover:text-[#00BE5D] font-bold rounded-full hover:bg-transparent transition-all duration-300">
                 <div
                   className="absolute inset-0 -translate-x-[150%] w-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shine"
                   style={{ animationDuration: "3s" }}
@@ -164,17 +171,17 @@ export default function Header() {
 
           <nav className="flex-1 overflow-y-auto">
             <ul className="space-y-4">
-              <li><Link href="/" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">Home</Link></li>
-              <li><Link href="/about" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">About</Link></li>
-              <li><Link href="/iepfclaim" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">IEPF Claim</Link></li>
+              <li><Link href="/" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">Home</Link></li>
+              <li><Link href="/about" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">About</Link></li>
+              <li><Link href="/iepfclaim" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">IEPF Claim</Link></li>
 
               {/* Mobile Recovery of Shares Dropdown */}
               <li className="space-y-3">
                 <div
                   onClick={toggleRecovery}
-                  className="flex items-center justify-between cursor-pointer group py-2"
+                  className="flex items-center justify-between cursor-pointer group py-1.5"
                 >
-                  <p className="text-lg font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Shares Recovery Process</p>
+                  <p className="text-base font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Shares Recovery Process</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -193,20 +200,21 @@ export default function Header() {
 
                 <div className={`overflow-hidden transition-all duration-300 ${isRecoveryOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
                   <ul className="pl-4 space-y-3 border-l-2 border-green-100 ml-1">
-                    <li><Link href="/recovery-of-shares" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Recovery of shares</Link></li>
-                    <li><Link href="/oldshares" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Oldshares</Link></li>
+                    <li><Link href="/recovery-of-shares" onClick={handleCloseMenu} className="block text-sm font-semibold text-gray-700 hover:text-[#00BE5D]">Recovery of shares</Link></li>
+                    <li><Link href="/oldshares" onClick={handleCloseMenu} className="block text-sm font-semibold text-gray-700 hover:text-[#00BE5D]">Oldshares</Link></li>
                   </ul>
                 </div>
               </li>
 
-              <li><Link href="/nri-services" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">NRI Services</Link></li>
+              <li><Link href="/nri-services" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">NRI Services</Link></li>
+              <li><Link href="/publication" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">Media</Link></li>
 
               <li className="space-y-3">
                 <div
                   onClick={toggleResources}
-                  className="flex items-center justify-between cursor-pointer group py-2"
+                  className="flex items-center justify-between cursor-pointer group py-1.5"
                 >
-                  <p className="text-lg font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Resources</p>
+                  <p className="text-base font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Resources</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -227,12 +235,11 @@ export default function Header() {
                   <ul className="pl-4 space-y-3 border-l-2 border-green-100 ml-1">
                     <li><Link href="/blog" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Blog</Link></li>
                     <li><Link href="/gallery" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Gallery</Link></li>
-                    <li><Link href="/publication" onClick={handleCloseMenu} className="block text-base font-semibold text-gray-700 hover:text-[#00BE5D]">Publication</Link></li>
                   </ul>
                 </div>
               </li>
 
-              <li><Link href="/contact" onClick={handleCloseMenu} className="block text-lg font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-2">Contact</Link></li>
+              <li><Link href="/contact" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">Contact</Link></li>
             </ul>
           </nav>
 
