@@ -517,6 +517,19 @@ export default function OldSharesPage() {
             50% { box-shadow: 0 0 0 8px rgba(217, 45, 58, 0); }
           }
           .pulse-dot-red { animation: pulse-dot-red 1.6s ease-out infinite; }
+          @keyframes blink-glow {
+            0%, 100% {
+              transform: scale(1);
+              box-shadow: 0 4px 0 #173A8F, 0 8px 24px rgba(61, 111, 240, 0.5), 0 0 0 0 rgba(61, 111, 240, 0.6);
+            }
+            50% {
+              transform: scale(1.05);
+              box-shadow: 0 4px 0 #173A8F, 0 14px 32px rgba(61, 111, 240, 0.8), 0 0 0 16px rgba(61, 111, 240, 0);
+            }
+          }
+          .blink-btn {
+            animation: blink-glow 2s ease-in-out infinite;
+          }
           wistia-player[media-id='s242w29jyn']:not(:defined) {
             background: center / cover no-repeat url('https://fast.wistia.com/embed/medias/s242w29jyn/swatch');
             display: block;
@@ -1594,6 +1607,21 @@ export default function OldSharesPage() {
           </div>
         </div>
       )}
+
+      {/* Floating Bottom-Right Blinking Sticky CTA Button */}
+      <div className="fixed bottom-5 right-5 z-[999]">
+        <button
+          type="button"
+          onClick={openForm}
+          className="blink-btn flex items-center justify-center gap-1.5 text-white font-bold text-[13px] sm:text-[14px] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer border border-white/30"
+          style={{
+            background: "linear-gradient(180deg, #3D6FF0 0%, #2450C4 100%)",
+            boxShadow: "0 3px 0 #173A8F, 0 6px 16px rgba(61,111,240,0.45)",
+          }}
+        >
+          Get My Free Valuation
+        </button>
+      </div>
     </div>
   );
 }
