@@ -21,10 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="google-site-verification"
           content="5Drr5xwe4K0Ni-4z4UtEbxIlGiyA8uuCy5K4Xh8JVyQ"
         />
-        {/* Google Tag Script */}
+        {/* Google Tag Scripts */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-EXJDZSKGBY"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18315292682"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
@@ -32,7 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
             gtag('config', 'G-EXJDZSKGBY');
+            gtag('config', 'AW-18315292682');
           `}
         </Script>
       </head>
