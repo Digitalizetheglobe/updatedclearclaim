@@ -481,6 +481,15 @@ export default function OldSharesPage() {
         }
       }
 
+      // Trigger Google Ads lead form conversion event
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "conversion", {
+          send_to: "AW-18315292682/qnyOCKTaqt0cEIrgtJ1E",
+          value: 1.0,
+          currency: "INR",
+        });
+      }
+
       setToast(
         "Thank you for your response. Our representative will contact you shortly."
       );

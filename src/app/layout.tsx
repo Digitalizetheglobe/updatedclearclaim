@@ -37,6 +37,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'AW-18315292682');
           `}
         </Script>
+        {/* Event snippet for Submit lead form conversion page */}
+        <Script id="gtag-conversion-event" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18315292682/qnyOCKTaqt0cEIrgtJ1E',
+                'value': 1.0,
+                'currency': 'INR'
+            });
+          `}
+        </Script>
       </head>
       <body>
         <Header />
