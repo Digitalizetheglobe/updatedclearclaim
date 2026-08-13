@@ -73,8 +73,8 @@ export default function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-6">
-            <ul className="flex gap-x-6">
+          <div className="hidden lg:flex items-center flex-1 justify-center gap-6">
+            <ul className="flex gap-x-6 items-center">
               <li>
                 <Link href="/" className="hover:text-[#00BE5D] text-[#000] font-semibold text-[14px] transition-colors">
                   Home
