@@ -37,10 +37,10 @@ interface DigitalMediaItem {
     createdAt?: string;
 }
 
-const mainTabs = ["Digital Media", "Print Media"];
+const mainTabs = ["Print Media", "Digital Media"];
 
 export default function PublicationPage() {
-    const [activeTab, setActiveTab] = useState<string>("Digital Media");
+    const [activeTab, setActiveTab] = useState<string>("Print Media");
     const [publications, setPublications] = useState<Publication[]>([]);
     const [digitalMedia, setDigitalMedia] = useState<DigitalMediaItem[]>([]);
     const [searchQuery, setSearchQuery] = useState("");
@@ -131,7 +131,7 @@ export default function PublicationPage() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [activePhotoIdx, filteredDigitalMedia]);
 
-    const isLoading = activeTab === "Print Media" ? loadingPrint : loadingDigital;
+    const isLoading = activeTab === "Print Media" ? loadingDigital : loadingPrint;
 
     return (
         <div className="min-h-screen bg-[#F9FAFB] font-sans selection:bg-[#00BE5D]/30 py-16">
@@ -208,123 +208,22 @@ export default function PublicationPage() {
                 </div>
             ) : (
                 <>
-                    {/* PRINT MEDIA TAB CONTENT */}
+                    {/* PRINT MEDIA TAB CONTENT (News Photos Gallery) */}
                     {activeTab === "Print Media" && (
-                        <>
-
-
-                            {/* Print Media Grid */}
-                            <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
-                                {/* Section Header */}
-                                <div className="flex items-center justify-between gap-8 mb-12">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-1 h-10 bg-gradient-to-b from-[#00BE5D] to-[#00743C] rounded-full" />
-                                        <div>
-                                            <h2 className="text-2xl font-extrabold text-[#1a3a1f]">Print Media</h2>
-                                            <p className="text-sm text-gray-400 mt-0.5">News & articles featuring ClearClaim</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                                        <div className="w-2 h-2 rounded-full bg-[#00BE5D] animate-pulse" />
-                                        <span className="text-gray-600 text-sm font-medium">
-                                            <span className="text-[#00743C] font-extrabold">{filteredPublications.length}</span> publications
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <motion.div
-                                    layout
-                                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                                >
-                                    <AnimatePresence mode="popLayout">
-                                        {filteredPublications.map((pub) => (
-                                            <motion.div
-                                                key={pub.id}
-                                                layout
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.4 }}
-                                                className="group flex flex-col h-full bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-[#00BE5D]/10 transition-all duration-500 overflow-hidden"
-                                            >
-                                                <div className="relative h-56 overflow-hidden">
-                                                    <img
-                                                        src={pub.image}
-                                                        alt={pub.title}
-                                                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
-                                                    />
-                                                    <div className="absolute top-4 left-4">
-                                                        <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#00743C] text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm">
-                                                            PRINT MEDIA
-                                                        </span>
-                                                    </div>
-                                                    {pub.author && (
-                                                        <div className="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                                                            <div className="flex items-center gap-2 text-white text-xs font-bold bg-black/50 px-2.5 py-1 rounded-md backdrop-blur-sm">
-                                                                <User size={12} /> {pub.author}
-                                                            </div>
-                                                        </div>
-                                                    )}
-                                                </div>
-
-                                                <div className="flex-1 p-6 flex flex-col">
-                                                    <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-3">
-                                                        <Calendar size={12} />
-                                                        {pub.date}
-                                                    </div>
-                                                    <h3 className="text-lg font-bold text-[#1a3a1f] mb-3 group-hover:text-[#00743C] transition-colors line-clamp-2 leading-snug">
-                                                        {pub.title}
-                                                    </h3>
-                                                    <p className="text-gray-500 text-sm mb-6 line-clamp-3 leading-relaxed">
-                                                        {pub.excerpt}
-                                                    </p>
-
-                                                    <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
-                                                        <Link
-                                                            href={pub.link || "#"}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="text-[#00743C] font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:text-[#00BE5D] transition-colors"
-                                                        >
-                                                            Read More
-                                                            <ArrowRight size={14} />
-                                                        </Link>
-                                                    </div>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </AnimatePresence>
-                                </motion.div>
-
-                                {filteredPublications.length === 0 && (
-                                    <div className="text-center py-20">
-                                        <div className="inline-flex items-center justify-center p-6 bg-gray-100 rounded-full text-gray-400 mb-4">
-                                            <Search size={40} />
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-800 mb-1">No print media found</h3>
-                                        <p className="text-gray-500 text-sm">Try adjusting your search query.</p>
-                                    </div>
-                                )}
-                            </section>
-                        </>
-                    )}
-
-                    {/* DIGITAL MEDIA TAB CONTENT */}
-                    {activeTab === "Digital Media" && (
                         <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
                             {/* Section Header */}
                             <div className="flex items-center justify-between gap-8 mb-12">
                                 <div className="flex items-center gap-4">
                                     <div className="w-1 h-10 bg-gradient-to-b from-[#00BE5D] to-[#00743C] rounded-full" />
                                     <div>
-                                        <h2 className="text-2xl font-extrabold text-[#1a3a1f]">Digital Gallery</h2>
-                                        <p className="text-sm text-gray-400 mt-0.5">Visual stories from ClearClaim</p>
+                                        <h2 className="text-2xl font-extrabold text-[#1a3a1f]">Print Media</h2>
+                                        <p className="text-sm text-gray-400 mt-0.5">News clippings & print coverage of ClearClaim</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-2xl shadow-sm">
                                     <div className="w-2 h-2 rounded-full bg-[#00BE5D] animate-pulse" />
                                     <span className="text-gray-600 text-sm font-medium">
-                                        <span className="text-[#00743C] font-extrabold">{filteredDigitalMedia.length}</span> photos
+                                        <span className="text-[#00743C] font-extrabold">{filteredDigitalMedia.length}</span> items
                                     </span>
                                 </div>
                             </div>
@@ -334,62 +233,62 @@ export default function PublicationPage() {
                                 className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4"
                                 style={{ columnGap: "1.25rem" }}
                             >
-                                    {filteredDigitalMedia.map((item, index) => (
-                                        <motion.div
-                                            key={item.id || index}
-                                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0.9 }}
-                                            transition={{ duration: 0.45, delay: index * 0.04 }}
-                                            onClick={() => setActivePhotoIdx(index)}
-                                            className="break-inside-avoid mb-5 group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl hover:shadow-[#00BE5D]/20 transition-all duration-500"
-                                            style={{ display: "inline-block", width: "100%" }}
-                                        >
-                                            {/* Image */}
-                                            <div className="relative overflow-hidden rounded-2xl bg-gray-100">
-                                                <img
-                                                    src={item.image}
-                                                    alt={item.title || "Digital Media"}
-                                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                                                />
+                                {filteredDigitalMedia.map((item, index) => (
+                                    <motion.div
+                                        key={item.id || index}
+                                        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.45, delay: index * 0.04 }}
+                                        onClick={() => setActivePhotoIdx(index)}
+                                        className="break-inside-avoid mb-5 group relative rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl hover:shadow-[#00BE5D]/20 transition-all duration-500"
+                                        style={{ display: "inline-block", width: "100%" }}
+                                    >
+                                        {/* Image */}
+                                        <div className="relative overflow-hidden rounded-2xl bg-gray-100">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title || "Print Media"}
+                                                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                                            />
 
-                                                {/* Gradient Overlay */}
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                                            {/* Gradient Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
-                                                {/* Top Badge */}
-                                                <div className="absolute top-3 left-3 z-10">
-                                                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#00BE5D]/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-widest rounded-lg shadow">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-white/80 inline-block" />
-                                                        Digital
-                                                    </span>
-                                                </div>
-
-                                                {/* Expand Icon */}
-                                                <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                                                    <div className="p-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/30 text-white">
-                                                        <Maximize2 className="w-4 h-4" />
-                                                    </div>
-                                                </div>
-
-                                                {/* Bottom Info Overlay */}
-                                                {item.title && (
-                                                    <div className="absolute bottom-0 left-0 right-0 z-10 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-400">
-                                                        <h4 className="text-white text-sm font-bold leading-snug line-clamp-2 drop-shadow-lg">
-                                                            {item.title}
-                                                        </h4>
-                                                        {item.description && (
-                                                            <p className="text-white/70 text-xs mt-1 line-clamp-2">
-                                                                {item.description}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                )}
-
-                                                {/* Shimmer Border on Hover */}
-                                                <div className="absolute inset-0 rounded-2xl border-2 border-[#00BE5D]/0 group-hover:border-[#00BE5D]/40 transition-all duration-500 pointer-events-none" />
+                                            {/* Top Badge */}
+                                            <div className="absolute top-3 left-3 z-10">
+                                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#00BE5D]/90 backdrop-blur-sm text-white text-[9px] font-black uppercase tracking-widest rounded-lg shadow">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-white/80 inline-block" />
+                                                    Print
+                                                </span>
                                             </div>
-                                        </motion.div>
-                                    ))}
+
+                                            {/* Expand Icon */}
+                                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                                <div className="p-2 bg-white/20 backdrop-blur-md rounded-xl border border-white/30 text-white">
+                                                    <Maximize2 className="w-4 h-4" />
+                                                </div>
+                                            </div>
+
+                                            {/* Bottom Info Overlay */}
+                                            {item.title && (
+                                                <div className="absolute bottom-0 left-0 right-0 z-10 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-400">
+                                                    <h4 className="text-white text-sm font-bold leading-snug line-clamp-2 drop-shadow-lg">
+                                                        {item.title}
+                                                    </h4>
+                                                    {item.description && (
+                                                        <p className="text-white/70 text-xs mt-1 line-clamp-2">
+                                                            {item.description}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            )}
+
+                                            {/* Shimmer Border on Hover */}
+                                            <div className="absolute inset-0 rounded-2xl border-2 border-[#00BE5D]/0 group-hover:border-[#00BE5D]/40 transition-all duration-500 pointer-events-none" />
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
 
                             {/* Empty State */}
@@ -405,9 +304,103 @@ export default function PublicationPage() {
                                             <ImageIcon size={48} className="text-[#00BE5D]" />
                                         </div>
                                     </div>
-                                    <h3 className="text-2xl font-extrabold text-[#1a3a1f] mb-2">No photos yet</h3>
-                                    <p className="text-gray-400 text-sm max-w-xs mx-auto">Digital media items from the CMS will appear here once added.</p>
+                                    <h3 className="text-2xl font-extrabold text-[#1a3a1f] mb-2">No print media found</h3>
+                                    <p className="text-gray-400 text-sm max-w-xs mx-auto">Print media items will appear here once added.</p>
                                 </motion.div>
+                            )}
+                        </section>
+                    )}
+
+                    {/* DIGITAL MEDIA TAB CONTENT (Publications / Links) */}
+                    {activeTab === "Digital Media" && (
+                        <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
+                            {/* Section Header */}
+                            <div className="flex items-center justify-between gap-8 mb-12">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-1 h-10 bg-gradient-to-b from-[#00BE5D] to-[#00743C] rounded-full" />
+                                    <div>
+                                        <h2 className="text-2xl font-extrabold text-[#1a3a1f]">Digital Media</h2>
+                                        <p className="text-sm text-gray-400 mt-0.5">Online publications & coverage featuring ClearClaim</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                                    <div className="w-2 h-2 rounded-full bg-[#00BE5D] animate-pulse" />
+                                    <span className="text-gray-600 text-sm font-medium">
+                                        <span className="text-[#00743C] font-extrabold">{filteredPublications.length}</span> publications
+                                    </span>
+                                </div>
+                            </div>
+
+                            <motion.div
+                                layout
+                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                            >
+                                <AnimatePresence mode="popLayout">
+                                    {filteredPublications.map((pub) => (
+                                        <motion.a
+                                            key={pub.id}
+                                            href={pub.link || "#"}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            layout
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, scale: 0.95 }}
+                                            transition={{ duration: 0.4 }}
+                                            className="group flex flex-col h-full bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-[#00BE5D]/10 transition-all duration-500 overflow-hidden cursor-pointer"
+                                        >
+                                            <div className="relative h-56 overflow-hidden">
+                                                <img
+                                                    src={pub.image}
+                                                    alt={pub.title}
+                                                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                                                />
+                                                <div className="absolute top-4 left-4">
+                                                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#00743C] text-[10px] font-black uppercase tracking-widest rounded-lg shadow-sm">
+                                                        DIGITAL MEDIA
+                                                    </span>
+                                                </div>
+                                                {pub.author && (
+                                                    <div className="absolute bottom-4 left-4 z-20 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                                                        <div className="flex items-center gap-2 text-white text-xs font-bold bg-black/50 px-2.5 py-1 rounded-md backdrop-blur-sm">
+                                                            <User size={12} /> {pub.author}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            <div className="flex-1 p-6 flex flex-col">
+                                                <div className="flex items-center gap-2 text-gray-400 text-xs font-bold uppercase tracking-widest mb-3">
+                                                    <Calendar size={12} />
+                                                    {pub.date}
+                                                </div>
+                                                <h3 className="text-lg font-bold text-[#1a3a1f] mb-3 group-hover:text-[#00743C] transition-colors line-clamp-2 leading-snug">
+                                                    {pub.title}
+                                                </h3>
+                                                <p className="text-gray-500 text-sm mb-6 line-clamp-3 leading-relaxed">
+                                                    {pub.excerpt}
+                                                </p>
+
+                                                <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                                                    <span className="text-[#00743C] font-black text-xs uppercase tracking-widest flex items-center gap-2 group-hover:text-[#00BE5D] transition-colors">
+                                                        Read More
+                                                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </motion.a>
+                                    ))}
+                                </AnimatePresence>
+                            </motion.div>
+
+                            {filteredPublications.length === 0 && (
+                                <div className="text-center py-20">
+                                    <div className="inline-flex items-center justify-center p-6 bg-gray-100 rounded-full text-gray-400 mb-4">
+                                        <Search size={40} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-800 mb-1">No digital media found</h3>
+                                    <p className="text-gray-500 text-sm">Try adjusting your search query.</p>
+                                </div>
                             )}
                         </section>
                     )}
