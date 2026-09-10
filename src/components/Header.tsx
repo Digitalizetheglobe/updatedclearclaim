@@ -90,10 +90,10 @@ export default function Header() {
                   IEPF Claim
                 </Link>
               </li>
-              {/* Recovery of Shares Dropdown */}
+              {/* Services Dropdown */}
               <li className="relative group">
                 <div className="hover:text-[#00BE5D] text-[#000] flex items-center gap-1 font-semibold text-[14px] cursor-pointer">
-                Shares Recovery Services 
+                  Services
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 transition-transform duration-300 group-hover:rotate-180">
                     <path d="m6 9 6 6 6-6" />
                   </svg>
@@ -175,13 +175,13 @@ export default function Header() {
               <li><Link href="/about" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">About</Link></li>
               <li><Link href="/iepfclaim" onClick={handleCloseMenu} className="block text-base font-bold text-gray-800 hover:text-[#00BE5D] transition-colors py-1.5">IEPF Claim</Link></li>
 
-              {/* Mobile Recovery of Shares Dropdown */}
+              {/* Mobile Services Dropdown */}
               <li className="space-y-3">
                 <div
                   onClick={toggleRecovery}
                   className="flex items-center justify-between cursor-pointer group py-1.5"
                 >
-                  <p className="text-base font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Shares Recovery Process</p>
+                  <p className="text-base font-bold text-gray-800 group-hover:text-[#00BE5D] transition-colors">Services</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -201,7 +201,7 @@ export default function Header() {
                 <div className={`overflow-hidden transition-all duration-300 ${isRecoveryOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
                   <ul className="pl-4 space-y-3 border-l-2 border-green-100 ml-1">
                     <li><Link href="/recovery-of-shares" onClick={handleCloseMenu} className="block text-sm font-semibold text-gray-700 hover:text-[#00BE5D]">Recovery of shares</Link></li>
-                    <li><Link href="/oldshares" onClick={handleCloseMenu} className="block text-sm font-semibold text-gray-700 hover:text-[#00BE5D]">Oldshares</Link></li>
+                    <li><Link href="/oldshares" onClick={handleCloseMenu} className="block text-sm font-semibold text-gray-700 hover:text-[#00BE5D]">Free valuation</Link></li>
                   </ul>
                 </div>
               </li>

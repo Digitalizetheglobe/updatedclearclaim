@@ -188,11 +188,10 @@ export default function PublicationPage() {
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
-                                    className={`px-6 sm:px-8 py-3 rounded-xl text-sm sm:text-base font-extrabold transition-all duration-300 ${
-                                        activeTab === tab
+                                    className={`px-6 sm:px-8 py-3 rounded-xl text-sm sm:text-base font-extrabold transition-all duration-300 ${activeTab === tab
                                             ? "bg-[#00BE5D] text-white shadow-md shadow-[#00BE5D]/30"
                                             : "text-gray-600 hover:text-[#00BE5D] hover:bg-gray-50"
-                                    }`}
+                                        }`}
                                 >
                                     {tab}
                                 </button>
