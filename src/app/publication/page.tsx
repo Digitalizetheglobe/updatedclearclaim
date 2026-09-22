@@ -15,6 +15,7 @@ import {
     ChevronRight,
     X
 } from "lucide-react";
+import ForbesSpotlightBanner from "@/components/ForbesSpotlightBanner";
 
 interface Publication {
     id: number;
@@ -149,14 +150,28 @@ export default function PublicationPage() {
                             <span className="inline-block px-4 py-1.5 mb-4 text-xs sm:text-sm font-bold tracking-wider text-[#00743C] uppercase bg-[#00BE5D]/10 rounded-full border border-[#00BE5D]/20">
                                 Media & Coverage
                             </span>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
+                            {/* <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
+                                Media &{" "}
+                                <span className="text-[#00BE5D]">
+                                    Coverage
+                                </span>
+                            </h1> */}
+                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-4 rounded-full opacity-40 mb-6 sm:mb-8"></div>
+                        </motion.div>
+
+                        {/* Forbes India Premium Spotlight CTA */}
+                        <ForbesSpotlightBanner />
+
+                        {/* Print Media / Active Tab Heading */}
+                        <div className="mt-14 mb-8 text-center">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#283655] tracking-tight">
                                 ClearClaim{" "}
                                 <span className="text-[#00BE5D]">
                                     {activeTab}
                                 </span>
-                            </h1>
-                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-4 rounded-full opacity-40 mb-10"></div>
-                        </motion.div>
+                            </h2>
+                            <div className="h-1.5 w-20 bg-gradient-to-r from-[#00BE5D] to-[#00BE5D]/40 mx-auto mt-4 rounded-full opacity-40"></div>
+                        </div>
 
                         {/* Search Bar */}
                         <motion.div
