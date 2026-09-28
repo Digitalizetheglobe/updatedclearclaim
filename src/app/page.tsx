@@ -596,9 +596,9 @@ export default function Home() {
       </section>
 
       {/* Forbes India Spotlight / Media Recognition Section */}
-      {/* <section className="relative py-4 sm:py-8 px-4 sm:px-6 lg:px-12 bg-white">
+      <section className="relative py-4 sm:py-8 px-4 sm:px-6 lg:px-12 bg-white">
         <ForbesSpotlightBanner />
-      </section> */}
+      </section>
 
       {/* Call Button */}
       <button
