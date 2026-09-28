@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppPopup from "@/components/WhatsAppButton";
-import ForbesFeaturePopup from "@/components/ForbesFeaturePopup";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <WhatsAppPopup />
-        <ForbesFeaturePopup />
         <Footer />
       </body>
     </html>

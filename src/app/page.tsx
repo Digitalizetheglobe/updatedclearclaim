@@ -304,7 +304,7 @@
 //   );
 // }
 
-"use client"; // Ensures this is a client component
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -312,6 +312,7 @@ import gif from "../../public/images/old_man.png";
 import shield from "../../public/images/shield.png"; // Shield image to be placed behind
 import WhyClearClaim from "../app/whyclearclaim/whyclearclaim";
 import ScrollButton from "@/components/scrollbutton";
+import ForbesSpotlightBanner from "@/components/ForbesSpotlightBanner";
 import { Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -522,7 +523,7 @@ export default function Home() {
                   <button
                     onClick={handleCall}
                     className="group relative overflow-hidden bg-[#00BE5D] hover:bg-[#00BE5D] flex items-center gap-3 text-white px-6 py-2 rounded-full font-bold transition-all duration-300 shadow-xl shadow-[#2450c4]/20 hover:scale-105"
-                   
+
                   >
                     {/* Shine Effect - Updated with animationDuration */}
                     <div
@@ -593,6 +594,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Forbes India Spotlight / Media Recognition Section */}
+      {/* <section className="relative py-4 sm:py-8 px-4 sm:px-6 lg:px-12 bg-white">
+        <ForbesSpotlightBanner />
+      </section> */}
 
       {/* Call Button */}
       <button

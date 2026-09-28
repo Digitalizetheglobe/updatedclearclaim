@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, ArrowUpRight, Sparkles, ShieldCheck, CheckCircle2, FileText } from "lucide-react";
 
@@ -85,17 +86,19 @@ export default function ForbesSpotlightBanner() {
                 {/* Subtle corner badge decoration */}
                 <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-amber-100/70 to-transparent rounded-bl-full pointer-events-none" />
 
-                {/* Prestige Gold Seal Icon */}
+                {/* Forbes India Official Logo */}
                 <div className="relative mb-4">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-amber-400 via-yellow-400 to-amber-500 p-[2px] shadow-[0_8px_25px_rgba(245,158,11,0.25)]">
-                    <div className="w-full h-full rounded-[14px] bg-white flex flex-col items-center justify-center p-2">
-                      <Award className="w-7 h-7 text-amber-600" />
-                      <span className="text-[9px] font-black tracking-widest text-amber-800 uppercase mt-0.5">
-                        FORBES
-                      </span>
-                    </div>
+                  <div className="relative px-6 py-3 rounded-2xl bg-white border border-amber-200/90 shadow-[0_4px_16px_rgba(245,158,11,0.08)] flex items-center justify-center group-hover:border-amber-300 group-hover:shadow-[0_6px_20px_rgba(245,158,11,0.14)] transition-all duration-300">
+                    <Image
+                      src="/images/forbes-india.webp"
+                      alt="Forbes India"
+                      width={180}
+                      height={52}
+                      className="h-8 sm:h-9 w-auto object-contain"
+                      priority
+                    />
                   </div>
-                  {/* Subtle pulse ring */}
+                  {/* Verified feature pulse dot */}
                   <span className="absolute -top-1 -right-1 flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00BE5D] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00BE5D]"></span>
