@@ -8,7 +8,7 @@ export default function ForbesFeaturePopup() {
   const [isOpen, setIsOpen] = useState(true);
 
   const articleUrl =
-    "https://www.forbesindia.com/article/upfront/brand-connect/building-india-founders-and-industry-leaders-across-sectors-driving-business-growth/2997929/1";
+    "https://www.forbesindia.com/article/upfront/brand-connect/influential-leaders-creating-a-lasting-impact-in-india/2997044/1";
 
   return (
     <div className="fixed bottom-[92px] left-4 sm:left-6 z-[1950] pointer-events-none font-sans">
