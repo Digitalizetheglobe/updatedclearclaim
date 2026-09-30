@@ -58,7 +58,7 @@ export default function PublicationPage() {
                 category: "National Feature",
                 date: "Aug 18, 2026",
                 author: "Forbes India Brand Connect",
-                excerpt: "Recognised by Forbes India: Shrikant Pandore, Co-Founder & CEO of ClearClaim Ventures, on transforming old share recovery, IEPF claims, and helping families reclaim ₹100+ Crore in forgotten investments.",
+                excerpt: "Recognised by Forbes India: Shrikant Pandore, Co-Founder & CEO of ClearClaim Ventures, on transforming old share recovery, IEPF claims, and helping families reclaim ₹150+ Crore in forgotten investments.",
                 image: "https://images.forbesindia.com/blog/wp-content/uploads/2026/08/Image-1-2026-08-3ab0a068431a3fce88c5d7fec6327aa8.jpg?im=FitAndFill,width=1200,height=900",
                 link: "https://www.forbesindia.com/article/upfront/brand-connect/influential-leaders-creating-a-lasting-impact-in-india/2997044/1",
                 featured: true,

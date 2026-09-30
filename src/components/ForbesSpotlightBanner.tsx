@@ -72,16 +72,16 @@ export default function ForbesSpotlightBanner() {
               {/* Real Verified Forbes Metrics Highlights */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3 mt-3 pt-3 border-t border-gray-100">
                 <div className="p-2 sm:p-2.5 rounded-xl bg-white border border-amber-100 shadow-xs text-center flex flex-col items-center justify-center">
-                  <span className="text-sm sm:text-base md:text-lg font-black text-[#00743C]">₹100+ Cr</span>
-                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Assets Recovered</span>
+                  <span className="text-sm sm:text-base md:text-lg font-black text-[#00743C]">150+ Cr</span>
+                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Shares Recovered</span>
                 </div>
                 <div className="p-2 sm:p-2.5 rounded-xl bg-white border border-amber-100 shadow-xs text-center flex flex-col items-center justify-center">
-                  <span className="text-sm sm:text-base md:text-lg font-black text-[#1E293B]">2,500+</span>
-                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Claims Handled</span>
+                  <span className="text-sm sm:text-base md:text-lg font-black text-[#1E293B]">1,250+</span>
+                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Clients Assisted</span>
                 </div>
                 <div className="p-2 sm:p-2.5 rounded-xl bg-white border border-amber-100 shadow-xs text-center flex flex-col items-center justify-center">
-                  <span className="text-sm sm:text-base md:text-lg font-black text-[#00BE5D]">1,500+</span>
-                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Families Served</span>
+                  <span className="text-sm sm:text-base md:text-lg font-black text-[#00BE5D]">2,500+</span>
+                  <span className="text-[10px] sm:text-xs text-gray-600 font-semibold leading-tight mt-0.5">Claims Settled</span>
                 </div>
               </div>
             </div>
