@@ -49,17 +49,34 @@ export default function PublicationPage() {
     const [loadingDigital, setLoadingDigital] = useState(true);
     const [activePhotoIdx, setActivePhotoIdx] = useState<number | null>(null);
 
-    // Fetch Print Media
+    // Fetch Print Media (Digital Media publications list)
     useEffect(() => {
         async function fetchPublications() {
+            const forbesPublication: Publication = {
+                id: 999999,
+                title: "Forbes India: Influential Leaders Creating a Lasting Impact in India",
+                category: "National Feature",
+                date: "Aug 18, 2026",
+                author: "Forbes India Brand Connect",
+                excerpt: "Recognised by Forbes India: Shrikant Pandore, Co-Founder & CEO of ClearClaim Ventures, on transforming old share recovery, IEPF claims, and helping families reclaim ₹150+ Crore in forgotten investments.",
+                image: "https://images.forbesindia.com/blog/wp-content/uploads/2026/08/Image-1-2026-08-3ab0a068431a3fce88c5d7fec6327aa8.jpg?im=FitAndFill,width=1200,height=900",
+                link: "https://www.forbesindia.com/article/upfront/brand-connect/influential-leaders-creating-a-lasting-impact-in-india/2997044/1",
+                featured: true,
+            };
+
             try {
                 const res = await fetch("https://apicms.clearclaim.in/api/publications");
                 if (res.ok) {
                     const data = await res.json();
-                    setPublications(data);
+                    const list = Array.isArray(data) ? data : [];
+                    const hasForbes = list.some((p: Publication) => p.link && p.link.includes("forbesindia.com"));
+                    setPublications(hasForbes ? list : [forbesPublication, ...list]);
+                } else {
+                    setPublications([forbesPublication]);
                 }
             } catch (err) {
                 console.error("Failed to fetch publications:", err);
+                setPublications([forbesPublication]);
             } finally {
                 setLoadingPrint(false);
             }
