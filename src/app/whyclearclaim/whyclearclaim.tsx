@@ -9,6 +9,7 @@ import {
   Award
 } from "lucide-react";
 import ScammerExposed from "../../app/whyclearclaim/scammersexposed";
+import FeaturedMediaSection from "@/components/FeaturedMediaSection";
 
 export default function WhyClearClaim() {
   const contentBlocks = [
@@ -119,6 +120,9 @@ export default function WhyClearClaim() {
           </div>
         </div>
       </section>
+
+      {/* Featured Media Coverage Section */}
+      <FeaturedMediaSection />
 
       <ScammerExposed />
     </>
