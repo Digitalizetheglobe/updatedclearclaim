@@ -1,32 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog30 from "../../../../public/blogs/iepf2025.png";
 
 export default function IEPF2025() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Mar 31th, 2025</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              IEPF 2025: Which Companies Have the Highest Unclaimed Shares and
-              Dividends?
-            </h1>
-            {/* <p className="mt-6 text-md text-gray-500 px-6">
-            Over the past two years, the matter of unclaimed dividends and shares has been prominently in the Indian financial market. With the year 2025 on the horizon, the Investor Education and Protection Fund (IEPF) continues to be at the forefront of protecting the unclaimed assets. In this blog article, we are going to discuss the top companies with the most unclaimed shares and dividends, with a specific emphasis on the scenario in Pune and the asset recovery facility.
-            </p> */}
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
-            <blockquote className=" border-[#00BE5D] border-l-4 px-4">
+    <ModernBlogLayout
+      title="IEPF 2025: Which Companies Have the Highest Unclaimed Shares and Dividends?"
+      category="IEPF Recovery"
+      date="Mar 31, 2025"
+      readTime="5 min read"
+      image={blog30}
+    >
+      <blockquote className="border-[#00BE5D] border-l-4 px-4 bg-emerald-50/50 py-3 rounded-r-xl">
               Over the past two years, the matter of unclaimed dividends and
               shares has been prominently in the Indian financial market. With
               the year 2025 on the horizon, the Investor Education and
@@ -290,18 +276,6 @@ export default function IEPF2025() {
                 </li>
               </ul>
             </ul>
-          </div>
-        </div>
-      </main>
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-      <aside
-        aria-label="Recent Posts"
-        className="mx-auto mt-10 max-w-screen-xl py-20"
-      ></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

@@ -1,29 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog23 from "../../../../public/blogs/mitr.png";
 
 export default function MITRPLATFORM() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Feb 10, 2025</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              MITR Platform: The Innovative SEBI Initiative for Mutual Fund Unclaimed Recovery
-            </h1>
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
-            
-            <blockquote className="border-[#00BE5D] border-l-4 px-4">
+    <ModernBlogLayout
+      title="MITR Platform: The Innovative SEBI Initiative for Mutual Fund Unclaimed Recovery"
+      category="Legal Guide"
+      date="Feb 10, 2025"
+      readTime="5 min read"
+      image={blog23}
+    >
+      <blockquote className="border-[#00BE5D] border-l-4 px-4 bg-emerald-50/50 py-3 rounded-r-xl">
               In a groundbreaking step aimed at revolutionizing the mutual fund investment sector in India, 
               the Securities and Exchange Board of India (SEBI) has announced its new project: 
               the MITR (Mutual Fund Investment Tracing and Retrieval Assistant) platform. 
@@ -95,18 +84,6 @@ export default function MITRPLATFORM() {
             <p>
               Tracking investments has never been more critical. With MITR, SEBI ensures no investment is left unaccounted for, paving the way for a more efficient mutual fund system in India.
             </p>
-          </div>
-        </div>
-      </main>
-
-      {/* Divider */}
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-
-      <aside aria-label="Recent Posts" className="mx-auto mt-10 max-w-screen-xl py-20"></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

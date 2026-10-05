@@ -1,33 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog22 from "../../../../public/blogs/kyc.png";
 
 export default function TheRoleofKYCUpdates() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published  Jan 30, 2025</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            The Role of KYC Updates in Preventing Unclaimed Financial Assets: {" "}
-            </h1>
-            {/* <p className="mt-6 text-md text-gray-500">
-              Recently, introduced in the Lok Sabha, the Banking Laws
-              (Amendment) Bill 2024 brought in some drastic changes in the
-              Indian scenario of unclaimed dividends and shares.
-            </p> */}
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
-            <blockquote className=" border-[#00BE5D] border-l-4 px-4">
+    <ModernBlogLayout
+      title="The Role of KYC Updates in Preventing Unclaimed Financial Assets"
+      category="Insights"
+      date="Jan 30, 2025"
+      readTime="4 min read"
+      image={blog22}
+    >
+      <blockquote className="border-[#00BE5D] border-l-4 px-4 bg-emerald-50/50 py-3 rounded-r-xl">
             A 2025 Perspective: In the dynamic world of Indian finance, Know Your Customer (KYC) processes have become increasingly vital. As we navigate through 2025, the importance of KYC updates in preventing unclaimed financial assets has reached new heights. 
 In this blog post, we will discuss recent developments in KYC regulations and how these changes are impacting the reduction of unclaimed assets in India, with a focus on how ClearClaim can help you navigate this changing landscape.
               {/* <span className="whitespace-nowrap text-sm">— Daniel Lehmer</span> */}
@@ -99,18 +84,6 @@ ClearClaims Reminder Service: We provide a free Re-KYC reminder service to ensur
             <p>
             Don’t let your hard-earned money become another statistic in the unclaimed assets pool. Contact ClearClaim today and let us help you navigate the complex world of KYC and asset recovery. Remember, your financial security is our number one priority!
             </p>
-          </div>
-        </div>
-      </main>
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-      <aside
-        aria-label="Recent Posts"
-        className="mx-auto mt-10 max-w-screen-xl py-20"
-      ></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

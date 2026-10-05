@@ -1,33 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog18 from "../../../../public/blogs/21.png";
 
 export default function LegalHeirsandIEPFClaims() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Dec 23, 2024</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              Legal Heirs and IEPF Claims: Everything You Want to Know about
-              Recovery of Ancestral Shares
-            </h1>
-            {/* <p className="mt-6 text-md text-gray-500">
-              Recently, introduced in the Lok Sabha, the Banking Laws
-              (Amendment) Bill 2024 brought in some drastic changes in the
-              Indian scenario of unclaimed dividends and shares.
-            </p> */}
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
+    <ModernBlogLayout
+      title="Legal Heirs and IEPF Claims: Everything You Want to Know about Recovery of Ancestral Shares"
+      category="Asset Tracing"
+      date="Dec 23, 2024"
+      readTime="6 min read"
+      image={blog18}
+    >
             <blockquote className=" border-[#00BE5D] border-l-4 px-4">
               The financial situation concerning such issues is so complex that
               there are a large number of Indian families facing such challenges
@@ -74,139 +58,108 @@ export default function LegalHeirsandIEPFClaims() {
               Why do ancestral shares keep landing into the IEPF?
             </h2>
 
-            <li>
+            <p>
               There are several reasons for the tidal wave of unclaimed shares,
               Some heirs do not know about their ancestors’ investments. Old
               documents or missing nomination details create a sea of
               complications. The labyrinthine nature of inheritance may confuse
               many families. Emigrating families may lose track of ancestral
               investments. Constant updates in regulations confuse many more.
-            </li>
+            </p>
 
-            <li>
-              <b>The IEPF Claim Process:</b> A Step-by-Step Guide for Legal
-              Heirs the recovery of ancestral share from IEPF forms a few steps:
-            </li>
-            <li>
-              <b>Step 1: </b> Verification: It confirms that the shares, indeed,
-              have been received by IEPF using IEPF website.
-            </li>
-            <li>
-              <b>Step 2:</b> Documentation: All the associated documents should
-              be collected, document proving identity and address, Original
-              copies of share certificates, if provided. Legal heir certificate
-              or succession certificate, Indemnity bond.
-            </li>
-            <li>
-              <b>Submission of Form: </b> Apply online using the MCA portal by
-              filling out Form IEPF-5.
-            </li>
-            <li>
-              <b>Physical Submission:</b> The company goes through the claim.
-            </li>
-            <li>
-              <b>Verification by the Company:</b>The company goes through the
-              claim.
-            </li>
-            <li>
-              <b>Approval of the Claim:</b> Once the above-mentioned
-              verification process at the company’s end is complete and
-              confirmed, the IEPF authority approves the claim.
-            </li>
-            <li>
-              <b>Re-transfer of Shares:</b> The shares are transferred back to
-              the claimant’s demat account.
-            </li>
-            <li>
-              <b>
-                Practical Tips to Tackle IEPF Claim Process Staying updated:
-              </b>{" "}
-              Regularly visiting the IEPF website to check for current
-              information about unclaimed shares. Record Keeping Maintain an
-              exhaustive record of all investment of your family. Nomination
-              Update Ensure all investments have updated nomination records.
-            </li>
-            <li>
-              <b>Acting swiftly:</b> Be quick to initiate the recovery process
-              when you come to learn about the unclaimed share.
-            </li>
-            <li>
-              <b>Professional help:</b> Take on professional assistance for
-              complex and time-consuming processes. Recent IEPF Regulatory
-              Changes Digital Initiatives Digital portals such as UDGAM were
-              launched by the Government to facilitate easy searching. Widening
-              scope Recent modifications widened the scope of such assets
-              eligible for transfer towards IEPF.
-            </li>
-            <li>
-              <b>Improvement in procedures:</b> Streamlined the process of
-              claiming claims but much is yet to change. Impact on Individuals
-              and Financial Institutions Individuals: Generational loss is
-              faced, as opportunities for financial prosperity are lost. The
-              possibilities of permanent loss of assets hover.
-            </li>
-            <li>
-              <b>Financial Institutions:</b> Scrutiny of regulatory compliance
-              gets higher. Need for improvement record-keeping and customer
-              outreach prevails. The risk of tarnished reputations looms upon.
-            </li>
-
-            <ul>
-              <h2 className="text-xl font-semibold">The Future Ahead:</h2>
+            <h2 className="text-xl font-semibold">
+              The IEPF Claim Process: A Step-by-Step Guide for Legal Heirs
+            </h2>
+            <p className="text-gray-600">The recovery of ancestral share from IEPF forms a few steps:</p>
+            <ul className="list-disc pl-6 space-y-2">
               <li>
-                Clearclaim Expertises in IEPF recovery. At Clearclaim, you will
-                understand the. We are well equipped with the latest tools and
-                knowledge that will guide you through your claim process.
-              </li>
-
-              <li>
-                <b>Complete Asset Search:</b>We assist you in identifying all
-                the possible unclaimed assets.
+                <b>Step 1: Verification:</b> It confirms that the shares, indeed,
+                have been received by IEPF using IEPF website.
               </li>
               <li>
-                <b>Documentation Support: </b>Our experts help you through the
-                complex documentation process.
+                <b>Step 2: Documentation:</b> All the associated documents should
+                be collected, document proving identity and address, Original
+                copies of share certificates, if provided. Legal heir certificate
+                or succession certificate, Indemnity bond.
               </li>
               <li>
-                <b>End-to-End Claim Management:</b>We manage your entire claim
-                process, from the submission of forms to final recovery.
+                <b>Step 3: Submission of Form:</b> Apply online using the MCA portal by
+                filling out Form IEPF-5.
               </li>
               <li>
-                <b>Regular Updates:</b>Keep abreast of the progress of your
-                claim with our transparent communication.
+                <b>Step 4: Physical Submission:</b> Submit physical copies and verification documents.
               </li>
               <li>
-                <b>Legal Expertise:</b> Our team is well versed in the latest
-                regulations and can handle complex legal scenarios.
+                <b>Step 5: Verification by the Company:</b> The company goes through the
+                claim.
+              </li>
+              <li>
+                <b>Step 6: Approval of the Claim:</b> Once the above-mentioned
+                verification process at the company’s end is complete and
+                confirmed, the IEPF authority approves the claim.
+              </li>
+              <li>
+                <b>Step 7: Re-transfer of Shares:</b> The shares are transferred back to
+                the claimant’s demat account.
               </li>
             </ul>
 
-            <ul>
+            <h2 className="text-xl font-semibold">
+              Practical Tips to Tackle IEPF Claim Process
+            </h2>
+            <ul className="list-disc pl-6 space-y-2">
               <li>
-                Let not your family’s financial legacy be left unclaimed. With
-                the increasing number of assets in IEPF and intricacies in
-                recovery process it, this is really the right time to act today.
-                With Clearclaim, help right return over your ancestral share by
-                navigating the complex IEPF claim process. Connect with
-                Clearclaim today so that you could start the quest of bringing
-                back your ancestral richness. Visit:https://Clearclaim.in/ For
-                free consultancy. Remember, your family’s financial legacy
-                awaits the repossession of it. Let it be through Clearclaim-
-                your reliable friend on such an important journey.
+                <b>Staying updated:</b> Regularly visiting the IEPF website to check for current information about unclaimed shares.
+              </li>
+              <li>
+                <b>Record Keeping:</b> Maintain an exhaustive record of all investment of your family.
+              </li>
+              <li>
+                <b>Nomination Update:</b> Ensure all investments have updated nomination records.
+              </li>
+              <li>
+                <b>Acting swiftly:</b> Be quick to initiate the recovery process when you come to learn about the unclaimed share.
+              </li>
+              <li>
+                <b>Professional help:</b> Take on professional assistance for complex and time-consuming processes.
               </li>
             </ul>
-          </div>
-        </div>
-      </main>
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-      <aside
-        aria-label="Recent Posts"
-        className="mx-auto mt-10 max-w-screen-xl py-20"
-      ></aside>
-    </>
+
+            <h2 className="text-xl font-semibold">The Future Ahead:</h2>
+            <p>
+              Clearclaim Expertises in IEPF recovery. At Clearclaim, we are well equipped with the latest tools and
+              knowledge that will guide you through your claim process:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <b>Complete Asset Search:</b> We assist you in identifying all the possible unclaimed assets.
+              </li>
+              <li>
+                <b>Documentation Support:</b> Our experts help you through the complex documentation process.
+              </li>
+              <li>
+                <b>End-to-End Claim Management:</b> We manage your entire claim process, from the submission of forms to final recovery.
+              </li>
+              <li>
+                <b>Regular Updates:</b> Keep abreast of the progress of your claim with our transparent communication.
+              </li>
+              <li>
+                <b>Legal Expertise:</b> Our team is well versed in the latest regulations and can handle complex legal scenarios.
+              </li>
+            </ul>
+
+            <p className="mt-4">
+              Let not your family’s financial legacy be left unclaimed. With
+              the increasing number of assets in IEPF and intricacies in
+              recovery process it, this is really the right time to act today.
+              With Clearclaim, help right return over your ancestral share by
+              navigating the complex IEPF claim process. Connect with
+              Clearclaim today so that you could start the quest of bringing
+              back your ancestral richness. Visit: https://clearclaim.in/ for
+              free consultancy. Remember, your family’s financial legacy
+              awaits the repossession of it. Let it be through Clearclaim -
+              your reliable friend on such an important journey.
+            </p>
+    </ModernBlogLayout>
   );
 }

@@ -1,24 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from '../../../../public/blogs/blogbg.png';
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog26 from '../../../../public/blogs/Broker.png';
 
-export default function IndiasDigitalInitiative() {
+export default function FromBrokerToIpf() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Feb 21, 2024</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India
-            </h1>
-            <p className="mt-6 text-md text-gray-500">
-              In the past few years, the Securities and Exchange Board of India (SEBI) has taken significant steps to address the growing problem of unclaimed securities and funds in the Indian financial system. As of January 31, 2025, the value of unclaimed funds stands at a whopping ₹323 crore, and unclaimed securities at ₹182 crore. In this blog post, the mechanism through which the unclaimed assets filter through the system, from the brokers to the Investor Protection Fund (IPF), is explained, and the timelines and recovery options available at each stage are referred to.
-            </p>
-            <Image className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover" src={blogbg} alt="" />
-          </header>
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
+    <ModernBlogLayout
+      title="From Broker to IPF: A Journey Through the Odyssey of Unclaimed Funds in India"
+      category="Legal Guide"
+      date="Feb 21, 2025"
+      readTime="5 min read"
+      image={blog26}
+    >
+      <div className="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl font-medium leading-relaxed mb-6">
+        In the past few years, the Securities and Exchange Board of India (SEBI) has taken significant steps to address the growing problem of unclaimed securities and funds in the Indian financial system. As of January 31, 2025, the value of unclaimed funds stands at a whopping ₹323 crore, and unclaimed securities at ₹182 crore.
+      </div>
             <h2 className="text-2xl font-semibold">Initial Phase: Brokers Obligation</h2>
             <blockquote className="border-[#00BE5D] border-l-4 px-4">
               Where the stockbroker cannot credit funds or securities into a demat or bank account of the client, or where the client is no longer traceable, the account is simultaneously flagged as being in enquiry status.
@@ -83,9 +79,6 @@ export default function IndiasDigitalInitiative() {
             <h2 className="text-xl font-semibold">Conclusion</h2>
             <p>SEBIs suggested framework for the management of unclaimed securities and funds is a big step towards strengthening investor protection in India. By creating an open channel from the broker to the Investor Protection Fund, with multiple checks and recovery processes, the regulator is hoping to reunite investors with their missing assets. </p>
             <p>As an investor, it is your responsibility to be aware of your investments and provide your contact details to your broker at intervals so that your assets do not become unclaimed. Always remember, caution and awareness are the key to keeping control of your financial assets in the dynamic situation of the Indian securities market.</p>
-          </div>
-        </div>
-      </main>
-    </>
+    </ModernBlogLayout>
   );
 }

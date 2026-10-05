@@ -1,33 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog19 from "../../../../public/blogs/unclaim shares.png";
 
-export default function TheImportanceofDocument() {
+export default function UnclaimedDividendsVsShares() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published  Jan 2, 2025</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            Unclaimed Dividends vs. Unclaimed Shares: How to Navigate the Recovery Process
-            </h1>
-            {/* <p className="mt-6 text-md text-gray-500">
-              Recently, introduced in the Lok Sabha, the Banking Laws
-              (Amendment) Bill 2024 brought in some drastic changes in the
-              Indian scenario of unclaimed dividends and shares.
-            </p> */}
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
-            <blockquote className=" border-[#00BE5D] border-l-4 px-4">
+    <ModernBlogLayout
+      title="Unclaimed Dividends vs. Unclaimed Shares: How to Navigate the Recovery Process"
+      category="IEPF Recovery"
+      date="Jan 1, 2025"
+      readTime="5 min read"
+      image={blog19}
+    >
+      <blockquote className="border-[#00BE5D] border-l-4 px-4 bg-emerald-50/50 py-3 rounded-r-xl">
             Within the rather complex investment world, two terms tend to come up when discussing dormant financial assets: unclaimed dividends and unclaimed shares. Both show potential lost value to investors, but they really are very different in nature and the process of recovery. Here is a comprehensive guide that looks at these differences and offers valuable insight for investors looking to reclaim their assets.
               {/* <span className="whitespace-nowrap text-sm">— Daniel Lehmer</span> */}
             </blockquote>
@@ -215,6 +200,7 @@ At Clearclaim, we specialize in helping investors navigate the complicated and s
 
 <h2 className="text-xl font-semibold">We offer services including:</h2>
 
+<ul className="list-disc pl-6 space-y-2">
 <li>
 Comprehensive asset search across multiple databases
 </li>
@@ -230,6 +216,7 @@ Regular updates on claim status
 <li>
 Assistance with dematerialization of physical shares
 </li>
+</ul>
             <h2 className="text-xl font-semibold">Conclusion: Reclaiming Your Financial Legacy</h2>
             <p>
             Understanding the differences between unclaimed dividends and unclaimed shares is crucial for effective asset recovery. While dividends offer a relatively straightforward recovery process, shares can present more complex challenges. However, with the right approach and expert assistance, investors can successfully reclaim their forgotten financial assets.
@@ -242,18 +229,6 @@ Assistance with dematerialization of physical shares
 <p>
 Remember: every unclaimed share and dividend represents a piece of your financial history. It is time to reconnect with your investments and secure your financial future.
 </p>
-          </div>
-        </div>
-      </main>
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-      <aside
-        aria-label="Recent Posts"
-        className="mx-auto mt-10 max-w-screen-xl py-20"
-      ></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

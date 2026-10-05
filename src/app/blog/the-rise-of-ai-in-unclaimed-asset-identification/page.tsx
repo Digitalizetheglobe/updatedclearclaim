@@ -1,29 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog24 from '../../../../public/blogs/asset.png';
 
 export default function TheRiseofAIinUnclaimedAssetIdentification() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Feb 11, 2025</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            The Rise of AI in Unclaimed Asset Identification: Implications for Overlooked Investments
-            </h1>
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
-            
-            <blockquote className="border-[#00BE5D] border-l-4 px-4">
+    <ModernBlogLayout
+      title="The Rise of AI in Unclaimed Asset Identification: Implications for Overlooked Investments"
+      category="Digital India"
+      date="Feb 11, 2025"
+      readTime="4 min read"
+      image={blog24}
+    >
+      <blockquote className="border-[#00BE5D] border-l-4 px-4 bg-emerald-50/50 py-3 rounded-r-xl">
             In an era where technology is virtually transforming every facet of our existence, the financial sector is no different. Artificial Intelligence (AI) is emerging as a strong innovation in the context of unclaimed investments and financial asset recovery. This new technology not only streamlines procedures but also transforms our approach to investor protection and the recovery of overlooked funds.
             </blockquote>
 
@@ -112,18 +101,6 @@ export default function TheRiseofAIinUnclaimedAssetIdentification() {
             <p>
             Remember that knowledge is power when it comes to finance. Be in the know, be on your toes, and let AI become your friend in the protection of your investments.
             </p>
-          </div>
-        </div>
-      </main>
-
-      {/* Divider */}
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-
-      <aside aria-label="Recent Posts" className="mx-auto mt-10 max-w-screen-xl py-20"></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

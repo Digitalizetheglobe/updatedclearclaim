@@ -1,37 +1,21 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from '../../../../public/blogs/blogbg.png';
-import { Calendar, CheckCircle2 } from "lucide-react";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog28 from '../../../../public/blogs/Clearclaim Blog .png';
+import { CheckCircle2 } from "lucide-react";
 
 export default function CrossBorderAssetRecovery() {
   return (
-    <>
-      <main className="pb-24 font-sans">
-        {/* Background Image - positioned at the top of the page (body) */}
-        <Image 
-          className="-z-10 absolute top-0 left-0 mt-20 h-[450px] w-full object-cover brightness-50" 
-          src={blogbg} 
-          alt="Background" 
-        />
-        
-        <div className="px-4">
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-2xl bg-white pt-16 px-8 sm:px-16 text-center shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-b border-gray-100 relative z-10">
-            <div className="flex justify-center items-center gap-2 text-emerald-600 font-medium mb-4">
-              <Calendar className="w-4 h-4" />
-              <p className="text-sm uppercase tracking-wider">Published Mar 24, 2024</p>
-            </div>
-            
-            <h1 className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl md:text-5xl max-w-3xl mx-auto leading-tight">
-              Cross Border Asset Recovery Challenges and Solutions for NRI Unclaimed Investments
-            </h1>
-            
-            <div className="mt-8 mb-10 text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl text-left font-medium">
-              With the growing reality of a globalized world, Non-Resident Indians (NRIs) are frequently confronted with the complexities of cross-border asset recovery. Recovering unclaimed assets has been one of the most intimidating facets of this reality, and it has been a serious issue for regulators and investors alike. In this blog post, we are going to examine the complexity of cross-border asset recovery for NRIs, with special emphasis on the challenges they encounter and the solutions that are arising in the new reality of global finance.
-            </div>
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-10 rounded-b-2xl bg-white px-8 sm:px-16 pt-12 pb-20 text-lg text-gray-700 shadow-[0_8px_30px_rgb(0,0,0,0.08)] relative z-10">
+    <ModernBlogLayout
+      title="Cross Border Asset Recovery Challenges and Solutions for NRI Unclaimed Investments"
+      category="Insights"
+      date="Mar 24, 2025"
+      readTime="6 min read"
+      image={blog28}
+    >
+      <div className="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl font-medium leading-relaxed mb-6">
+        With the growing reality of a globalized world, Non-Resident Indians (NRIs) are frequently confronted with the complexities of cross-border asset recovery. Recovering unclaimed assets has been one of the most intimidating facets of this reality, and it has been a serious issue for regulators and investors alike. In this blog post, we are going to examine the complexity of cross-border asset recovery for NRIs, with special emphasis on the challenges they encounter and the solutions that are arising in the new reality of global finance.
+      </div>
             
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
@@ -178,10 +162,6 @@ export default function CrossBorderAssetRecovery() {
                 </p>
               </div>
             </section>
-
-          </div>
-        </div>
-      </main>
-    </>
+    </ModernBlogLayout>
   );
 }

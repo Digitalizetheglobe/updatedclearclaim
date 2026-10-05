@@ -1,33 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from "../../../../public/blogs/blogbg.png";
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog17 from "../../../../public/blogs/20.png";
 
 export default function RoleofDematAccounts() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Dec 18, 2024</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              Role of Demat accounts in recovering shares from IEPF: important
-              information for claimants{" "}
-            </h1>
-            {/* <p className="mt-6 text-md text-gray-500">
-              Recently, introduced in the Lok Sabha, the Banking Laws
-              (Amendment) Bill 2024 brought in some drastic changes in the
-              Indian scenario of unclaimed dividends and shares.
-            </p> */}
-
-            <Image
-              className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-              src={blogbg}          
-              alt=""
-            />
-          </header>
-
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
+    <ModernBlogLayout
+      title="Role of Demat accounts in recovering shares from IEPF"
+      category="Legal Guide"
+      date="Dec 18, 2024"
+      readTime="5 min read"
+      image={blog17}
+    >
             <blockquote className=" border-[#00BE5D] border-l-4 px-4">
               In the complex world of finance and investment, understanding the
               role of Demat accounts in recovering shares from the Investor
@@ -210,18 +194,6 @@ export default function RoleofDematAccounts() {
                 retrieval now.
               </li>
             </ul>
-          </div>
-        </div>
-      </main>
-      <div className="w-fit mx-auto mt-10 flex space-x-2">
-        <div className="h-0.5 w-2 bg-gray-600" />
-        <div className="h-0.5 w-32 bg-gray-600" />
-        <div className="h-0.5 w-2 bg-gray-600" />
-      </div>
-      <aside
-        aria-label="Recent Posts"
-        className="mx-auto mt-10 max-w-screen-xl py-20"
-      ></aside>
-    </>
+    </ModernBlogLayout>
   );
 }

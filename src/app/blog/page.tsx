@@ -182,6 +182,35 @@ export default function Blog() {
   const [blogs, setBlogs] = useState<any[]>(blogPosts); // Initialized with hardcoded array so they have initial content while loading or if fetch fails
   const [loading, setLoading] = useState(true);
 
+  const cleanCategory = (categories: any) => {
+    if (!categories) return "Insights";
+    let cat = categories;
+    if (Array.isArray(cat) && cat.length > 0) cat = cat[0];
+    if (typeof cat === "string") {
+      try {
+        const parsed = JSON.parse(cat);
+        if (Array.isArray(parsed) && parsed.length > 0) return String(parsed[0]).replace(/[\[\]"']/g, "").trim() || "Insights";
+        if (typeof parsed === "string") return parsed.replace(/[\[\]"']/g, "").trim() || "Insights";
+      } catch {
+        const cleaned = cat.replace(/[\[\]"']/g, "").trim();
+        if (cleaned) return cleaned;
+      }
+    }
+    return "Insights";
+  };
+
+  const cleanDescription = (excerpt?: string, content?: string) => {
+    const text = excerpt && excerpt.trim() ? excerpt : content || "";
+    return text.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+  };
+
+  const cleanAuthor = (author: any) => {
+    if (!author || typeof author === "number" || !isNaN(Number(author))) {
+      return "Clearclaim Team";
+    }
+    return String(author).trim();
+  };
+
   useEffect(() => {
     async function fetchBlogs() {
       try {
@@ -189,18 +218,23 @@ export default function Blog() {
         if (res.ok) {
           const data = await res.json();
           if (data && data.length > 0) {
+            const apiSlugs = new Set(data.map((b: any) => b.slug?.toLowerCase().trim()));
             const mappedData = data.map((b: any) => ({
               id: `api-${b.id}`,
               title: b.title,
               date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "Recent Post",
-              image: b.coverImage || b.uploadImage || "",
+              image: b.coverImage || b.uploadImage || blog30,
               link: `/blog/${b.slug}`,
-              category: b.categories && b.categories[0] ? b.categories[0] : "Insights",
-              description: b.excerpt || b.content || "",
+              category: cleanCategory(b.categories),
+              description: cleanDescription(b.excerpt, b.content),
               readTime: b.readTime ? `${b.readTime} min read` : "5 min read",
-              author: b.author || "Clearclaim Team"
+              author: cleanAuthor(b.author)
             }));
-            setBlogs([...mappedData, ...blogPosts]);
+            const uniqueHardcoded = blogPosts.filter((p) => {
+              const slug = p.link.replace("/blog/", "").toLowerCase().trim();
+              return !apiSlugs.has(slug);
+            });
+            setBlogs([...mappedData, ...uniqueHardcoded]);
           }
         }
       } catch (err) {

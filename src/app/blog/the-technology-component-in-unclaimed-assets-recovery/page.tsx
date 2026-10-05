@@ -1,24 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from '../../../../public/blogs/blogbg.png';
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog27 from '../../../../public/blogs/Tech.png';
 
-export default function IndiasDigitalInitiative() {
+export default function TheTechnologyComponent() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Feb 20, 2024</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-              The Technology Component in Unclaimed Assets Recovery: Indias Digital Initiative
-            </h1>
-            <p className="mt-6 text-md text-gray-500">
-              In recent years, India has seen an unprecedented digital revolution in its financial sector, particularly in the recovery of unclaimed assets. This digital revolution is making the recovery of misplaced financial assets by investors, nominees, and legal heirs easier. Let us see how these innovations are transforming the face of unclaimed investments and enhancing investor protection.
-            </p>
-            <Image className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover" src={blogbg} alt="" />
-          </header>
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
+    <ModernBlogLayout
+      title="The Technology Component in Unclaimed Assets Recovery: India's Digital Initiative"
+      category="Digital India"
+      date="Feb 22, 2025"
+      readTime="5 min read"
+      image={blog27}
+    >
+      <div className="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl font-medium leading-relaxed mb-6">
+        In recent years, India has seen an unprecedented digital revolution in its financial sector, particularly in the recovery of unclaimed assets. This digital revolution is making the recovery of misplaced financial assets by investors, nominees, and legal heirs easier.
+      </div>
             <h2 className="text-2xl font-semibold">Internet Search Facilities</h2>
             <blockquote className="border-[#00BE5D] border-l-4 px-4">
               Among the most powerful technological advancements is the application of online search facilities. The Securities and Exchange Board of India (SEBI) mandated stock exchanges as well as brokerages to provide simple online search facilities on their websites.
@@ -95,9 +91,6 @@ export default function IndiasDigitalInitiative() {
 
             <h2 className="text-xl font-semibold">Conclusion</h2>
             <p>Indias financial industrys technological push for recovering unclaimed assets is a significant step towards greater investor protection and financial inclusion. As technology advances, new and innovative ways will emerge to further streamline asset recovery. Investors should stay informed and periodically use these online platforms to check for unclaimed assets.</p>
-          </div>
-        </div>
-      </main>
-    </>
+    </ModernBlogLayout>
   );
 }

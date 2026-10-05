@@ -1,24 +1,20 @@
 "use client";
 
-import Image from "next/image";
-import blogbg from '../../../../public/blogs/blogbg.png';
+import ModernBlogLayout from "@/components/ModernBlogLayout";
+import blog25 from '../../../../public/blogs/Beyond.png';
 
-export default function IndiasDigitalInitiative() {
+export default function BeyondShares() {
   return (
-    <>
-      <main>
-        <div>
-          <header className="mx-auto mt-28 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
-            <p className="text-gray-500">Published Feb 22, 2024</p>
-            <h1 className="mt-2 text-xl font-bold text-gray-900 sm:text-2xl max-w-2xl mx-auto">
-            Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India
-            </h1>
-            <p className="mt-6 text-md text-gray-500">
-            In Indias constantly changing financial scenario, unclaimed assets reach far and wide beyond shares. This comprehensive handbook aims to inform investors about the various classes of unclaimed financial assets and recovery process, specifically emphasizing the importance of the Investor Education and Protection Fund (IEPF).
-            </p>
-            <Image className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover" src={blogbg} alt="" />
-          </header>
-          <div className="mx-auto max-w-screen-lg space-y-6 rounded-b-lg bg-white px-8 pt-10 pb-20 font-serif text-lg tracking-wide text-gray-700 sm:shadow-lg">
+    <ModernBlogLayout
+      title="Beyond Shares: Comprehensive Guide to Recovering All Forms of Unclaimed Financial Instruments in India"
+      category="Asset Tracing"
+      date="Feb 20, 2025"
+      readTime="6 min read"
+      image={blog25}
+    >
+      <div className="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl font-medium leading-relaxed mb-6">
+        In India's constantly changing financial scenario, unclaimed assets reach far and wide beyond shares. This comprehensive handbook aims to inform investors about the various classes of unclaimed financial assets and the recovery process, specifically emphasizing the importance of the Investor Education and Protection Fund (IEPF).
+      </div>
             <h2 className="text-2xl font-semibold">Categories of Unclaimed Financial Assets</h2>
             <h2 className="text-2xl font-semibold">1. Dividends and Shares</h2>
             <ul className="list-disc pl-5">
@@ -120,9 +116,6 @@ export default function IndiasDigitalInitiative() {
             <h2 className="text-xl font-semibold">Conclusion</h2>
             <p>Reclaiming unclaimed financial assets in India is a matter of being well-informed, resolute, and having knowledge of the various processes involved. By knowing about your investment, regularly updating your information, and appropriate utilization of the facilities provided by the regulatory authorities like IEPF, you can make sure that your hard-earned money is not left unclaimed.</p>
             <p>Financial literacy and active asset management are the best methods to ensure that they do not go unclaimed in the first place. As an investor, you need to verify all your financial assets from time to time and take the necessary steps to keep them active. If you have any doubts that you might have unclaimed assets, do not wait and initiate the recovery process. The Indian financial system is constantly changing to increase the ease and efficiency of asset recovery, thus empowering investors to control their financial legacy.</p>
-          </div>
-        </div>
-      </main>
-    </>
+    </ModernBlogLayout>
   );
 }

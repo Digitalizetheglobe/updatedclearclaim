@@ -179,12 +179,12 @@ export default function BlogDetailClient({ slug }: BlogDetailClientProps) {
                         </div>
 
                         {/* Article Text Content */}
-                        <article className="prose prose-emerald max-w-none text-slate-700 text-lg leading-relaxed font-sans space-y-6">
+                        <article className="prose prose-emerald max-w-none text-slate-700 text-lg leading-relaxed font-sans space-y-6 prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-800 prose-a:font-medium">
                             {/* Check if content has HTML elements, if not render as paragraphs split by newlines */}
                             {/<[a-z][\s\S]*>/i.test(blogPost.content) ? (
                                 <div
                                     dangerouslySetInnerHTML={{ __html: blogPost.content }}
-                                    className="space-y-6"
+                                    className="space-y-6 [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800 [&_a]:font-medium [&_a]:transition-colors"
                                 />
                             ) : (
                                 blogPost.content.split("\n").map((para: string, idx: number) => {
