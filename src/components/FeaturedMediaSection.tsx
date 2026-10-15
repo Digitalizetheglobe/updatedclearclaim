@@ -14,46 +14,26 @@ interface MediaItem {
 }
 
 const mediaLogos: MediaItem[] = [
-  {
-    id: "sakal-money",
-    name: "Sakal Money",
-    logo: "/images/media/sakal-money.jpg",
-    bgDark: true,
-    maxHeightClass: "max-h-12 sm:max-h-14"
-  },
-  {
-    id: "pudhari",
-    name: "Dainik Pudhari",
-    logo: "/images/media/pudhari.jpg",
-    bgDark: false,
-    maxHeightClass: "max-h-12 sm:max-h-14"
-  },
-  {
-    id: "dainik-sandesh",
-    name: "Dainik Sandesh",
-    logo: "/images/media/dainik-sandesh.jpg",
-    bgDark: false,
-    maxHeightClass: "max-h-10 sm:max-h-12"
-  },
-  {
-    id: "punya-nagari",
-    name: "Punya Nagari",
-    logo: "/images/media/punya-nagari.jpg",
-    bgDark: false,
-    maxHeightClass: "max-h-14 sm:max-h-16"
-  },
-  {
-    id: "anand-nagari",
-    name: "Dainik Anand Nagari",
-    logo: "/images/media/anand-nagari.jpg",
-    bgDark: false,
-    maxHeightClass: "max-h-10 sm:max-h-12"
-  }
+  { id: "sakal-money", name: "Sakal Money", logo: "/images/media/sakal-money.jpg", bgDark: true, maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "maharashtra-times", name: "Maharashtra Times", logo: "/images/media/maharashtra-times.png", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "tarun-bharat", name: "Tarun Bharat", logo: "/images/media/tarun-bharat.jpeg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "navrashtra", name: "Navrashtra", logo: "/images/media/navrashtra.jpeg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "dailyhunt", name: "Dailyhunt", logo: "/images/media/Daily_hunt.png", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "eikya", name: "Eikya", logo: "/images/media/eikya.jpeg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "punya-nagari", name: "Punya Nagari", logo: "/images/media/punya-nagari.jpg", maxHeightClass: "max-h-14 sm:max-h-16" },
+  { id: "anand-nagari", name: "Dainik Anand Nagari", logo: "/images/media/anand-nagari.jpg", maxHeightClass: "max-h-10 sm:max-h-12" },
+  { id: "gavkari", name: "Gavkari", logo: "/images/media/gavkari.png", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "pudhari", name: "Dainik Pudhari", logo: "/images/media/pudhari.jpg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "kesari", name: "Kesari", logo: "/images/media/kesari.jpeg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "dainik-sandhya", name: "Dainik Sandhya", logo: "/images/media/sandhya.webp", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "hello-prabhat", name: "Hello Prabhat", logo: "/images/media/hello-prabhat.jpeg", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "navsandesh", name: "Navsandesh", logo: "/images/media/navsandesh.avif", maxHeightClass: "max-h-12 sm:max-h-14" },
+  { id: "economic-times", name: "Economic Times", logo: "/images/media/economics.png", maxHeightClass: "max-h-12 sm:max-h-14" }
 ];
 
 export default function FeaturedMediaSection() {
-  // Duplicate array 4 times for a smooth, seamless infinite auto-scroll loop
-  const marqueeLogos = [...mediaLogos, ...mediaLogos, ...mediaLogos, ...mediaLogos];
+  // Duplicate array twice for a seamless infinite auto-scroll loop (animation shifts by -50%)
+  const marqueeLogos = [...mediaLogos, ...mediaLogos];
 
   return (
     <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-b from-[#F4FAF6]/60 via-white to-white overflow-hidden border-t border-gray-100">
@@ -154,7 +134,7 @@ export default function FeaturedMediaSection() {
             .animate-marquee-media {
               display: flex;
               width: max-content;
-              animation: marqueeMedia 25s linear infinite;
+              animation: marqueeMedia 60s linear infinite;
               will-change: transform;
             }
             .animate-marquee-media:hover {
