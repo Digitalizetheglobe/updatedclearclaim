@@ -13,7 +13,6 @@ interface MediaItem {
   maxHeightClass?: string;
 }
 
-
 const mediaLogos: MediaItem[] = [
   { id: "sakal-money", name: "Sakal Money", logo: "/images/media/sakal-money.jpg", bgDark: true, maxHeightClass: "max-h-12 sm:max-h-14" },
   { id: "maharashtra-times", name: "Maharashtra Times", logo: "/images/media/maharashtra-times.png", maxHeightClass: "max-h-12 sm:max-h-14" },
