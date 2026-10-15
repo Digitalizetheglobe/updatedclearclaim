@@ -31,6 +31,7 @@ const mediaLogos: MediaItem[] = [
   { id: "economic-times", name: "Economic Times", logo: "/images/media/economics.png", maxHeightClass: "max-h-12 sm:max-h-14" }
 ];
 
+
 export default function FeaturedMediaSection() {
   // Duplicate array twice for a seamless infinite auto-scroll loop (animation shifts by -50%)
   const marqueeLogos = [...mediaLogos, ...mediaLogos];
